@@ -19,19 +19,19 @@ canonifyurls    = true
   RSSLink = ""
 
   twitterName = "faketryghost"
-  fbName = "fakeghost"
-  githubName = "eueung"
-  linkedinName = "eueung"
-  mediumName = ""
+  #fbName = "fakeghost"
+  githubName = "DannyJRa"
+  linkedinName = "danny-rasch-2a22771b"
+  mediumName = "DannyJRa"
 
   logo = "hugo-logo.png"
-  orgName = "EM"
-  orgWebsite = "https://www.telematika.org"
+  orgName = "DJR"
+  orgWebsite = "https://www.dannyrasch.com"
   orgDescription = "Here is a description placeholder for your org"
 
   showSupport = true
 
-  author = "EM"
+  author = "Danny J. R."
   authorAvatar = "img/ghost-icon.png"
   authorLocation = "Bandung, ID"
   authorWebsite = "https://eueung.github.io"
@@ -41,7 +41,8 @@ canonifyurls    = true
 
   #casper or caspertwo
   singleViewStyle = "casper"
-
+  toc= true
+  
 [permalinks]
   post = "/post/:slug/"
 
