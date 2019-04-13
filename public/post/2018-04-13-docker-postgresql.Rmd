@@ -9,11 +9,11 @@ tags:
   - Docker
 hidden: false
 image: "img/cover.jpg"
-blogdown::html_page:
-  toc: true
-  fig_width: 6
-  dev: "svg"
-  code_folding: true
+output:
+  blogdown::html_page:
+    number_sections: true
+    toc: TRUE
+share: false
 ---
 
 # Docker: PostgreSQL 10 and pgAdmin 4
@@ -22,6 +22,8 @@ blogdown::html_page:
 
 Make persistent volume to store config files and database files:
 
+<!--more-->
+dfd
 >mkdir -p $HOME/docker/volumes/postgres
 
 Rund docker command to create postgresql database with User: postgres and POSTGRES_PASSWORD=docker:
@@ -73,6 +75,33 @@ docker run -p 5051:5051 \
         -e "PGADMIN_LISTEN_PORT=5051" \
         -d dpage/pgadmin4
 ```
+
+
+```{r}
+test=2
+a=4
+b=6
+c=2
+b*4
+#fdsfs
+```
+
+```{python, eval=F}
+#!/usr/bin/python3
+
+from engine import RunForrestRun
+
+"""Test code for syntax highlighting!"""
+
+class Foo:
+	def __init__(self, var):
+		self.var = var
+		self.run()
+
+	def run(self):
+		RunForrestRun()  # run along!
+```
+
 
 >docker run -p 5050:5050 \
         -e "PGADMIN_DEFAULT_EMAIL=xxxoutlook.com" \

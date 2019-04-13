@@ -71,6 +71,19 @@
     }
 }
 
-.post-full-content pre code {
-    color: #e5eff5;
+.post-full-content pre {
+    padding: 2px 4px;
+    font-size: 90%;
+    background-color: #cacacae5;
+    border-radius: 4px;
 }    
+ 
+
+.post-full-content pre code {
+    padding: 2px 4px;
+    font-size: 90%;
+    background-color: #cacacae5;
+    border-radius: 4px;
+}  
+
+

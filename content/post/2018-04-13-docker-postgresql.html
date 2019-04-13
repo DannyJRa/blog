@@ -9,23 +9,37 @@ tags:
   - Docker
 hidden: false
 image: "img/cover.jpg"
-blogdown::html_page:
-  toc: true
-  fig_width: 6
-  dev: "svg"
-  code_folding: true
+output:
+  blogdown::html_page:
+    number_sections: true
+    toc: TRUE
+share: false
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#docker-postgresql-10-and-pgadmin-4"><span class="toc-section-number">1</span> Docker: PostgreSQL 10 and pgAdmin 4</a><ul>
+<li><a href="#run-docker-with-postgresql-container"><span class="toc-section-number">1.1</span> Run Docker with PostgreSQL container</a></li>
+<li><a href="#connect-to-postgres"><span class="toc-section-number">1.2</span> Connect to Postgres</a><ul>
+<li><a href="#access-postgresql.conf-file"><span class="toc-section-number">1.2.1</span> Access postgresql.conf file</a></li>
+<li><a href="#open-port"><span class="toc-section-number">1.2.2</span> Open port</a></li>
+</ul></li>
+<li><a href="#run-docker-with-pgadmin-4-container"><span class="toc-section-number">1.3</span> Run Docker with pgAdmin 4 container</a><ul>
+<li><a href="#open-port-5050"><span class="toc-section-number">1.3.1</span> Open port 5050</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
 
 <div id="docker-postgresql-10-and-pgadmin-4" class="section level1">
-<h1>Docker: PostgreSQL 10 and pgAdmin 4</h1>
+<h1><span class="header-section-number">1</span> Docker: PostgreSQL 10 and pgAdmin 4</h1>
 <div id="run-docker-with-postgresql-container" class="section level2">
-<h2>Run Docker with PostgreSQL container</h2>
+<h2><span class="header-section-number">1.1</span> Run Docker with PostgreSQL container</h2>
 <p>Make persistent volume to store config files and database files:</p>
-<blockquote>
-<p>mkdir -p $HOME/docker/volumes/postgres</p>
-</blockquote>
+<!--more-->
+<p>dfd
+&gt;mkdir -p $HOME/docker/volumes/postgres</p>
 <p>Rund docker command to create postgresql database with User: postgres and POSTGRES_PASSWORD=docker:
 # Exucute postgresql</p>
 <blockquote>
@@ -33,13 +47,13 @@ blogdown::html_page:
 </blockquote>
 </div>
 <div id="connect-to-postgres" class="section level2">
-<h2>Connect to Postgres</h2>
+<h2><span class="header-section-number">1.2</span> Connect to Postgres</h2>
 <p>Once the container is up an running, connecting to it from an application is no different than connecting to a Postgres instance running outside a docker container. For example, to connect using psql we can execute<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <blockquote>
 <p>psql -h localhost -U postgres -d postgres</p>
 </blockquote>
 <div id="access-postgresql.conf-file" class="section level3">
-<h3>Access postgresql.conf file</h3>
+<h3><span class="header-section-number">1.2.1</span> Access postgresql.conf file</h3>
 <p>{{&lt; yt w7Ft2ymGmfc &gt;}}</p>
 <p>Switch to root
 &gt;sudo su</p>
@@ -49,7 +63,7 @@ blogdown::html_page:
 </blockquote>
 </div>
 <div id="open-port" class="section level3">
-<h3>Open port</h3>
+<h3><span class="header-section-number">1.2.2</span> Open port</h3>
 <p>If you work on the google cloud, you can open the port=5434 for all instances in the current workind directory with:</p>
 <blockquote>
 <p>gcloud compute firewall-rules create postgresdocker –allow tcp:5434<br />
@@ -59,13 +73,33 @@ blogdown::html_page:
 </div>
 </div>
 <div id="run-docker-with-pgadmin-4-container" class="section level2">
-<h2>Run Docker with pgAdmin 4 container</h2>
+<h2><span class="header-section-number">1.3</span> Run Docker with pgAdmin 4 container</h2>
 <p>Pull and start the pgAdmin container:</p>
 <pre class="bash"><code>docker run -p 5051:5051 \
         -e &quot;PGADMIN_DEFAULT_EMAIL=${S_email}&quot; \
         -e &quot;PGADMIN_DEFAULT_PASSWORD=${S_pwd_pgadmin}&quot; \
         -e &quot;PGADMIN_LISTEN_PORT=5051&quot; \
         -d dpage/pgadmin4</code></pre>
+<pre class="r"><code>test=2
+a=4
+b=6
+c=2
+b*4</code></pre>
+<pre><code>## [1] 24</code></pre>
+<pre class="r"><code>#fdsfs</code></pre>
+<pre class="python"><code>#!/usr/bin/python3
+
+from engine import RunForrestRun
+
+&quot;&quot;&quot;Test code for syntax highlighting!&quot;&quot;&quot;
+
+class Foo:
+    def __init__(self, var):
+        self.var = var
+        self.run()
+
+    def run(self):
+        RunForrestRun()  # run along!</code></pre>
 <blockquote>
 <p>docker run -p 5050:5050<br />
 -e “PGADMIN_DEFAULT_EMAIL=xxxoutlook.com”<br />
@@ -76,7 +110,7 @@ blogdown::html_page:
 </blockquote>
 <p>Problem: Not yet solved the issue that the volume will not be shared currently</p>
 <div id="open-port-5050" class="section level3">
-<h3>Open port 5050</h3>
+<h3><span class="header-section-number">1.3.1</span> Open port 5050</h3>
 <blockquote>
 <p>gcloud compute firewall-rules create vscode –allow tcp:80<br />
 –description “Allow incoming traffic on TCP port 80”<br />

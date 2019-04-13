@@ -13,6 +13,7 @@ output:
   blogdown::html_page:
     number_sections: true
     toc: TRUE
+share: false
 ---
 
 # Docker: PostgreSQL 10 and pgAdmin 4
