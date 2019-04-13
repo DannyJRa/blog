@@ -11,15 +11,16 @@ hidden: false
 image: "img/cover.jpg"
 output:
   blogdown::html_page:
-    number_sections: true
+   # number_sections: true
     toc: TRUE
 share: false
 ---
 
 # Docker: PostgreSQL 10 and pgAdmin 4
 
-## Run Docker with PostgreSQL container
 
+## Run Docker with PostgreSQL container
+:smile:
 Make persistent volume to store config files and database files:
 
 <!--more-->
@@ -29,7 +30,12 @@ dfd
 Rund docker command to create postgresql database with User: postgres and POSTGRES_PASSWORD=docker:
 # Exucute postgresql 
 
-
+```{r}
+library(leaflet)
+library(widgetframe)
+l <- leaflet() %>% addTiles()
+htmlwidgets::saveWidget(frameableWidget(l),'leaflet.html')
+```
 
 >docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5434:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres
 
@@ -135,10 +141,14 @@ Then login with your set credentials at port 5050 (in this case):
         
 rterte
 
+
 ```{r echo=FALSE}
 blogdown::shortcode('tweet', '852205086956818432')
 ```
 
-
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '852205086956818432')
+```
+{{ template "_internal/disqus.html" . }}
 ***
 [^1]: Adopted from https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198

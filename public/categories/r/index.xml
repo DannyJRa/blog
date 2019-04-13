@@ -21,24 +21,25 @@
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#docker-postgresql-10-and-pgadmin-4&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; Docker: PostgreSQL 10 and pgAdmin 4&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#run-docker-with-postgresql-container&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.1&lt;/span&gt; Run Docker with PostgreSQL container&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#connect-to-postgres&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.2&lt;/span&gt; Connect to Postgres&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#access-postgresql.conf-file&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.2.1&lt;/span&gt; Access postgresql.conf file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#open-port&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.2.2&lt;/span&gt; Open port&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#docker-postgresql-10-and-pgadmin-4&#34;&gt;Docker: PostgreSQL 10 and pgAdmin 4&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#run-docker-with-postgresql-container&#34;&gt;Run Docker with PostgreSQL container&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#connect-to-postgres&#34;&gt;Connect to Postgres&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#access-postgresql.conf-file&#34;&gt;Access postgresql.conf file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#open-port&#34;&gt;Open port&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#run-docker-with-pgadmin-4-container&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.3&lt;/span&gt; Run Docker with pgAdmin 4 container&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#open-port-5050&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.3.1&lt;/span&gt; Open port 5050&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-docker-with-pgadmin-4-container&#34;&gt;Run Docker with pgAdmin 4 container&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#open-port-5050&#34;&gt;Open port 5050&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;docker-postgresql-10-and-pgadmin-4&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;1&lt;/span&gt; Docker: PostgreSQL 10 and pgAdmin 4&lt;/h1&gt;
+&lt;h1&gt;Docker: PostgreSQL 10 and pgAdmin 4&lt;/h1&gt;
 &lt;div id=&#34;run-docker-with-postgresql-container&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;1.1&lt;/span&gt; Run Docker with PostgreSQL container&lt;/h2&gt;
-&lt;p&gt;Make persistent volume to store config files and database files:&lt;/p&gt;
+&lt;h2&gt;Run Docker with PostgreSQL container&lt;/h2&gt;
+&lt;p&gt;:smile:
+Make persistent volume to store config files and database files:&lt;/p&gt;
 </description>
     </item>
     

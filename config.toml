@@ -5,6 +5,8 @@ disqusShortname = "blog-dannyrasch-com.disqus.com"
 paginate        = 6
 #SectionPagesMenu = "main"
 canonifyurls    = true
+#Enable emojis
+enableEmoji=true
 
 [params]
   title       = "Blog"
@@ -12,7 +14,7 @@ canonifyurls    = true
   copyright   = "© 2019"
   
   #NOT WORKING
-  cover       = "img/cover.jpg"
+  cover       = "img/blog-cover.jpg"
   
   description = "Here is a description of your site."
   metaDescription = ""
@@ -45,6 +47,8 @@ canonifyurls    = true
   singleViewStyle = "casper"
   toc= true
   
+
+  
 [permalinks]
   post = "/post/:slug/"
 
@@ -62,6 +66,17 @@ canonifyurls    = true
   name = "Categories"
   url = "/categories/"
   weight = 99
+
+#Save in static folder any file, will be copied to public folder
+#[[menu.main]]
+#  name = "Slides"
+#  url = "/slides/"
+#  weight = 99
+
+#[[menu.main]]
+#  name = "PDFs"
+#  url = "/pdf/"
+#  weight = 99
 
 #[[menu.main]]
 #  name = "External"

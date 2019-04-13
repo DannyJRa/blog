@@ -11,7 +11,7 @@ hidden: false
 image: "img/cover.jpg"
 output:
   blogdown::html_page:
-    number_sections: true
+   # number_sections: true
     toc: TRUE
 share: false
 ---
@@ -19,41 +19,47 @@ share: false
 
 <div id="TOC">
 <ul>
-<li><a href="#docker-postgresql-10-and-pgadmin-4"><span class="toc-section-number">1</span> Docker: PostgreSQL 10 and pgAdmin 4</a><ul>
-<li><a href="#run-docker-with-postgresql-container"><span class="toc-section-number">1.1</span> Run Docker with PostgreSQL container</a></li>
-<li><a href="#connect-to-postgres"><span class="toc-section-number">1.2</span> Connect to Postgres</a><ul>
-<li><a href="#access-postgresql.conf-file"><span class="toc-section-number">1.2.1</span> Access postgresql.conf file</a></li>
-<li><a href="#open-port"><span class="toc-section-number">1.2.2</span> Open port</a></li>
+<li><a href="#docker-postgresql-10-and-pgadmin-4">Docker: PostgreSQL 10 and pgAdmin 4</a><ul>
+<li><a href="#run-docker-with-postgresql-container">Run Docker with PostgreSQL container</a></li>
+<li><a href="#connect-to-postgres">Connect to Postgres</a><ul>
+<li><a href="#access-postgresql.conf-file">Access postgresql.conf file</a></li>
+<li><a href="#open-port">Open port</a></li>
 </ul></li>
-<li><a href="#run-docker-with-pgadmin-4-container"><span class="toc-section-number">1.3</span> Run Docker with pgAdmin 4 container</a><ul>
-<li><a href="#open-port-5050"><span class="toc-section-number">1.3.1</span> Open port 5050</a></li>
+<li><a href="#run-docker-with-pgadmin-4-container">Run Docker with pgAdmin 4 container</a><ul>
+<li><a href="#open-port-5050">Open port 5050</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 
 <div id="docker-postgresql-10-and-pgadmin-4" class="section level1">
-<h1><span class="header-section-number">1</span> Docker: PostgreSQL 10 and pgAdmin 4</h1>
+<h1>Docker: PostgreSQL 10 and pgAdmin 4</h1>
 <div id="run-docker-with-postgresql-container" class="section level2">
-<h2><span class="header-section-number">1.1</span> Run Docker with PostgreSQL container</h2>
-<p>Make persistent volume to store config files and database files:</p>
+<h2>Run Docker with PostgreSQL container</h2>
+<p>:smile:
+Make persistent volume to store config files and database files:</p>
 <!--more-->
 <p>dfd
 &gt;mkdir -p $HOME/docker/volumes/postgres</p>
 <p>Rund docker command to create postgresql database with User: postgres and POSTGRES_PASSWORD=docker:
 # Exucute postgresql</p>
+<pre class="r"><code>library(leaflet)
+library(widgetframe)</code></pre>
+<pre><code>## Loading required package: htmlwidgets</code></pre>
+<pre class="r"><code>l &lt;- leaflet() %&gt;% addTiles()
+htmlwidgets::saveWidget(frameableWidget(l),&#39;leaflet.html&#39;)</code></pre>
 <blockquote>
 <p>docker run –rm –name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5434:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres</p>
 </blockquote>
 </div>
 <div id="connect-to-postgres" class="section level2">
-<h2><span class="header-section-number">1.2</span> Connect to Postgres</h2>
-<p>Once the container is up an running, connecting to it from an application is no different than connecting to a Postgres instance running outside a docker container. For example, to connect using psql we can execute<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<h2>Connect to Postgres</h2>
+<p>Once the container is up an running, connecting to it from an application is no different than connecting to a Postgres instance running outside a docker container. For example, to connect using psql we can execute[^1]</p>
 <blockquote>
 <p>psql -h localhost -U postgres -d postgres</p>
 </blockquote>
 <div id="access-postgresql.conf-file" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Access postgresql.conf file</h3>
+<h3>Access postgresql.conf file</h3>
 <p>{{&lt; yt w7Ft2ymGmfc &gt;}}</p>
 <p>Switch to root
 &gt;sudo su</p>
@@ -63,7 +69,7 @@ share: false
 </blockquote>
 </div>
 <div id="open-port" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Open port</h3>
+<h3>Open port</h3>
 <p>If you work on the google cloud, you can open the port=5434 for all instances in the current workind directory with:</p>
 <blockquote>
 <p>gcloud compute firewall-rules create postgresdocker –allow tcp:5434<br />
@@ -73,7 +79,7 @@ share: false
 </div>
 </div>
 <div id="run-docker-with-pgadmin-4-container" class="section level2">
-<h2><span class="header-section-number">1.3</span> Run Docker with pgAdmin 4 container</h2>
+<h2>Run Docker with pgAdmin 4 container</h2>
 <p>Pull and start the pgAdmin container:</p>
 <pre class="bash"><code>docker run -p 5051:5051 \
         -e &quot;PGADMIN_DEFAULT_EMAIL=${S_email}&quot; \
@@ -110,7 +116,7 @@ class Foo:
 </blockquote>
 <p>Problem: Not yet solved the issue that the volume will not be shared currently</p>
 <div id="open-port-5050" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Open port 5050</h3>
+<h3>Open port 5050</h3>
 <blockquote>
 <p>gcloud compute firewall-rules create vscode –allow tcp:80<br />
 –description “Allow incoming traffic on TCP port 80”<br />
@@ -127,13 +133,10 @@ class Foo:
 <p>{{&lt; instagram BWNjjyYFxVx &gt;}}</p>
 <p>rterte</p>
 {{% tweet "852205086956818432" %}}
-<hr />
+<p>{{% tweet "852205086956818432" %}}
+{{ template &quot;_internal/disqus.html&quot; . }}
+***
+[^1]: Adopted from <a href="https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198" class="uri">https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198</a></p>
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Adopted from <a href="https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198" class="uri">https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
-</ol>
 </div>

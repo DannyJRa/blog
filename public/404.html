@@ -17,7 +17,7 @@
 
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/img/cover.jpg"/>
+    <meta name="twitter:image" content="/img/blog-cover.jpg"/>
  
     <meta name="twitter:title" content="404 Page not found"/>
     <meta name="twitter:description" content="Here is a description of your site."/>
@@ -32,7 +32,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Here is a description of your site." />
 
-    <meta property="og:image" content="/img/cover.jpg"/>
+    <meta property="og:image" content="/img/blog-cover.jpg"/>
 
     <meta name="generator" content="Hugo 0.55.1" />
 
@@ -82,8 +82,38 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="./post/migrate-to-hugo-from-jekyll/">
+      <div class="post-card-image" style="background-image: url(/img/team.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="./post/migrate-to-hugo-from-jekyll/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Migrate to Hugo from Jekyll</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &lt;root&gt;/ ▾ images/ logo.png  should become
+▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="./img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="./">Danny J. R.</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="./post/wonderful/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -111,16 +141,16 @@ We&rsquo;ll start with creating a new site with a very basic template. ...  </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="./post/creating-a-new-theme/">
-      <div class="post-card-image" style="background-image: url(/img/welcome.jpg)"></div>
-    </a>
+    <a class="post-card-image-link" href="./post/colenak/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="./post/creating-a-new-theme/">
+      <a class="post-card-content-link" href="./post/colenak/">
           <header class="post-card-header">
               
-              <h2 class="post-card-title">Creating a New Theme</h2>
+              <h2 class="post-card-title">Colenak</h2>
           </header>
           <section class="post-card-excerpt">
               
@@ -131,39 +161,8 @@ We&rsquo;ll start with creating a new site with a very basic template. ...  </p>
       </a>
 
       <footer class="post-card-meta">
-          <img class="author-profile-image" src="./hugo-logo.png" alt="Author" />
-          <span class="post-card-author"><a href="./">Michael Henderson</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="./post/docker-postgresql/">
-      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="./post/docker-postgresql/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Docker  </span>
-              
-              <h2 class="post-card-title">Docker PostGreSQL</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>  1 Docker: PostgreSQL 10 and pgAdmin 4 1.1 Run Docker with PostgreSQL container 1.2 Connect to Postgres 1.2.1 Access postgresql.conf file 1.2.2 Open port  1.3 Run Docker with pgAdmin 4 container 1.3.1 Open port 5050     1 Docker: PostgreSQL 10 and pgAdmin 4 1.1 Run Docker with PostgreSQL container Make persistent volume to store config files and database files:
- ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
           <img class="author-profile-image" src="./img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="./">DannyJRa</a></span>
+          <span class="post-card-author"><a href="./">Michael Henderson</a></span>
       </footer>
     </div>
 </article>
