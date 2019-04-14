@@ -7,12 +7,13 @@ paginate        = 6
 canonifyurls    = true
 #Enable emojis
 enableEmoji=true
+#Does not copy these files to public
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [params]
   title       = "Blog"
   subtitle    = "Blog DannJRa"
   copyright   = "© 2019"
-  
   #NOT WORKING
   cover       = "img/blog-cover.jpg"
   

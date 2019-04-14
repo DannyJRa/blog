@@ -56,13 +56,12 @@ htmlwidgets::saveWidget(frameableWidget(l),&#39;leaflet.html&#39;)</code></pre>
 </div>
 <div id="connect-to-postgres" class="section level2">
 <h2>Connect to Postgres</h2>
-<p>Once the container is up an running, connecting to it from an application is no different than connecting to a Postgres instance running outside a docker container. For example, to connect using psql we can execute[^1]</p>
+<p>Once the container is up an running, connecting to it from an application is no different than connecting to a Postgres instance running outside a docker container. For example, to connect using psql we can execute<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <blockquote>
 <p>psql -h localhost -U postgres -d postgres</p>
 </blockquote>
 <div id="access-postgresql.conf-file" class="section level3">
 <h3>Access postgresql.conf file</h3>
-<p>{{&lt; yt w7Ft2ymGmfc &gt;}}</p>
 <p>Switch to root
 &gt;sudo su</p>
 <p>And access the conf file to manage e.g. remote access to the database:</p>
@@ -136,9 +135,14 @@ class Foo:
 <p>rterte</p>
 {{% tweet "852205086956818432" %}}
 <p>{{% tweet "852205086956818432" %}}
-{{ template &quot;_internal/disqus.html&quot; . }}
-***
-[^1]: Adopted from <a href="https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198" class="uri">https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198</a></p>
+{{ template &quot;_internal/disqus.html&quot; . }}</p>
+<hr />
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Adopted from <a href="https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198" class="uri">https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>

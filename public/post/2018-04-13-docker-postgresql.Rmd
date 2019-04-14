@@ -48,7 +48,7 @@ Once the container is up an running, connecting to it from an application is no 
 
 ### Access postgresql.conf file
 
-{{< yt w7Ft2ymGmfc >}}
+
 
 Switch to root 
 >sudo su
@@ -151,5 +151,6 @@ blogdown::shortcode('tweet', '852205086956818432')
 blogdown::shortcode('tweet', '852205086956818432')
 ```
 {{ template "_internal/disqus.html" . }}
+
 ***
 [^1]: Adopted from https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198
