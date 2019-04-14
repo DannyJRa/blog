@@ -25,9 +25,9 @@ git config --global credential.helper cache
 # Commit all changes
 
 ```{bash}
-cd 00_blog
+cd $HOME/00_blog
 git add -A
-git commit -m "commit DR tidy-up3"
+git commit -m "commit DR tidy-up5"
 git push
 ```
 

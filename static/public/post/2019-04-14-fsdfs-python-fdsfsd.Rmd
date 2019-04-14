@@ -1,9 +1,0 @@
----
-title: fsdfs-Python_fdsfsd
-author: ''
-date: '2019-04-14'
-slug: fsdfs-python-fdsfsd
-categories:
-  - R
-tags: []
----
