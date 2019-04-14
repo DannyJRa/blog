@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny on </title>
+    <link>/tags/shiny/</link>
+    <description>Recent content in Shiny on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Firebase &amp; Shiny</title>
+      <link>/post/firebase_shiny/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/firebase_shiny/</guid>
+      <description>Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Adding Firebase Authentication to Shiny Firebase and Shiny Firebase is a mobile and web application development platform owned by Google. Firebase provides front-end solutions for authentication, database storage, object storage, messaging, and more. Firebase drastically reduces the time needed to develop certain types of highly scalable and secure applications.</description>
+    </item>
+    
+  </channel>
+</rss>

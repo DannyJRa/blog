@@ -12,18 +12,26 @@
     <link rel="shortcut icon" href="../../favicon.ico" />
     <link rel="canonical" href="../../post/r-python-bridge/" />
 
-     <meta name="description" content="&lt;p&gt;Linear models
-The R code is:&lt;/p&gt;" /> 
+     <meta name="description" content="
+
+
+&lt;p&gt;Linear models
+The R code is:
+" /> 
 
      
     
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="/img/cover.jpg"/>
+    <meta name="twitter:image" content="/69_python_R/blog_title.png"/>
     
  
     <meta name="twitter:title" content="R-Python Bridge"/>
-    <meta name="twitter:description" content="&lt;p&gt;Linear models
-The R code is:&lt;/p&gt;"/>
+    <meta name="twitter:description" content="
+
+
+&lt;p&gt;Linear models
+The R code is:
+"/>
     <meta name="twitter:url" content="/post/r-python-bridge/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
@@ -33,13 +41,17 @@ The R code is:&lt;/p&gt;"/>
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="&lt;p&gt;Linear models
-The R code is:&lt;/p&gt;" />
+    <meta property="og:description" content="
+
+
+&lt;p&gt;Linear models
+The R code is:
+" />
 
     <meta property="article:published_time" content="2018-04-14T00:00:00Z" />
     <meta property="article:tag" content="Docker" />
 
-    <meta property="og:image" content="/img/cover.jpg"/>
+    <meta property="og:image" content="/69_python_R/blog_title.png"/>
 
 
     <meta name="generator" content="Hugo 0.55.1" />
@@ -122,33 +134,25 @@ The R code is:&lt;/p&gt;" />
         <h1 class="post-full-title">R-Python Bridge</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/img/cover.jpg)">
+    <figure class="post-full-image" style="background-image: url(/69_python_R/blog_title.png)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p>Linear models
-The R code is:</p>
-
-<pre><code class="language-r">ctl &lt;- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
+        </p>
+<pre class="r"><code>ctl &lt;- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
 trt &lt;- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)
 group &lt;- gl(2, 10, 20, labels = c(&quot;Ctl&quot;,&quot;Trt&quot;))
 weight &lt;- c(ctl, trt)
 
-anova(lm.D9 &lt;- lm(weight ~ group))
-</code></pre>
-
+anova(lm.D9 &lt;- lm(weight ~ group))</code></pre>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: weight
 ##           Df Sum Sq Mean Sq F value Pr(&gt;F)
 ## group      1 0.6882 0.68820  1.4191  0.249
-## Residuals 18 8.7292 0.48496
-</code></pre>
-
-<pre><code class="language-r">summary(lm.D90 &lt;- lm(weight ~ group - 1))# omitting intercept
-</code></pre>
-
+## Residuals 18 8.7292 0.48496</code></pre>
+<pre class="r"><code>summary(lm.D90 &lt;- lm(weight ~ group - 1))# omitting intercept</code></pre>
 <pre><code>## 
 ## Call:
 ## lm(formula = weight ~ group - 1)
@@ -162,24 +166,19 @@ anova(lm.D9 &lt;- lm(weight ~ group))
 ## groupCtl   5.0320     0.2202   22.85 9.55e-15 ***
 ## groupTrt   4.6610     0.2202   21.16 3.62e-14 ***
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.6964 on 18 degrees of freedom
-## Multiple R-squared:  0.9818,	Adjusted R-squared:  0.9798 
-## F-statistic: 485.1 on 2 and 18 DF,  p-value: &lt; 2.2e-16
-</code></pre>
-
+## Multiple R-squared:  0.9818, Adjusted R-squared:  0.9798 
+## F-statistic: 485.1 on 2 and 18 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>One way to achieve the same with rpy2.robjects is</p>
-
-<pre><code class="language-r">#library(reticulate)
+<pre class="r"><code>#library(reticulate)
 #use_python(&quot;/home/danny/anaconda3/bin/python&quot;,required=T)
 #use_condaenv(condaenv = &quot;r-nlp&quot;, conda = &quot;/opt/anaconda3/bin/conda&quot;)
 #use_condaenv(condaenv = &quot;r-nlp&quot;, conda = &quot;/home/danny/anaconda3&quot;)
 library(reticulate)
 use_python(python = &quot;/home/danny/anaconda3/bin/python&quot;, required = TRUE)
-py_config()
-</code></pre>
-
+py_config()</code></pre>
 <pre><code>## python:         /home/danny/anaconda3/bin/python
 ## libpython:      /home/danny/anaconda3/lib/libpython3.7m.so
 ## pythonhome:     /home/danny/anaconda3:/home/danny/anaconda3
@@ -187,12 +186,8 @@ py_config()
 ## numpy:          /home/danny/anaconda3/lib/python3.7/site-packages/numpy
 ## numpy_version:  1.15.4
 ## 
-## NOTE: Python version was forced by use_python function
-</code></pre>
-
-<pre><code class="language-r">py_discover_config()
-</code></pre>
-
+## NOTE: Python version was forced by use_python function</code></pre>
+<pre class="r"><code>py_discover_config()</code></pre>
 <pre><code>## python:         /home/danny/anaconda3/bin/python
 ## libpython:      /home/danny/anaconda3/lib/libpython3.7m.so
 ## pythonhome:     /home/danny/anaconda3:/home/danny/anaconda3
@@ -200,12 +195,8 @@ py_config()
 ## numpy:          /home/danny/anaconda3/lib/python3.7/site-packages/numpy
 ## numpy_version:  1.15.4
 ## 
-## NOTE: Python version was forced by use_python function
-</code></pre>
-
-<pre><code class="language-r">py_config()
-</code></pre>
-
+## NOTE: Python version was forced by use_python function</code></pre>
+<pre class="r"><code>py_config()</code></pre>
 <pre><code>## python:         /home/danny/anaconda3/bin/python
 ## libpython:      /home/danny/anaconda3/lib/libpython3.7m.so
 ## pythonhome:     /home/danny/anaconda3:/home/danny/anaconda3
@@ -213,23 +204,15 @@ py_config()
 ## numpy:          /home/danny/anaconda3/lib/python3.7/site-packages/numpy
 ## numpy_version:  1.15.4
 ## 
-## NOTE: Python version was forced by use_python function
-</code></pre>
-
-<pre><code class="language-python">import platform
-print(platform.python_version())
-</code></pre>
-
-<pre><code>## 3.7.1
-</code></pre>
-
-<pre><code class="language-python">import rpy2
-</code></pre>
-
-<pre><code class="language-python">from rpy2.robjects import FloatVector
+## NOTE: Python version was forced by use_python function</code></pre>
+<pre class="python"><code>import platform
+print(platform.python_version())</code></pre>
+<pre><code>## 3.7.1</code></pre>
+<pre class="python"><code>import rpy2</code></pre>
+<pre class="python"><code>from rpy2.robjects import FloatVector
 from rpy2.robjects.packages import importr
-stats = importr('stats')
-base = importr('base')
+stats = importr(&#39;stats&#39;)
+base = importr(&#39;base&#39;)
 
 ctl = FloatVector([4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14])
 trt = FloatVector([4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69])
@@ -243,21 +226,19 @@ print(stats.anova(lm_D9))
 
 # omitting the intercept
 lm_D90 = stats.lm(&quot;weight ~ group - 1&quot;)
-print(base.summary(lm_D90))
-</code></pre>
-
-<pre><code class="language-r">dat &lt;- read.table(text='    V1         V2
+print(base.summary(lm_D90))</code></pre>
+<pre class="r"><code>dat &lt;- read.table(text=&#39;    V1         V2
   google 0.99702575
    gmail 0.02492131
     maps 0.02040844
 motorola 0.02006636
-    view 0.01679274',header=TRUE)
+    view 0.01679274&#39;,header=TRUE)
 ll &lt;- as.list(setNames(dat$V2,dat$V1))
 library(rjson)
 exportJSON=toJSON(ll)
 
-write(exportJSON, &quot;test.json&quot;)
-</code></pre>    
+write(exportJSON, &quot;test.json&quot;)</code></pre>
+    
         </div>
     </section>
 
@@ -317,13 +298,15 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="../../post/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a></li>            
+          <li><a href="../../post/hello-r-markdown/">Hello R Markdown</a></li>            
         
-          <li><a href="../../post/creating-a-new-theme/">Creating a New Theme</a></li>            
+          <li><a href="../../post/firebase_shiny/">Firebase &amp; Shiny</a></li>            
         
-          <li><a href="../../post/test234/">test234</a></li>            
+                      
         
           <li><a href="../../post/hello-r-markdown/">Hello R Markdown</a></li>            
+        
+          <li><a href="../../post/docker-postgresql/">Docker PostGreSQL</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -336,22 +319,22 @@ s.setAttribute('data-timestamp', +new Date());
       
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="../../post/r-python-bridge/">
-      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
+    <a class="post-card-image-link" href="../../post/firebase_shiny/">
+      <div class="post-card-image" style="background-image: url(/54_firebase_shiny/blog_title.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="../../post/r-python-bridge/">
+      <a class="post-card-content-link" href="../../post/firebase_shiny/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #Docker  </span>
+              #Shiny  </span>
               
-              <h2 class="post-card-title">R-Python Bridge</h2>
+              <h2 class="post-card-title">Firebase &amp; Shiny</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> Linear models The R code is:  ...  </p>
+                <p>Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Adding Firebase Authentication to Shiny Firebase and Shiny Firebase is a mobile and web application development platform owned by Google. Firebase provides front-end solutions for authentication, database storage, object storage, messaging, and more. Firebase drastically reduces the time needed to develop certain types of highly scalable and secure applications. ...  </p>
               
           </section>
       </a>

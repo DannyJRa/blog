@@ -1,14 +1,14 @@
 ---
-title: Firebase
+title: Firebase & Shiny
 author: DannyJRa
-date: '2018-04-13'
-slug: firebase
+date: '2019-01-11'
+slug: firebase_shiny
 categories:
   - R
 tags:
-  - Docker
+  - Shiny
 hidden: false
-image: "img/cover.jpg"
+image: "54_firebase_shiny/blog_title.png"
 share: false
 output:
   blogdown::html_page:
@@ -52,12 +52,13 @@ output:
 2. Create a Firebase account, and in your new account create a project
 3. In your new Firebase project enable the email password authentication provider. This is the screen where you enable authentiation. Go to Firebase Console (e.g.)[<a href="https://console.firebase.google.com/u/0/project/projectfirebase-bced7/authentication/providers" class="uri">https://console.firebase.google.com/u/0/project/projectfirebase-bced7/authentication/providers</a>]:</p>
 <div class="figure">
-<img src="Firebase_authenfication.JPG" alt="Firebase_authenfication" />
+<img src="/54_firebase_shiny/Firebase_authenfication.JPG" alt="Firebase_authenfication" />
 <p class="caption">Firebase_authenfication</p>
 </div>
-<p><img src="/Firebase/firebase_shiny_files/#63_GoogleCloudFunctions_Title.png" />
-4. Click the “Web Setup” button (top right in above screenshot) and copy your project’s “apiKey”, “authDomain”, and “projectId” into the object defined in line 3 of the file “www/sof-auth.js”
-5. Run the Shiny app</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Click the “Web Setup” button (top right in above screenshot) and copy your project’s “apiKey”, “authDomain”, and “projectId” into the object defined in line 3 of the file “www/sof-auth.js”</li>
+<li>Run the Shiny app</li>
+</ol>
 </div>
 </div>
 <div class="footnotes">

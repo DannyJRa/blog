@@ -4,39 +4,39 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Firebase &middot; </title>
+    <title>Firebase &amp; Shiny &middot; </title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="../../favicon.ico" />
-    <link rel="canonical" href="../../post/firebase/" />
+    <link rel="canonical" href="../../post/firebase_shiny/" />
 
      <meta name="description" content="Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Add" /> 
 
      
     
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="/img/cover.jpg"/>
+    <meta name="twitter:image" content="/54_firebase_shiny/blog_title.png"/>
     
  
-    <meta name="twitter:title" content="Firebase"/>
+    <meta name="twitter:title" content="Firebase &amp; Shiny"/>
     <meta name="twitter:description" content="Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Add"/>
-    <meta name="twitter:url" content="/post/firebase/" />
+    <meta name="twitter:url" content="/post/firebase_shiny/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
     <meta property="og:site_name" content="" />
-    <meta property="og:title" content="Firebase &middot; Blog" />
-    <meta property="og:url" content="/post/firebase/" />
+    <meta property="og:title" content="Firebase &amp; Shiny &middot; Blog" />
+    <meta property="og:url" content="/post/firebase_shiny/" />
     
 
     <meta property="og:type" content="article" />
     <meta property="og:description" content="Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Add" />
 
-    <meta property="article:published_time" content="2018-04-13T00:00:00Z" />
-    <meta property="article:tag" content="Docker" />
+    <meta property="article:published_time" content="2019-01-11T00:00:00Z" />
+    <meta property="article:tag" content="Shiny" />
 
-    <meta property="og:image" content="/img/cover.jpg"/>
+    <meta property="og:image" content="/54_firebase_shiny/blog_title.png"/>
 
 
     <meta name="generator" content="Hugo 0.55.1" />
@@ -113,13 +113,13 @@
       <article class="post-full post"> 
     <header class="post-full-header">
         <section class="post-full-meta">
-            <time class="post-full-meta-date" datetime="2018-04-13">13 April 2018</time>
-                <span class="date-divider">/</span> <a href="../../tags/docker/">#Docker</a>&nbsp;
+            <time class="post-full-meta-date" datetime="2019-01-11">11 January 2019</time>
+                <span class="date-divider">/</span> <a href="../../tags/shiny/">#Shiny</a>&nbsp;
         </section>
-        <h1 class="post-full-title">Firebase</h1>
+        <h1 class="post-full-title">Firebase &amp; Shiny</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/img/cover.jpg)">
+    <figure class="post-full-image" style="background-image: url(/54_firebase_shiny/blog_title.png)">
     </figure>
 
     <section class="post-full-content">
@@ -160,12 +160,13 @@
 2. Create a Firebase account, and in your new account create a project
 3. In your new Firebase project enable the email password authentication provider. This is the screen where you enable authentiation. Go to Firebase Console (e.g.)[<a href="https://console.firebase.google.com/u/0/project/projectfirebase-bced7/authentication/providers" class="uri">https://console.firebase.google.com/u/0/project/projectfirebase-bced7/authentication/providers</a>]:</p>
 <div class="figure">
-<img src="Firebase_authenfication.JPG" alt="Firebase_authenfication" />
+<img src="../../54_firebase_shiny/Firebase_authenfication.JPG" alt="Firebase_authenfication" />
 <p class="caption">Firebase_authenfication</p>
 </div>
-<p><img src="../../Firebase/firebase_shiny_files/#63_GoogleCloudFunctions_Title.png" />
-4. Click the “Web Setup” button (top right in above screenshot) and copy your project’s “apiKey”, “authDomain”, and “projectId” into the object defined in line 3 of the file “www/sof-auth.js”
-5. Run the Shiny app</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Click the “Web Setup” button (top right in above screenshot) and copy your project’s “apiKey”, “authDomain”, and “projectId” into the object defined in line 3 of the file “www/sof-auth.js”</li>
+<li>Run the Shiny app</li>
+</ol>
 </div>
 </div>
 <div class="footnotes">
@@ -199,8 +200,8 @@
 
 
 var disqus_config = function () {
-this.page.url = "\/post\/firebase\/";  
-this.page.identifier = "\/post\/firebase\/"; 
+this.page.url = "\/post\/firebase_shiny\/";  
+this.page.identifier = "\/post\/firebase_shiny\/"; 
 };
 
 (function() { 
@@ -226,7 +227,7 @@ s.setAttribute('data-timestamp', +new Date());
     <header class="read-next-card-header">
         <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
         
-        <h3 class="read-next-card-header-title"><a href="../../tags/docker/">#Docker</a></h3>
+        <h3 class="read-next-card-header-title"><a href="../../tags/shiny/">#Shiny</a></h3>
     </header>
     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
     </div>
@@ -234,73 +235,44 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="../../post/r-python-bridge/">R-Python Bridge</a></li>            
-        
           <li><a href="../../post/hello-r-markdown/">Hello R Markdown</a></li>            
         
                       
         
+          <li><a href="../../post/r-python-bridge/">R-Python Bridge</a></li>            
+        
           <li><a href="../../post/hello-r-markdown/">Hello R Markdown</a></li>            
         
-          <li><a href="../../post/r-python-bridge/">R-Python Bridge</a></li>            
+          <li><a href="../../post/docker-postgresql/">Docker PostGreSQL</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
       
-        <a href="../../tags/docker/">See all related posts →</a>
+        <a href="../../tags/shiny/">See all related posts →</a>
     </footer>
 </article>
 
 
       
+      
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="../../post/docker-postgresql/">
-      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
+    <a class="post-card-image-link" href="../../post/r-python-bridge/">
+      <div class="post-card-image" style="background-image: url(/69_python_R/blog_title.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="../../post/docker-postgresql/">
+      <a class="post-card-content-link" href="../../post/r-python-bridge/">
           <header class="post-card-header">
               <span class="post-card-tags">
               #Docker  </span>
               
-              <h2 class="post-card-title">Docker PostGreSQL</h2>
+              <h2 class="post-card-title">R-Python Bridge</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>  Docker: PostgreSQL 10 and pgAdmin 4 Run Docker with PostgreSQL container Connect to Postgres Access postgresql.conf file Open port  Run Docker with pgAdmin 4 container Open port 5050     Docker: PostgreSQL 10 and pgAdmin 4 Run Docker with PostgreSQL container :smile: Make persistent volume to store config files and database files: d  ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
-      </footer>
-    </div>
-</article>
-      
-      
-      <article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="../../post/firebase/">
-      <div class="post-card-image" style="background-image: url(/firebase_shiny/blog_title.jpg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="../../post/firebase/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Docker  </span>
-              
-              <h2 class="post-card-title">Firebase</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Adding Firebase Authentication to Shiny Firebase and Shiny Firebase is a mobile and web application development platform owned by Google. Firebase provides front-end solutions for authentication, database storage, object storage, messaging, and more. Firebase drastically reduces the time needed to develop certain types of highly scalable and secure applications. ...  </p>
+                <p> Linear models The R code is:  ...  </p>
               
           </section>
       </a>
@@ -324,17 +296,17 @@ s.setAttribute('data-timestamp', +new Date());
     </a>
   </div>
   <span class="floating-header-divider">&mdash;</span>
-  <div class="floating-header-title">Firebase</div>
+  <div class="floating-header-title">Firebase &amp; Shiny</div>
   <div class="floating-header-share">
     <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
     </div>
     
-    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Firebase&amp;url=%2fpost%2ffirebase%2f"
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Firebase%20%26%20Shiny&amp;url=%2fpost%2ffirebase_shiny%2f"
           onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
       </a>
-      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2ffirebase%2f"
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2ffirebase_shiny%2f"
           onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
       </a>
