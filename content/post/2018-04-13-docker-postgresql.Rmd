@@ -9,11 +9,12 @@ tags:
   - Docker
 hidden: false
 image: "img/cover.jpg"
+share: false
 output:
   blogdown::html_page:
    # number_sections: true
     toc: TRUE
-share: false
+
 ---
 
 # Docker: PostgreSQL 10 and pgAdmin 4
@@ -22,7 +23,7 @@ share: false
 ## Run Docker with PostgreSQL container
 :smile:
 Make persistent volume to store config files and database files:
-
+d
 <!--more-->
 dfd
 >mkdir -p $HOME/docker/volumes/postgres

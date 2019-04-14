@@ -6,7 +6,7 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 13 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -42,6 +42,20 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>R-Python Bridge</title>
+      <link>/post/r-python-bridge/</link>
+      <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-python-bridge/</guid>
+      <description>
+
+
+&lt;p&gt;Linear models
+The R code is:
+</description>
+    </item>
+    
+    <item>
       <title>Docker PostGreSQL</title>
       <link>/post/docker-postgresql/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
@@ -69,7 +83,8 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
 &lt;div id=&#34;run-docker-with-postgresql-container&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Run Docker with PostgreSQL container&lt;/h2&gt;
 &lt;p&gt;:smile:
-Make persistent volume to store config files and database files:&lt;/p&gt;
+Make persistent volume to store config files and database files:
+d
 </description>
     </item>
     
