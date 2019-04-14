@@ -117,19 +117,20 @@
         <h1 class="post-full-title">Hello R Markdown</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         
 
+<h1 id="r-markdown">R Markdown</h1>
 
-<div id="r-markdown" class="section level1">
-<h1>R Markdown</h1>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+
 <p>You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)
+
+<pre><code class="language-r">summary(cars)
 ##      speed           dist       
 ##  Min.   : 4.0   Min.   :  2.00  
 ##  1st Qu.:12.0   1st Qu.: 26.00  
@@ -145,25 +146,23 @@ fit
 ## 
 ## Coefficients:
 ## (Intercept)        speed  
-##     -17.579        3.932</code></pre>
-</div>
-<div id="including-plots" class="section level1">
-<h1>Including Plots</h1>
-<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
-<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+##     -17.579        3.932
+</code></pre>
+
+<h1 id="including-plots">Including Plots</h1>
+
+<p>You can also embed plots. See Figure \@ref(fig:pie) for example:</p>
+
+<pre><code class="language-r">par(mar = c(0, 1, 0, 1))
 pie(
   c(280, 60, 20),
-  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
-  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
   init.angle = -50, border = NA
-)</code></pre>
-<div class="figure"><span id="fig:pie"></span>
-<img src="../../post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
-<p class="caption">
-Figure 1: A fancy pie chart.
-</p>
-</div>
-</div>
+)
+</code></pre>
+
+<p><img src="../../post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png" alt="A fancy pie chart." /></p>
     
         </div>
     </section>
@@ -211,37 +210,37 @@ s.setAttribute('data-timestamp', +new Date());
   <div class="inner">
     <div class="read-next-feed">      
       
-
-      
-      <article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="../../post/docker-postgresql/">
-      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="../../post/docker-postgresql/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Docker  </span>
-              
-              <h2 class="post-card-title">Docker PostGreSQL</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>  Docker: PostgreSQL 10 and pgAdmin 4 Run Docker with PostgreSQL container Connect to Postgres Access postgresql.conf file Open port  Run Docker with pgAdmin 4 container Open port 5050     Docker: PostgreSQL 10 and pgAdmin 4 Run Docker with PostgreSQL container :smile: Make persistent volume to store config files and database files: d  ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
-      </footer>
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="../../tags/r-markdown/">#R Markdown</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
     </div>
-</article>
+
+    <div class="read-next-card-content">
       
+        <ul>
+          <li><a href="../../post/firebase/">Firebase</a></li>            
+        
+          <li><a href="../../post/firebase/">Firebase</a></li>            
+        
+          <li><a href="../../post/docker-postgresql/">Docker PostGreSQL</a></li>            
+        
+                      
+        
+                      
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="../../tags/r-markdown/">See all related posts →</a>
+    </footer>
+</article>
+
+
       
       <article class="post-card post"> 
     
@@ -275,6 +274,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       </footer>
     </div>
 </article>
+      
       
     </div>
   </div>

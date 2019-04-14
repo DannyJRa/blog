@@ -45,6 +45,24 @@ d
     </item>
     
     <item>
+      <title>Firebase</title>
+      <link>/post/firebase/</link>
+      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/firebase/</guid>
+      <description>Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Adding Firebase Authentication to Shiny Firebase and Shiny Firebase is a mobile and web application development platform owned by Google. Firebase provides front-end solutions for authentication, database storage, object storage, messaging, and more. Firebase drastically reduces the time needed to develop certain types of highly scalable and secure applications.</description>
+    </item>
+    
+    <item>
+      <title>Firebase</title>
+      <link>/post/firebase/</link>
+      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/firebase/</guid>
+      <description>Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Adding Firebase Authentication to Shiny Firebase and Shiny Firebase is a mobile and web application development platform owned by Google. Firebase provides front-end solutions for authentication, database storage, object storage, messaging, and more. Firebase drastically reduces the time needed to develop certain types of highly scalable and secure applications.</description>
+    </item>
+    
+    <item>
       <title>Hello R Markdown</title>
       <link>/post/hello-r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
