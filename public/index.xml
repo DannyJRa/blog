@@ -21,6 +21,16 @@
     </item>
     
     <item>
+      <title>GitHub REST API</title>
+      <link>/post/github_rest_api/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/github_rest_api/</guid>
+      <description>Github Repos Pagination Issues Issues    Github Repos library(jsonlite) hadley_orgs &amp;lt;- fromJSON(&amp;quot;https://api.github.com/users/hadley/orgs&amp;quot;) hadley_repos &amp;lt;- fromJSON(&amp;quot;https://api.github.com/users/dannyjra/repos&amp;quot;) gg_issues &amp;lt;- fromJSON(&amp;quot;https://api.github.com/repos/hadley/ggplot2/issues&amp;quot;) #latest commits gg_commits &amp;lt;- fromJSON(&amp;quot;https://api.github.com/repos/dannyjra/DannyJRa.github.io/commits&amp;quot;) paste(format(gg_commits$commit$committer$date), &amp;quot;:&amp;quot;, gg_commits$commit$message)  Pagination SOURCE: https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc
+Issues library(dplyr) pages &amp;lt;- list() for(i in 1:15){ res &amp;lt;- GET(&amp;quot;https://api.github.com/repos/hadley/dplyr/issues&amp;quot;, query = list(state = &amp;quot;all&amp;quot;, per_page = 100, page = i)) jsondata &amp;lt;- content(res, type = &amp;quot;text&amp;quot;) github_df &amp;lt;- fromJSON(jsondata, flatten = TRUE) pages[[i]] &amp;lt;- github_df } issues &amp;lt;- bind_rows(pages) issues &amp;lt;- as_data_frame(issues)  Issues library(dplyr) pages &amp;lt;- list() for(i in 1:15){ res &amp;lt;- GET(&amp;quot;https://api.</description>
+    </item>
+    
+    <item>
       <title>R-Python Bridge</title>
       <link>/post/r-python-bridge/</link>
       <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
