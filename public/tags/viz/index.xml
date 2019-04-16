@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Viz on </title>
+    <link>/tags/viz/</link>
+    <description>Recent content in Viz on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/viz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Network Analysis</title>
+      <link>/post/network_analysis/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/network_analysis/</guid>
+      <description>&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/06_Network_Analysis/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/06_Network_Analysis/01_blog_caret_Tut.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

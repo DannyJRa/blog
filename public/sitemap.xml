@@ -85,7 +85,23 @@
   </url>
   
   <url>
+    <loc>/post/ml_caret/</loc>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/network_analysis/</loc>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/shiny/</loc>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/viz/</loc>
     <lastmod>2019-01-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -99,6 +115,23 @@
     <loc>/tags/set-up/</loc>
     <lastmod>2018-06-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/azure/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/bigdata/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/bigdata_with_spark/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -39,11 +39,38 @@
     </item>
     
     <item>
+      <title>Viz</title>
+      <link>/tags/viz/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Set-up</title>
       <link>/tags/set-up/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/set-up/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>/tags/azure/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BigData</title>
+      <link>/tags/bigdata/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bigdata/</guid>
       <description></description>
     </item>
     

@@ -108,12 +108,43 @@ Issues library(dplyr) pages &amp;lt;- list() for(i in 1:15){ res &amp;lt;- GET(&
     </item>
     
     <item>
+      <title>ML with Caret</title>
+      <link>/post/ml_caret/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ml_caret/</guid>
+      <description>&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Network Analysis</title>
+      <link>/post/network_analysis/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/network_analysis/</guid>
+      <description>&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/06_Network_Analysis/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/06_Network_Analysis/01_blog_caret_Tut.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>R packages</title>
       <link>/post/github_rest_api3/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/github_rest_api3/</guid>
       <description>&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>BigData with Spark</title>
+      <link>/post/bigdata_with_spark/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/bigdata_with_spark/</guid>
+      <description>&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
     </item>

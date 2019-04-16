@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>BigData with Spark &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/post/bigdata_with_spark/" />
+
+     <meta name="description" content="&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blo" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="/img/05_spark_ml_logo_BLOG.png"/>
+    
+ 
+    <meta name="twitter:title" content="BigData with Spark"/>
+    <meta name="twitter:description" content="&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blo"/>
+    <meta name="twitter:url" content="/post/bigdata_with_spark/" />
+    <meta name="twitter:site" content="@Insider_DJR"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="BigData with Spark &middot; Blog" />
+    <meta property="og:url" content="/post/bigdata_with_spark/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/05_Blog_BigData_Spark/01_blo" />
+
+    <meta property="article:published_time" content="2018-06-05T00:00:00Z" />
+    <meta property="article:tag" content="BigData" /><meta property="article:tag" content="Azure" />
+
+    <meta property="og:image" content="/img/05_spark_ml_logo_BLOG.png"/>
+
+
+    <meta name="generator" content="Hugo 0.55.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css" />
+     <link rel="stylesheet" href="/css/overrides.css" /> 
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="/dr_small_png.png" alt="Blog" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about/">About me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/test/">Test</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/python/">Python</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/r/">R</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/">Categories</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    <a class="social-link social-link-tw" href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg></a>
+
+                    <a class="social-link" href="https://github.com/DannyJRa" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    <a class="social-link" href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 512 512"><path d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683 C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615 c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915 s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z" /></svg></a>
+
+                    <a class="social-link" href="https://medium.com/@dannjrasch" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 195"><path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z"/></svg></a>
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2018-06-05">5 June 2018</time>
+                <span class="date-divider">/</span> <a href="/tags/bigdata/">#BigData</a>&nbsp;<a href="/tags/azure/">#Azure</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">BigData with Spark</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/img/05_spark_ml_logo_BLOG.png)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        <p>Original post here: <a href="https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html">https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html</a></p>
+
+<p>Add summary desdcription of blog</p>
+
+<h1 id="use-case">Use Case</h1>
+
+<p>In this case a Ubuntu DSVM is deployed. The
+virtual machine is created within its own resource group so that all
+created resources (the VM, networking, disk, etc) can be deleted
+easily. Code is also included, and run, to then delete the
+resource group if the resource group was created within this
+vignette. Once deleted consumption (cost) will cease.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>To get started we need to load our Azure credentials as well as the
+user&rsquo;s ssh public key. Public keys on Linux are typically created on
+the users desktop/laptop machine and will be found within
+~/.ssh/id_rsa.pub. It will be convenient to create a credentials file
+to contain this information.</p>
+
+<p>#Authorization</p>
+
+<p>We can simply source the credentials file in R.</p>
+
+<pre><code class="language-r"># Load the required subscription resources: TID, CID, and KEY.
+# Also includes the ssh PUBKEY for the user.
+
+USER &lt;- Sys.info()[['user']]
+#or set manually
+USER&lt;-&quot;insider&quot;
+
+source(&quot;~/02_CloudComputing/10_Secrets/Azure_Authentication_datascience_AWS.R&quot;)
+</code></pre>
+
+<p>If the required pacakges are not yet installed the following will do
+so. You may need to install them into your own local library rather
+than the system library if you are not a system user.</p>
+
+<p>We can then load the required pacakges from the libraries.</p>
+
+<h1 id="set-hdinsight">Set HDInsight</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p><code>AzureSMR</code> provides an interface to manage resources on Microsoft Azure. The main functions address the following Azure Services:</p>
+
+<ul>
+<li>Azure Blob: List, Read and Write to Blob Services</li>
+<li>Azure Resources: List, Create and Delete Azure Resource</li>
+<li>Azure VM: List, Start and Stop Azure VMs</li>
+<li>Azure HDI: List and Scale Azure HDInsight Clusters</li>
+<li>Azure Hive: Run Hive queries against a HDInsight Cluster</li>
+<li>Azure Spark: List and create Spark jobs/Sessions against a HDInsight Cluster(Livy) - EXPERIMENTAL</li>
+<li>Azure Data Lake Store: ListStatus, GetFileStatus, MkDirs, Create (file), Append (file), Read (file), Delete</li>
+</ul>
+
+<p>For a detailed list of <code>AzureSMR</code> functions and their syntax please refer to the Help pages.</p>
+
+<h2 id="configuring-authorisation-in-azure-active-directory">Configuring authorisation in Azure Active Directory</h2>
+
+<p>To get started, please refer to the <a href="http://htmlpreview.github.io/?https://github.com/Microsoft/AzureSMR/blob/master/inst/doc/Authentication.html">authorisation tutorial</a></p>
+
+<h2 id="load-the-package">Load the package</h2>
+
+<pre><code class="language-r">library(AzureSMR)
+</code></pre>
+
+<h2 id="authenticating-against-the-azure-service">Authenticating against the Azure service</h2>
+
+<p>The Azure APIs require many parameters to be managed. Rather than supplying all the arguments to every function call, <code>AzureSMR</code> uses an <code>azureActiveContext</code> object that caches arguments so you don&rsquo;t have to supply .</p>
+
+<p>To create an <code>azureActiveContext</code> object and attempt to authenticate against the Azure service, use:</p>
+
+<pre><code class="language-r">context &lt;- createAzureContext(tenantID=TID, clientID=CID, authKey=KEY)
+</code></pre>
+
+<p>##Create a resource group</p>
+
+<pre><code class="language-r">azureCreateResourceGroup(context, resourceGroup = &quot;R_Control&quot;, location = &quot;centralus&quot;)
+</code></pre>
+
+<h2 id="manage-hdinsight-clusters">Manage HDInsight clusters</h2>
+
+<p>You can use <code>AzureSMR</code> to manage <a href="https://azure.microsoft.com/en-gb/services/hdinsight/">HDInsight</a> clusters. To create a cluster use <code>azureCreateHDI()</code>.</p>
+
+<p>For advanced configurations use Resource Templates (See below).
+ca. 17 minutes</p>
+
+<pre><code class="language-r">azureCreateHDI(context,
+                 resourceGroup = &quot;R_control&quot;,
+                 clustername = &quot;smrhdi&quot;, # only low case letters, digit, and dash.
+                 storageAccount = &quot;testmystorage&quot;,
+                 adminUser = &quot;hdiadmin&quot;,
+                 adminPassword = &quot;AzureSMR_password123&quot;,
+                 sshUser = &quot;hdisshuser&quot;,
+                 sshPassword = &quot;AzureSMR_password123&quot;, 
+                 kind = &quot;rserver&quot;,
+               location=&quot;centralus&quot;)
+</code></pre>
+
+<p>Use <code>azureListHDI()</code> to list available clusters.</p>
+
+<pre><code class="language-r">azureListHDI(context, resourceGroup =&quot;R_control&quot;)
+</code></pre>
+
+<p>Use <code>azureResizeHDI()</code> to resize a cluster
+NOT_WORKING</p>
+
+<pre><code class="language-r">azureResizeHDI(context, resourceGroup = &quot;R_control&quot;, clustername = &quot;smrhdi&quot;, role=&quot;workernode&quot;,size=3)
+
+## azureResizeHDI: Request Submitted:  2016-06-23 18:50:57
+## Resizing(R), Succeeded(S)
+## RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+## RRRRRRRRRRRRRRRRRRS
+## Finished Resizing Sucessfully:  2016-06-23 19:04:43
+## Finished:  2016-06-23 19:04:43
+##                                                                                                                        ## Information 
+## &quot; headnode ( 2 * Standard_D3_v2 ) workernode ( 5 * Standard_D3_v2 ) zookeepernode ( 3 * Medium ) edgenode0 ( 1 * Standard_D4_v2 )&quot; 
+</code></pre>
+
+<p>ADMIN TIP: If a deployment fails, go to the Azure Portal and look at <code>Activity logs</code> and look for failed deployments - this should explain why the deployment failed.</p>
+
+<h2 id="hive-functions">Hive Functions</h2>
+
+<p>You can use these functions to run and manage hive jobs on an HDInsight Cluster.</p>
+
+<pre><code class="language-r">azureHiveStatus(context, clusterName = &quot;smrhdi&quot;, 
+                hdiAdmin = &quot;hdiadmin&quot;, 
+                hdiPassword = &quot;AzureSMR_password123&quot;)
+
+azureHiveSQL(context, 
+             CMD = &quot;select * from hivesampletable&quot;, 
+             path = &quot;wasb://opendata@testmystorage1.blob.core.windows.net/&quot;)
+</code></pre>
+
+<h2 id="spark-functions-experimental">Spark functions (experimental)</h2>
+
+<p><code>AzureSMR</code> provides some functions that allow HDInsight Spark aessions and jobs to be managed within an R Session.</p>
+
+<p>To create a new Spark session (via <a href="https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server">Livy</a>) use <code>azureSparkNewSession()</code></p>
+
+<pre><code class="language-r">azureSparkNewSession(context, clustername = &quot;spark1987&quot;, 
+                     hdiAdmin = &quot;&quot;, 
+                     hdiPassword = &quot;&quot;,
+                     kind = &quot;pyspark&quot;)
+</code></pre>
+
+<p>To view the status of sessions use <code>azureSparkListSessions()</code>. Wait for status to be idle.</p>
+
+<pre><code class="language-r">azureSparkListSessions(context, clustername = &quot;spark1987&quot;)
+</code></pre>
+
+<p>To send a command to the Spark Session use <code>azureSparkCMD()</code>. In this case it submits a Python routine. Ensure you preserve indents for Python.</p>
+
+<pre><code class="language-r"># SAMPLE PYSPARK SCRIPT TO CALCULATE PI
+pythonCmd &lt;- '
+from pyspark import SparkContext
+from operator import add
+import sys
+from random import random
+partitions = 1
+n = 20000000 * partitions
+def f(_):
+  x = random() * 2 - 1
+  y = random() * 2 - 1
+  return 1 if x ** 2 + y ** 2 &lt; 1 else 0
+ 
+count = context.parallelize(range(1, n + 1), partitions).map(f).reduce(add)
+Pi = (4.0 * count / n)
+print(&quot;Pi is roughly %f&quot; % Pi)'                   
+ 
+azureSparkCMD(context, CMD = pythonCmd, sessionID = &quot;0&quot;)
+
+## [1] &quot;Pi is roughly 3.140285&quot;
+</code></pre>
+
+<p>Check Session variables are retained</p>
+
+<pre><code class="language-r">azureSparkCMD(context, clustername = &quot;spark1987&quot;, CMD = &quot;print Pi&quot;, sessionID = &quot;0&quot;)
+
+#[1] &quot;3.1422&quot;
+</code></pre>
+
+<p>You can also run SparkR sessions</p>
+
+<p>NOT WORKING</p>
+
+<pre><code class="language-r">azureSparkNewSession(context, clustername = &quot;spark1987&quot;, 
+                     hdiAdmin = &quot;insider_danny&quot;, 
+                     hdiPassword = &quot;.Alfonstini642856&quot;,
+                     kind = &quot;sparkr&quot;)
+
+
+azureSparkCMD(context, clustername = &quot;smrhdi&quot;, CMD = &quot;HW&lt;-'hello R'&quot;, sessionID = &quot;2&quot;)
+azureSparkCMD(context, clustername = &quot;smrhdi&quot;, CMD = &quot;cat(HW)&quot;, sessionID = &quot;2&quot;)
+</code></pre>
+
+<h1 id="spark">Spark</h1>
+
+<h3 id="chapter-9">&mdash; Chapter 9 &mdash;</h3>
+
+<h3 id="big-data-machine-learning-with-r">&mdash; Big Data machine learning with R &mdash;</h3>
+
+<h3 id="part-1">&mdash; Part 1 &mdash;</h3>
+
+<h3 id="glm-logistic-regression-on-spark">&mdash; GLM - logistic regression on Spark &mdash;</h3>
+
+<p>Sys.getenv(&ldquo;SPARK_HOME&rdquo;)</p>
+
+<p>Sys.setenv(SPARK_HOME = &ldquo;/usr/hdp/2.4.2.0-258/spark&rdquo;)
+Sys.getenv(&ldquo;SPARK_HOME&rdquo;)
+Sys.setenv(&lsquo;SPARKR_SUBMIT_ARGS&rsquo;=&lsquo;&ldquo;&ndash;packages&rdquo; &ldquo;com.databricks:spark-csv_2.11:1.4.0&rdquo; &ldquo;sparkr-shell&rdquo;&lsquo;)
+Sys.getenv(&ldquo;SPARKR_SUBMIT_ARGS&rdquo;)</p>
+
+<p>library(rJava)
+library(SparkR, lib.loc = c(file.path(Sys.getenv(&ldquo;SPARK_HOME&rdquo;), &ldquo;R&rdquo;, &ldquo;lib&rdquo;)))</p>
+
+<p>sc &lt;- sparkR.init(master=&ldquo;yarn-client&rdquo;,
+                  appName=&ldquo;SparkRStudio&rdquo;,
+                  sparkJars = c(&ldquo;/usr/hdp/2.4.2.0-258/hadoop/hadoop-nfs.jar&rdquo;,
+                                &ldquo;/usr/hdp/2.4.2.0-258/hadoop/hadoop-azure.jar&rdquo;,
+                                &ldquo;/usr/hdp/2.4.2.0-258/hadoop/lib/azure-storage-2.2.0.jar&rdquo;),
+                  sparkPackages=&ldquo;com.databricks:spark-csv_2.11:1.4.0&rdquo;)</p>
+
+<p>sqlContext &lt;- sparkRSQL.init(sc)</p>
+
+<p>schema &lt;- structType(structField(&ldquo;DAY_OF_WEEK&rdquo;, &ldquo;string&rdquo;),
+                     structField(&ldquo;DEP_TIME&rdquo;, &ldquo;integer&rdquo;),
+                     structField(&ldquo;DEP_DELAY&rdquo;, &ldquo;integer&rdquo;),
+                     structField(&ldquo;ARR_TIME&rdquo;, &ldquo;integer&rdquo;),
+                     structField(&ldquo;ARR_DELAY&rdquo;, &ldquo;integer&rdquo;),
+                     structField(&ldquo;CANCELLED&rdquo;, &ldquo;integer&rdquo;),
+                     structField(&ldquo;DIVERTED&rdquo;, &ldquo;integer&rdquo;),
+                     structField(&ldquo;AIR_TIME&rdquo;, &ldquo;integer&rdquo;),
+                     structField(&ldquo;DISTANCE&rdquo;, &ldquo;integer&rdquo;))</p>
+
+<p>flights &lt;- read.df(sqlContext,
+                   path = &ldquo;/user/swalko/data/flights_2014.csv&rdquo;,
+                   source = &ldquo;com.databricks.spark.csv&rdquo;,
+                   header = &ldquo;true&rdquo;,
+                   schema = schema, nullValue = &ldquo;NA&rdquo;)</p>
+
+<p>head(flights)
+str(flights)
+count(flights)</p>
+
+<p>flights &lt;- filter(flights, flights$CANCELLED == 0)
+flights &lt;- filter(flights, flights$DIVERTED == 0)</p>
+
+<p>flights &lt;- flights[, -6:-7]
+str(flights)</p>
+
+<p>dtypes(flights)</p>
+
+<p>registerTempTable(flights, &ldquo;flights&rdquo;)
+flights &lt;- sql(sqlContext, &ldquo;SELECT *, IF(ARR_DELAY &gt; 0, 1, 0)
+               AS ARR_DEL from flights&rdquo;)</p>
+
+<p>str(flights)
+#We need to re-register the DataFrame as a SQL table to reflect the changes in the previous query.
+registerTempTable(flights, &ldquo;flights&rdquo;)
+flights &lt;- sql(sqlContext, &ldquo;SELECT *, CASE WHEN(DEP_TIME &gt;= 500 AND DEP_TIME &lt; 1200)
+               THEN (&lsquo;morning&rsquo;) WHEN(DEP_TIME &gt;= 1200 AND DEP_TIME &lt; 1700)
+               THEN (&lsquo;afternoon&rsquo;) WHEN(DEP_TIME &gt;= 1700 AND DEP_TIME &lt; 2100)
+               THEN (&lsquo;evening&rsquo;) ELSE(&lsquo;night&rsquo;) END AS DEP_PART from flights&rdquo;)
+str(flights)
+registerTempTable(flights, &ldquo;flights&rdquo;)</p>
+
+<p>logit1 &lt;- glm(ARR_DEL ~ AIR_TIME + DISTANCE + DAY_OF_WEEK + DEP_PART + DEP_DELAY,
+              data = flights, family = &ldquo;binomial&rdquo;)</p>
+
+<p>summary(logit1)</p>
+
+<p>head(select(flights, mean(flights$AIR_TIME)))
+head(select(flights, mean(flights$DISTANCE)))
+head(select(flights, mean(flights$DEP_DELAY)))</p>
+
+<p>test1 &lt;- createDataFrame(sqlContext,
+                         data = data.frame(AIR_TIME = 111.37,
+                                           DISTANCE = 802.54,
+                                           DEP_DELAY = 10.57,
+                                           DAY_OF_WEEK = factor(rep(c(&ldquo;1&rdquo;, &ldquo;2&rdquo;,
+                                                                      &ldquo;3&rdquo;, &ldquo;4&rdquo;,
+                                                                      &ldquo;5&rdquo;, &ldquo;6&rdquo;, &ldquo;7&rdquo;), each=4)),
+                                           DEP_PART = factor(rep(c(&ldquo;morning&rdquo;, &ldquo;afternoon&rdquo;,
+                                                                   &ldquo;evening&rdquo;, &ldquo;night&rdquo;), times=7))))
+showDF(test1)</p>
+
+<p>predicted &lt;- predict(logit1, test1)
+showDF(predicted, numRows = 28, truncate = FALSE)</p>
+
+<p>test2 &lt;- createDataFrame(sqlContext,
+                         data = data.frame(AIR_TIME=450,
+                                           DISTANCE=3400,
+                                           DEP_DELAY = -10,
+                                           DAY_OF_WEEK = &ldquo;1&rdquo;,
+                                           DEP_PART = &ldquo;morning&rdquo;))</p>
+
+<p>showDF(predict(logit1, test2), truncate = FALSE)</p>
+
+<p>flightsPred &lt;- predict(logit1, flights)
+prediction &lt;- select(flightsPred, &ldquo;ARR_DEL&rdquo;, &ldquo;prediction&rdquo;)
+showDF(prediction, numRows = 200)</p>
+
+<h1 id="overall-accuracy-rate">Overall accuracy rate:</h1>
+
+<p>prediction$success &lt;- ifelse(prediction$ARR_DEL == prediction$prediction, 1, 0)
+registerTempTable(prediction, &ldquo;prediction&rdquo;)
+correct &lt;- sql(sqlContext, &ldquo;SELECT count(success) FROM prediction WHERE success = 1&rdquo;)
+total &lt;- count(prediction)
+accuracy &lt;- collect(correct) / total
+accuracy #82.7% accuracy</p>
+
+<h1 id="accuracy-of-predicting-delayed-flights">Accuracy of predicting delayed flights:</h1>
+
+<p>prediction &lt;- select(flightsPred, &ldquo;ARR_DEL&rdquo;, &ldquo;prediction&rdquo;)
+pred_del &lt;- filter(prediction, prediction$ARR_DEL==1)
+registerTempTable(pred_del, &ldquo;pred_del&rdquo;)
+showDF(pred_del, numRows = 200)</p>
+
+<p>pred_cor &lt;- sql(sqlContext, &ldquo;SELECT count(prediction) FROM prediction WHERE prediction = 1&rdquo;)
+total_delayed &lt;- count(pred_del)
+acc_pred &lt;- collect(pred_cor) / total_delayed
+acc_pred #80% of delayed flights have been correctly identified</p>
+
+<h1 id="using-flights-jan-2015-csv-dataset-we-can-apply-the-model-on-a-new-test-data">Using flights_jan_2015.csv dataset we can apply the model on a new test data:</h1>
+
+<p>jan15 &lt;- read.df(sqlContext,
+                 path = &ldquo;/user/swalko/data/flights_jan_2015.csv&rdquo;,
+                 source = &ldquo;com.databricks.spark.csv&rdquo;,
+                 header = &ldquo;true&rdquo;,
+                 schema = schema,
+                 nullValue = &ldquo;NA&rdquo;)</p>
+
+<p>str(jan15)
+jan15 &lt;- filter(jan15, jan15$CANCELLED == 0)
+jan15 &lt;- filter(jan15, jan15$DIVERTED == 0)
+jan15 &lt;- jan15[, -6:-7]</p>
+
+<p>registerTempTable(jan15, &ldquo;jan15&rdquo;)
+jan15 &lt;- sql(sqlContext, &ldquo;SELECT *, IF(ARR_DELAY &gt; 0, 1, 0)
+             AS ARR_DEL from jan15&rdquo;)</p>
+
+<p>registerTempTable(jan15, &ldquo;jan15&rdquo;)
+jan15 &lt;- sql(sqlContext, &ldquo;SELECT *, CASE WHEN(DEP_TIME &gt;= 500 AND DEP_TIME &lt; 1200)
+             THEN (&lsquo;morning&rsquo;) WHEN(DEP_TIME &gt;= 1200 AND DEP_TIME &lt; 1700)
+             THEN (&lsquo;afternoon&rsquo;) WHEN(DEP_TIME &gt;= 1700 AND DEP_TIME &lt; 2100)
+             THEN (&lsquo;evening&rsquo;) ELSE(&lsquo;night&rsquo;) END AS DEP_PART from jan15&rdquo;)</p>
+
+<p>jan15 &lt;- select(jan15, &ldquo;DAY_OF_WEEK&rdquo;, &ldquo;DEP_DELAY&rdquo;,
+                &ldquo;AIR_TIME&rdquo;, &ldquo;DISTANCE&rdquo;, &ldquo;DEP_PART&rdquo;, &ldquo;ARR_DEL&rdquo;)
+str(jan15)</p>
+
+<p>janPred &lt;- predict(logit1, jan15)
+jan_eval &lt;- select(janPred, &ldquo;ARR_DEL&rdquo;, &ldquo;prediction&rdquo;)
+showDF(jan_eval, numRows = 200)</p>
+
+<h1 id="overall-accuracy-rate-1">Overall accuracy rate:</h1>
+
+<p>jan_eval$success &lt;- ifelse(jan_eval$ARR_DEL == jan_eval$prediction, 1, 0)
+registerTempTable(jan_eval, &ldquo;jan_eval&rdquo;)
+correct &lt;- sql(sqlContext, &ldquo;SELECT count(success) FROM jan_eval WHERE success = 1&rdquo;)
+total &lt;- count(jan_eval)
+accuracy &lt;- collect(correct) / total
+accuracy #80.7% accuracy</p>
+
+<h1 id="accuracy-of-predicting-delayed-flights-1">Accuracy of predicting delayed flights:</h1>
+
+<p>jan_eval &lt;- select(janPred, &ldquo;ARR_DEL&rdquo;, &ldquo;prediction&rdquo;)
+jan_del &lt;- filter(jan_eval, jan_eval$ARR_DEL==1)
+registerTempTable(jan_del, &ldquo;jan_del&rdquo;)
+showDF(jan_del, numRows = 200)</p>
+
+<p>jan_cor &lt;- sql(sqlContext, &ldquo;SELECT count(prediction) FROM jan_del WHERE prediction = 1&rdquo;)
+total_delayed &lt;- count(jan_del)
+acc_pred &lt;- collect(jan_cor) / total_delayed
+acc_pred #67.3% of delayed flights have been correctly identified</p>
+
+<h3 id="end-of-part-1">&mdash; End of Part 1 &mdash;</h3>
+
+<h3 id="part-2">&mdash; Part 2 &mdash; ###</h3>
+
+<h3 id="h2o-ai-on-r-naive-bayes">&mdash; H2O.ai on R - Naive Bayes &mdash;</h3>
+
+<p>library(h2o)
+h2o &lt;- h2o.init(ip = &ldquo;10.2.0.10&rdquo;, port = 54321, startH2O = F)
+h2o.clusterInfo()</p>
+
+<p>path1 &lt;- &ldquo;/home/swalko/data/flights_2014.csv&rdquo;
+flights14 &lt;- h2o.uploadFile(path = path1,
+                            destination_frame = &ldquo;flights14&rdquo;,
+                            parse = TRUE, header = TRUE,
+                            sep = &ldquo;,&rdquo;)</p>
+
+<p>h2o.ls()</p>
+
+<p>summary(flights14)
+str(flights14)</p>
+
+<p>flights14 &lt;- flights14[flights14$CANCELLED==0 &amp; flights14$DIVERTED==0, ]
+flights14 &lt;- flights14[, -6:-7]</p>
+
+<p>h2o.nacnt(flights14) #no missing values</p>
+
+<p>flights14$DAY_OF_WEEK &lt;- as.factor(flights14$DAY_OF_WEEK)</p>
+
+<p>avg_del &lt;- function(x) { sum(x[,3])/nrow(x) }
+avg.del &lt;- h2o.ddply(flights14, &ldquo;DAY_OF_WEEK&rdquo;, FUN = avg_del)
+as.data.frame(avg.del)</p>
+
+<p>flights14$DEP_PART &lt;- h2o.cut(flights14$DEP_TIME,
+                              c(1, 459, 1159, 1659, 2059, 2400),
+                              labels = c(&ldquo;night&rdquo;, &ldquo;morning&rdquo;,
+                                         &ldquo;afternoon&rdquo;, &ldquo;evening&rdquo;,
+                                         &ldquo;night&rdquo;))
+h2o.table(flights14$DEP_PART)</p>
+
+<p>flights14$DEP_TIME &lt;- flights14$ARR_TIME &lt;- NULL</p>
+
+<p>flights14$ARR_DEL &lt;- as.factor(h2o.ifelse(flights14$ARR_DELAY &gt; 0, 1, 0))</p>
+
+<p>flights14$ARR_DELAY &lt;- NULL
+h2o.table(flights14$ARR_DEL)
+prop.table(h2o.table(flights14$ARR_DEL)) #42% of delayed flights overall</p>
+
+<p>summary(flights14$DEP_DELAY)
+flights14$DEP_DELAY &lt;- h2o.cut(flights14$DEP_DELAY,
+                               c(-112, -15, -1, 1, 16, 2402),
+                               labels = c(&ldquo;very early&rdquo;,
+                                          &ldquo;somewhat early&rdquo;,
+                                          &ldquo;on time&rdquo;,
+                                          &ldquo;somewhat delayed&rdquo;,
+                                          &ldquo;very delayed&rdquo;))
+h2o.table(flights14$DEP_DELAY)</p>
+
+<p>h2o.quantile(flights14$DISTANCE, prob = seq(0, 1, length = 4))
+#h2o.hist(flights14$DISTANCE)
+summary(flights14$DISTANCE)
+flights14$DISTANCE &lt;- h2o.cut(flights14$DISTANCE,
+                              c(31, 1000, 2000, 4983),
+                              labels = c(&ldquo;short&rdquo;, &ldquo;medium&rdquo;, &ldquo;long&rdquo;))
+h2o.table(flights14$DISTANCE)</p>
+
+<p>h2o.quantile(flights14$AIR_TIME, prob = seq(0, 1, length = 4))
+#h2o.hist(flights14$AIR_TIME)
+summary(flights14$AIR_TIME)
+flights14$AIR_TIME &lt;- h2o.cut(flights14$AIR_TIME,
+                              c(7, 150, 300, 706),
+                              labels = c(&ldquo;short&rdquo;, &ldquo;medium&rdquo;, &ldquo;long&rdquo;))
+h2o.table(flights14$AIR_TIME)
+str(flights14)</p>
+
+<p>model1 &lt;- h2o.naiveBayes(x = 1:5, y = 6, training_frame = flights14, laplace = 1)
+model1</p>
+
+<p>str(model1)
+h2o.auc(model1)
+h2o.performance(model1)</p>
+
+<p>path2 &lt;- &ldquo;/home/swalko/data/flights_jan_2015.csv&rdquo;
+flightsJan15 &lt;- h2o.uploadFile(path = path2,
+                               destination_frame = &ldquo;flightsJan15&rdquo;,
+                               parse = TRUE, header = TRUE,
+                               sep = &ldquo;,&rdquo;)</p>
+
+<p>flightsJan15 &lt;- flightsJan15[flightsJan15$CANCELLED==0 &amp; flightsJan15$DIVERTED==0, ]
+flightsJan15 &lt;- flightsJan15[, -6:-7]</p>
+
+<p>h2o.nacnt(flightsJan15)</p>
+
+<p>flightsJan15$DAY_OF_WEEK &lt;- as.factor(flightsJan15$DAY_OF_WEEK)
+flightsJan15$DEP_PART &lt;- h2o.cut(flightsJan15$DEP_TIME,
+                                 c(1, 459, 1159, 1659, 2059, 2400),
+                                 labels = c(&ldquo;night&rdquo;, &ldquo;morning&rdquo;,
+                                            &ldquo;afternoon&rdquo;, &ldquo;evening&rdquo;,
+                                            &ldquo;night&rdquo;))</p>
+
+<p>flightsJan15$DEP_TIME &lt;- flightsJan15$ARR_TIME &lt;- NULL
+flightsJan15$ARR_DEL &lt;- as.factor(h2o.ifelse(flightsJan15$ARR_DELAY &gt; 0, 1, 0))
+flightsJan15$ARR_DELAY &lt;- NULL
+h2o.table(flightsJan15$ARR_DEL)
+prop.table(h2o.table(flightsJan15$ARR_DEL)) #40% of delayed flights</p>
+
+<p>summary(flightsJan15$DEP_DELAY)
+flightsJan15$DEP_DELAY &lt;- h2o.cut(flightsJan15$DEP_DELAY,
+                                  c(-48, -15, -1, 1, 16, 1988),
+                                  labels = c(&ldquo;very early&rdquo;,
+                                             &ldquo;somewhat early&rdquo;,
+                                             &ldquo;on time&rdquo;,
+                                             &ldquo;somewhat delayed&rdquo;,
+                                             &ldquo;very delayed&rdquo;))
+h2o.table(flightsJan15$DEP_DELAY)</p>
+
+<p>h2o.quantile(flightsJan15$DISTANCE, prob = seq(0, 1, length = 4))
+#h2o.hist(flightsJan15$DISTANCE)
+summary(flightsJan15$DISTANCE)
+flightsJan15$DISTANCE &lt;- h2o.cut(flightsJan15$DISTANCE,
+                                 c(31, 1000, 2000, 4983),
+                                 labels = c(&ldquo;short&rdquo;,
+                                            &ldquo;medium&rdquo;,
+                                            &ldquo;long&rdquo;))
+h2o.table(flightsJan15$DISTANCE)</p>
+
+<p>h2o.quantile(flightsJan15$AIR_TIME, prob = seq(0, 1, length = 4))
+#h2o.hist(flightsJan15$AIR_TIME)
+summary(flightsJan15$AIR_TIME)
+flightsJan15$AIR_TIME &lt;- h2o.cut(flightsJan15$AIR_TIME,
+                                 c(8, 150, 300, 676),
+                                 labels = c(&ldquo;short&rdquo;,
+                                            &ldquo;medium&rdquo;,
+                                            &ldquo;long&rdquo;))
+h2o.table(flightsJan15$AIR_TIME)</p>
+
+<p>str(flightsJan15)</p>
+
+<p>fit1 &lt;- h2o.predict(object = model1, newdata = flightsJan15)
+fit1</p>
+
+<p>h2o.performance(model1, newdata = flightsJan15)</p>
+
+<h3 id="end-of-part-2">&mdash; End of Part 2 &mdash;</h3>
+
+<h3 id="part-3">&mdash; Part 3 &mdash;</h3>
+
+<h3 id="neural-networks-and-deep-learning-on-h2o-ai">&mdash; Neural Networks and Deep Learning on H2O.ai &mdash;</h3>
+
+<p>rm(list=ls())
+path1 &lt;- &ldquo;/home/swalko/data/flights_2014.csv&rdquo;
+flights14 &lt;- h2o.uploadFile(path = path1,
+                            destination_frame = &ldquo;flights14&rdquo;,
+                            parse = TRUE, header = TRUE,
+                            sep = &ldquo;,&rdquo;)
+h2o.ls()</p>
+
+<p>#summary(flights14)
+#str(flights14)</p>
+
+<p>flights14 &lt;- flights14[flights14$CANCELLED==0 &amp; flights14$DIVERTED==0, ]
+flights14 &lt;- flights14[, -6:-7]</p>
+
+<p>flights14$DAY_OF_WEEK &lt;- as.factor(flights14$DAY_OF_WEEK)
+flights14$ARR_DEL &lt;- as.factor(h2o.ifelse(flights14$ARR_DELAY &gt; 0, 1, 0))
+flights14$ARR_DELAY &lt;- flights14$ARR_TIME &lt;- NULL
+str(flights14)</p>
+
+<p>path2 &lt;- &ldquo;/home/swalko/data/flights_jan_2015.csv&rdquo;
+flightsJan15 &lt;- h2o.uploadFile(path = path2,
+                               destination_frame = &ldquo;flightsJan15&rdquo;,
+                               parse = TRUE, header = TRUE,
+                               sep = &ldquo;,&rdquo;)</p>
+
+<p>flightsJan15 &lt;- flightsJan15[flightsJan15$CANCELLED==0 &amp; flightsJan15$DIVERTED==0, ]
+flightsJan15 &lt;- flightsJan15[, -6:-7]</p>
+
+<p>flightsJan15$DAY_OF_WEEK &lt;- as.factor(flightsJan15$DAY_OF_WEEK)
+flightsJan15$ARR_DEL &lt;- as.factor(h2o.ifelse(flightsJan15$ARR_DELAY &gt; 0, 1, 0))
+flightsJan15$ARR_DELAY &lt;- flightsJan15$ARR_TIME &lt;- NULL
+str(flightsJan15)</p>
+
+<p>model2 &lt;- h2o.deeplearning(x = 1:5, y = 6, training_frame = flights14,
+                           validation_frame = flightsJan15,
+                           hidden = c(10, 5, 3),
+                           epochs = 5)</p>
+
+<p>summary(model2)</p>
+
+<p>model3 &lt;- h2o.deeplearning(x = 1:5, y = 6, training_frame = flights14,
+                           validation_frame = flightsJan15,
+                           epochs = 2)</p>
+
+<p>summary(model3)</p>
+
+<p>h2o.shutdown()</p>
+
+<h3 id="end-of-part-3">&mdash; End of Part 3 &mdash;</h3>
+
+<h3 id="the-end-of-chapter-9">&mdash; The end of Chapter 9 &mdash;</h3>    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">DannyJRa</a></h4>
+                <p>Your description here</p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "\/post\/bigdata_with_spark\/";  
+this.page.identifier = "\/post\/bigdata_with_spark\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://blog-dannyrasch-com.disqus.com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="/tags/bigdata/">#BigData</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="/post/hello-r-markdown/">Hello R Markdown</a></li>            
+        
+                      
+        
+          <li><a href="/post/github_rest_api/">GitHub REST API</a></li>            
+        
+          <li><a href="/post/"></a></li>            
+        
+          <li><a href="/post/hello-r-markdown/">Hello R Markdown</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="/tags/bigdata/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/github_rest_api3/">
+      <div class="post-card-image" style="background-image: url(/img/04_cover_BLOG.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/github_rest_api3/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Set-up  </span>
+              
+              <h2 class="post-card-title">R packages</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Original post here: https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html
+Add summary desdcription of blog
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/r-python-bridge/">
+      <div class="post-card-image" style="background-image: url(/69_python_R/blog_title.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/r-python-bridge/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Docker  </span>
+              
+              <h2 class="post-card-title">R-Python Bridge</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> Linear models The R code is:  ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="/dr_small_png.png" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">BigData with Spark</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=BigData%20with%20Spark&amp;url=%2fpost%2fbigdata_with_spark%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fbigdata_with_spark%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">DJR</a> © 2019 <br>
+      <span style="font-size: 0.8em; color: #555;">Hugo port of <a href="https://github.com/TryGhost/Casper">Casper 2.1.7</a> by <a href="https://www.telematika.org">EM</a></span>
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        <a href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/DannyJRa" target="_blank" rel="noopener">Github</a>
+        <a href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@dannjrasch" target="_blank" rel="noopener">Medium</a>
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>
