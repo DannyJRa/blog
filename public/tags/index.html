@@ -106,7 +106,9 @@
           
           <a href="/tags/docker"> docker </a> (2)&nbsp;&#x2F;&nbsp;
           
-          <a href="/tags/github"> github </a> (1)&nbsp;&#x2F;&nbsp;
+          <a href="/tags/github"> github </a> (4)&nbsp;&#x2F;&nbsp;
+          
+          <a href="/tags/ml"> ml </a> (1)&nbsp;&#x2F;&nbsp;
           
           <a href="/tags/plot"> plot </a> (2)&nbsp;&#x2F;&nbsp;
           
@@ -127,6 +129,40 @@
     
     <div class="post-feed">
       
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/hello-r-markdown/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/hello-r-markdown/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #R Markdown 
+              #plot 
+              #regression  </span>
+              
+              <h2 class="post-card-title">Hello R Markdown</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Frida Gomam</a></span>
+      </footer>
+    </div>
+</article>
  
 
 <article class="post-card post"> 
@@ -161,67 +197,30 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/hello-r-markdown/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="/post/github_rest_api/">
+      <div class="post-card-image" style="background-image: url(/64_1_github_REST/blog_title.png)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/hello-r-markdown/">
+      <a class="post-card-content-link" href="/post/github_rest_api/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #R Markdown 
-              #plot 
-              #regression  </span>
+              #GitHub  </span>
               
-              <h2 class="post-card-title">Hello R Markdown</h2>
+              <h2 class="post-card-title">GitHub REST API</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu. ...  </p>
+                <p>Github Repos Pagination Issues Issues    Github Repos library(jsonlite) hadley_orgs &lt;- fromJSON(&quot;https://api.github.com/users/hadley/orgs&quot;) hadley_repos &lt;- fromJSON(&quot;https://api.github.com/users/dannyjra/repos&quot;) gg_issues &lt;- fromJSON(&quot;https://api.github.com/repos/hadley/ggplot2/issues&quot;) #latest commits gg_commits &lt;- fromJSON(&quot;https://api.github.com/repos/dannyjra/DannyJRa.github.io/commits&quot;) paste(format(gg_commits$commit$committer$date), &quot;:&quot;, gg_commits$commit$message)  Pagination SOURCE: https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc
+Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api.github.com/repos/hadley/dplyr/issues&quot;, query = list(state = &quot;all&quot;, per_page = 100, page = i)) jsondata &lt;- content(res, type = &quot;text&quot;) github_df &lt;- fromJSON(jsondata, flatten = TRUE) pages[[i]] &lt;- github_df } issues &lt;- bind_rows(pages) issues &lt;- as_data_frame(issues)  Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api. ...  </p>
               
           </section>
       </a>
 
       <footer class="post-card-meta">
           <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">Frida Gomam</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/hello-r-markdown/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/hello-r-markdown/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #R Markdown 
-              #plot 
-              #regression  </span>
-              
-              <h2 class="post-card-title">Hello R Markdown</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">Frida Gomam</a></span>
+          <span class="post-card-author"><a href="/">DannyJRa</a></span>
       </footer>
     </div>
 </article>

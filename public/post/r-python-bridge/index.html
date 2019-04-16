@@ -298,13 +298,13 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/post/docker-postgresql/">Docker PostGreSQL</a></li>            
+          <li><a href="/post/ml_caret/">ML with Caret</a></li>            
+        
+          <li><a href="/post/blog-json/">Blog JSON</a></li>            
+        
+          <li><a href="/post/blog_json/">Blog JSON</a></li>            
         
                       
-        
-          <li><a href="/post/hello-r-markdown/">Hello R Markdown</a></li>            
-        
-          <li><a href="/post/github_rest_api/">GitHub REST API</a></li>            
         
           <li><a href="/post/hello-r-markdown/">Hello R Markdown</a></li>            
         </ul>
@@ -319,23 +319,23 @@ s.setAttribute('data-timestamp', +new Date());
       
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/github_rest_api/">
-      <div class="post-card-image" style="background-image: url(/64_1_github_REST/blog_title.png)"></div>
+    <a class="post-card-image-link" href="/post/ml_caret/">
+      <div class="post-card-image" style="background-image: url(/img/01_blog_cover.jpg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/github_rest_api/">
+      <a class="post-card-content-link" href="/post/ml_caret/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #GitHub  </span>
+              #ML  </span>
               
-              <h2 class="post-card-title">GitHub REST API</h2>
+              <h2 class="post-card-title">ML with Caret</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Github Repos Pagination Issues Issues    Github Repos library(jsonlite) hadley_orgs &lt;- fromJSON(&quot;https://api.github.com/users/hadley/orgs&quot;) hadley_repos &lt;- fromJSON(&quot;https://api.github.com/users/dannyjra/repos&quot;) gg_issues &lt;- fromJSON(&quot;https://api.github.com/repos/hadley/ggplot2/issues&quot;) #latest commits gg_commits &lt;- fromJSON(&quot;https://api.github.com/repos/dannyjra/DannyJRa.github.io/commits&quot;) paste(format(gg_commits$commit$committer$date), &quot;:&quot;, gg_commits$commit$message)  Pagination SOURCE: https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc
-Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api.github.com/repos/hadley/dplyr/issues&quot;, query = list(state = &quot;all&quot;, per_page = 100, page = i)) jsondata &lt;- content(res, type = &quot;text&quot;) github_df &lt;- fromJSON(jsondata, flatten = TRUE) pages[[i]] &lt;- github_df } issues &lt;- bind_rows(pages) issues &lt;- as_data_frame(issues)  Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api. ...  </p>
+                <p>Add summary desdcription of blog
+ ...  </p>
               
           </section>
       </a>

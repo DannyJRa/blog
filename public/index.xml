@@ -6,10 +6,78 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blog JSON4</title>
+      <link>/post/github_rest_api4/</link>
+      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/github_rest_api4/</guid>
+      <description>Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──  ✔ ggplot2 3.1.0 ✔ purrr 0.3.2 ✔ tibble 2.1.1 ✔ dplyr 0.8.0.1 ✔ tidyr 0.8.3 ✔ stringr 1.4.0 ✔ readr 1.3.1 ✔ forcats 0.4.0  ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ── ✖ dplyr::filter() masks stats::filter() ✖ dplyr::lag() masks stats::lag()  library(jsonlite)  Attaching package: &#39;jsonlite&#39;  The following object is masked from &#39;package:purrr&#39;: flatten  yelp &amp;lt;- fromJSON(&amp;quot;data/yelp_academic_dataset_business.</description>
+    </item>
+    
+    <item>
+      <title>Blog JSON5</title>
+      <link>/post/github_rest_api5/</link>
+      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/github_rest_api5/</guid>
+      <description>&lt;p&gt;Linear models
+The R code is:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Blog JSON</title>
+      <link>/post/blog-json/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/blog-json/</guid>
+      <description>Working with JSON library(tidyverse) ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+ ✔ ggplot2 3.1.0 ✔ purrr 0.3.2
+✔ tibble 2.1.1 ✔ dplyr 0.8.0.1
+✔ tidyr 0.8.3 ✔ stringr 1.4.0
+✔ readr 1.3.1 ✔ forcats 0.4.0
+ ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag() masks stats::lag()
+ library(jsonlite) Attaching package: ‘jsonlite’
+ The following object is masked from ‘package:purrr’:
+ flatten  yelp &amp;lt;- fromJSON(&amp;quot;data/yelp_academic_dataset_business.json&amp;quot;) Error in parse_con(txt, bigint_as_char): parse error: trailing garbage</description>
+    </item>
+    
+    <item>
+      <title>Blog JSON</title>
+      <link>/post/blog_json/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/blog_json/</guid>
+      <description>Working with JSON Count how restaurants Unnest a list variable   Working with JSON library(tidyverse) library(jsonlite) yelp &amp;lt;- fromJSON(&amp;quot;data/yelp_academic_dataset_business.json&amp;quot;) Error: lexical error: invalid char in json text.
+ data/yelp_academic_dataset_busi (right here) ------^  However, when we run the above command we would actully get an error like below.
+This is because this JSON file turned out to be something called ‘NDJSON (Newline delimited JSON)’, which means there are multiple JSON values inside this file and each of the JSON values is considered as an independent object.</description>
+    </item>
+    
+    <item>
+      <title>Blog JSON</title>
+      <link>/post/blog-json/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/blog-json/</guid>
+      <description>Working with JSON library(tidyverse) ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+ ✔ ggplot2 3.1.0 ✔ purrr 0.3.2
+✔ tibble 2.1.1 ✔ dplyr 0.8.0.1
+✔ tidyr 0.8.3 ✔ stringr 1.4.0
+✔ readr 1.3.1 ✔ forcats 0.4.0
+ ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag() masks stats::lag()
+ library(jsonlite) Attaching package: ‘jsonlite’
+ The following object is masked from ‘package:purrr’:
+ flatten  yelp &amp;lt;- fromJSON(&amp;quot;data/yelp_academic_dataset_business.json&amp;quot;) Error: lexical error: invalid char in json text.</description>
+    </item>
     
     <item>
       <title>Firebase &amp; Shiny</title>
@@ -28,6 +96,15 @@
       <guid>/post/github_rest_api/</guid>
       <description>Github Repos Pagination Issues Issues    Github Repos library(jsonlite) hadley_orgs &amp;lt;- fromJSON(&amp;quot;https://api.github.com/users/hadley/orgs&amp;quot;) hadley_repos &amp;lt;- fromJSON(&amp;quot;https://api.github.com/users/dannyjra/repos&amp;quot;) gg_issues &amp;lt;- fromJSON(&amp;quot;https://api.github.com/repos/hadley/ggplot2/issues&amp;quot;) #latest commits gg_commits &amp;lt;- fromJSON(&amp;quot;https://api.github.com/repos/dannyjra/DannyJRa.github.io/commits&amp;quot;) paste(format(gg_commits$commit$committer$date), &amp;quot;:&amp;quot;, gg_commits$commit$message)  Pagination SOURCE: https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc
 Issues library(dplyr) pages &amp;lt;- list() for(i in 1:15){ res &amp;lt;- GET(&amp;quot;https://api.github.com/repos/hadley/dplyr/issues&amp;quot;, query = list(state = &amp;quot;all&amp;quot;, per_page = 100, page = i)) jsondata &amp;lt;- content(res, type = &amp;quot;text&amp;quot;) github_df &amp;lt;- fromJSON(jsondata, flatten = TRUE) pages[[i]] &amp;lt;- github_df } issues &amp;lt;- bind_rows(pages) issues &amp;lt;- as_data_frame(issues)  Issues library(dplyr) pages &amp;lt;- list() for(i in 1:15){ res &amp;lt;- GET(&amp;quot;https://api.</description>
+    </item>
+    
+    <item>
+      <title>ML with Caret</title>
+      <link>/post/ml_caret/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ml_caret/</guid>
+      <description>&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -128,6 +205,25 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title></title>
+      <link>/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/</guid>
+      <description>Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+✔ ggplot2 3.1.0 ✔ purrr 0.3.2
+✔ tibble 2.1.1 ✔ dplyr 0.8.0.1
+✔ tidyr 0.8.3 ✔ stringr 1.4.0
+✔ readr 1.3.1 ✔ forcats 0.4.0
+── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag() masks stats::lag()
+library(jsonlite)  Attaching package: ‘jsonlite’
+The following object is masked from ‘package:purrr’:
+ flatten  yelp &amp;lt;- fromJSON(&amp;quot;data/yelp_academic_dataset_business.json&amp;quot;)  Error in parse_con(txt, bigint_as_char): parse error: trailing garbage</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/test_slides/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -135,6 +231,24 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <description> test_slides author: date: autosize: true
 First Slide For more details on authoring R presentations please visit https://support.rstudio.com/hc/en-us/articles/200486468.
  Bullet 1 Bullet 2 Bullet 3  Slide With Code summary(cars)   speed dist Min. : 4.0 Min. : 2.00 1st Qu.:12.0 1st Qu.: 26.00 Median :15.0 Median : 36.00 Mean :15.4 Mean : 42.98 3rd Qu.:19.0 3rd Qu.: 56.00 Max. :25.0 Max. :120.00  Slide With Plot </description>
+    </item>
+    
+    <item>
+      <title>Untitled</title>
+      <link>/post/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/untitled/</guid>
+      <description>Rmd_files &amp;lt;- list.files(&amp;quot;content&amp;quot;, &amp;quot;\\.Rmd$&amp;quot;, recursive = TRUE, full.names = TRUE) Rmd_files ## character(0) list.files(&amp;quot;content&amp;quot;, pattern = &amp;quot;^.*Python*.*.Rmd$&amp;quot;,recursive = TRUE, full.names = TRUE) ## character(0) # it&amp;#39;s better to use - or _ in file name instead of white space. # press tab in link to refresh the rstudio preview # need absoluate path because servr changed current working directory. process_rmd &amp;lt;- function(rmd_path, site_path = &amp;quot;.&amp;quot;) { # assume asset folder has same name of rmd name file_name &amp;lt;- basename(rmd_path) asset_folder &amp;lt;- substr(file_name, 1, nchar(file_name) - 4) # change relative path of assets folder to absolute path # to deal with encoding, there are some internal functions.</description>
+    </item>
+    
+    <item>
+      <title>Untitled</title>
+      <link>/post/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/untitled/</guid>
+      <description>Rmd_files &amp;lt;- list.files(&amp;quot;content&amp;quot;, &amp;quot;\\.Rmd$&amp;quot;, recursive = TRUE, full.names = TRUE) Rmd_files ## character(0) list.files(&amp;quot;content&amp;quot;, pattern = &amp;quot;^.*Python*.*.Rmd$&amp;quot;,recursive = TRUE, full.names = TRUE) ## character(0) # it&amp;#39;s better to use - or _ in file name instead of white space. # press tab in link to refresh the rstudio preview # need absoluate path because servr changed current working directory. process_rmd &amp;lt;- function(rmd_path, site_path = &amp;quot;.&amp;quot;) { # assume asset folder has same name of rmd name file_name &amp;lt;- basename(rmd_path) asset_folder &amp;lt;- substr(file_name, 1, nchar(file_name) - 4) # change relative path of assets folder to absolute path # to deal with encoding, there are some internal functions.</description>
     </item>
     
   </channel>

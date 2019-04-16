@@ -1,0 +1,198 @@
+---
+title: Blog JSON
+author: DannyJRa
+date: '2019-01-11'
+output:
+  md_document:
+    variant: markdown_github
+
+---
+
+
+
+<div id="working-with-json" class="section level1">
+<h1>Working with JSON</h1>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<div class="alert alert-info">
+<p>── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</p>
+</div>
+<div class="alert alert-info">
+<p>✔ ggplot2 3.1.0 ✔ purrr 0.3.2</p>
+<p>✔ tibble 2.1.1 ✔ dplyr 0.8.0.1</p>
+<p>✔ tidyr 0.8.3 ✔ stringr 1.4.0</p>
+<p>✔ readr 1.3.1 ✔ forcats 0.4.0</p>
+</div>
+<div class="alert alert-info">
+<p>── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──</p>
+<p>✖ dplyr::filter() masks stats::filter()</p>
+<p>✖ dplyr::lag() masks stats::lag()</p>
+</div>
+<pre class="r"><code>library(jsonlite)</code></pre>
+<div class="alert alert-info">
+<p>Attaching package: ‘jsonlite’</p>
+</div>
+<div class="alert alert-info">
+<p>The following object is masked from ‘package:purrr’:</p>
+<pre><code> flatten</code></pre>
+</div>
+<pre class="r"><code>yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong>: lexical error: invalid char in json text.</p>
+<pre><code>                                    data/yelp_academic_dataset_busi
+
+                  (right here) ------^</code></pre>
+</div>
+<p>However, when we run the above command we would actully get an error like below.</p>
+<p>This is because this JSON file turned out to be something called ‘NDJSON (Newline delimited JSON)’, which means there are multiple JSON values inside this file and each of the JSON values is considered as an independent object. In this particular case, each business information makes up one single JSON value therefore there are many JSON values inside of this JSON file. This could be used often in data streaming situations where each JSON data can be separated from other parts of the file so that each JSON data can be processed without waiting for the whole document to load.</p>
+<pre class="r"><code>yelp &lt;- stream_in(file(&quot;data/yelp_academic_dataset_business.json&quot;))</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in open.connection(con, “rb”): cannot open the connection</p>
+</div>
+<p>Flatten Yelp data frame
+Let’s find out how the data has been imported by quickly running ‘str()’ function.</p>
+<pre class="r"><code>str(yelp)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in str(yelp): object ‘yelp’ not found</p>
+</div>
+<p>As you can see ‘hours’ variable is actually a data frame that contains 7 data frames each of which is for a weekday like ‘Tuesday’. And the weekday variables themselves are data frames and each contains two ‘character’ variables of ‘open’ and ‘close’.</p>
+<p>This is reflecting the original JSON data structure, but it is a bit confusing for analyzing data in R. We can use ‘flatten()’ function from ‘jsonlite’ package to make the nested hiearchical data structure into a flatten manner by assigning each of the nested variable as its own column as much as possible.</p>
+<pre class="r"><code>yelp_flat &lt;- jsonlite::flatten(yelp)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in is.data.frame(x): object ‘yelp’ not found</p>
+</div>
+<pre class="r"><code>str(yelp_flat)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in str(yelp_flat): object ‘yelp_flat’ not found</p>
+</div>
+<p>Now the data structure looks a lot easier to grasp and even the data looks easier to see.</p>
+<p>Before printing out the data I’m going to use ‘as_data_frame()’ function from the new package called ‘tibble’, which was released just last week from Hadley Wickham and the team to make it easier to see the data frame data in R console UI.</p>
+<p>We can use ‘as_data_frame()’ function to convert our data frame to be ‘tbl_df’, which is an extended version of the data frame. Once it’s in ‘tbl_df’ type, it automatically shows only the first 10 variables in the console output by simply typing the data frame name so you don’t need to call ‘head()’ function separately. Also, it shows a data type for each variable in the output.</p>
+<pre class="r"><code>library(tibble)
+yelp_tbl &lt;- as_data_frame(yelp_flat)</code></pre>
+<div class="alert alert-warning">
+<p><strong>Warning</strong> <code>as_data_frame()</code> is deprecated, use <code>as_tibble()</code> (but mind the new semantics).</p>
+<p>This warning is displayed once per session.</p>
+</div>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in as_tibble(x, …): object ‘yelp_flat’ not found</p>
+</div>
+<pre class="r"><code>yelp_tbl</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(expr, envir, enclos): object ‘yelp_tbl’ not found</p>
+</div>
+<pre class="r"><code>yelp_tbl2&lt;-yelp_tbl %&gt;% mutate(categories = as.character(categories)) %&gt;% select(categories)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>Drop now when you look at the data again, looks there are bunch of variables whose name starts with either ‘hours’ or ‘attributes’.</p>
+<pre class="r"><code>yelp_tbl %&gt;% 
+ select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;))</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+</div>
+<div id="count-how-restaurants" class="section level1">
+<h1>Count how restaurants</h1>
+<p>Now, let’s find out how many ‘Restaurant’ business in the data. We can use ‘str_detect()’ function from ‘stringr’ package to find the businesses whose ‘categories’ variable values contain ‘Restaurant’ text. If you want to know more detail about this function check out this post.</p>
+<pre class="r"><code>library(stringr)
+yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;))</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>The cool thing about this function is that even when we have a ‘list’ data type variable it can go inside the list values and do the text matching. Pretty awesome.</p>
+<p>Now, number of the rows is 21,892, as opposed to the original of 61,184 rows. That means there are 21,892 ‘Restaurant’ related businesses in this data out of 61,184 businesses. To confirm if this is really the case, let’s look at the categories column with ‘as.character()’ function again.</p>
+<pre class="r"><code>yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ mutate(categories = as.character(categories)) %&gt;% select(categories)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>Looks all the rows (well, all the first 10 rows anyway) look like they have “Restaurants’ as one of the categories.</p>
+<p>And this is interesting because people on Yelp are tagging different genres for each “Restaurant” business. For example, some restaurants could be considered as “Bars”, “American (New)”, “Pub”, etc. So one of the interesting question would be, “what type of the restaurants are more common in this data set?”</p>
+<p>The easiest way to answer this question is to break out this ‘categories’ list data type variable and assign each value inside the list into each row. So essentially we’ll have a variable called ‘categories’ and this will have just one category value for each row. This means, some businesses might be repeated across rows many times, but that’s ok because our concern for now is to count each restaurant category type.</p>
+</div>
+<div id="unnest-a-list-variable" class="section level1">
+<h1>Unnest a list variable</h1>
+<p>To break out ‘categories’ variable and create one row for each value, we can use ‘unnest()’ function from tidyr package, which is another great package from ‘Hadleyverse’ to help making raw data into a ‘tidy’ format.</p>
+<p>hadley/tidyr</p>
+<p>tidyr - Easily tidy data with spread and gather functions.
+github.com<br />
+I will talk about more on ‘tidy’ format with ‘tidyr’ package in a separate post, but for now I am going to simply use ‘unnest()’ function to “unnest” the ‘categories’ variable like below.</p>
+<pre class="r"><code>library(tidyr)
+yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ select(name, categories)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>As you can see, ‘Emil’s Lounge’ is now repeated 5 times, for example. This is because it has those 5 different categories assigned to this business. This will allow us to do a quick summarization with ‘count()’ function like below.</p>
+<pre class="r"><code>yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ select(name, categories) %&gt;%
+ count(categories)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>And if you want to see the top categories you can simply use ‘arrange()’ function to sort.</p>
+<pre class="r"><code>yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ select(name, categories) %&gt;%
+ count(categories) %&gt;%
+ arrange(desc(n))</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>Let’s get rid of the rows with ‘Restaurants’ category because we know every single rows in this data set has something to do with ‘Restaurant’ now.</p>
+<pre class="r"><code>yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(categories) %&gt;%
+ arrange(desc(n))</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>When you run the above command you will get something like below. You can see ‘Fast Food’ is the number one, and ‘Pizza’ and ‘Mexican’ come after.</p>
+<p>What are the most common restaurant types per state / province?
+In this data set, there is a variable called ‘state’ that contains state names or province names of US and some European countries. So, what if we want to know what restaurant categories are more frequently showing up for each state ?</p>
+<p>We can simply add ‘state’ variable into ‘count()’ function like below.</p>
+<pre class="r"><code>yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(state, categories) %&gt;%
+ arrange(desc(n))</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>Now, let’s take a look at the top restaurant category for each state. We can use ‘group_by()’ function to group the data by state and use ‘top_n()’ function to keep only the top category. Both functions are from ‘dplyr’ package.</p>
+<pre class="r"><code>yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(state, categories) %&gt;%
+ group_by(state) %&gt;%
+ top_n(1, n)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>As you can see there are 5 entries for “FIF” province, this is because they are all tie. But the values are just ‘1’ and that’s a really small number compared to the others. So let’s filter out those small numbers from the data before the group_by and top_n steps.</p>
+<pre class="r"><code>yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(state, categories) %&gt;%
+ filter(n &gt; 10) %&gt;%
+ group_by(state) %&gt;%
+ top_n(1, n)</code></pre>
+<div class="alert alert-danger">
+<p><strong>Error</strong> in eval(lhs, parent, parent): object ‘yelp_tbl’ not found</p>
+</div>
+<p>The result is a list of the top restaurant category for each of the 12 state or province.</p>
+<p>This is a very simple analysis on Yelp business data. But given where we started with Yelp business data in the raw JSON format, hope this has demonstrated how quickly, incrementally, and iteratively we can get some interesting information out of such un-traditional (not tabular) data format relatively easily and quickly.</p>
+<p>Notes: Adopted from <a href="https://blog.exploratory.io/working-with-json-data-in-very-simple-way-ad7ebcc0bb89" class="uri">https://blog.exploratory.io/working-with-json-data-in-very-simple-way-ad7ebcc0bb89</a></p>
+</div>

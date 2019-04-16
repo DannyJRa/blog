@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Posts &middot; </title>
+    <title> &middot; </title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,25 +12,31 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="canonical" href="/post/" />
 
-    
-    <meta name="description" content="Here is a description of your site." /> 
+     <meta name="description" content="Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+✔ ggplot2" /> 
 
+     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/img/blog-cover.jpg"/>
+    
  
-    <meta name="twitter:title" content="Posts"/>
-    <meta name="twitter:description" content="Here is a description of your site."/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:description" content="Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+✔ ggplot2"/>
     <meta name="twitter:url" content="/post/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
     <meta property="og:site_name" content="" />
-    <meta property="og:title" content="Posts &middot; Blog" />
+    <meta property="og:title" content=" &middot; Blog" />
     <meta property="og:url" content="/post/" />
     
 
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Here is a description of your site." />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+✔ ggplot2" />
+
+    <meta property="article:published_time" content="0001-01-01T00:00:00Z" />
+    
 
     <meta property="og:image" content="/img/blog-cover.jpg"/>
 
@@ -47,19 +53,16 @@
 </head>
 
 
-<body class="home-template"><div class="site-wrapper">
+<body class="post-template">
+  <div class="site-wrapper"> 
 
-<header class="site-header outer "  style="background-image: url(/img/blog-cover.jpg)"  >
+<header class="site-header outer">
   <div class="inner">
-    <div class="site-header-content">
-      <h1 class="site-title">
-        <img class="site-logo" src="/dr_small_png.png" alt="Blog" />
-       </h1>
-        <h2 class="site-description">Blog DannJRa </h2>
-    </div>
-
     <nav class="site-nav">
-      <div class="site-nav-left"><ul class="nav" role="menu">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="/dr_small_png.png" alt="Blog" /></a>
+
+        <ul class="nav" role="menu">
         
         
         
@@ -107,208 +110,917 @@
 
 <main id="site-main" class="site-main outer" role="main">
   <div class="inner">
-    <div class="post-feed">
-      
-
-
-<article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/github_rest_api/">
-      <div class="post-card-image" style="background-image: url(/64_1_github_REST/blog_title.png)"></div>
-    </a>
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="0001-01-01">1 January 0001</time>
+        </section>
+        <h1 class="post-full-title"></h1>
+    </header>
     
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
+    </figure>
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/github_rest_api/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #GitHub  </span>
-              
-              <h2 class="post-card-title">GitHub REST API</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Github Repos Pagination Issues Issues    Github Repos library(jsonlite) hadley_orgs &lt;- fromJSON(&quot;https://api.github.com/users/hadley/orgs&quot;) hadley_repos &lt;- fromJSON(&quot;https://api.github.com/users/dannyjra/repos&quot;) gg_issues &lt;- fromJSON(&quot;https://api.github.com/repos/hadley/ggplot2/issues&quot;) #latest commits gg_commits &lt;- fromJSON(&quot;https://api.github.com/repos/dannyjra/DannyJRa.github.io/commits&quot;) paste(format(gg_commits$commit$committer$date), &quot;:&quot;, gg_commits$commit$message)  Pagination SOURCE: https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc
-Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api.github.com/repos/hadley/dplyr/issues&quot;, query = list(state = &quot;all&quot;, per_page = 100, page = i)) jsondata &lt;- content(res, type = &quot;text&quot;) github_df &lt;- fromJSON(jsondata, flatten = TRUE) pages[[i]] &lt;- github_df } issues &lt;- bind_rows(pages) issues &lt;- as_data_frame(issues)  Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api. ...  </p>
-              
-          </section>
-      </a>
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        
 
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">DannyJRa</a></span>
-      </footer>
-    </div>
+<h1 id="working-with-json">Working with JSON</h1>
+
+<pre><code class="language-r">library(tidyverse)
+</code></pre>
+
+<p>── Attaching packages
+───────────────────────────────────────────────────────────────────────
+tidyverse 1.2.1 ──</p>
+
+<p>✔ ggplot2 3.1.0 ✔ purrr 0.3.2</p>
+
+<p>✔ tibble 2.1.1 ✔ dplyr 0.8.0.1</p>
+
+<p>✔ tidyr 0.8.3 ✔ stringr 1.4.0</p>
+
+<p>✔ readr 1.3.1 ✔ forcats 0.4.0</p>
+
+<p>── Conflicts
+──────────────────────────────────────────────────────────────────────────
+tidyverse_conflicts() ──</p>
+
+<p>✖ dplyr::filter() masks stats::filter()</p>
+
+<p>✖ dplyr::lag() masks stats::lag()</p>
+
+<pre><code class="language-r">library(jsonlite)
+</code></pre>
+
+<p>Attaching package: ‘jsonlite’</p>
+
+<p>The following object is masked from ‘package:purrr’:</p>
+
+<pre><code> flatten
+</code></pre>
+
+<pre><code class="language-r">yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;)
+</code></pre>
+
+<p><strong>Error</strong> in parse_con(txt, bigint_as_char): parse error: trailing
+garbage</p>
+
+<pre><code>        true}, &quot;type&quot;: &quot;business&quot;}  {&quot;business_id&quot;: &quot;UsFtqoBl7naz8A
+
+                  (right here) ------^
+</code></pre>
+
+<p>However, when we run the above command we would actully get an error
+like below.</p>
+
+<p>This is because this JSON file turned out to be something called ‘NDJSON
+(Newline delimited JSON)’, which means there are multiple JSON values
+inside this file and each of the JSON values is considered as an
+independent object. In this particular case, each business information
+makes up one single JSON value therefore there are many JSON values
+inside of this JSON file. This could be used often in data streaming
+situations where each JSON data can be separated from other parts of the
+file so that each JSON data can be processed without waiting for the
+whole document to load.</p>
+
+<pre><code class="language-r">yelp &lt;- stream_in(file(&quot;data/yelp_academic_dataset_business.json&quot;))
+</code></pre>
+
+<pre><code>## 
+ Found 500 records...
+ Found 1000 records...
+ Found 1500 records...
+ Found 2000 records...
+ Found 2500 records...
+ Found 3000 records...
+ Found 3500 records...
+ Found 4000 records...
+ Found 4500 records...
+ Found 5000 records...
+ Found 5500 records...
+ Found 6000 records...
+ Found 6500 records...
+ Found 7000 records...
+ Found 7500 records...
+ Found 8000 records...
+ Found 8500 records...
+ Found 9000 records...
+ Found 9500 records...
+ Found 10000 records...
+ Found 10500 records...
+ Found 11000 records...
+ Found 11500 records...
+ Found 12000 records...
+ Found 12500 records...
+ Found 13000 records...
+ Found 13500 records...
+ Found 14000 records...
+ Found 14500 records...
+ Found 15000 records...
+ Found 15500 records...
+ Found 16000 records...
+ Found 16500 records...
+ Found 17000 records...
+ Found 17500 records...
+ Found 18000 records...
+ Found 18500 records...
+ Found 19000 records...
+ Found 19500 records...
+ Found 20000 records...
+ Found 20500 records...
+ Found 21000 records...
+ Found 21500 records...
+ Found 22000 records...
+ Found 22500 records...
+ Found 23000 records...
+ Found 23500 records...
+ Found 24000 records...
+ Found 24500 records...
+ Found 25000 records...
+ Found 25500 records...
+ Found 26000 records...
+ Found 26500 records...
+ Found 27000 records...
+ Found 27500 records...
+ Found 28000 records...
+ Found 28500 records...
+ Found 29000 records...
+ Found 29500 records...
+ Found 30000 records...
+ Found 30500 records...
+ Found 31000 records...
+ Found 31500 records...
+ Found 32000 records...
+ Found 32500 records...
+ Found 33000 records...
+ Found 33500 records...
+ Found 34000 records...
+ Found 34500 records...
+ Found 35000 records...
+ Found 35500 records...
+ Found 36000 records...
+ Found 36500 records...
+ Found 37000 records...
+ Found 37500 records...
+ Found 38000 records...
+ Found 38500 records...
+ Found 39000 records...
+ Found 39500 records...
+ Found 40000 records...
+ Found 40500 records...
+ Found 41000 records...
+ Found 41500 records...
+ Found 42000 records...
+ Found 42500 records...
+ Found 43000 records...
+ Found 43500 records...
+ Found 44000 records...
+ Found 44500 records...
+ Found 45000 records...
+ Found 45500 records...
+ Found 46000 records...
+ Found 46500 records...
+ Found 47000 records...
+ Found 47500 records...
+ Found 48000 records...
+ Found 48500 records...
+ Found 49000 records...
+ Found 49500 records...
+ Found 50000 records...
+ Found 50500 records...
+ Found 51000 records...
+ Found 51500 records...
+ Found 52000 records...
+ Found 52500 records...
+ Found 53000 records...
+ Found 53500 records...
+ Found 54000 records...
+ Found 54500 records...
+ Found 55000 records...
+ Found 55500 records...
+ Found 56000 records...
+ Found 56500 records...
+ Found 57000 records...
+ Found 57500 records...
+ Found 58000 records...
+ Found 58500 records...
+ Found 59000 records...
+ Found 59500 records...
+ Found 60000 records...
+ Found 60500 records...
+ Found 61000 records...
+ Found 61184 records...
+ Imported 61184 records. Simplifying...
+</code></pre>
+
+<p>Flatten Yelp data frame Let’s find out how the data has been imported by
+quickly running ‘str()’ function.</p>
+
+<pre><code class="language-r">str(yelp)
+</code></pre>
+
+<pre><code>...
+## 'data.frame':    61184 obs. of  15 variables:
+##  $ business_id  : chr  &quot;vcNAWiLM4dR7D2nwwJ7nCA&quot; &quot;UsFtqoBl7naz8AVUBZMjQQ&quot; &quot;cE27W9VPgO88Qxe4ol6y_g&quot; &quot;HZdLhv6COCleJMo7nPl-RA&quot; ...
+##  $ full_address : chr  &quot;4840 E Indian School Rd\nSte 101\nPhoenix, AZ 85018&quot; &quot;202 McClure St\nDravosburg, PA 15034&quot; &quot;1530 Hamilton Rd\nBethel Park, PA 15234&quot; &quot;301 S Hills Vlg\nPittsburgh, PA 15241&quot; ...
+##  $ hours        :'data.frame':   61184 obs. of  7 variables:
+##   ..$ Tuesday  :'data.frame':    61184 obs. of  2 variables:
+##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
+##   .. ..$ open : chr  &quot;08:00&quot; NA NA &quot;10:00&quot; ...
+##   ..$ Friday   :'data.frame':    61184 obs. of  2 variables:
+##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
+##   .. ..$ open : chr  &quot;08:00&quot; NA NA &quot;10:00&quot; ...
+##   ..$ Monday   :'data.frame':    61184 obs. of  2 variables:
+##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
+##   .. ..$ open : chr  &quot;08:00&quot; NA NA &quot;10:00&quot; ...
+##   ..$ Wednesday:'data.frame':    61184 obs. of  2 variables:
+##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
+...
+</code></pre>
+
+<p>As you can see ‘hours’ variable is actually a data frame that contains 7
+data frames each of which is for a weekday like ‘Tuesday’. And the
+weekday variables themselves are data frames and each contains two
+‘character’ variables of ‘open’ and ‘close’.</p>
+
+<p>This is reflecting the original JSON data structure, but it is a bit
+confusing for analyzing data in R. We can use ‘flatten()’ function from
+‘jsonlite’ package to make the nested hiearchical data structure into a
+flatten manner by assigning each of the nested variable as its own
+column as much as possible.</p>
+
+<pre><code class="language-r">yelp_flat &lt;- jsonlite::flatten(yelp)
+str(yelp_flat)
+</code></pre>
+
+<pre><code>## 'data.frame':    61184 obs. of  105 variables:
+##  $ business_id                                         : chr  &quot;vcNAWiLM4dR7D2nwwJ7nCA&quot; &quot;UsFtqoBl7naz8AVUBZMjQQ&quot; &quot;cE27W9VPgO88Qxe4ol6y_g&quot; &quot;HZdLhv6COCleJMo7nPl-RA&quot; ...
+##  $ full_address                                        : chr  &quot;4840 E Indian School Rd\nSte 101\nPhoenix, AZ 85018&quot; &quot;202 McClure St\nDravosburg, PA 15034&quot; &quot;1530 Hamilton Rd\nBethel Park, PA 15234&quot; &quot;301 S Hills Vlg\nPittsburgh, PA 15241&quot; ...
+##  $ open                                                : logi  TRUE TRUE FALSE TRUE TRUE TRUE ...
+##  $ categories                                          :List of 61184
+##   ..$ : chr  &quot;Doctors&quot; &quot;Health &amp; Medical&quot;
+##   ..$ : chr &quot;Nightlife&quot;
+##   ..$ : chr  &quot;Active Life&quot; &quot;Mini Golf&quot; &quot;Golf&quot;
+##   ..$ : chr  &quot;Shopping&quot; &quot;Home Services&quot; &quot;Internet Service Providers&quot; &quot;Mobile Phones&quot; ...
+##   ..$ : chr  &quot;Bars&quot; &quot;American (New)&quot; &quot;Nightlife&quot; &quot;Lounges&quot; ...
+...
+</code></pre>
+
+<p>Now the data structure looks a lot easier to grasp and even the data
+looks easier to see.</p>
+
+<p>Before printing out the data I’m going to use ‘as_data_frame()’
+function from the new package called ‘tibble’, which was released just
+last week from Hadley Wickham and the team to make it easier to see the
+data frame data in R console UI.</p>
+
+<p>We can use ‘as_data_frame()’ function to convert our data frame to be
+‘tbl_df’, which is an extended version of the data frame. Once it’s in
+‘tbl_df’ type, it automatically shows only the first 10 variables in
+the console output by simply typing the data frame name so you don’t
+need to call ‘head()’ function separately. Also, it shows a data type
+for each variable in the output.</p>
+
+<pre><code class="language-r">library(tibble)
+yelp_tbl &lt;- as_data_frame(yelp_flat)
+</code></pre>
+
+<p><strong>Warning</strong> <code>as_data_frame()</code> is deprecated, use <code>as_tibble()</code> (but mind
+the new semantics).</p>
+
+<p>This warning is displayed once per session.</p>
+
+<pre><code class="language-r">yelp_tbl
+</code></pre>
+
+<pre><code>## # A tibble: 61,184 x 105
+##    business_id full_address open  categories city  review_count name 
+##    &lt;chr&gt;       &lt;chr&gt;        &lt;lgl&gt; &lt;list&gt;     &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;
+##  1 vcNAWiLM4d… &quot;4840 E Ind… TRUE  &lt;chr [2]&gt;  Phoe…            9 Eric…
+##  2 UsFtqoBl7n… &quot;202 McClur… TRUE  &lt;chr [1]&gt;  Drav…            4 Clan…
+##  3 cE27W9VPgO… &quot;1530 Hamil… FALSE &lt;chr [3]&gt;  Beth…            5 Cool…
+##  4 HZdLhv6COC… &quot;301 S Hill… TRUE  &lt;chr [6]&gt;  Pitt…            3 Veri…
+##  5 mVHrayjG3u… &quot;414 Hawkin… TRUE  &lt;chr [5]&gt;  Brad…           11 Emil…
+##  6 KayYbHCt-R… &quot;141 Hawtho… TRUE  &lt;chr [4]&gt;  Carn…           15 Alex…
+##  7 b12U9TFESS… &quot;718 Hope H… TRUE  &lt;chr [2]&gt;  Carn…            5 Flyn…
+##  8 Sktj1eHQFu… &quot;920 Forsyt… TRUE  &lt;chr [2]&gt;  Carn…            4 Fors…
+##  9 3ZVKmuK2l7… &quot;8 Logan St… TRUE  &lt;chr [2]&gt;  Carn…            3 Quak…
+## 10 wJr6kSA5dc… &quot;2100 Washi… TRUE  &lt;chr [4]&gt;  Carn…            8 King…
+## # … with 61,174 more rows, and 98 more variables: neighborhoods &lt;list&gt;,
+## #   longitude &lt;dbl&gt;, state &lt;chr&gt;, stars &lt;dbl&gt;, latitude &lt;dbl&gt;, type &lt;chr&gt;,
+## #   hours.Tuesday.close &lt;chr&gt;, hours.Tuesday.open &lt;chr&gt;,
+## #   hours.Friday.close &lt;chr&gt;, hours.Friday.open &lt;chr&gt;,
+## #   hours.Monday.close &lt;chr&gt;, hours.Monday.open &lt;chr&gt;,
+## #   hours.Wednesday.close &lt;chr&gt;, hours.Wednesday.open &lt;chr&gt;,
+## #   hours.Thursday.close &lt;chr&gt;, hours.Thursday.open &lt;chr&gt;,
+## #   hours.Sunday.close &lt;chr&gt;, hours.Sunday.open &lt;chr&gt;,
+## #   hours.Saturday.close &lt;chr&gt;, hours.Saturday.open &lt;chr&gt;, `attributes.By
+## #   Appointment Only` &lt;lgl&gt;, `attributes.Happy Hour` &lt;lgl&gt;,
+## #   `attributes.Accepts Credit Cards` &lt;list&gt;, `attributes.Good For
+## #   Groups` &lt;lgl&gt;, `attributes.Outdoor Seating` &lt;lgl&gt;, `attributes.Price
+## #   Range` &lt;int&gt;, `attributes.Good for Kids` &lt;lgl&gt;,
+## #   attributes.Alcohol &lt;chr&gt;, `attributes.Noise Level` &lt;chr&gt;,
+## #   `attributes.Has TV` &lt;lgl&gt;, attributes.Attire &lt;chr&gt;, `attributes.Good
+## #   For Dancing` &lt;lgl&gt;, attributes.Delivery &lt;lgl&gt;, `attributes.Coat
+## #   Check` &lt;lgl&gt;, attributes.Smoking &lt;chr&gt;, `attributes.Take-out` &lt;lgl&gt;,
+## #   `attributes.Takes Reservations` &lt;lgl&gt;, `attributes.Waiter
+## #   Service` &lt;lgl&gt;, `attributes.Wi-Fi` &lt;chr&gt;, attributes.Caters &lt;lgl&gt;,
+## #   `attributes.Drive-Thru` &lt;lgl&gt;, `attributes.Wheelchair
+## #   Accessible` &lt;lgl&gt;, attributes.BYOB &lt;lgl&gt;, attributes.Corkage &lt;lgl&gt;,
+## #   `attributes.BYOB/Corkage` &lt;chr&gt;, `attributes.Order at Counter` &lt;lgl&gt;,
+## #   `attributes.Good For Kids` &lt;lgl&gt;, `attributes.Dogs Allowed` &lt;lgl&gt;,
+## #   `attributes.Open 24 Hours` &lt;lgl&gt;, `attributes.Accepts
+## #   Insurance` &lt;lgl&gt;, `attributes.Ages Allowed` &lt;chr&gt;,
+## #   attributes.Ambience.romantic &lt;lgl&gt;,
+## #   attributes.Ambience.intimate &lt;lgl&gt;, attributes.Ambience.classy &lt;lgl&gt;,
+## #   attributes.Ambience.hipster &lt;lgl&gt;, attributes.Ambience.divey &lt;lgl&gt;,
+## #   attributes.Ambience.touristy &lt;lgl&gt;, attributes.Ambience.trendy &lt;lgl&gt;,
+## #   attributes.Ambience.upscale &lt;lgl&gt;, attributes.Ambience.casual &lt;lgl&gt;,
+## #   `attributes.Good For.dessert` &lt;lgl&gt;, `attributes.Good
+## #   For.latenight` &lt;lgl&gt;, `attributes.Good For.lunch` &lt;lgl&gt;,
+## #   `attributes.Good For.dinner` &lt;lgl&gt;, `attributes.Good
+## #   For.breakfast` &lt;lgl&gt;, `attributes.Good For.brunch` &lt;lgl&gt;,
+## #   attributes.Parking.garage &lt;lgl&gt;, attributes.Parking.street &lt;lgl&gt;,
+## #   attributes.Parking.validated &lt;lgl&gt;, attributes.Parking.lot &lt;lgl&gt;,
+## #   attributes.Parking.valet &lt;lgl&gt;, attributes.Music.dj &lt;lgl&gt;,
+## #   attributes.Music.background_music &lt;lgl&gt;,
+## #   attributes.Music.karaoke &lt;lgl&gt;, attributes.Music.live &lt;lgl&gt;,
+## #   attributes.Music.video &lt;lgl&gt;, attributes.Music.jukebox &lt;lgl&gt;,
+## #   attributes.Music.playlist &lt;lgl&gt;, `attributes.Hair Types Specialized
+## #   In.coloring` &lt;lgl&gt;, `attributes.Hair Types Specialized
+## #   In.africanamerican` &lt;lgl&gt;, `attributes.Hair Types Specialized
+## #   In.curly` &lt;lgl&gt;, `attributes.Hair Types Specialized In.perms` &lt;lgl&gt;,
+## #   `attributes.Hair Types Specialized In.kids` &lt;lgl&gt;, `attributes.Hair
+## #   Types Specialized In.extensions` &lt;lgl&gt;, `attributes.Hair Types
+## #   Specialized In.asian` &lt;lgl&gt;, `attributes.Hair Types Specialized
+## #   In.straightperms` &lt;lgl&gt;, `attributes.Payment Types.amex` &lt;lgl&gt;,
+## #   `attributes.Payment Types.cash_only` &lt;lgl&gt;, `attributes.Payment
+## #   Types.mastercard` &lt;lgl&gt;, `attributes.Payment Types.visa` &lt;lgl&gt;,
+## #   `attributes.Payment Types.discover` &lt;lgl&gt;, `attributes.Dietary
+## #   Restrictions.dairy-free` &lt;lgl&gt;, `attributes.Dietary
+## #   Restrictions.gluten-free` &lt;lgl&gt;, `attributes.Dietary
+## #   Restrictions.vegan` &lt;lgl&gt;, `attributes.Dietary
+## #   Restrictions.kosher` &lt;lgl&gt;, `attributes.Dietary
+## #   Restrictions.halal` &lt;lgl&gt;, `attributes.Dietary
+## #   Restrictions.soy-free` &lt;lgl&gt;, `attributes.Dietary
+## #   Restrictions.vegetarian` &lt;lgl&gt;
+</code></pre>
+
+<pre><code class="language-r">yelp_tbl2&lt;-yelp_tbl %&gt;% mutate(categories = as.character(categories)) %&gt;% select(categories)
+</code></pre>
+
+<p>Drop now when you look at the data again, looks there are bunch of
+variables whose name starts with either ‘hours’ or ‘attributes’.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% 
+ select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;))
+</code></pre>
+
+<pre><code>## # A tibble: 61,184 x 13
+##    business_id full_address open  categories city  review_count name 
+##    &lt;chr&gt;       &lt;chr&gt;        &lt;lgl&gt; &lt;list&gt;     &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;
+##  1 vcNAWiLM4d… &quot;4840 E Ind… TRUE  &lt;chr [2]&gt;  Phoe…            9 Eric…
+##  2 UsFtqoBl7n… &quot;202 McClur… TRUE  &lt;chr [1]&gt;  Drav…            4 Clan…
+##  3 cE27W9VPgO… &quot;1530 Hamil… FALSE &lt;chr [3]&gt;  Beth…            5 Cool…
+##  4 HZdLhv6COC… &quot;301 S Hill… TRUE  &lt;chr [6]&gt;  Pitt…            3 Veri…
+##  5 mVHrayjG3u… &quot;414 Hawkin… TRUE  &lt;chr [5]&gt;  Brad…           11 Emil…
+##  6 KayYbHCt-R… &quot;141 Hawtho… TRUE  &lt;chr [4]&gt;  Carn…           15 Alex…
+##  7 b12U9TFESS… &quot;718 Hope H… TRUE  &lt;chr [2]&gt;  Carn…            5 Flyn…
+##  8 Sktj1eHQFu… &quot;920 Forsyt… TRUE  &lt;chr [2]&gt;  Carn…            4 Fors…
+##  9 3ZVKmuK2l7… &quot;8 Logan St… TRUE  &lt;chr [2]&gt;  Carn…            3 Quak…
+## 10 wJr6kSA5dc… &quot;2100 Washi… TRUE  &lt;chr [4]&gt;  Carn…            8 King…
+## # … with 61,174 more rows, and 6 more variables: neighborhoods &lt;list&gt;,
+## #   longitude &lt;dbl&gt;, state &lt;chr&gt;, stars &lt;dbl&gt;, latitude &lt;dbl&gt;, type &lt;chr&gt;
+</code></pre>
+
+<h1 id="count-how-restaurants">Count how restaurants</h1>
+
+<p>Now, let’s find out how many ‘Restaurant’ business in the data. We can
+use ‘str_detect()’ function from ‘stringr’ package to find the
+businesses whose ‘categories’ variable values contain ‘Restaurant’ text.
+If you want to know more detail about this function check out this post.</p>
+
+<pre><code class="language-r">library(stringr)
+yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;))
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 21,892 x 13
+##    business_id full_address open  categories city  review_count name 
+##    &lt;chr&gt;       &lt;chr&gt;        &lt;lgl&gt; &lt;list&gt;     &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;
+##  1 mVHrayjG3u… &quot;414 Hawkin… TRUE  &lt;chr [5]&gt;  Brad…           11 Emil…
+##  2 KayYbHCt-R… &quot;141 Hawtho… TRUE  &lt;chr [4]&gt;  Carn…           15 Alex…
+##  3 wJr6kSA5dc… &quot;2100 Washi… TRUE  &lt;chr [4]&gt;  Carn…            8 King…
+##  4 fNGIbpazjT… &quot;1201 Washi… TRUE  &lt;chr [5]&gt;  Carn…            5 Rock…
+##  5 b9WZJp5L1R… &quot;1073 Washi… TRUE  &lt;chr [2]&gt;  Carn…           38 Gab …
+##  6 zaXDakTd3R… &quot;202 3rd Av… TRUE  &lt;chr [2]&gt;  Carn…            5 Barb…
+##  7 WETE_Lykpc… &quot;215 E Main… FALSE &lt;chr [5]&gt;  Carn…            6 Padd…
+##  8 rv7CY8G_Xi… &quot;Raceway Pl… TRUE  &lt;chr [1]&gt;  Carn…            3 Long…
+##  9 SQ0j7bgSTa… &quot;214 E Main… TRUE  &lt;chr [2]&gt;  Carn…            8 Don …
+## 10 wqu7ILomIO… &quot;2180 Green… TRUE  &lt;chr [3]&gt;  Pitt…            7 Denn…
+## # … with 21,882 more rows, and 6 more variables: neighborhoods &lt;list&gt;,
+## #   longitude &lt;dbl&gt;, state &lt;chr&gt;, stars &lt;dbl&gt;, latitude &lt;dbl&gt;, type &lt;chr&gt;
+</code></pre>
+
+<p>The cool thing about this function is that even when we have a ‘list’
+data type variable it can go inside the list values and do the text
+matching. Pretty awesome.</p>
+
+<p>Now, number of the rows is 21,892, as opposed to the original of 61,184
+rows. That means there are 21,892 ‘Restaurant’ related businesses in
+this data out of 61,184 businesses. To confirm if this is really the
+case, let’s look at the categories column with ‘as.character()’ function
+again.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ mutate(categories = as.character(categories)) %&gt;% select(categories)
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 21,892 x 1
+##    categories                                                              
+##    &lt;chr&gt;                                                                   
+##  1 &quot;c(\&quot;Bars\&quot;, \&quot;American (New)\&quot;, \&quot;Nightlife\&quot;, \&quot;Lounges\&quot;, \&quot;Restaura…
+##  2 &quot;c(\&quot;Bars\&quot;, \&quot;American (Traditional)\&quot;, \&quot;Nightlife\&quot;, \&quot;Restaurants\&quot;…
+##  3 &quot;c(\&quot;Burgers\&quot;, \&quot;Breakfast &amp; Brunch\&quot;, \&quot;American (Traditional)\&quot;, \&quot;R…
+##  4 &quot;c(\&quot;Bars\&quot;, \&quot;American (Traditional)\&quot;, \&quot;Nightlife\&quot;, \&quot;Lounges\&quot;, \&quot;…
+##  5 &quot;c(\&quot;Breakfast &amp; Brunch\&quot;, \&quot;Restaurants\&quot;)&quot;                            
+##  6 &quot;c(\&quot;Cafes\&quot;, \&quot;Restaurants\&quot;)&quot;                                         
+##  7 &quot;c(\&quot;Pubs\&quot;, \&quot;Irish\&quot;, \&quot;Nightlife\&quot;, \&quot;Bars\&quot;, \&quot;Restaurants\&quot;)&quot;      
+##  8 Restaurants                                                             
+##  9 &quot;c(\&quot;Chinese\&quot;, \&quot;Restaurants\&quot;)&quot;                                       
+## 10 &quot;c(\&quot;Breakfast &amp; Brunch\&quot;, \&quot;American (Traditional)\&quot;, \&quot;Restaurants\&quot;)&quot;
+## # … with 21,882 more rows
+</code></pre>
+
+<p>Looks all the rows (well, all the first 10 rows anyway) look like they
+have “Restaurants’ as one of the categories.</p>
+
+<p>And this is interesting because people on Yelp are tagging different
+genres for each “Restaurant” business. For example, some restaurants
+could be considered as “Bars”, “American (New)”, “Pub”, etc. So one of
+the interesting question would be, “what type of the restaurants are
+more common in this data set?”</p>
+
+<p>The easiest way to answer this question is to break out this
+‘categories’ list data type variable and assign each value inside the
+list into each row. So essentially we’ll have a variable called
+‘categories’ and this will have just one category value for each row.
+This means, some businesses might be repeated across rows many times,
+but that’s ok because our concern for now is to count each restaurant
+category type.</p>
+
+<h1 id="unnest-a-list-variable">Unnest a list variable</h1>
+
+<p>To break out ‘categories’ variable and create one row for each value, we
+can use ‘unnest()’ function from tidyr package, which is another great
+package from ‘Hadleyverse’ to help making raw data into a ‘tidy’ format.</p>
+
+<p>hadley/tidyr</p>
+
+<p>tidyr - Easily tidy data with spread and gather functions. github.com<br />
+I will talk about more on ‘tidy’ format with ‘tidyr’ package in a
+separate post, but for now I am going to simply use ‘unnest()’ function
+to “unnest” the ‘categories’ variable like below.</p>
+
+<pre><code class="language-r">library(tidyr)
+yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ select(name, categories)
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 63,909 x 2
+##    name                    categories            
+##    &lt;chr&gt;                   &lt;chr&gt;                 
+##  1 Emil's Lounge           Bars                  
+##  2 Emil's Lounge           American (New)        
+##  3 Emil's Lounge           Nightlife             
+##  4 Emil's Lounge           Lounges               
+##  5 Emil's Lounge           Restaurants           
+##  6 Alexion's Bar &amp; Grill   Bars                  
+##  7 Alexion's Bar &amp; Grill   American (Traditional)
+##  8 Alexion's Bar &amp; Grill   Nightlife             
+##  9 Alexion's Bar &amp; Grill   Restaurants           
+## 10 Kings Family Restaurant Burgers               
+## # … with 63,899 more rows
+</code></pre>
+
+<p>As you can see, ‘Emil’s Lounge’ is now repeated 5 times, for example.
+This is because it has those 5 different categories assigned to this
+business. This will allow us to do a quick summarization with ‘count()’
+function like below.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ select(name, categories) %&gt;%
+ count(categories)
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 284 x 2
+##    categories                 n
+##    &lt;chr&gt;                  &lt;int&gt;
+##  1 Active Life               41
+##  2 Adult Entertainment        2
+##  3 Afghan                    13
+##  4 African                   30
+##  5 Airports                   1
+##  6 American (New)          1494
+##  7 American (Traditional)  2113
+##  8 Amusement Parks            2
+##  9 Apartments                 1
+## 10 Appliances                 1
+## # … with 274 more rows
+</code></pre>
+
+<p>And if you want to see the top categories you can simply use ‘arrange()’
+function to sort.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ select(name, categories) %&gt;%
+ count(categories) %&gt;%
+ arrange(desc(n))
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 284 x 2
+##    categories                 n
+##    &lt;chr&gt;                  &lt;int&gt;
+##  1 Restaurants            21892
+##  2 Fast Food               2383
+##  3 Pizza                   2223
+##  4 Mexican                 2208
+##  5 American (Traditional)  2113
+##  6 Nightlife               2045
+##  7 Sandwiches              1981
+##  8 Bars                    1934
+##  9 Food                    1807
+## 10 Italian                 1633
+## # … with 274 more rows
+</code></pre>
+
+<p>Let’s get rid of the rows with ‘Restaurants’ category because we know
+every single rows in this data set has something to do with ‘Restaurant’
+now.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(categories) %&gt;%
+ arrange(desc(n))
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 283 x 2
+##    categories                 n
+##    &lt;chr&gt;                  &lt;int&gt;
+##  1 Fast Food               2383
+##  2 Pizza                   2223
+##  3 Mexican                 2208
+##  4 American (Traditional)  2113
+##  5 Nightlife               2045
+##  6 Sandwiches              1981
+##  7 Bars                    1934
+##  8 Food                    1807
+##  9 Italian                 1633
+## 10 Chinese                 1496
+## # … with 273 more rows
+</code></pre>
+
+<p>When you run the above command you will get something like below. You
+can see ‘Fast Food’ is the number one, and ‘Pizza’ and ‘Mexican’ come
+after.</p>
+
+<p>What are the most common restaurant types per state / province? In this
+data set, there is a variable called ‘state’ that contains state names
+or province names of US and some European countries. So, what if we want
+to know what restaurant categories are more frequently showing up for
+each state ?</p>
+
+<p>We can simply add ‘state’ variable into ‘count()’ function like below.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(state, categories) %&gt;%
+ arrange(desc(n))
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 1,483 x 3
+##    state categories                 n
+##    &lt;chr&gt; &lt;chr&gt;                  &lt;int&gt;
+##  1 AZ    Mexican                 1197
+##  2 AZ    Fast Food               1035
+##  3 AZ    Pizza                    944
+##  4 AZ    American (Traditional)   924
+##  5 AZ    Sandwiches               834
+##  6 AZ    Nightlife                725
+##  7 NV    Fast Food                695
+##  8 AZ    Bars                     686
+##  9 AZ    American (New)           668
+## 10 AZ    Burgers                  648
+## # … with 1,473 more rows
+</code></pre>
+
+<p>Now, let’s take a look at the top restaurant category for each state. We
+can use ‘group_by()’ function to group the data by state and use
+‘top_n()’ function to keep only the top category. Both functions are
+from ‘dplyr’ package.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(state, categories) %&gt;%
+ group_by(state) %&gt;%
+ top_n(1, n)
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 25 x 3
+## # Groups:   state [18]
+##    state categories        n
+##    &lt;chr&gt; &lt;chr&gt;         &lt;int&gt;
+##  1 AZ    Mexican        1197
+##  2 BW    Food             82
+##  3 EDH   Food            189
+##  4 ELN   British           3
+##  5 FIF   Bars              1
+##  6 FIF   Cocktail Bars     1
+##  7 FIF   Delis             1
+##  8 FIF   Fast Food         1
+##  9 FIF   Nightlife         1
+## 10 IL    Pizza            31
+## # … with 15 more rows
+</code></pre>
+
+<p>As you can see there are 5 entries for “FIF” province, this is because
+they are all tie. But the values are just ‘1’ and that’s a really small
+number compared to the others. So let’s filter out those small numbers
+from the data before the group_by and top_n steps.</p>
+
+<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
+ filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
+ unnest(categories) %&gt;%
+ filter(categories != &quot;Restaurants&quot;) %&gt;%
+ count(state, categories) %&gt;%
+ filter(n &gt; 10) %&gt;%
+ group_by(state) %&gt;%
+ top_n(1, n)
+</code></pre>
+
+<p>Warning in stri_detect_regex(string, pattern, negate = negate,
+opts_regex =</p>
+
+<p>opts(pattern)): argument is not an atomic vector; coercing</p>
+
+<pre><code>## # A tibble: 12 x 3
+## # Groups:   state [12]
+##    state categories                 n
+##    &lt;chr&gt; &lt;chr&gt;                  &lt;int&gt;
+##  1 AZ    Mexican                 1197
+##  2 BW    Food                      82
+##  3 EDH   Food                     189
+##  4 IL    Pizza                     31
+##  5 MLN   Cafes                     11
+##  6 NC    American (Traditional)   257
+##  7 NV    Fast Food                695
+##  8 ON    Chinese                   29
+##  9 PA    Pizza                    196
+## 10 QC    French                   272
+## 11 SC    American (Traditional)    13
+## 12 WI    Nightlife                130
+</code></pre>
+
+<p>The result is a list of the top restaurant category for each of the 12
+state or province.</p>
+
+<p>This is a very simple analysis on Yelp business data. But given where we
+started with Yelp business data in the raw JSON format, hope this has
+demonstrated how quickly, incrementally, and iteratively we can get some
+interesting information out of such un-traditional (not tabular) data
+format relatively easily and quickly.</p>
+
+<p>Notes: Adopted from
+<a href="https://blog.exploratory.io/working-with-json-data-in-very-simple-way-ad7ebcc0bb89" class="uri"><a href="https://blog.exploratory.io/working-with-json-data-in-very-simple-way-ad7ebcc0bb89">https://blog.exploratory.io/working-with-json-data-in-very-simple-way-ad7ebcc0bb89</a></a></p>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">Danny J. R.</a></h4>
+                <p>Your description here</p>
+        </section>
+      </section>
+    </footer>
 </article>
-
-
-<article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/firebase_shiny/">
-      <div class="post-card-image" style="background-image: url(/54_firebase_shiny/blog_title.png)"></div>
-    </a>
+    
     
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/firebase_shiny/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Shiny  </span>
-              
-              <h2 class="post-card-title">Firebase &amp; Shiny</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Adding Firebase Authentication to Shiny Firebase and Shiny Firebase is a mobile and web application development platform owned by Google. Firebase provides front-end solutions for authentication, database storage, object storage, messaging, and more. Firebase drastically reduces the time needed to develop certain types of highly scalable and secure applications. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">DannyJRa</a></span>
-      </footer>
-    </div>
-</article>
+<div id="disqus_thread"></div>
+<script>
 
 
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/r-python-bridge/">
-      <div class="post-card-image" style="background-image: url(/69_python_R/blog_title.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/r-python-bridge/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Docker  </span>
-              
-              <h2 class="post-card-title">R-Python Bridge</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> Linear models The R code is:  ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">DannyJRa</a></span>
-      </footer>
-    </div>
-</article>
 
 
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/docker-postgresql/">
-      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
-    </a>
-    
+var disqus_config = function () {
+this.page.url = "\/post\/";  
+this.page.identifier = "\/post\/"; 
+};
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/docker-postgresql/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Docker  </span>
-              
-              <h2 class="post-card-title">Docker PostGreSQL</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>  Docker: PostgreSQL 10 and pgAdmin 4 Run Docker with PostgreSQL container Connect to Postgres Access postgresql.conf file Open port  Run Docker with pgAdmin 4 container Open port 5050     Docker: PostgreSQL 10 and pgAdmin 4 Run Docker with PostgreSQL container :smile: Make persistent volume to store config files and database files: d  ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">DannyJRa</a></span>
-      </footer>
-    </div>
-</article>
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://blog-dannyrasch-com.disqus.com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/hello-r-markdown/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/hello-r-markdown/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #R Markdown 
-              #plot 
-              #regression  </span>
-              
-              <h2 class="post-card-title">Hello R Markdown</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">Frida Gomam</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/hello-r-markdown/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/hello-r-markdown/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #R Markdown 
-              #plot 
-              #regression  </span>
-              
-              <h2 class="post-card-title">Hello R Markdown</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">Frida Gomam</a></span>
-      </footer>
-    </div>
-</article>
-
-
-    </div>
-
-    <nav class="pagination" role="navigation">
-      
-      <span class="page-number"><span class="hide">Page 1 of 1</span>&nbsp;</span>
-      
-    </nav>
   </div>
 </main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
+        
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="/post/github_rest_api4/">Blog JSON4</a></li>            
+        
+          <li><a href="/post/untitled/">Untitled</a></li>            
+        
+                      
+        
+          <li><a href="/post/untitled/">Untitled</a></li>            
+        
+          <li><a href="/post/hello-r-markdown/">Hello R Markdown</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/hello-r-markdown/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/hello-r-markdown/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #R Markdown 
+              #plot 
+              #regression  </span>
+              
+              <h2 class="post-card-title">Hello R Markdown</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Frida Gomam</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/untitled/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/untitled/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Untitled</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Rmd_files &lt;- list.files(&quot;content&quot;, &quot;\\.Rmd$&quot;, recursive = TRUE, full.names = TRUE) Rmd_files ## character(0) list.files(&quot;content&quot;, pattern = &quot;^.*Python*.*.Rmd$&quot;,recursive = TRUE, full.names = TRUE) ## character(0) # it&#39;s better to use - or _ in file name instead of white space. # press tab in link to refresh the rstudio preview # need absoluate path because servr changed current working directory. process_rmd &lt;- function(rmd_path, site_path = &quot;.&quot;) { # assume asset folder has same name of rmd name file_name &lt;- basename(rmd_path) asset_folder &lt;- substr(file_name, 1, nchar(file_name) - 4) # change relative path of assets folder to absolute path # to deal with encoding, there are some internal functions. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Danny J. R.</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="/dr_small_png.png" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title"></div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=&amp;url=%2fpost%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
 
 <footer class="site-footer outer">
   <div class="site-footer-content inner">
@@ -327,11 +1039,76 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
   </div>
 </footer>
 
-</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 
 
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
 </body></html>
