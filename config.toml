@@ -12,7 +12,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [params]
   title       = "Blog"
-  subtitle    = "Blog DannJRa"
+  subtitle    = "Blog DannyJRa"
   copyright   = "© 2019"
   #NOT WORKING
   cover       = "img/blog-cover.jpg"
@@ -58,9 +58,19 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   url = "/"
   weight = 200
 
+#[[menu.main]]
+#  name = "Docker"
+#  url = "/tags/Docker/"
+#  weight = 100
+  
 [[menu.main]]
-  name = "Docker"
-  url = "/tags/Docker/"
+  name = "R"
+  url = "/categories/R/"
+  weight = 100
+  
+[[menu.main]]
+  name = "Python"
+  url = "/categories/Python/"
   weight = 100
 
 [[menu.main]]

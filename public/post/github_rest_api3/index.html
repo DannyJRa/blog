@@ -12,16 +12,16 @@
     <link rel="shortcut icon" href="../../favicon.ico" />
     <link rel="canonical" href="../../post/github_rest_api3/" />
 
-     <meta name="description" content="Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──  ✔ ggplot" /> 
+     <meta name="description" content="&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;" /> 
 
      
     
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="/img/cover.jpg"/>
+    <meta name="twitter:image" content="/img/01_blog_cover.jpg"/>
     
  
     <meta name="twitter:title" content="Blog JSON"/>
-    <meta name="twitter:description" content="Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──  ✔ ggplot"/>
+    <meta name="twitter:description" content="&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;"/>
     <meta name="twitter:url" content="/post/github_rest_api3/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
@@ -31,12 +31,12 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──  ✔ ggplot" />
+    <meta property="og:description" content="&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;" />
 
     <meta property="article:published_time" content="2019-01-11T00:00:00Z" />
     <meta property="article:tag" content="GitHub" />
 
-    <meta property="og:image" content="/img/cover.jpg"/>
+    <meta property="og:image" content="/img/01_blog_cover.jpg"/>
 
 
     <meta name="generator" content="Hugo 0.55.1" />
@@ -119,712 +119,1137 @@
         <h1 class="post-full-title">Blog JSON</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/img/cover.jpg)">
+    <figure class="post-full-image" style="background-image: url(/img/01_blog_cover.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        
+        <p>Add summary desdcription of blog</p>
 
-<h1 id="working-with-json">Working with JSON</h1>
+<pre><code class="language-r">library(tictoc)
 
-<pre><code class="language-r">library(tidyverse)
+tic.log(format = TRUE)
 </code></pre>
 
-<div class="alert alert-info">
-
- ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
-
-</div>
-
-<div class="alert alert-info">
-
- ✔ ggplot2 3.1.0       ✔ purrr   0.3.2  
-
- ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
-
- ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
-
- ✔ readr   1.3.1       ✔ forcats 0.4.0
-
-</div>
-
-<div class="alert alert-info">
-
- ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-
- ✖ dplyr::filter() masks stats::filter()
-
- ✖ dplyr::lag()    masks stats::lag()
-
-</div>
-
-<pre><code class="language-r">library(jsonlite)
+<pre><code>## list()
 </code></pre>
 
-<div class="alert alert-info">
-
- 
-
- Attaching package: 'jsonlite'
-
-</div>
-
-<div class="alert alert-info">
-
- The following object is masked from 'package:purrr':
-
- 
-
-     flatten
-
-</div>
-
-<pre><code class="language-r">yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;)
+<pre><code class="language-r">tic(&quot;complete&quot;)
 </code></pre>
 
-<div class="alert alert-danger">
-**Error** in parse_con(txt, bigint_as_char): parse error: trailing garbage
+<pre><code class="language-r">tic(&quot;libraries&quot;)
+# install.packages(c('caret', 'skimr', 'RANN', 'randomForest', 'fastAdaboost', 'gbm', 'xgboost', 'caretEnsemble', 'C50', 'earth'))
 
-            true}, "type": "business"}  {"business_id": "UsFtqoBl7naz8A
+# Load the caret package
+library(caret)
+</code></pre>
 
-                      (right here) ------^
+<pre><code>## Loading required package: lattice
+</code></pre>
 
-</div>
+<pre><code>## Loading required package: ggplot2
+</code></pre>
 
-<p>However, when we run the above command we would actully get an error like below.</p>
+<pre><code class="language-r"># Import dataset
+orange &lt;- read.csv('https://raw.githubusercontent.com/selva86/datasets/master/orange_juice_withmissing.csv')
 
-<p>This is because this JSON file turned out to be something called ‘NDJSON (Newline delimited JSON)’, which means there are multiple JSON values inside this file and each of the JSON values is considered as an independent object. In this particular case, each business information makes up one single JSON value therefore there are many JSON values inside of this JSON file. This could be used often in data streaming situations where each JSON data can be separated from other parts of the file so that each JSON data can be processed without waiting for the whole document to load.</p>
+# Structure of the dataframe
+str(orange)
+</code></pre>
 
-<pre><code class="language-r">yelp &lt;- stream_in(file(&quot;data/yelp_academic_dataset_business.json&quot;))
+<pre><code>## 'data.frame':	1070 obs. of  18 variables:
+##  $ Purchase      : Factor w/ 2 levels &quot;CH&quot;,&quot;MM&quot;: 1 1 1 2 1 1 1 1 1 1 ...
+##  $ WeekofPurchase: int  237 239 245 227 228 230 232 234 235 238 ...
+##  $ StoreID       : int  1 1 1 1 7 7 7 7 7 7 ...
+##  $ PriceCH       : num  1.75 1.75 1.86 1.69 1.69 1.69 1.69 1.75 1.75 1.75 ...
+##  $ PriceMM       : num  1.99 1.99 2.09 1.69 1.69 1.99 1.99 1.99 1.99 1.99 ...
+##  $ DiscCH        : num  0 0 0.17 0 0 0 0 0 0 0 ...
+##  $ DiscMM        : num  0 0.3 0 0 0 0 0.4 0.4 0.4 0.4 ...
+##  $ SpecialCH     : int  0 0 0 0 0 0 1 1 0 0 ...
+##  $ SpecialMM     : int  0 1 0 0 0 1 1 0 0 0 ...
+##  $ LoyalCH       : num  0.5 0.6 0.68 0.4 0.957 ...
+##  $ SalePriceMM   : num  1.99 1.69 2.09 1.69 1.69 1.99 1.59 1.59 1.59 1.59 ...
+##  $ SalePriceCH   : num  1.75 1.75 1.69 1.69 1.69 1.69 1.69 1.75 1.75 1.75 ...
+##  $ PriceDiff     : num  0.24 -0.06 0.4 0 0 0.3 -0.1 -0.16 -0.16 -0.16 ...
+##  $ Store7        : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 2 2 2 2 2 2 ...
+##  $ PctDiscMM     : num  0 0.151 0 0 0 ...
+##  $ PctDiscCH     : num  0 0 0.0914 0 0 ...
+##  $ ListPriceDiff : num  0.24 0.24 0.23 0 0 0.3 0.3 0.24 0.24 0.24 ...
+##  $ STORE         : int  1 1 1 1 0 0 0 0 0 0 ...
+</code></pre>
+
+<pre><code class="language-r"># See top 6 rows and 10 columns
+head(orange[, 1:10])
+</code></pre>
+
+<pre><code>##   Purchase WeekofPurchase StoreID PriceCH PriceMM DiscCH DiscMM SpecialCH
+## 1       CH            237       1    1.75    1.99   0.00    0.0         0
+## 2       CH            239       1    1.75    1.99   0.00    0.3         0
+## 3       CH            245       1    1.86    2.09   0.17    0.0         0
+## 4       MM            227       1    1.69    1.69   0.00    0.0         0
+## 5       CH            228       7    1.69    1.69   0.00    0.0         0
+## 6       CH            230       7    1.69    1.99   0.00    0.0         0
+##   SpecialMM  LoyalCH
+## 1         0 0.500000
+## 2         1 0.600000
+## 3         0 0.680000
+## 4         0 0.400000
+## 5         0 0.956535
+## 6         1 0.965228
+</code></pre>
+
+<pre><code class="language-r">toc(log = TRUE, quiet = TRUE)
+</code></pre>
+
+<ol>
+<li>Data Preparation and Preprocessing
+3.1. How to split the dataset into training and validation?</li>
+</ol>
+
+<pre><code class="language-r"># Create the training and test datasets
+set.seed(100)
+
+# Step 1: Get row numbers for the training data
+trainRowNumbers &lt;- createDataPartition(orange$Purchase, p=0.8, list=FALSE)
+
+# Step 2: Create the training  dataset
+trainData &lt;- orange[trainRowNumbers,]
+
+# Step 3: Create the test dataset
+testData &lt;- orange[-trainRowNumbers,]
+
+# Store X and Y for later use.
+x = trainData[, 2:18]
+y = trainData$Purchase
+</code></pre>
+
+<p>createDataPartition() takes as input the Y variable in the source dataset and the percentage data that should go into training as the p argument. It returns the rownumbers that should form the training dataset.</p>
+
+<p>Plus, you need to set list=F, to prevent returning the result as a list.</p>
+
+<pre><code class="language-r">library(skimr)
 </code></pre>
 
 <pre><code>## 
- Found 500 records...
- Found 1000 records...
- Found 1500 records...
- Found 2000 records...
- Found 2500 records...
- Found 3000 records...
- Found 3500 records...
- Found 4000 records...
- Found 4500 records...
- Found 5000 records...
- Found 5500 records...
- Found 6000 records...
- Found 6500 records...
- Found 7000 records...
- Found 7500 records...
- Found 8000 records...
- Found 8500 records...
- Found 9000 records...
- Found 9500 records...
- Found 10000 records...
- Found 10500 records...
- Found 11000 records...
- Found 11500 records...
- Found 12000 records...
- Found 12500 records...
- Found 13000 records...
- Found 13500 records...
- Found 14000 records...
- Found 14500 records...
- Found 15000 records...
- Found 15500 records...
- Found 16000 records...
- Found 16500 records...
- Found 17000 records...
- Found 17500 records...
- Found 18000 records...
- Found 18500 records...
- Found 19000 records...
- Found 19500 records...
- Found 20000 records...
- Found 20500 records...
- Found 21000 records...
- Found 21500 records...
- Found 22000 records...
- Found 22500 records...
- Found 23000 records...
- Found 23500 records...
- Found 24000 records...
- Found 24500 records...
- Found 25000 records...
- Found 25500 records...
- Found 26000 records...
- Found 26500 records...
- Found 27000 records...
- Found 27500 records...
- Found 28000 records...
- Found 28500 records...
- Found 29000 records...
- Found 29500 records...
- Found 30000 records...
- Found 30500 records...
- Found 31000 records...
- Found 31500 records...
- Found 32000 records...
- Found 32500 records...
- Found 33000 records...
- Found 33500 records...
- Found 34000 records...
- Found 34500 records...
- Found 35000 records...
- Found 35500 records...
- Found 36000 records...
- Found 36500 records...
- Found 37000 records...
- Found 37500 records...
- Found 38000 records...
- Found 38500 records...
- Found 39000 records...
- Found 39500 records...
- Found 40000 records...
- Found 40500 records...
- Found 41000 records...
- Found 41500 records...
- Found 42000 records...
- Found 42500 records...
- Found 43000 records...
- Found 43500 records...
- Found 44000 records...
- Found 44500 records...
- Found 45000 records...
- Found 45500 records...
- Found 46000 records...
- Found 46500 records...
- Found 47000 records...
- Found 47500 records...
- Found 48000 records...
- Found 48500 records...
- Found 49000 records...
- Found 49500 records...
- Found 50000 records...
- Found 50500 records...
- Found 51000 records...
- Found 51500 records...
- Found 52000 records...
- Found 52500 records...
- Found 53000 records...
- Found 53500 records...
- Found 54000 records...
- Found 54500 records...
- Found 55000 records...
- Found 55500 records...
- Found 56000 records...
- Found 56500 records...
- Found 57000 records...
- Found 57500 records...
- Found 58000 records...
- Found 58500 records...
- Found 59000 records...
- Found 59500 records...
- Found 60000 records...
- Found 60500 records...
- Found 61000 records...
- Found 61184 records...
- Imported 61184 records. Simplifying...
+## Attaching package: 'skimr'
 </code></pre>
 
-<p>Flatten Yelp data frame
-Let’s find out how the data has been imported by quickly running ‘str()’ function.</p>
-
-<pre><code class="language-r">str(yelp)
+<pre><code>## The following object is masked from 'package:stats':
+## 
+##     filter
 </code></pre>
 
-<pre><code>...
-## 'data.frame':	61184 obs. of  15 variables:
-##  $ business_id  : chr  &quot;vcNAWiLM4dR7D2nwwJ7nCA&quot; &quot;UsFtqoBl7naz8AVUBZMjQQ&quot; &quot;cE27W9VPgO88Qxe4ol6y_g&quot; &quot;HZdLhv6COCleJMo7nPl-RA&quot; ...
-##  $ full_address : chr  &quot;4840 E Indian School Rd\nSte 101\nPhoenix, AZ 85018&quot; &quot;202 McClure St\nDravosburg, PA 15034&quot; &quot;1530 Hamilton Rd\nBethel Park, PA 15234&quot; &quot;301 S Hills Vlg\nPittsburgh, PA 15241&quot; ...
-##  $ hours        :'data.frame':	61184 obs. of  7 variables:
-##   ..$ Tuesday  :'data.frame':	61184 obs. of  2 variables:
-##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
-##   .. ..$ open : chr  &quot;08:00&quot; NA NA &quot;10:00&quot; ...
-##   ..$ Friday   :'data.frame':	61184 obs. of  2 variables:
-##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
-##   .. ..$ open : chr  &quot;08:00&quot; NA NA &quot;10:00&quot; ...
-##   ..$ Monday   :'data.frame':	61184 obs. of  2 variables:
-##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
-##   .. ..$ open : chr  &quot;08:00&quot; NA NA &quot;10:00&quot; ...
-##   ..$ Wednesday:'data.frame':	61184 obs. of  2 variables:
-##   .. ..$ close: chr  &quot;17:00&quot; NA NA &quot;21:00&quot; ...
-...
+<pre><code class="language-r">skimmed &lt;- skim_to_wide(trainData)
+skimmed[, c(1:5, 9:11, 13, 15:16)] 
 </code></pre>
 
-<p>As you can see ‘hours’ variable is actually a data frame that contains 7 data frames each of which is for a weekday like ‘Tuesday’. And the weekday variables themselves are data frames and each contains two ‘character’ variables of ‘open’ and ‘close’.</p>
-
-<p>This is reflecting the original JSON data structure, but it is a bit confusing for analyzing data in R. We can use ‘flatten()’ function from ‘jsonlite’ package to make the nested hiearchical data structure into a flatten manner by assigning each of the nested variable as its own column as much as possible.</p>
-
-<pre><code class="language-r">yelp_flat &lt;- jsonlite::flatten(yelp)
-str(yelp_flat)
+<pre><code>## # A tibble: 18 x 11
+##    type  variable missing complete n     mean  sd    p0    p50   p100 
+##    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 fact… Purchase 0       857      857   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+##  2 fact… Store7   0       857      857   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+##  3 inte… Special… 2       855      857   &quot;  0… &quot; 0.… 0     0     1    
+##  4 inte… Special… 4       853      857   &quot;  0… &quot; 0.… 0     0     1    
+##  5 inte… STORE    2       855      857   &quot;  1… &quot; 1.… 0     2     4    
+##  6 inte… StoreID  1       856      857   &quot;  3… &quot; 2.… 1     3     7    
+##  7 inte… WeekofP… 0       857      857   254.… 15.59 227   257   278  
+##  8 nume… DiscCH   2       855      857   0.054 &quot;0.1… &quot; 0 … &quot;0  … &quot;0.5…
+##  9 nume… DiscMM   3       854      857   &quot;0.1… &quot;0.2… &quot; 0 … &quot;0  … &quot;0.8…
+## 10 nume… ListPri… 0       857      857   &quot;0.2… &quot;0.1… &quot; 0 … 0.24  0.44 
+## 11 nume… LoyalCH  5       852      857   &quot;0.5… &quot;0.3… &quot; 1.… &quot;0.6… &quot;1  …
+## 12 nume… PctDisc… 2       855      857   0.028 0.063 &quot; 0 … &quot;0  … 0.25 
+## 13 nume… PctDisc… 2       855      857   0.058 0.099 &quot; 0 … &quot;0  … &quot;0.4…
+## 14 nume… PriceCH  1       856      857   &quot;1.8… &quot;0.1… &quot; 1.… 1.86  2.09 
+## 15 nume… PriceDi… 1       856      857   &quot;0.1… &quot;0.2… &quot;-0.… 0.23  0.64 
+## 16 nume… PriceMM  1       856      857   &quot;2.0… &quot;0.1… &quot; 1.… 2.09  2.29 
+## 17 nume… SalePri… 1       856      857   &quot;1.8… &quot;0.1… &quot; 1.… 1.86  2.09 
+## 18 nume… SalePri… 3       854      857   &quot;1.9… &quot;0.2… &quot; 1.… 2.09  2.29 
+## # … with 1 more variable: hist &lt;chr&gt;
 </code></pre>
 
-<pre><code>## 'data.frame':	61184 obs. of  105 variables:
-##  $ business_id                                         : chr  &quot;vcNAWiLM4dR7D2nwwJ7nCA&quot; &quot;UsFtqoBl7naz8AVUBZMjQQ&quot; &quot;cE27W9VPgO88Qxe4ol6y_g&quot; &quot;HZdLhv6COCleJMo7nPl-RA&quot; ...
-##  $ full_address                                        : chr  &quot;4840 E Indian School Rd\nSte 101\nPhoenix, AZ 85018&quot; &quot;202 McClure St\nDravosburg, PA 15034&quot; &quot;1530 Hamilton Rd\nBethel Park, PA 15234&quot; &quot;301 S Hills Vlg\nPittsburgh, PA 15241&quot; ...
-##  $ open                                                : logi  TRUE TRUE FALSE TRUE TRUE TRUE ...
-##  $ categories                                          :List of 61184
-##   ..$ : chr  &quot;Doctors&quot; &quot;Health &amp; Medical&quot;
-##   ..$ : chr &quot;Nightlife&quot;
-##   ..$ : chr  &quot;Active Life&quot; &quot;Mini Golf&quot; &quot;Golf&quot;
-##   ..$ : chr  &quot;Shopping&quot; &quot;Home Services&quot; &quot;Internet Service Providers&quot; &quot;Mobile Phones&quot; ...
-##   ..$ : chr  &quot;Bars&quot; &quot;American (New)&quot; &quot;Nightlife&quot; &quot;Lounges&quot; ...
-...
+<p>3.3. How to impute missing values using preProcess()?</p>
+
+<pre><code class="language-r"># Create the knn imputation model on the training data
+preProcess_missingdata_model &lt;- preProcess(trainData, method='knnImpute')
+preProcess_missingdata_model
 </code></pre>
 
-<p>Now the data structure looks a lot easier to grasp and even the data looks easier to see.</p>
-
-<p>Before printing out the data I’m going to use ‘as_data_frame()’ function from the new package called ‘tibble’, which was released just last week from Hadley Wickham and the team to make it easier to see the data frame data in R console UI.</p>
-
-<p>We can use ‘as_data_frame()’ function to convert our data frame to be ‘tbl_df’, which is an extended version of the data frame. Once it’s in ‘tbl_df’ type, it automatically shows only the first 10 variables in the console output by simply typing the data frame name so you don’t need to call ‘head()’ function separately. Also, it shows a data type for each variable in the output.</p>
-
-<pre><code class="language-r">library(tibble)
-yelp_tbl &lt;- as_data_frame(yelp_flat)
+<pre><code>## Created from 828 samples and 18 variables
+## 
+## Pre-processing:
+##   - centered (16)
+##   - ignored (2)
+##   - 5 nearest neighbor imputation (16)
+##   - scaled (16)
 </code></pre>
 
-<div class="alert alert-warning">
-**Warning** `as_data_frame()` is deprecated, use `as_tibble()` (but mind the new semantics).
+<p>The above output shows the various preprocessing steps done in the process of knn imputation.</p>
 
- This warning is displayed once per session.
+<p>That is, it has centered (subtract by mean) 16 variables, ignored 2, used k=5 (considered 5 nearest neighbors) to predict the missing values and finally scaled (divide by standard deviation) 16 variables.</p>
 
-</div>
+<p>Let’s now use this model to predict the missing values in trainData.</p>
 
-<pre><code class="language-r">yelp_tbl
+<pre><code class="language-r"># Use the imputation model to predict the values of missing data points
+library(RANN)  # required for knnInpute
+trainData &lt;- predict(preProcess_missingdata_model, newdata = trainData)
+anyNA(trainData)
 </code></pre>
 
-<pre><code>## # A tibble: 61,184 x 105
-##    business_id full_address open  categories city  review_count name 
-##    &lt;chr&gt;       &lt;chr&gt;        &lt;lgl&gt; &lt;list&gt;     &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;
-##  1 vcNAWiLM4d… &quot;4840 E Ind… TRUE  &lt;chr [2]&gt;  Phoe…            9 Eric…
-##  2 UsFtqoBl7n… &quot;202 McClur… TRUE  &lt;chr [1]&gt;  Drav…            4 Clan…
-##  3 cE27W9VPgO… &quot;1530 Hamil… FALSE &lt;chr [3]&gt;  Beth…            5 Cool…
-##  4 HZdLhv6COC… &quot;301 S Hill… TRUE  &lt;chr [6]&gt;  Pitt…            3 Veri…
-##  5 mVHrayjG3u… &quot;414 Hawkin… TRUE  &lt;chr [5]&gt;  Brad…           11 Emil…
-##  6 KayYbHCt-R… &quot;141 Hawtho… TRUE  &lt;chr [4]&gt;  Carn…           15 Alex…
-##  7 b12U9TFESS… &quot;718 Hope H… TRUE  &lt;chr [2]&gt;  Carn…            5 Flyn…
-##  8 Sktj1eHQFu… &quot;920 Forsyt… TRUE  &lt;chr [2]&gt;  Carn…            4 Fors…
-##  9 3ZVKmuK2l7… &quot;8 Logan St… TRUE  &lt;chr [2]&gt;  Carn…            3 Quak…
-## 10 wJr6kSA5dc… &quot;2100 Washi… TRUE  &lt;chr [4]&gt;  Carn…            8 King…
-## # … with 61,174 more rows, and 98 more variables: neighborhoods &lt;list&gt;,
-## #   longitude &lt;dbl&gt;, state &lt;chr&gt;, stars &lt;dbl&gt;, latitude &lt;dbl&gt;, type &lt;chr&gt;,
-## #   hours.Tuesday.close &lt;chr&gt;, hours.Tuesday.open &lt;chr&gt;,
-## #   hours.Friday.close &lt;chr&gt;, hours.Friday.open &lt;chr&gt;,
-## #   hours.Monday.close &lt;chr&gt;, hours.Monday.open &lt;chr&gt;,
-## #   hours.Wednesday.close &lt;chr&gt;, hours.Wednesday.open &lt;chr&gt;,
-## #   hours.Thursday.close &lt;chr&gt;, hours.Thursday.open &lt;chr&gt;,
-## #   hours.Sunday.close &lt;chr&gt;, hours.Sunday.open &lt;chr&gt;,
-## #   hours.Saturday.close &lt;chr&gt;, hours.Saturday.open &lt;chr&gt;, `attributes.By
-## #   Appointment Only` &lt;lgl&gt;, `attributes.Happy Hour` &lt;lgl&gt;,
-## #   `attributes.Accepts Credit Cards` &lt;list&gt;, `attributes.Good For
-## #   Groups` &lt;lgl&gt;, `attributes.Outdoor Seating` &lt;lgl&gt;, `attributes.Price
-## #   Range` &lt;int&gt;, `attributes.Good for Kids` &lt;lgl&gt;,
-## #   attributes.Alcohol &lt;chr&gt;, `attributes.Noise Level` &lt;chr&gt;,
-## #   `attributes.Has TV` &lt;lgl&gt;, attributes.Attire &lt;chr&gt;, `attributes.Good
-## #   For Dancing` &lt;lgl&gt;, attributes.Delivery &lt;lgl&gt;, `attributes.Coat
-## #   Check` &lt;lgl&gt;, attributes.Smoking &lt;chr&gt;, `attributes.Take-out` &lt;lgl&gt;,
-## #   `attributes.Takes Reservations` &lt;lgl&gt;, `attributes.Waiter
-## #   Service` &lt;lgl&gt;, `attributes.Wi-Fi` &lt;chr&gt;, attributes.Caters &lt;lgl&gt;,
-## #   `attributes.Drive-Thru` &lt;lgl&gt;, `attributes.Wheelchair
-## #   Accessible` &lt;lgl&gt;, attributes.BYOB &lt;lgl&gt;, attributes.Corkage &lt;lgl&gt;,
-## #   `attributes.BYOB/Corkage` &lt;chr&gt;, `attributes.Order at Counter` &lt;lgl&gt;,
-## #   `attributes.Good For Kids` &lt;lgl&gt;, `attributes.Dogs Allowed` &lt;lgl&gt;,
-## #   `attributes.Open 24 Hours` &lt;lgl&gt;, `attributes.Accepts
-## #   Insurance` &lt;lgl&gt;, `attributes.Ages Allowed` &lt;chr&gt;,
-## #   attributes.Ambience.romantic &lt;lgl&gt;,
-## #   attributes.Ambience.intimate &lt;lgl&gt;, attributes.Ambience.classy &lt;lgl&gt;,
-## #   attributes.Ambience.hipster &lt;lgl&gt;, attributes.Ambience.divey &lt;lgl&gt;,
-## #   attributes.Ambience.touristy &lt;lgl&gt;, attributes.Ambience.trendy &lt;lgl&gt;,
-## #   attributes.Ambience.upscale &lt;lgl&gt;, attributes.Ambience.casual &lt;lgl&gt;,
-## #   `attributes.Good For.dessert` &lt;lgl&gt;, `attributes.Good
-## #   For.latenight` &lt;lgl&gt;, `attributes.Good For.lunch` &lt;lgl&gt;,
-## #   `attributes.Good For.dinner` &lt;lgl&gt;, `attributes.Good
-## #   For.breakfast` &lt;lgl&gt;, `attributes.Good For.brunch` &lt;lgl&gt;,
-## #   attributes.Parking.garage &lt;lgl&gt;, attributes.Parking.street &lt;lgl&gt;,
-## #   attributes.Parking.validated &lt;lgl&gt;, attributes.Parking.lot &lt;lgl&gt;,
-## #   attributes.Parking.valet &lt;lgl&gt;, attributes.Music.dj &lt;lgl&gt;,
-## #   attributes.Music.background_music &lt;lgl&gt;,
-## #   attributes.Music.karaoke &lt;lgl&gt;, attributes.Music.live &lt;lgl&gt;,
-## #   attributes.Music.video &lt;lgl&gt;, attributes.Music.jukebox &lt;lgl&gt;,
-## #   attributes.Music.playlist &lt;lgl&gt;, `attributes.Hair Types Specialized
-## #   In.coloring` &lt;lgl&gt;, `attributes.Hair Types Specialized
-## #   In.africanamerican` &lt;lgl&gt;, `attributes.Hair Types Specialized
-## #   In.curly` &lt;lgl&gt;, `attributes.Hair Types Specialized In.perms` &lt;lgl&gt;,
-## #   `attributes.Hair Types Specialized In.kids` &lt;lgl&gt;, `attributes.Hair
-## #   Types Specialized In.extensions` &lt;lgl&gt;, `attributes.Hair Types
-## #   Specialized In.asian` &lt;lgl&gt;, `attributes.Hair Types Specialized
-## #   In.straightperms` &lt;lgl&gt;, `attributes.Payment Types.amex` &lt;lgl&gt;,
-## #   `attributes.Payment Types.cash_only` &lt;lgl&gt;, `attributes.Payment
-## #   Types.mastercard` &lt;lgl&gt;, `attributes.Payment Types.visa` &lt;lgl&gt;,
-## #   `attributes.Payment Types.discover` &lt;lgl&gt;, `attributes.Dietary
-## #   Restrictions.dairy-free` &lt;lgl&gt;, `attributes.Dietary
-## #   Restrictions.gluten-free` &lt;lgl&gt;, `attributes.Dietary
-## #   Restrictions.vegan` &lt;lgl&gt;, `attributes.Dietary
-## #   Restrictions.kosher` &lt;lgl&gt;, `attributes.Dietary
-## #   Restrictions.halal` &lt;lgl&gt;, `attributes.Dietary
-## #   Restrictions.soy-free` &lt;lgl&gt;, `attributes.Dietary
-## #   Restrictions.vegetarian` &lt;lgl&gt;
+<pre><code>## [1] FALSE
 </code></pre>
 
-<pre><code class="language-r">yelp_tbl2&lt;-yelp_tbl %&gt;% mutate(categories = as.character(categories)) %&gt;% select(categories)
+<p>3.4. How to create One-Hot Encoding (dummy variables)?
+Let me first explain what is one-hot encoding and why it is required.</p>
+
+<p>Suppose if you have a categorical column as one of the features, it needs to be converted to numeric in order for it to be used by the machine learning algorithms.</p>
+
+<p>Just replacing the categories with a number may not be meaningful especially if there is no intrinsic ordering amongst the categories.</p>
+
+<p>So what you can do instead is to convert the categorical variable with as many binary (1 or 0) variables as there are categories.</p>
+
+<p>An important aspect you should be careful about here is, in real-world environments, you might get new values of categorical variables in the new scoring data. So, you should ensure the dummyVars model is built on the training data alone and that model is in turn used to create the dummy vars on the test data.</p>
+
+<p>One Hot Encoding
+ONE HOT ENCODING</p>
+
+<p>In caret, one-hot-encodings can be created using dummyVars(). Just pass in all the features to dummyVars() as the training data and all the factor columns will automatically be converted to one-hot-encodings.</p>
+
+<pre><code class="language-r"># One-Hot Encoding
+# Creating dummy variables is converting a categorical variable to as many binary variables as here are categories.
+dummies_model &lt;- dummyVars(Purchase ~ ., data=trainData)
+
+# Create the dummy variables using predict. The Y variable (Purchase) will not be present in trainData_mat.
+trainData_mat &lt;- predict(dummies_model, newdata = trainData)
 </code></pre>
 
-<p>Drop now when you look at the data again, looks there are bunch of variables whose name starts with either ‘hours’ or ‘attributes’.</p>
-
-<pre><code class="language-r">yelp_tbl %&gt;% 
- select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;))
+<pre><code>## Warning in model.frame.default(Terms, newdata, na.action = na.action, xlev
+## = object$lvls): variable 'Purchase' is not a factor
 </code></pre>
 
-<pre><code>## # A tibble: 61,184 x 13
-##    business_id full_address open  categories city  review_count name 
-##    &lt;chr&gt;       &lt;chr&gt;        &lt;lgl&gt; &lt;list&gt;     &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;
-##  1 vcNAWiLM4d… &quot;4840 E Ind… TRUE  &lt;chr [2]&gt;  Phoe…            9 Eric…
-##  2 UsFtqoBl7n… &quot;202 McClur… TRUE  &lt;chr [1]&gt;  Drav…            4 Clan…
-##  3 cE27W9VPgO… &quot;1530 Hamil… FALSE &lt;chr [3]&gt;  Beth…            5 Cool…
-##  4 HZdLhv6COC… &quot;301 S Hill… TRUE  &lt;chr [6]&gt;  Pitt…            3 Veri…
-##  5 mVHrayjG3u… &quot;414 Hawkin… TRUE  &lt;chr [5]&gt;  Brad…           11 Emil…
-##  6 KayYbHCt-R… &quot;141 Hawtho… TRUE  &lt;chr [4]&gt;  Carn…           15 Alex…
-##  7 b12U9TFESS… &quot;718 Hope H… TRUE  &lt;chr [2]&gt;  Carn…            5 Flyn…
-##  8 Sktj1eHQFu… &quot;920 Forsyt… TRUE  &lt;chr [2]&gt;  Carn…            4 Fors…
-##  9 3ZVKmuK2l7… &quot;8 Logan St… TRUE  &lt;chr [2]&gt;  Carn…            3 Quak…
-## 10 wJr6kSA5dc… &quot;2100 Washi… TRUE  &lt;chr [4]&gt;  Carn…            8 King…
-## # … with 61,174 more rows, and 6 more variables: neighborhoods &lt;list&gt;,
-## #   longitude &lt;dbl&gt;, state &lt;chr&gt;, stars &lt;dbl&gt;, latitude &lt;dbl&gt;, type &lt;chr&gt;
+<pre><code class="language-r"># # Convert to dataframe
+trainData &lt;- data.frame(trainData_mat)
+
+# # See the structure of the new dataset
+str(trainData)
 </code></pre>
 
-<h1 id="count-how-restaurants">Count how restaurants</h1>
-
-<p>Now, let’s find out how many ‘Restaurant’ business in the data. We can use ‘str_detect()’ function from ‘stringr’ package to find the businesses whose ‘categories’ variable values contain ‘Restaurant’ text. If you want to know more detail about this function check out this post.</p>
-
-<pre><code class="language-r">library(stringr)
-yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;))
+<pre><code>## 'data.frame':	857 obs. of  18 variables:
+##  $ WeekofPurchase: num  -1.1 -1.74 -1.68 -1.29 -1.04 ...
+##  $ StoreID       : num  -1.29 -1.29 1.33 1.33 1.33 ...
+##  $ PriceCH       : num  -1.14 -1.73 -1.73 -1.14 -1.14 ...
+##  $ PriceMM       : num  -0.688 -2.898 -2.898 -0.688 -0.688 ...
+##  $ DiscCH        : num  -0.452 -0.452 -0.452 -0.452 -0.452 ...
+##  $ DiscMM        : num  -0.582 -0.582 -0.582 1.341 1.341 ...
+##  $ SpecialCH     : num  -0.429 -0.429 -0.429 2.329 -0.429 ...
+##  $ SpecialMM     : num  -0.42 -0.42 -0.42 -0.42 -0.42 ...
+##  $ LoyalCH       : num  -0.205 -0.525 1.256 1.324 1.35 ...
+##  $ SalePriceMM   : num  0.113 -1.101 -1.101 -1.506 -1.506 ...
+##  $ SalePriceCH   : num  -0.431 -0.844 -0.844 -0.431 -0.431 ...
+##  $ PriceDiff     : num  0.341 -0.563 -0.563 -1.165 -1.165 ...
+##  $ Store7.No     : num  1 1 0 0 0 0 0 0 0 1 ...
+##  $ Store7.Yes    : num  0 0 1 1 1 1 1 1 1 0 ...
+##  $ PctDiscMM     : num  -0.588 -0.588 -0.588 1.447 1.447 ...
+##  $ PctDiscCH     : num  -0.448 -0.448 -0.448 -0.448 -0.448 ...
+##  $ ListPriceDiff : num  0.211 -1.988 -1.988 0.211 0.211 ...
+##  $ STORE         : num  -0.457 -0.457 -1.15 -1.15 -1.15 ...
 </code></pre>
 
-<div class="alert alert-warning">
+<p>In above case, we had one categorical variable, Store7 with 2 categories. It was one-hot-encoded to produce two new columns – Store7.No and Store7.Yes.</p>
 
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
+<p>3.5. How to preprocess to transform the data?
+With the missing values handled and the factors one-hot-encoded, our training dataset is now ready to undergo variable transformations if required.</p>
 
- opts(pattern)): argument is not an atomic vector; coercing
+<p>So what type of preprocessing are available in caret?</p>
 
-</div>
+<p>range: Normalize values so it ranges between 0 and 1
+center: Subtract Mean
+scale: Divide by standard deviation
+BoxCox: Remove skewness leading to normality. Values must be &gt; 0
+YeoJohnson: Like BoxCox, but works for negative values.
+expoTrans: Exponential transformation, works for negative values.
+pca: Replace with principal components
+ica: Replace with independent components
+spatialSign: Project the data to a unit circle
+For our problem, let’s convert all the numeric variables to range between 0 and 1, by setting method=range in preProcess().</p>
 
-<pre><code>## # A tibble: 21,892 x 13
-##    business_id full_address open  categories city  review_count name 
-##    &lt;chr&gt;       &lt;chr&gt;        &lt;lgl&gt; &lt;list&gt;     &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;
-##  1 mVHrayjG3u… &quot;414 Hawkin… TRUE  &lt;chr [5]&gt;  Brad…           11 Emil…
-##  2 KayYbHCt-R… &quot;141 Hawtho… TRUE  &lt;chr [4]&gt;  Carn…           15 Alex…
-##  3 wJr6kSA5dc… &quot;2100 Washi… TRUE  &lt;chr [4]&gt;  Carn…            8 King…
-##  4 fNGIbpazjT… &quot;1201 Washi… TRUE  &lt;chr [5]&gt;  Carn…            5 Rock…
-##  5 b9WZJp5L1R… &quot;1073 Washi… TRUE  &lt;chr [2]&gt;  Carn…           38 Gab …
-##  6 zaXDakTd3R… &quot;202 3rd Av… TRUE  &lt;chr [2]&gt;  Carn…            5 Barb…
-##  7 WETE_Lykpc… &quot;215 E Main… FALSE &lt;chr [5]&gt;  Carn…            6 Padd…
-##  8 rv7CY8G_Xi… &quot;Raceway Pl… TRUE  &lt;chr [1]&gt;  Carn…            3 Long…
-##  9 SQ0j7bgSTa… &quot;214 E Main… TRUE  &lt;chr [2]&gt;  Carn…            8 Don …
-## 10 wqu7ILomIO… &quot;2180 Green… TRUE  &lt;chr [3]&gt;  Pitt…            7 Denn…
-## # … with 21,882 more rows, and 6 more variables: neighborhoods &lt;list&gt;,
-## #   longitude &lt;dbl&gt;, state &lt;chr&gt;, stars &lt;dbl&gt;, latitude &lt;dbl&gt;, type &lt;chr&gt;
+<pre><code class="language-r">preProcess_range_model &lt;- preProcess(trainData, method='range')
+trainData &lt;- predict(preProcess_range_model, newdata = trainData)
+
+# Append the Y variable
+trainData$Purchase &lt;- y
+
+apply(trainData[, 1:10], 2, FUN=function(x){c('min'=min(x), 'max'=max(x))})
 </code></pre>
 
-<p>The cool thing about this function is that even when we have a ‘list’ data type variable it can go inside the list values and do the text matching. Pretty awesome.</p>
-
-<p>Now, number of the rows is 21,892, as opposed to the original of 61,184 rows. That means there are 21,892 ‘Restaurant’ related businesses in this data out of 61,184 businesses. To confirm if this is really the case, let’s look at the categories column with ‘as.character()’ function again.</p>
-
-<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- mutate(categories = as.character(categories)) %&gt;% select(categories)
+<pre><code>##     WeekofPurchase StoreID PriceCH PriceMM DiscCH DiscMM SpecialCH
+## min              0       0       0       0      0      0         0
+## max              1       1       1       1      1      1         1
+##     SpecialMM LoyalCH SalePriceMM
+## min         0       0           0
+## max         1       1           1
 </code></pre>
 
-<div class="alert alert-warning">
+<ol>
+<li>How to visualize the importance of variables using featurePlot()
+Now that the preprocessing is complete, let’s visually examine how the predictors influence the Y (Purchase).</li>
+</ol>
 
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
+<p>In this problem, the X variables are numeric whereas the Y is categorical.</p>
 
- opts(pattern)): argument is not an atomic vector; coercing
+<p>So how to gauge if a given X is an important predictor of Y?</p>
 
-</div>
+<p>A simple common sense approach is, if you group the X variable by the categories of Y, a significant mean shift amongst the X’s groups is a strong indicator (if not the only indicator) that X will have a significant role to help predict Y.</p>
 
-<pre><code>## # A tibble: 21,892 x 1
-##    categories                                                              
-##    &lt;chr&gt;                                                                   
-##  1 &quot;c(\&quot;Bars\&quot;, \&quot;American (New)\&quot;, \&quot;Nightlife\&quot;, \&quot;Lounges\&quot;, \&quot;Restaura…
-##  2 &quot;c(\&quot;Bars\&quot;, \&quot;American (Traditional)\&quot;, \&quot;Nightlife\&quot;, \&quot;Restaurants\&quot;…
-##  3 &quot;c(\&quot;Burgers\&quot;, \&quot;Breakfast &amp; Brunch\&quot;, \&quot;American (Traditional)\&quot;, \&quot;R…
-##  4 &quot;c(\&quot;Bars\&quot;, \&quot;American (Traditional)\&quot;, \&quot;Nightlife\&quot;, \&quot;Lounges\&quot;, \&quot;…
-##  5 &quot;c(\&quot;Breakfast &amp; Brunch\&quot;, \&quot;Restaurants\&quot;)&quot;                            
-##  6 &quot;c(\&quot;Cafes\&quot;, \&quot;Restaurants\&quot;)&quot;                                         
-##  7 &quot;c(\&quot;Pubs\&quot;, \&quot;Irish\&quot;, \&quot;Nightlife\&quot;, \&quot;Bars\&quot;, \&quot;Restaurants\&quot;)&quot;      
-##  8 Restaurants                                                             
-##  9 &quot;c(\&quot;Chinese\&quot;, \&quot;Restaurants\&quot;)&quot;                                       
-## 10 &quot;c(\&quot;Breakfast &amp; Brunch\&quot;, \&quot;American (Traditional)\&quot;, \&quot;Restaurants\&quot;)&quot;
-## # … with 21,882 more rows
+<p>It is possible to watch this shift visually using box plots and density plots.</p>
+
+<p>In fact, caret’s featurePlot() function makes it so convenient.</p>
+
+<p>Simply set the X and Y parameters and set plot=&lsquo;box&rsquo;. You can additionally adjust the label font size (using strip) and the scales to be free as I have done in the below plot.</p>
+
+<pre><code class="language-r">featurePlot(x = trainData[, 1:18], 
+            y = trainData$Purchase, 
+            plot = &quot;box&quot;,
+            strip=strip.custom(par.strip.text=list(cex=.7)),
+            scales = list(x = list(relation=&quot;free&quot;), 
+                          y = list(relation=&quot;free&quot;)))
 </code></pre>
 
-<p>Looks all the rows (well, all the first 10 rows anyway) look like they have “Restaurants’ as one of the categories.</p>
+<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-10-1.png" alt="" /><!-- -->
+Let me quickly refresh how to interpret a boxplot.</p>
 
-<p>And this is interesting because people on Yelp are tagging different genres for each “Restaurant” business. For example, some restaurants could be considered as “Bars”, “American (New)”, “Pub”, etc. So one of the interesting question would be, “what type of the restaurants are more common in this data set?”</p>
+<p>Each subplot in the above figure has two boxplots (in blue) inside it, one each for each of the Y categories, CH and MM. The top of the box represents the 25th %ile and the bottom of the box represents the 75th %ile. The black dot inside the box is the mean.</p>
 
-<p>The easiest way to answer this question is to break out this ‘categories’ list data type variable and assign each value inside the list into each row. So essentially we’ll have a variable called ‘categories’ and this will have just one category value for each row. This means, some businesses might be repeated across rows many times, but that’s ok because our concern for now is to count each restaurant category type.</p>
+<p>The blue box represents the region where most of the regular data point lie.</p>
 
-<h1 id="unnest-a-list-variable">Unnest a list variable</h1>
+<p>The subplots also show many blue dots lying outside the top and bottom dashed lines called whiskers. These dots are formally considered as extreme values.</p>
 
-<p>To break out ‘categories’ variable and create one row for each value, we can use ‘unnest()’ function from tidyr package, which is another great package from ‘Hadleyverse’ to help making raw data into a ‘tidy’ format.</p>
+<p>So, What did you observe in the above figure?</p>
 
-<p>hadley/tidyr</p>
+<p>Consider for example, LoyalCHs subplot, which measures the loyalty score of the customer to the CH brand. The mean and the placement of the two boxes are glaringly different.</p>
 
-<p>tidyr - Easily tidy data with spread and gather functions.
-github.com<br />
-I will talk about more on ‘tidy’ format with ‘tidyr’ package in a separate post, but for now I am going to simply use ‘unnest()’ function to “unnest” the ‘categories’ variable like below.</p>
+<p>Just by seeing that, I am pretty sure, LoyalCH is going to be a significant predictor of Y.</p>
 
-<pre><code class="language-r">library(tidyr)
-yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- unnest(categories) %&gt;%
- select(name, categories)
+<p>What other predictors do you notice have significant mean differences?</p>
+
+<p>Let’s do a similar exercise with density plots.</p>
+
+<p>In this case, For a variable to be important, I would expect the density curves to be significantly different for the 2 classes, both in terms of the height (kurtosis) and placement (skewness).</p>
+
+<p>Take a look at the density curves of the two categories for ‘LoyalCH’, ‘STORE’, ‘StoreID’, ‘WeekofPurchase’. Are they different?</p>
+
+<pre><code class="language-r">featurePlot(x = trainData[, 1:18], 
+            y = trainData$Purchase, 
+            plot = &quot;density&quot;,
+            strip=strip.custom(par.strip.text=list(cex=.7)),
+            scales = list(x = list(relation=&quot;free&quot;), 
+                          y = list(relation=&quot;free&quot;)))
 </code></pre>
 
-<div class="alert alert-warning">
+<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-11-1.png" alt="" /><!-- --></p>
 
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
+<p>Having visualised the relationships between X and Y, We can only say which variables are likely to be important to predict Y. It may not be wise to conclude which variables are NOT important.</p>
 
- opts(pattern)): argument is not an atomic vector; coercing
+<p>Because sometimes, variables with uninteresting pattern can help explain certain aspects of Y that the visually important variables may not.</p>
 
-</div>
+<p>So to be safe, let’s not arrive at conclusions about excluding variables prematurely.</p>
 
-<pre><code>## # A tibble: 63,909 x 2
-##    name                    categories            
-##    &lt;chr&gt;                   &lt;chr&gt;                 
-##  1 Emil's Lounge           Bars                  
-##  2 Emil's Lounge           American (New)        
-##  3 Emil's Lounge           Nightlife             
-##  4 Emil's Lounge           Lounges               
-##  5 Emil's Lounge           Restaurants           
-##  6 Alexion's Bar &amp; Grill   Bars                  
-##  7 Alexion's Bar &amp; Grill   American (Traditional)
-##  8 Alexion's Bar &amp; Grill   Nightlife             
-##  9 Alexion's Bar &amp; Grill   Restaurants           
-## 10 Kings Family Restaurant Burgers               
-## # … with 63,899 more rows
+<h1 id="5-how-to-do-feature-selection-using-recursive-feature-elimination-rfe">5. How to do feature selection using recursive feature elimination (rfe)?</h1>
+
+<p>Most machine learning algorithms are able to determine what features are important to predict the Y. But in some scenarios, you might be need to be careful to include only variables that may be significantly important and makes strong business sense.</p>
+
+<p>This is quite common in banking, economics and financial institutions.</p>
+
+<p>Or you might just be doing an exploratory analysis to determine important predictors and report it as a metric in your analytics dashboard.</p>
+
+<p>Or if you are using a traditional algorithm like like linear or logistic regression, determining what variable to feed to the model is in the hands of the practitioner.</p>
+
+<p>Given such requirements, you might need a rigorous way to determine the important variables first before feeding them to the ML algorithm.</p>
+
+<p>A good choice of selecting the important features is the recursive feature elimination (RFE).</p>
+
+<p>So how does recursive feature elimination work?</p>
+
+<p>RFE works in 3 broad steps:</p>
+
+<p>Step 1: Build a ML model on a training dataset and estimate the feature importances on the test dataset.</p>
+
+<p>Step 2: Keeping priority to the most important variables, iterate through by building models of given sizes. Ranking of the predictors is recalculated in each iteration.</p>
+
+<p>Step 3: The model performances are compared across different subset sizes to arrive at the optimal number and list of final predictors.</p>
+
+<p>It can be implemented using the rfe() function and you have the flexibility to control what algorithm rfe uses and how it cross validates by defining the rfeControl().</p>
+
+<pre><code class="language-r">library(randomForest)
 </code></pre>
 
-<p>As you can see, ‘Emil’s Lounge’ is now repeated 5 times, for example. This is because it has those 5 different categories assigned to this business. This will allow us to do a quick summarization with ‘count()’ function like below.</p>
-
-<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- unnest(categories) %&gt;%
- select(name, categories) %&gt;%
- count(categories)
+<pre><code>## randomForest 4.6-14
 </code></pre>
 
-<div class="alert alert-warning">
-
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-
- opts(pattern)): argument is not an atomic vector; coercing
-
-</div>
-
-<pre><code>## # A tibble: 284 x 2
-##    categories                 n
-##    &lt;chr&gt;                  &lt;int&gt;
-##  1 Active Life               41
-##  2 Adult Entertainment        2
-##  3 Afghan                    13
-##  4 African                   30
-##  5 Airports                   1
-##  6 American (New)          1494
-##  7 American (Traditional)  2113
-##  8 Amusement Parks            2
-##  9 Apartments                 1
-## 10 Appliances                 1
-## # … with 274 more rows
+<pre><code>## Type rfNews() to see new features/changes/bug fixes.
 </code></pre>
 
-<p>And if you want to see the top categories you can simply use ‘arrange()’ function to sort.</p>
-
-<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- unnest(categories) %&gt;%
- select(name, categories) %&gt;%
- count(categories) %&gt;%
- arrange(desc(n))
+<pre><code>## 
+## Attaching package: 'randomForest'
 </code></pre>
 
-<div class="alert alert-warning">
-
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-
- opts(pattern)): argument is not an atomic vector; coercing
-
-</div>
-
-<pre><code>## # A tibble: 284 x 2
-##    categories                 n
-##    &lt;chr&gt;                  &lt;int&gt;
-##  1 Restaurants            21892
-##  2 Fast Food               2383
-##  3 Pizza                   2223
-##  4 Mexican                 2208
-##  5 American (Traditional)  2113
-##  6 Nightlife               2045
-##  7 Sandwiches              1981
-##  8 Bars                    1934
-##  9 Food                    1807
-## 10 Italian                 1633
-## # … with 274 more rows
+<pre><code>## The following object is masked from 'package:ggplot2':
+## 
+##     margin
 </code></pre>
 
-<p>Let’s get rid of the rows with ‘Restaurants’ category because we know every single rows in this data set has something to do with ‘Restaurant’ now.</p>
+<pre><code class="language-r">set.seed(100)
+options(warn=-1)
 
-<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- unnest(categories) %&gt;%
- filter(categories != &quot;Restaurants&quot;) %&gt;%
- count(categories) %&gt;%
- arrange(desc(n))
+subsets &lt;- c(1:5, 10, 15, 18)
+
+ctrl &lt;- rfeControl(functions = rfFuncs,
+                   method = &quot;repeatedcv&quot;,
+                   repeats = 5,
+                   verbose = FALSE)
+
+lmProfile &lt;- rfe(x=trainData[, 1:18], y=trainData$Purchase,
+                 sizes = subsets,
+                 rfeControl = ctrl)
+lmProfile
 </code></pre>
 
-<div class="alert alert-warning">
-
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-
- opts(pattern)): argument is not an atomic vector; coercing
-
-</div>
-
-<pre><code>## # A tibble: 283 x 2
-##    categories                 n
-##    &lt;chr&gt;                  &lt;int&gt;
-##  1 Fast Food               2383
-##  2 Pizza                   2223
-##  3 Mexican                 2208
-##  4 American (Traditional)  2113
-##  5 Nightlife               2045
-##  6 Sandwiches              1981
-##  7 Bars                    1934
-##  8 Food                    1807
-##  9 Italian                 1633
-## 10 Chinese                 1496
-## # … with 273 more rows
+<pre><code>## 
+## Recursive feature selection
+## 
+## Outer resampling method: Cross-Validated (10 fold, repeated 5 times) 
+## 
+## Resampling performance over subset size:
+## 
+##  Variables Accuracy  Kappa AccuracySD KappaSD Selected
+##          1   0.7440 0.4563    0.04010 0.08519         
+##          2   0.8147 0.6074    0.03647 0.07789         
+##          3   0.8205 0.6189    0.04137 0.08774        *
+##          4   0.8035 0.5852    0.04663 0.09682         
+##          5   0.8024 0.5818    0.04475 0.09458         
+##         10   0.8038 0.5838    0.04380 0.09314         
+##         15   0.8077 0.5896    0.04221 0.09025         
+##         18   0.8054 0.5853    0.03991 0.08606         
+## 
+## The top 3 variables (out of 3):
+##    LoyalCH, PriceDiff, StoreID
 </code></pre>
 
-<p>When you run the above command you will get something like below. You can see ‘Fast Food’ is the number one, and ‘Pizza’ and ‘Mexican’ come after.</p>
+<p>The top 3 variables (out of 3):
+   LoyalCH, PriceDiff, StoreID
+In the above code, we call the rfe() which implements the recursive feature elimination.</p>
 
-<p>What are the most common restaurant types per state / province?
-In this data set, there is a variable called ‘state’ that contains state names or province names of US and some European countries. So, what if we want to know what restaurant categories are more frequently showing up for each state ?</p>
+<p>Apart from the x and y datasets, RFE also takes two important parameters.</p>
 
-<p>We can simply add ‘state’ variable into ‘count()’ function like below.</p>
+<p>sizes
+rfeControl
+The sizes determines what all model sizes (the number of most important features) the rfe should consider. In above case, it iterates models of size 1 to 5, 10, 15 and 18.</p>
 
-<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- unnest(categories) %&gt;%
- filter(categories != &quot;Restaurants&quot;) %&gt;%
- count(state, categories) %&gt;%
- arrange(desc(n))
+<p>The rfeControl parameter on the other hand receives the output of the rfeControl() as values. If you look at the call to rfeControl() we set what type of algorithm and what cross validation method should be used.</p>
+
+<p>In above case, the cross validation method is repeatedcv which implements k-Fold cross validation repeated 5 times, which is rigorous enough for our case.</p>
+
+<p>Once rfe() is run, the output shows the accuracy and kappa (and their standard deviation) for the different model sizes we provided. The final selected model subset size is marked with a * in the rightmost Selected column.</p>
+
+<p>From the above output, a model size of 3 with LoyalCH, PriceDiff and StoreID seems to achieve the optimal accuracy.</p>
+
+<p>That means, out of 18 other features, a model with just 3 features outperformed many other larger model. Interesting isn’t it! Can you explain why?</p>
+
+<p>However, it is not a mandate that only including these 3 variables will always give high accuracy over larger sized models.</p>
+
+<p>Thats because, the rfe() we just implemented is particular to random forest based rfFuncs</p>
+
+<p>Since ML algorithms have their own way of learning the relationship between the x and y, it is not wise to neglect the other predictors, especially when there is evidence that there is information contained in rest of the variables to explain the relationship between x and y.</p>
+
+<p>Plus also, since the training dataset isn’t large enough, the other predictors may not have had the chance to show its worth.</p>
+
+<p>In the next step, we will build the actual randomForest model on trainData.</p>
+
+<ol>
+<li>Training and Tuning the model
+6.1. How to train() the model and interpret the results?
+Now comes the important stage where you actually build the machine learning model.</li>
+</ol>
+
+<p>To know what models caret supports, run the following:</p>
+
+<pre><code class="language-r"># See available algorithms in caret
+modelnames &lt;- paste(names(getModelInfo()), collapse=',  ')
+modelnames
 </code></pre>
 
-<div class="alert alert-warning">
-
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-
- opts(pattern)): argument is not an atomic vector; coercing
-
-</div>
-
-<pre><code>## # A tibble: 1,483 x 3
-##    state categories                 n
-##    &lt;chr&gt; &lt;chr&gt;                  &lt;int&gt;
-##  1 AZ    Mexican                 1197
-##  2 AZ    Fast Food               1035
-##  3 AZ    Pizza                    944
-##  4 AZ    American (Traditional)   924
-##  5 AZ    Sandwiches               834
-##  6 AZ    Nightlife                725
-##  7 NV    Fast Food                695
-##  8 AZ    Bars                     686
-##  9 AZ    American (New)           668
-## 10 AZ    Burgers                  648
-## # … with 1,473 more rows
+<pre><code>## [1] &quot;ada,  AdaBag,  AdaBoost.M1,  adaboost,  amdai,  ANFIS,  avNNet,  awnb,  awtan,  bag,  bagEarth,  bagEarthGCV,  bagFDA,  bagFDAGCV,  bam,  bartMachine,  bayesglm,  binda,  blackboost,  blasso,  blassoAveraged,  bridge,  brnn,  BstLm,  bstSm,  bstTree,  C5.0,  C5.0Cost,  C5.0Rules,  C5.0Tree,  cforest,  chaid,  CSimca,  ctree,  ctree2,  cubist,  dda,  deepboost,  DENFIS,  dnn,  dwdLinear,  dwdPoly,  dwdRadial,  earth,  elm,  enet,  evtree,  extraTrees,  fda,  FH.GBML,  FIR.DM,  foba,  FRBCS.CHI,  FRBCS.W,  FS.HGD,  gam,  gamboost,  gamLoess,  gamSpline,  gaussprLinear,  gaussprPoly,  gaussprRadial,  gbm_h2o,  gbm,  gcvEarth,  GFS.FR.MOGUL,  GFS.LT.RS,  GFS.THRIFT,  glm.nb,  glm,  glmboost,  glmnet_h2o,  glmnet,  glmStepAIC,  gpls,  hda,  hdda,  hdrda,  HYFIS,  icr,  J48,  JRip,  kernelpls,  kknn,  knn,  krlsPoly,  krlsRadial,  lars,  lars2,  lasso,  lda,  lda2,  leapBackward,  leapForward,  leapSeq,  Linda,  lm,  lmStepAIC,  LMT,  loclda,  logicBag,  LogitBoost,  logreg,  lssvmLinear,  lssvmPoly,  lssvmRadial,  lvq,  M5,  M5Rules,  manb,  mda,  Mlda,  mlp,  mlpKerasDecay,  mlpKerasDecayCost,  mlpKerasDropout,  mlpKerasDropoutCost,  mlpML,  mlpSGD,  mlpWeightDecay,  mlpWeightDecayML,  monmlp,  msaenet,  multinom,  mxnet,  mxnetAdam,  naive_bayes,  nb,  nbDiscrete,  nbSearch,  neuralnet,  nnet,  nnls,  nodeHarvest,  null,  OneR,  ordinalNet,  ordinalRF,  ORFlog,  ORFpls,  ORFridge,  ORFsvm,  ownn,  pam,  parRF,  PART,  partDSA,  pcaNNet,  pcr,  pda,  pda2,  penalized,  PenalizedLDA,  plr,  pls,  plsRglm,  polr,  ppr,  PRIM,  protoclass,  qda,  QdaCov,  qrf,  qrnn,  randomGLM,  ranger,  rbf,  rbfDDA,  Rborist,  rda,  regLogistic,  relaxo,  rf,  rFerns,  RFlda,  rfRules,  ridge,  rlda,  rlm,  rmda,  rocc,  rotationForest,  rotationForestCp,  rpart,  rpart1SE,  rpart2,  rpartCost,  rpartScore,  rqlasso,  rqnc,  RRF,  RRFglobal,  rrlda,  RSimca,  rvmLinear,  rvmPoly,  rvmRadial,  SBC,  sda,  sdwd,  simpls,  SLAVE,  slda,  smda,  snn,  sparseLDA,  spikeslab,  spls,  stepLDA,  stepQDA,  superpc,  svmBoundrangeString,  svmExpoString,  svmLinear,  svmLinear2,  svmLinear3,  svmLinearWeights,  svmLinearWeights2,  svmPoly,  svmRadial,  svmRadialCost,  svmRadialSigma,  svmRadialWeights,  svmSpectrumString,  tan,  tanSearch,  treebag,  vbmpRadial,  vglmAdjCat,  vglmContRatio,  vglmCumulative,  widekernelpls,  WM,  wsrf,  xgbDART,  xgbLinear,  xgbTree,  xyf&quot;
 </code></pre>
 
-<p>Now, let’s take a look at the top restaurant category for each state. We can use ‘group_by()’ function to group the data by state and use ‘top_n()’ function to keep only the top category. Both functions are from ‘dplyr’ package.</p>
+<p>Each of those is a machine learning algorithm caret supports.</p>
 
-<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- unnest(categories) %&gt;%
- filter(categories != &quot;Restaurants&quot;) %&gt;%
- count(state, categories) %&gt;%
- group_by(state) %&gt;%
- top_n(1, n)
+<p>Yes, it’s a huge list!</p>
+
+<p>And if you want to know more details like the hyperparameters and if it can be used of regression or classification problem, then do a modelLookup(algo).</p>
+
+<p>Once you have chosen an algorithm, building the model is fairly easy using the train() function.</p>
+
+<p>Let’s train a Multivariate Adaptive Regression Splines (MARS) model by setting the method=&lsquo;earth&rsquo;.</p>
+
+<p>The MARS algorithm was named as ‘earth’ in R because of a possible trademark conflict with Salford Systems. May be a rumor. Or not.</p>
+
+<pre><code class="language-r">modelLookup('earth')
 </code></pre>
 
-<div class="alert alert-warning">
-
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-
- opts(pattern)): argument is not an atomic vector; coercing
-
-</div>
-
-<pre><code>## # A tibble: 25 x 3
-## # Groups:   state [18]
-##    state categories        n
-##    &lt;chr&gt; &lt;chr&gt;         &lt;int&gt;
-##  1 AZ    Mexican        1197
-##  2 BW    Food             82
-##  3 EDH   Food            189
-##  4 ELN   British           3
-##  5 FIF   Bars              1
-##  6 FIF   Cocktail Bars     1
-##  7 FIF   Delis             1
-##  8 FIF   Fast Food         1
-##  9 FIF   Nightlife         1
-## 10 IL    Pizza            31
-## # … with 15 more rows
+<pre><code>##   model parameter          label forReg forClass probModel
+## 1 earth    nprune         #Terms   TRUE     TRUE      TRUE
+## 2 earth    degree Product Degree   TRUE     TRUE      TRUE
 </code></pre>
 
-<p>As you can see there are 5 entries for “FIF” province, this is because they are all tie. But the values are just ‘1’ and that’s a really small number compared to the others. So let’s filter out those small numbers from the data before the group_by and top_n steps.</p>
+<pre><code class="language-r"># Set the seed for reproducibility
+set.seed(100)
 
-<pre><code class="language-r">yelp_tbl %&gt;% select(-starts_with(&quot;hours&quot;), -starts_with(&quot;attribute&quot;)) %&gt;%
- filter(str_detect(categories, &quot;Restaurant&quot;)) %&gt;%
- unnest(categories) %&gt;%
- filter(categories != &quot;Restaurants&quot;) %&gt;%
- count(state, categories) %&gt;%
- filter(n &gt; 10) %&gt;%
- group_by(state) %&gt;%
- top_n(1, n)
+# Train the model using randomForest and predict on the training data itself.
+model_mars = train(Purchase ~ ., data=trainData, method='earth')
 </code></pre>
 
-<div class="alert alert-warning">
-
- Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-
- opts(pattern)): argument is not an atomic vector; coercing
-
-</div>
-
-<pre><code>## # A tibble: 12 x 3
-## # Groups:   state [12]
-##    state categories                 n
-##    &lt;chr&gt; &lt;chr&gt;                  &lt;int&gt;
-##  1 AZ    Mexican                 1197
-##  2 BW    Food                      82
-##  3 EDH   Food                     189
-##  4 IL    Pizza                     31
-##  5 MLN   Cafes                     11
-##  6 NC    American (Traditional)   257
-##  7 NV    Fast Food                695
-##  8 ON    Chinese                   29
-##  9 PA    Pizza                    196
-## 10 QC    French                   272
-## 11 SC    American (Traditional)    13
-## 12 WI    Nightlife                130
+<pre><code>## Loading required package: earth
 </code></pre>
 
-<p>The result is a list of the top restaurant category for each of the 12 state or province.</p>
+<pre><code>## Loading required package: Formula
+</code></pre>
 
-<p>This is a very simple analysis on Yelp business data. But given where we started with Yelp business data in the raw JSON format, hope this has demonstrated how quickly, incrementally, and iteratively we can get some interesting information out of such un-traditional (not tabular) data format relatively easily and quickly.</p>
+<pre><code>## Loading required package: plotmo
+</code></pre>
 
-<p>Notes: Adopted from <a href="https://blog.exploratory.io/working-with-json-data-in-very-simple-way-ad7ebcc0bb89">https://blog.exploratory.io/working-with-json-data-in-very-simple-way-ad7ebcc0bb89</a></p>
-    
+<pre><code>## Loading required package: plotrix
+</code></pre>
+
+<pre><code>## Loading required package: TeachingDemos
+</code></pre>
+
+<pre><code class="language-r">fitted &lt;- predict(model_mars)
+</code></pre>
+
+<p>But you may ask how is using train() different from using the algorithm’s function directly?</p>
+
+<p>The difference is, besides building the model train() does multiple other things like:</p>
+
+<p>Cross validating the model
+Tune the hyper parameters for optimal model performance
+Choose the optimal model based on a given evaluation metric
+Preprocess the predictors (what we did so far using preProcess())
+The train function also accepts the arguments used by the algorithm specified in the method argument.</p>
+
+<p>Now let’s see what the train() has generated.</p>
+
+<pre><code class="language-r">model_mars
+</code></pre>
+
+<pre><code>## Multivariate Adaptive Regression Spline 
+## 
+## 857 samples
+##  18 predictor
+##   2 classes: 'CH', 'MM' 
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 857, 857, 857, 857, 857, 857, ... 
+## Resampling results across tuning parameters:
+## 
+##   nprune  Accuracy   Kappa    
+##    2      0.8013184  0.5746285
+##   10      0.8102610  0.5987447
+##   19      0.8103685  0.5986923
+## 
+## Tuning parameter 'degree' was held constant at a value of 1
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were nprune = 19 and degree = 1.
+</code></pre>
+
+<p>Tuning parameter &lsquo;degree&rsquo; was held constant at a value of 1
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were nprune = 19 and degree = 1.
+You can see what is the Accuracy and Kappa for various combinations of the hyper parameters – interaction.depth and n.trees. And it says ‘Resampling: Bootstrapped (25 reps)’ with a summary of sample sizes.</p>
+
+<p>Looks like train() has already done a basic cross validation and hyper parameter tuning. And that is the default behaviour.</p>
+
+<p>The chosen model and its parameters is reported in the last 2 lines of the output.</p>
+
+<p>When we used model_mars to predict the Y, this final model was automatically used by predict() to compute the predictions.</p>
+
+<p>Plotting the model shows how the various iterations of hyperparameter search performed.</p>
+
+<pre><code class="language-r">plot(model_mars, main=&quot;Model Accuracies with MARS&quot;)
+</code></pre>
+
+<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-17-1.png" alt="" /><!-- --></p>
+
+<h2 id="6-2-how-to-compute-variable-importance">6.2 How to compute variable importance?</h2>
+
+<p>Excellent, since MARS supports computing variable importances, let’s extract the variable importances using varImp() to understand which variables came out to be useful.</p>
+
+<pre><code class="language-r">varimp_mars &lt;- varImp(model_mars)
+plot(varimp_mars, main=&quot;Variable Importance with MARS&quot;)
+</code></pre>
+
+<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-18-1.png" alt="" /><!-- --></p>
+
+<p>As suspected, LoyalCH was the most used variable, followed by PriceDiff and StoreID.</p>
+
+<h2 id="6-3-prepare-the-test-dataset-and-predict">6.3. Prepare the test dataset and predict</h2>
+
+<p>A default MARS model has been selected.</p>
+
+<p>Now in order to use the model to predict on new data, the data has to be preprocessed and transformed just the way we did on the training data.</p>
+
+<p>Thanks to caret, all the information required for pre-processing is stored in the respective preProcess model and dummyVar model.</p>
+
+<p>If you recall, we did the pre-processing in the following sequence:</p>
+
+<p>Missing Value imputation –&gt; One-Hot Encoding –&gt; Range Normalization</p>
+
+<p>You need to pass the testData through these models in the same sequence:</p>
+
+<p>preProcess_missingdata_model –&gt; dummies_model –&gt; preProcess_range_model</p>
+
+<pre><code class="language-r"># Step 1: Impute missing values 
+testData2 &lt;- predict(preProcess_missingdata_model, testData)  
+
+# Step 2: Create one-hot encodings (dummy variables)
+testData3 &lt;- predict(dummies_model, testData2)
+
+# Step 3: Transform the features to range between 0 and 1
+testData4 &lt;- predict(preProcess_range_model, testData3)
+
+# View
+head(testData4[, 1:10])
+</code></pre>
+
+<pre><code>##    WeekofPurchase StoreID PriceCH   PriceMM DiscCH DiscMM SpecialCH
+## 2      0.23529412       0   0.150 0.5000000   0.00  0.375         0
+## 3      0.35294118       0   0.425 0.6666667   0.34  0.000         0
+## 6      0.05882353       1   0.000 0.5000000   0.00  0.000         0
+## 7      0.09803922       1   0.000 0.5000000   0.00  0.500         1
+## 9      0.15686275       1   0.150 0.5000000   0.00  0.500         0
+## 13     0.96078431       1   0.750 0.7333333   0.00  0.675         0
+##    SpecialMM   LoyalCH SalePriceMM
+## 2          1 0.6000352   0.4545455
+## 3          0 0.6800414   0.8181818
+## 6          1 0.9652913   0.7272727
+## 7          1 0.9722459   0.3636364
+## 9          0 0.9822616   0.3636364
+## 13         1 0.9927734   0.3636364
+</code></pre>
+
+<h2 id="6-4-predict-on-testdata">6.4. Predict on testData</h2>
+
+<p>The test dataset is prepared. Let’s predict the Y.</p>
+
+<pre><code class="language-r"># Predict on testData
+predicted &lt;- predict(model_mars, testData4)
+head(predicted)
+</code></pre>
+
+<pre><code>## [1] CH CH CH CH CH MM
+## Levels: CH MM
+</code></pre>
+
+<h2 id="6-5-confusion-matrix">6.5. Confusion Matrix</h2>
+
+<p>The confusion matrix is a tabular representation to compare the predictions (data) vs the actuals (reference). By setting mode=&lsquo;everything&rsquo; pretty much most classification evaluation metrics are computed.</p>
+
+<pre><code class="language-r"># Compute the confusion matrix
+confusionMatrix(reference = testData$Purchase, data = predicted, mode='everything', positive='MM')
+</code></pre>
+
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  CH  MM
+##         CH 113  21
+##         MM  17  62
+##                                           
+##                Accuracy : 0.8216          
+##                  95% CI : (0.7635, 0.8705)
+##     No Information Rate : 0.6103          
+##     P-Value [Acc &gt; NIR] : 2.139e-11       
+##                                           
+##                   Kappa : 0.6216          
+##  Mcnemar's Test P-Value : 0.6265          
+##                                           
+##             Sensitivity : 0.7470          
+##             Specificity : 0.8692          
+##          Pos Pred Value : 0.7848          
+##          Neg Pred Value : 0.8433          
+##               Precision : 0.7848          
+##                  Recall : 0.7470          
+##                      F1 : 0.7654          
+##              Prevalence : 0.3897          
+##          Detection Rate : 0.2911          
+##    Detection Prevalence : 0.3709          
+##       Balanced Accuracy : 0.8081          
+##                                           
+##        'Positive' Class : MM              
+## 
+</code></pre>
+
+<p>You have an overall accuracy of 80.28%.</p>
+
+<h1 id="7-how-to-do-hyperparameter-tuning-to-optimize-the-model-for-better-performance">7. How to do hyperparameter tuning to optimize the model for better performance?</h1>
+
+<p>There are two main ways to do hyper parameter tuning using the train():</p>
+
+<p>Set the tuneLength
+Define and set the tuneGrid
+tuneLength corresponds to the number of unique values for the tuning parameters caret will consider while forming the hyper parameter combinations.</p>
+
+<p>Caret will automatically determine the values each parameter should take.</p>
+
+<p>Alternately, if you want to explicitly control what values should be considered for each parameter, then, you can define the tuneGrid and pass it to train().</p>
+
+<p>Let’s see an example of both these approaches but first let’s setup the trainControl().</p>
+
+<h1 id="7-1-setting-up-the-traincontrol">7.1. Setting up the trainControl()</h1>
+
+<p>The train() function takes a trControl argument that accepts the output of trainControl().</p>
+
+<p>Inside trainControl() you can control how the train() will:</p>
+
+<p>Cross validation method to use.
+How the results should be summarised using a summary function
+Cross validation method can be one amongst:</p>
+
+<p>‘boot’: Bootstrap sampling
+‘boot632’: Bootstrap sampling with 63.2% bias correction applied
+‘optimism_boot’: The optimism bootstrap estimator
+‘boot_all’: All boot methods.
+‘cv’: k-Fold cross validation
+‘repeatedcv’: Repeated k-Fold cross validation
+‘oob’: Out of Bag cross validation
+‘LOOCV’: Leave one out cross validation
+‘LGOCV’: Leave group out cross validation
+The summaryFunction can be twoClassSummary if Y is binary class or multiClassSummary if the Y has more than 2 categories.</p>
+
+<p>By settiung the classProbs=T the probability scores are generated instead of directly predicting the class based on a predetermined cutoff of 0.5.</p>
+
+<pre><code class="language-r"># Define the training control
+fitControl &lt;- trainControl(
+    method = 'cv',                   # k-fold cross validation
+    number = 5,                      # number of folds
+    savePredictions = 'final',       # saves predictions for optimal tuning parameter
+    classProbs = T,                  # should class probabilities be returned
+    summaryFunction=twoClassSummary  # results summary function
+) 
+</code></pre>
+
+<p>##7.2 Hyper Parameter Tuning using tuneLength
+Let’s take the train() function we used before, plus, additionally set the tuneLength, trControl and metric.</p>
+
+<pre><code class="language-r"># Step 1: Tune hyper parameters by setting tuneLength
+set.seed(100)
+model_mars2 = train(Purchase ~ ., data=trainData, method='earth', tuneLength = 5, metric='ROC', trControl = fitControl)
+model_mars2
+</code></pre>
+
+<pre><code>## Multivariate Adaptive Regression Spline 
+## 
+## 857 samples
+##  18 predictor
+##   2 classes: 'CH', 'MM' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 685, 685, 687, 686, 685 
+## Resampling results across tuning parameters:
+## 
+##   nprune  ROC        Sens       Spec     
+##    2      0.8745398  0.8700916  0.7006784
+##    6      0.8912361  0.8719414  0.7334238
+##   10      0.8879988  0.8623626  0.7423790
+##   14      0.8879988  0.8623626  0.7423790
+##   19      0.8879846  0.8661722  0.7483492
+## 
+## Tuning parameter 'degree' was held constant at a value of 1
+## ROC was used to select the optimal model using the largest value.
+## The final values used for the model were nprune = 6 and degree = 1.
+</code></pre>
+
+<pre><code class="language-r"># Step 2: Predict on testData and Compute the confusion matrix
+predicted2 &lt;- predict(model_mars2, testData4)
+confusionMatrix(reference = testData$Purchase, data = predicted2, mode='everything', positive='MM')
+</code></pre>
+
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  CH  MM
+##         CH 116  20
+##         MM  14  63
+##                                           
+##                Accuracy : 0.8404          
+##                  95% CI : (0.7841, 0.8869)
+##     No Information Rate : 0.6103          
+##     P-Value [Acc &gt; NIR] : 2.164e-13       
+##                                           
+##                   Kappa : 0.66            
+##  Mcnemar's Test P-Value : 0.3912          
+##                                           
+##             Sensitivity : 0.7590          
+##             Specificity : 0.8923          
+##          Pos Pred Value : 0.8182          
+##          Neg Pred Value : 0.8529          
+##               Precision : 0.8182          
+##                  Recall : 0.7590          
+##                      F1 : 0.7875          
+##              Prevalence : 0.3897          
+##          Detection Rate : 0.2958          
+##    Detection Prevalence : 0.3615          
+##       Balanced Accuracy : 0.8257          
+##                                           
+##        'Positive' Class : MM              
+## 
+</code></pre>
+
+<h2 id="7-3-hyper-parameter-tuning-using-tunegrid">7.3. Hyper Parameter Tuning using tuneGrid</h2>
+
+<p>Alternately, you can set the tuneGrid instead of tuneLength.</p>
+
+<pre><code class="language-r"># Step 1: Define the tuneGrid
+marsGrid &lt;-  expand.grid(nprune = c(2, 4, 6, 8, 10), 
+                        degree = c(1, 2, 3))
+
+# Step 2: Tune hyper parameters by setting tuneGrid
+set.seed(100)
+model_mars3 = train(Purchase ~ ., data=trainData, method='earth', metric='ROC', tuneGrid = marsGrid, trControl = fitControl)
+model_mars3
+</code></pre>
+
+<pre><code>## Multivariate Adaptive Regression Spline 
+## 
+## 857 samples
+##  18 predictor
+##   2 classes: 'CH', 'MM' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 685, 685, 687, 686, 685 
+## Resampling results across tuning parameters:
+## 
+##   degree  nprune  ROC        Sens       Spec     
+##   1        2      0.8745398  0.8700916  0.7006784
+##   1        4      0.8924657  0.8662454  0.7394844
+##   1        6      0.8912361  0.8719414  0.7334238
+##   1        8      0.8886974  0.8661722  0.7334238
+##   1       10      0.8879988  0.8623626  0.7423790
+##   2        2      0.8745398  0.8700916  0.7006784
+##   2        4      0.8925044  0.8758425  0.7395296
+##   2        6      0.8918962  0.8681868  0.7545002
+##   2        8      0.8911809  0.8624359  0.7634102
+##   2       10      0.8947444  0.8604579  0.7784261
+##   3        2      0.8582783  0.8777106  0.6618725
+##   3        4      0.8919687  0.8681502  0.7514699
+##   3        6      0.8889365  0.8509341  0.7665310
+##   3        8      0.8802930  0.8432784  0.7396653
+##   3       10      0.8790021  0.8452015  0.7486205
+## 
+## ROC was used to select the optimal model using the largest value.
+## The final values used for the model were nprune = 10 and degree = 2.
+</code></pre>
+
+<pre><code class="language-r"># Step 3: Predict on testData and Compute the confusion matrix
+predicted3 &lt;- predict(model_mars3, testData4)
+confusionMatrix(reference = testData$Purchase, data = predicted3, mode='everything', positive='MM')
+</code></pre>
+
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  CH  MM
+##         CH 114  18
+##         MM  16  65
+##                                           
+##                Accuracy : 0.8404          
+##                  95% CI : (0.7841, 0.8869)
+##     No Information Rate : 0.6103          
+##     P-Value [Acc &gt; NIR] : 2.164e-13       
+##                                           
+##                   Kappa : 0.6629          
+##  Mcnemar's Test P-Value : 0.8638          
+##                                           
+##             Sensitivity : 0.7831          
+##             Specificity : 0.8769          
+##          Pos Pred Value : 0.8025          
+##          Neg Pred Value : 0.8636          
+##               Precision : 0.8025          
+##                  Recall : 0.7831          
+##                      F1 : 0.7927          
+##              Prevalence : 0.3897          
+##          Detection Rate : 0.3052          
+##    Detection Prevalence : 0.3803          
+##       Balanced Accuracy : 0.8300          
+##                                           
+##        'Positive' Class : MM              
+## 
+</code></pre>
+
+<h1 id="8-how-to-evaluate-performance-of-multiple-machine-learning-algorithms">8. How to evaluate performance of multiple machine learning algorithms?</h1>
+
+<p>Caret provides the resamples() function where you can provide multiple machine learning models and collectively evaluate them.</p>
+
+<p>Let’s first train some more algorithms.</p>
+
+<p>##8.1. Training Adaboost</p>
+
+<pre><code class="language-r">set.seed(100)
+
+# Train the model using adaboost
+model_adaboost = train(Purchase ~ ., data=trainData, method='adaboost', tuneLength=2, trControl = fitControl)
+</code></pre>
+
+<p>##8.2. Training Random Forest</p>
+
+<pre><code class="language-r">set.seed(100)
+
+# Train the model using rf
+model_rf = train(Purchase ~ ., data=trainData, method='rf', tuneLength=5, trControl = fitControl)
+</code></pre>
+
+<p>8.3. Training xgBoost Dart</p>
+
+<pre><code class="language-r">set.seed(100)
+
+# Train the model using MARS
+model_xgbDART = train(Purchase ~ ., data=trainData, method='xgbDART', tuneLength=5, trControl = fitControl, verbose=F)
+</code></pre>
+
+<p>8.4. Training SVM</p>
+
+<pre><code class="language-r">set.seed(100)
+
+# Train the model using MARS
+model_svmRadial = train(Purchase ~ ., data=trainData, method='svmRadial', tuneLength=15, trControl = fitControl)
+</code></pre>
+
+<p>##8.5. Run resamples() to compare the models</p>
+
+<pre><code class="language-r"># Compare model performances using resample()
+models_compare &lt;- resamples(list(ADABOOST=model_adaboost, RF=model_rf, XGBDART=model_xgbDART, MARS=model_mars3, SVM=model_svmRadial))
+
+# Summary of the models performances
+summary(models_compare)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## summary.resamples(object = models_compare)
+## 
+## Models: ADABOOST, RF, XGBDART, MARS, SVM 
+## Number of resamples: 5 
+## 
+## ROC 
+##               Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA's
+## ADABOOST 0.8126510 0.8462687 0.8682549 0.8657598 0.8868515 0.9147727    0
+## RF       0.8253021 0.8568586 0.8877727 0.8775297 0.9017768 0.9159382    0
+## XGBDART  0.8589197 0.8775409 0.9114524 0.8995839 0.9198718 0.9301350    0
+## MARS     0.8433547 0.8839375 0.9073622 0.8947444 0.9084353 0.9306326    0
+## SVM      0.8537313 0.8728500 0.8903559 0.8907736 0.9053030 0.9316276    0
+## 
+## Sens 
+##               Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA's
+## ADABOOST 0.7619048 0.7904762 0.7904762 0.8070330 0.8076923 0.8846154    0
+## RF       0.8000000 0.8190476 0.8365385 0.8490476 0.8761905 0.9134615    0
+## XGBDART  0.8285714 0.8666667 0.8846154 0.8738828 0.8857143 0.9038462    0
+## MARS     0.8190476 0.8476190 0.8653846 0.8604579 0.8750000 0.8952381    0
+## SVM      0.8653846 0.8761905 0.8857143 0.8814469 0.8857143 0.8942308    0
+## 
+## Spec 
+##               Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA's
+## ADABOOST 0.7014925 0.7462687 0.7727273 0.7635007 0.7761194 0.8208955    0
+## RF       0.6417910 0.7313433 0.7313433 0.7365445 0.7424242 0.8358209    0
+## XGBDART  0.6567164 0.6969697 0.7014925 0.7304387 0.7462687 0.8507463    0
+## MARS     0.6865672 0.7727273 0.7761194 0.7784261 0.7910448 0.8656716    0
+## SVM      0.6417910 0.6818182 0.7313433 0.7363636 0.7462687 0.8805970    0
+</code></pre>
+
+<p>Let’s plot the resamples summary output.</p>
+
+<pre><code class="language-r"># Draw box plots to compare models
+scales &lt;- list(x=list(relation=&quot;free&quot;), y=list(relation=&quot;free&quot;))
+bwplot(models_compare, scales=scales)
+</code></pre>
+
+<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-30-1.png" alt="" /><!-- --></p>
+
+<p>In the above output you can see clearly how the algorithms performed in terms of ROC, Specificity and Sensitivity and how consistent has it been.</p>
+
+<p>The xgbDART model appears to be the be best performing model overall because of the high ROC. But if you need a model that predicts the positives better, you might want to consider MARS, given its high sensitivity.</p>
+
+<p>Either way, you can now make an informed decision on which model to pick.</p>
+
+<p>#9. Ensembling the predictions
+##9.1. How to ensemble predictions from multiple models using caretEnsemble?
+So we have predictions from multiple individual models. To do this we had to run the train() function once for each model, store the models and pass it to the res</p>
+
+<p>The caretEnsemble package lets you do just that.</p>
+
+<p>All you have to do is put the names of all the algorithms you want to run in a vector and pass it to caretEnsemble::caretList() instead of caret::train().</p>
+
+<pre><code class="language-r">library(caretEnsemble)
+</code></pre>
+
+<pre><code>## 
+## Attaching package: 'caretEnsemble'
+</code></pre>
+
+<pre><code>## The following object is masked from 'package:ggplot2':
+## 
+##     autoplot
+</code></pre>
+
+<pre><code class="language-r"># Stacking Algorithms - Run multiple algos in one call.
+trainControl &lt;- trainControl(method=&quot;repeatedcv&quot;, 
+                             number=10, 
+                             repeats=3,
+                             savePredictions=TRUE, 
+                             classProbs=TRUE)
+
+algorithmList &lt;- c('rf', 'adaboost', 'earth', 'xgbDART', 'svmRadial')
+
+set.seed(100)
+models &lt;- caretList(Purchase ~ ., data=trainData, trControl=trainControl, methodList=algorithmList) 
+results &lt;- resamples(models)
+</code></pre>
+
+<p>Plot the resamples output to compare the models.</p>
+
+<p>Excellent! It is possible for further tune the model within caretList in a customised way.</p>
+
+<p>##9.2. How to combine the predictions of multiple models to form a final prediction
+That one function simplified a whole lot of work in one line of code.</p>
+
+<p>Here is another thought: Is it possible to combine these predicted values from multiple models somehow and make a new ensemble that predicts better?</p>
+
+<p>Turns out this can be done too, using the caretStack(). You just need to make sure you don’t use the same trainControl you used to build the models.</p>
+
+<pre><code class="language-r"># Create the trainControl
+set.seed(101)
+stackControl &lt;- trainControl(method=&quot;repeatedcv&quot;, 
+                             number=10, 
+                             repeats=3,
+                             savePredictions=TRUE, 
+                             classProbs=TRUE)
+
+# Ensemble the predictions of `models` to form a new combined prediction based on glm
+stack.glm &lt;- caretStack(models, method=&quot;glm&quot;, metric=&quot;Accuracy&quot;, trControl=stackControl)
+print(stack.glm)
+</code></pre>
+
+<pre><code>## A glm ensemble of 2 base models: rf, adaboost, earth, xgbDART, svmRadial
+## 
+## Ensemble results:
+## Generalized Linear Model 
+## 
+## 2571 samples
+##    5 predictor
+##    2 classes: 'CH', 'MM' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 2314, 2314, 2314, 2314, 2313, 2313, ... 
+## Resampling results:
+## 
+##   Accuracy   Kappa    
+##   0.8331519  0.6444917
+</code></pre>
+
+<p>A point to consider: The ensembles tend to perform better if the predictions are less correlated with each other.</p>
+
+<p>So you may want to try passing different types of models, both high and low performing rather than just stick to passing high accuracy models to the caretStack.</p>
+
+<pre><code class="language-r">print(stack.glm)
+</code></pre>
+
+<pre><code>## A glm ensemble of 2 base models: rf, adaboost, earth, xgbDART, svmRadial
+## 
+## Ensemble results:
+## Generalized Linear Model 
+## 
+## 2571 samples
+##    5 predictor
+##    2 classes: 'CH', 'MM' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 2314, 2314, 2314, 2314, 2313, 2313, ... 
+## Resampling results:
+## 
+##   Accuracy   Kappa    
+##   0.8331519  0.6444917
+</code></pre>
+
+<pre><code class="language-r"># Predict on testData
+stack_predicteds &lt;- predict(stack.glm, newdata=testData4)
+head(stack_predicteds)
+</code></pre>
+
+<pre><code>## [1] CH CH CH CH CH CH
+## Levels: CH MM
+</code></pre>
+
+<h1 id="10-conclusion">10. Conclusion</h1>
+
+<p>The purpose of this post was to cover the core pieces of the caret package and how you can effectively use it to build machine learning models.</p>
+
+<p>This information should serve as a reference and also as a template you can use to build a standardised machine learning workflow, so you can develop it further from there.</p>
+
+<pre><code class="language-r">bot$sendMessage('RMarkdown ready')
+</code></pre>
+
+<pre><code class="language-r">sessionInfo()
+</code></pre>
+
+<pre><code>## R version 3.4.4 (2018-03-15)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 18.04.2 LTS
+## 
+## Matrix products: default
+## BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
+## 
+## locale:
+##  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+##  [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+##  [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+## [10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] caretEnsemble_2.0.0 earth_5.1.1         plotmo_3.5.4       
+##  [4] TeachingDemos_2.10  plotrix_3.7-4       Formula_1.2-3      
+##  [7] randomForest_4.6-14 RANN_2.6.1          skimr_1.0.5        
+## [10] caret_6.0-81        ggplot2_3.1.0       lattice_0.20-35    
+## [13] tictoc_1.0         
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.1         lubridate_1.7.4    class_7.3-14      
+##  [4] assertthat_0.2.1   digest_0.6.18      ipred_0.9-8       
+##  [7] foreach_1.4.4      R6_2.4.0           plyr_1.8.4        
+## [10] fastAdaboost_1.0.0 stats4_3.4.4       evaluate_0.13     
+## [13] e1071_1.7-1        pillar_1.3.1       rlang_0.3.3       
+## [16] lazyeval_0.2.1     rstudioapi_0.10    data.table_1.12.0 
+## [19] kernlab_0.9-27     rpart_4.1-13       Matrix_1.2-12     
+## [22] rmarkdown_1.12     splines_3.4.4      gower_0.2.0       
+## [25] stringr_1.4.0      munsell_0.5.0      compiler_3.4.4    
+## [28] xfun_0.6           pkgconfig_2.0.2    htmltools_0.3.6   
+## [31] nnet_7.3-12        tidyselect_0.2.5   gridExtra_2.3     
+## [34] tibble_2.1.1       prodlim_2018.04.18 codetools_0.2-15  
+## [37] crayon_1.3.4       dplyr_0.8.0.1      withr_2.1.2       
+## [40] MASS_7.3-49        recipes_0.1.5      ModelMetrics_1.2.2
+## [43] grid_3.4.4         nlme_3.1-131       gtable_0.2.0      
+## [46] magrittr_1.5       scales_1.0.0       pbapply_1.4-0     
+## [49] stringi_1.4.3      reshape2_1.4.3     timeDate_3043.102 
+## [52] generics_0.0.2     xgboost_0.82.1     lava_1.6.5        
+## [55] iterators_1.0.10   tools_3.4.4        glue_1.3.1        
+## [58] purrr_0.3.2        parallel_3.4.4     survival_2.41-3   
+## [61] yaml_2.2.0         colorspace_1.4-1   knitr_1.22
+</code></pre>    
         </div>
     </section>
 
@@ -884,13 +1309,13 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="../../post/blog_json/">Blog JSON</a></li>            
+          <li><a href="../../post/github_rest_api/">GitHub REST API</a></li>            
         
-          <li><a href="../../post/blog-json/">Blog JSON</a></li>            
+          <li><a href="../../post/github_rest_api4/">Blog JSON4</a></li>            
         
-          <li><a href="../../post/r-python-bridge/">R-Python Bridge</a></li>            
+          <li><a href="../../post/"></a></li>            
         
-          <li><a href="../../post/untitled/">Untitled</a></li>            
+          <li><a href="../../post/hello-r-markdown/">Hello R Markdown</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -903,8 +1328,39 @@ s.setAttribute('data-timestamp', +new Date());
       
       <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="../../post/github_rest_api5/">
+      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="../../post/github_rest_api5/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #GitHub  </span>
+              
+              <h2 class="post-card-title">Blog JSON5</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Linear models The R code is:
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
     <a class="post-card-image-link" href="../../post/blog-json/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -926,37 +1382,7 @@ s.setAttribute('data-timestamp', +new Date());
 ✖ dplyr::lag() masks stats::lag()
  library(jsonlite) Attaching package: ‘jsonlite’
  The following object is masked from ‘package:purrr’:
- flatten  yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;) Error: lexical error: invalid char in json text. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
-      </footer>
-    </div>
-</article>
-      
-      
-      <article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="../../post/firebase_shiny/">
-      <div class="post-card-image" style="background-image: url(/54_firebase_shiny/blog_title.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="../../post/firebase_shiny/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Shiny  </span>
-              
-              <h2 class="post-card-title">Firebase &amp; Shiny</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Adding Firebase Authentication to Shiny Firebase and Shiny Benefits over building a custom solution in R Example using Firebase Authentication with Shiny    Adding Firebase Authentication to Shiny Firebase and Shiny Firebase is a mobile and web application development platform owned by Google. Firebase provides front-end solutions for authentication, database storage, object storage, messaging, and more. Firebase drastically reduces the time needed to develop certain types of highly scalable and secure applications. ...  </p>
+ flatten  yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;) Error in parse_con(txt, bigint_as_char): parse error: trailing garbage ...  </p>
               
           </section>
       </a>
