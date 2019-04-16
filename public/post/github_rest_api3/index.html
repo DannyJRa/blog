@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Blog JSON &middot; </title>
+    <title>R packages &middot; </title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,31 +12,31 @@
     <link rel="shortcut icon" href="../../favicon.ico" />
     <link rel="canonical" href="../../post/github_rest_api3/" />
 
-     <meta name="description" content="&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;" /> 
+     <meta name="description" content="&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html" /> 
 
      
     
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="/img/01_blog_cover.jpg"/>
+    <meta name="twitter:image" content="/img/04_cover_BLOG.jpg"/>
     
  
-    <meta name="twitter:title" content="Blog JSON"/>
-    <meta name="twitter:description" content="&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;"/>
+    <meta name="twitter:title" content="R packages"/>
+    <meta name="twitter:description" content="&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html"/>
     <meta name="twitter:url" content="/post/github_rest_api3/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
     <meta property="og:site_name" content="" />
-    <meta property="og:title" content="Blog JSON &middot; Blog" />
+    <meta property="og:title" content="R packages &middot; Blog" />
     <meta property="og:url" content="/post/github_rest_api3/" />
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;" />
+    <meta property="og:description" content="&lt;p&gt;Original post here: &lt;a href=&#34;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html&#34;&gt;https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html" />
 
-    <meta property="article:published_time" content="2019-01-11T00:00:00Z" />
-    <meta property="article:tag" content="GitHub" />
+    <meta property="article:published_time" content="2018-06-15T00:00:00Z" />
+    <meta property="article:tag" content="Set-up" />
 
-    <meta property="og:image" content="/img/01_blog_cover.jpg"/>
+    <meta property="og:image" content="/img/04_cover_BLOG.jpg"/>
 
 
     <meta name="generator" content="Hugo 0.55.1" />
@@ -78,7 +78,11 @@
             </li>
         
             <li class="" role="menuitem">
-              <a href="../../tags/docker/">Docker</a>
+              <a href="../../categories/python/">Python</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/r/">R</a>
             </li>
         
             <li class="" role="menuitem">
@@ -113,1143 +117,144 @@
       <article class="post-full post"> 
     <header class="post-full-header">
         <section class="post-full-meta">
-            <time class="post-full-meta-date" datetime="2019-01-11">11 January 2019</time>
-                <span class="date-divider">/</span> <a href="../../tags/github/">#GitHub</a>&nbsp;
+            <time class="post-full-meta-date" datetime="2018-06-15">15 June 2018</time>
+                <span class="date-divider">/</span> <a href="../../tags/set-up/">#Set-up</a>&nbsp;
         </section>
-        <h1 class="post-full-title">Blog JSON</h1>
+        <h1 class="post-full-title">R packages</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/img/01_blog_cover.jpg)">
+    <figure class="post-full-image" style="background-image: url(/img/04_cover_BLOG.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p>Add summary desdcription of blog</p>
+        <p>Original post here: <a href="https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html">https://dannyjra.github.io/04_R_Packages/01_blog_caret_Tut.html</a></p>
 
-<pre><code class="language-r">library(tictoc)
+<p>Add summary desdcription of blog</p>
 
-tic.log(format = TRUE)
-</code></pre>
-
-<pre><code>## list()
-</code></pre>
-
-<pre><code class="language-r">tic(&quot;complete&quot;)
-</code></pre>
-
-<pre><code class="language-r">tic(&quot;libraries&quot;)
-# install.packages(c('caret', 'skimr', 'RANN', 'randomForest', 'fastAdaboost', 'gbm', 'xgboost', 'caretEnsemble', 'C50', 'earth'))
-
-# Load the caret package
-library(caret)
-</code></pre>
-
-<pre><code>## Loading required package: lattice
-</code></pre>
-
-<pre><code>## Loading required package: ggplot2
-</code></pre>
-
-<pre><code class="language-r"># Import dataset
-orange &lt;- read.csv('https://raw.githubusercontent.com/selva86/datasets/master/orange_juice_withmissing.csv')
-
-# Structure of the dataframe
-str(orange)
-</code></pre>
-
-<pre><code>## 'data.frame':	1070 obs. of  18 variables:
-##  $ Purchase      : Factor w/ 2 levels &quot;CH&quot;,&quot;MM&quot;: 1 1 1 2 1 1 1 1 1 1 ...
-##  $ WeekofPurchase: int  237 239 245 227 228 230 232 234 235 238 ...
-##  $ StoreID       : int  1 1 1 1 7 7 7 7 7 7 ...
-##  $ PriceCH       : num  1.75 1.75 1.86 1.69 1.69 1.69 1.69 1.75 1.75 1.75 ...
-##  $ PriceMM       : num  1.99 1.99 2.09 1.69 1.69 1.99 1.99 1.99 1.99 1.99 ...
-##  $ DiscCH        : num  0 0 0.17 0 0 0 0 0 0 0 ...
-##  $ DiscMM        : num  0 0.3 0 0 0 0 0.4 0.4 0.4 0.4 ...
-##  $ SpecialCH     : int  0 0 0 0 0 0 1 1 0 0 ...
-##  $ SpecialMM     : int  0 1 0 0 0 1 1 0 0 0 ...
-##  $ LoyalCH       : num  0.5 0.6 0.68 0.4 0.957 ...
-##  $ SalePriceMM   : num  1.99 1.69 2.09 1.69 1.69 1.99 1.59 1.59 1.59 1.59 ...
-##  $ SalePriceCH   : num  1.75 1.75 1.69 1.69 1.69 1.69 1.69 1.75 1.75 1.75 ...
-##  $ PriceDiff     : num  0.24 -0.06 0.4 0 0 0.3 -0.1 -0.16 -0.16 -0.16 ...
-##  $ Store7        : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 2 2 2 2 2 2 ...
-##  $ PctDiscMM     : num  0 0.151 0 0 0 ...
-##  $ PctDiscCH     : num  0 0 0.0914 0 0 ...
-##  $ ListPriceDiff : num  0.24 0.24 0.23 0 0 0.3 0.3 0.24 0.24 0.24 ...
-##  $ STORE         : int  1 1 1 1 0 0 0 0 0 0 ...
-</code></pre>
-
-<pre><code class="language-r"># See top 6 rows and 10 columns
-head(orange[, 1:10])
-</code></pre>
-
-<pre><code>##   Purchase WeekofPurchase StoreID PriceCH PriceMM DiscCH DiscMM SpecialCH
-## 1       CH            237       1    1.75    1.99   0.00    0.0         0
-## 2       CH            239       1    1.75    1.99   0.00    0.3         0
-## 3       CH            245       1    1.86    2.09   0.17    0.0         0
-## 4       MM            227       1    1.69    1.69   0.00    0.0         0
-## 5       CH            228       7    1.69    1.69   0.00    0.0         0
-## 6       CH            230       7    1.69    1.99   0.00    0.0         0
-##   SpecialMM  LoyalCH
-## 1         0 0.500000
-## 2         1 0.600000
-## 3         0 0.680000
-## 4         0 0.400000
-## 5         0 0.956535
-## 6         1 0.965228
-</code></pre>
-
-<pre><code class="language-r">toc(log = TRUE, quiet = TRUE)
-</code></pre>
-
-<ol>
-<li>Data Preparation and Preprocessing
-3.1. How to split the dataset into training and validation?</li>
-</ol>
-
-<pre><code class="language-r"># Create the training and test datasets
-set.seed(100)
-
-# Step 1: Get row numbers for the training data
-trainRowNumbers &lt;- createDataPartition(orange$Purchase, p=0.8, list=FALSE)
-
-# Step 2: Create the training  dataset
-trainData &lt;- orange[trainRowNumbers,]
-
-# Step 3: Create the test dataset
-testData &lt;- orange[-trainRowNumbers,]
-
-# Store X and Y for later use.
-x = trainData[, 2:18]
-y = trainData$Purchase
-</code></pre>
-
-<p>createDataPartition() takes as input the Y variable in the source dataset and the percentage data that should go into training as the p argument. It returns the rownumbers that should form the training dataset.</p>
-
-<p>Plus, you need to set list=F, to prevent returning the result as a list.</p>
-
-<pre><code class="language-r">library(skimr)
-</code></pre>
-
-<pre><code>## 
-## Attaching package: 'skimr'
-</code></pre>
-
-<pre><code>## The following object is masked from 'package:stats':
-## 
-##     filter
-</code></pre>
-
-<pre><code class="language-r">skimmed &lt;- skim_to_wide(trainData)
-skimmed[, c(1:5, 9:11, 13, 15:16)] 
-</code></pre>
-
-<pre><code>## # A tibble: 18 x 11
-##    type  variable missing complete n     mean  sd    p0    p50   p100 
-##    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 fact… Purchase 0       857      857   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-##  2 fact… Store7   0       857      857   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-##  3 inte… Special… 2       855      857   &quot;  0… &quot; 0.… 0     0     1    
-##  4 inte… Special… 4       853      857   &quot;  0… &quot; 0.… 0     0     1    
-##  5 inte… STORE    2       855      857   &quot;  1… &quot; 1.… 0     2     4    
-##  6 inte… StoreID  1       856      857   &quot;  3… &quot; 2.… 1     3     7    
-##  7 inte… WeekofP… 0       857      857   254.… 15.59 227   257   278  
-##  8 nume… DiscCH   2       855      857   0.054 &quot;0.1… &quot; 0 … &quot;0  … &quot;0.5…
-##  9 nume… DiscMM   3       854      857   &quot;0.1… &quot;0.2… &quot; 0 … &quot;0  … &quot;0.8…
-## 10 nume… ListPri… 0       857      857   &quot;0.2… &quot;0.1… &quot; 0 … 0.24  0.44 
-## 11 nume… LoyalCH  5       852      857   &quot;0.5… &quot;0.3… &quot; 1.… &quot;0.6… &quot;1  …
-## 12 nume… PctDisc… 2       855      857   0.028 0.063 &quot; 0 … &quot;0  … 0.25 
-## 13 nume… PctDisc… 2       855      857   0.058 0.099 &quot; 0 … &quot;0  … &quot;0.4…
-## 14 nume… PriceCH  1       856      857   &quot;1.8… &quot;0.1… &quot; 1.… 1.86  2.09 
-## 15 nume… PriceDi… 1       856      857   &quot;0.1… &quot;0.2… &quot;-0.… 0.23  0.64 
-## 16 nume… PriceMM  1       856      857   &quot;2.0… &quot;0.1… &quot; 1.… 2.09  2.29 
-## 17 nume… SalePri… 1       856      857   &quot;1.8… &quot;0.1… &quot; 1.… 1.86  2.09 
-## 18 nume… SalePri… 3       854      857   &quot;1.9… &quot;0.2… &quot; 1.… 2.09  2.29 
-## # … with 1 more variable: hist &lt;chr&gt;
-</code></pre>
-
-<p>3.3. How to impute missing values using preProcess()?</p>
-
-<pre><code class="language-r"># Create the knn imputation model on the training data
-preProcess_missingdata_model &lt;- preProcess(trainData, method='knnImpute')
-preProcess_missingdata_model
-</code></pre>
-
-<pre><code>## Created from 828 samples and 18 variables
-## 
-## Pre-processing:
-##   - centered (16)
-##   - ignored (2)
-##   - 5 nearest neighbor imputation (16)
-##   - scaled (16)
-</code></pre>
-
-<p>The above output shows the various preprocessing steps done in the process of knn imputation.</p>
-
-<p>That is, it has centered (subtract by mean) 16 variables, ignored 2, used k=5 (considered 5 nearest neighbors) to predict the missing values and finally scaled (divide by standard deviation) 16 variables.</p>
-
-<p>Let’s now use this model to predict the missing values in trainData.</p>
-
-<pre><code class="language-r"># Use the imputation model to predict the values of missing data points
-library(RANN)  # required for knnInpute
-trainData &lt;- predict(preProcess_missingdata_model, newdata = trainData)
-anyNA(trainData)
-</code></pre>
-
-<pre><code>## [1] FALSE
-</code></pre>
-
-<p>3.4. How to create One-Hot Encoding (dummy variables)?
-Let me first explain what is one-hot encoding and why it is required.</p>
-
-<p>Suppose if you have a categorical column as one of the features, it needs to be converted to numeric in order for it to be used by the machine learning algorithms.</p>
-
-<p>Just replacing the categories with a number may not be meaningful especially if there is no intrinsic ordering amongst the categories.</p>
-
-<p>So what you can do instead is to convert the categorical variable with as many binary (1 or 0) variables as there are categories.</p>
-
-<p>An important aspect you should be careful about here is, in real-world environments, you might get new values of categorical variables in the new scoring data. So, you should ensure the dummyVars model is built on the training data alone and that model is in turn used to create the dummy vars on the test data.</p>
-
-<p>One Hot Encoding
-ONE HOT ENCODING</p>
-
-<p>In caret, one-hot-encodings can be created using dummyVars(). Just pass in all the features to dummyVars() as the training data and all the factor columns will automatically be converted to one-hot-encodings.</p>
-
-<pre><code class="language-r"># One-Hot Encoding
-# Creating dummy variables is converting a categorical variable to as many binary variables as here are categories.
-dummies_model &lt;- dummyVars(Purchase ~ ., data=trainData)
-
-# Create the dummy variables using predict. The Y variable (Purchase) will not be present in trainData_mat.
-trainData_mat &lt;- predict(dummies_model, newdata = trainData)
-</code></pre>
-
-<pre><code>## Warning in model.frame.default(Terms, newdata, na.action = na.action, xlev
-## = object$lvls): variable 'Purchase' is not a factor
-</code></pre>
-
-<pre><code class="language-r"># # Convert to dataframe
-trainData &lt;- data.frame(trainData_mat)
-
-# # See the structure of the new dataset
-str(trainData)
-</code></pre>
-
-<pre><code>## 'data.frame':	857 obs. of  18 variables:
-##  $ WeekofPurchase: num  -1.1 -1.74 -1.68 -1.29 -1.04 ...
-##  $ StoreID       : num  -1.29 -1.29 1.33 1.33 1.33 ...
-##  $ PriceCH       : num  -1.14 -1.73 -1.73 -1.14 -1.14 ...
-##  $ PriceMM       : num  -0.688 -2.898 -2.898 -0.688 -0.688 ...
-##  $ DiscCH        : num  -0.452 -0.452 -0.452 -0.452 -0.452 ...
-##  $ DiscMM        : num  -0.582 -0.582 -0.582 1.341 1.341 ...
-##  $ SpecialCH     : num  -0.429 -0.429 -0.429 2.329 -0.429 ...
-##  $ SpecialMM     : num  -0.42 -0.42 -0.42 -0.42 -0.42 ...
-##  $ LoyalCH       : num  -0.205 -0.525 1.256 1.324 1.35 ...
-##  $ SalePriceMM   : num  0.113 -1.101 -1.101 -1.506 -1.506 ...
-##  $ SalePriceCH   : num  -0.431 -0.844 -0.844 -0.431 -0.431 ...
-##  $ PriceDiff     : num  0.341 -0.563 -0.563 -1.165 -1.165 ...
-##  $ Store7.No     : num  1 1 0 0 0 0 0 0 0 1 ...
-##  $ Store7.Yes    : num  0 0 1 1 1 1 1 1 1 0 ...
-##  $ PctDiscMM     : num  -0.588 -0.588 -0.588 1.447 1.447 ...
-##  $ PctDiscCH     : num  -0.448 -0.448 -0.448 -0.448 -0.448 ...
-##  $ ListPriceDiff : num  0.211 -1.988 -1.988 0.211 0.211 ...
-##  $ STORE         : num  -0.457 -0.457 -1.15 -1.15 -1.15 ...
-</code></pre>
-
-<p>In above case, we had one categorical variable, Store7 with 2 categories. It was one-hot-encoded to produce two new columns – Store7.No and Store7.Yes.</p>
-
-<p>3.5. How to preprocess to transform the data?
-With the missing values handled and the factors one-hot-encoded, our training dataset is now ready to undergo variable transformations if required.</p>
-
-<p>So what type of preprocessing are available in caret?</p>
-
-<p>range: Normalize values so it ranges between 0 and 1
-center: Subtract Mean
-scale: Divide by standard deviation
-BoxCox: Remove skewness leading to normality. Values must be &gt; 0
-YeoJohnson: Like BoxCox, but works for negative values.
-expoTrans: Exponential transformation, works for negative values.
-pca: Replace with principal components
-ica: Replace with independent components
-spatialSign: Project the data to a unit circle
-For our problem, let’s convert all the numeric variables to range between 0 and 1, by setting method=range in preProcess().</p>
-
-<pre><code class="language-r">preProcess_range_model &lt;- preProcess(trainData, method='range')
-trainData &lt;- predict(preProcess_range_model, newdata = trainData)
-
-# Append the Y variable
-trainData$Purchase &lt;- y
-
-apply(trainData[, 1:10], 2, FUN=function(x){c('min'=min(x), 'max'=max(x))})
-</code></pre>
-
-<pre><code>##     WeekofPurchase StoreID PriceCH PriceMM DiscCH DiscMM SpecialCH
-## min              0       0       0       0      0      0         0
-## max              1       1       1       1      1      1         1
-##     SpecialMM LoyalCH SalePriceMM
-## min         0       0           0
-## max         1       1           1
-</code></pre>
-
-<ol>
-<li>How to visualize the importance of variables using featurePlot()
-Now that the preprocessing is complete, let’s visually examine how the predictors influence the Y (Purchase).</li>
-</ol>
-
-<p>In this problem, the X variables are numeric whereas the Y is categorical.</p>
-
-<p>So how to gauge if a given X is an important predictor of Y?</p>
-
-<p>A simple common sense approach is, if you group the X variable by the categories of Y, a significant mean shift amongst the X’s groups is a strong indicator (if not the only indicator) that X will have a significant role to help predict Y.</p>
-
-<p>It is possible to watch this shift visually using box plots and density plots.</p>
-
-<p>In fact, caret’s featurePlot() function makes it so convenient.</p>
-
-<p>Simply set the X and Y parameters and set plot=&lsquo;box&rsquo;. You can additionally adjust the label font size (using strip) and the scales to be free as I have done in the below plot.</p>
-
-<pre><code class="language-r">featurePlot(x = trainData[, 1:18], 
-            y = trainData$Purchase, 
-            plot = &quot;box&quot;,
-            strip=strip.custom(par.strip.text=list(cex=.7)),
-            scales = list(x = list(relation=&quot;free&quot;), 
-                          y = list(relation=&quot;free&quot;)))
-</code></pre>
-
-<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-10-1.png" alt="" /><!-- -->
-Let me quickly refresh how to interpret a boxplot.</p>
-
-<p>Each subplot in the above figure has two boxplots (in blue) inside it, one each for each of the Y categories, CH and MM. The top of the box represents the 25th %ile and the bottom of the box represents the 75th %ile. The black dot inside the box is the mean.</p>
-
-<p>The blue box represents the region where most of the regular data point lie.</p>
-
-<p>The subplots also show many blue dots lying outside the top and bottom dashed lines called whiskers. These dots are formally considered as extreme values.</p>
-
-<p>So, What did you observe in the above figure?</p>
-
-<p>Consider for example, LoyalCHs subplot, which measures the loyalty score of the customer to the CH brand. The mean and the placement of the two boxes are glaringly different.</p>
-
-<p>Just by seeing that, I am pretty sure, LoyalCH is going to be a significant predictor of Y.</p>
-
-<p>What other predictors do you notice have significant mean differences?</p>
-
-<p>Let’s do a similar exercise with density plots.</p>
-
-<p>In this case, For a variable to be important, I would expect the density curves to be significantly different for the 2 classes, both in terms of the height (kurtosis) and placement (skewness).</p>
-
-<p>Take a look at the density curves of the two categories for ‘LoyalCH’, ‘STORE’, ‘StoreID’, ‘WeekofPurchase’. Are they different?</p>
-
-<pre><code class="language-r">featurePlot(x = trainData[, 1:18], 
-            y = trainData$Purchase, 
-            plot = &quot;density&quot;,
-            strip=strip.custom(par.strip.text=list(cex=.7)),
-            scales = list(x = list(relation=&quot;free&quot;), 
-                          y = list(relation=&quot;free&quot;)))
-</code></pre>
-
-<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-11-1.png" alt="" /><!-- --></p>
-
-<p>Having visualised the relationships between X and Y, We can only say which variables are likely to be important to predict Y. It may not be wise to conclude which variables are NOT important.</p>
-
-<p>Because sometimes, variables with uninteresting pattern can help explain certain aspects of Y that the visually important variables may not.</p>
-
-<p>So to be safe, let’s not arrive at conclusions about excluding variables prematurely.</p>
-
-<h1 id="5-how-to-do-feature-selection-using-recursive-feature-elimination-rfe">5. How to do feature selection using recursive feature elimination (rfe)?</h1>
-
-<p>Most machine learning algorithms are able to determine what features are important to predict the Y. But in some scenarios, you might be need to be careful to include only variables that may be significantly important and makes strong business sense.</p>
-
-<p>This is quite common in banking, economics and financial institutions.</p>
-
-<p>Or you might just be doing an exploratory analysis to determine important predictors and report it as a metric in your analytics dashboard.</p>
-
-<p>Or if you are using a traditional algorithm like like linear or logistic regression, determining what variable to feed to the model is in the hands of the practitioner.</p>
-
-<p>Given such requirements, you might need a rigorous way to determine the important variables first before feeding them to the ML algorithm.</p>
-
-<p>A good choice of selecting the important features is the recursive feature elimination (RFE).</p>
-
-<p>So how does recursive feature elimination work?</p>
-
-<p>RFE works in 3 broad steps:</p>
-
-<p>Step 1: Build a ML model on a training dataset and estimate the feature importances on the test dataset.</p>
-
-<p>Step 2: Keeping priority to the most important variables, iterate through by building models of given sizes. Ranking of the predictors is recalculated in each iteration.</p>
-
-<p>Step 3: The model performances are compared across different subset sizes to arrive at the optimal number and list of final predictors.</p>
-
-<p>It can be implemented using the rfe() function and you have the flexibility to control what algorithm rfe uses and how it cross validates by defining the rfeControl().</p>
-
-<pre><code class="language-r">library(randomForest)
-</code></pre>
-
-<pre><code>## randomForest 4.6-14
-</code></pre>
-
-<pre><code>## Type rfNews() to see new features/changes/bug fixes.
-</code></pre>
-
-<pre><code>## 
-## Attaching package: 'randomForest'
-</code></pre>
-
-<pre><code>## The following object is masked from 'package:ggplot2':
-## 
-##     margin
-</code></pre>
-
-<pre><code class="language-r">set.seed(100)
-options(warn=-1)
-
-subsets &lt;- c(1:5, 10, 15, 18)
-
-ctrl &lt;- rfeControl(functions = rfFuncs,
-                   method = &quot;repeatedcv&quot;,
-                   repeats = 5,
-                   verbose = FALSE)
-
-lmProfile &lt;- rfe(x=trainData[, 1:18], y=trainData$Purchase,
-                 sizes = subsets,
-                 rfeControl = ctrl)
-lmProfile
-</code></pre>
-
-<pre><code>## 
-## Recursive feature selection
-## 
-## Outer resampling method: Cross-Validated (10 fold, repeated 5 times) 
-## 
-## Resampling performance over subset size:
-## 
-##  Variables Accuracy  Kappa AccuracySD KappaSD Selected
-##          1   0.7440 0.4563    0.04010 0.08519         
-##          2   0.8147 0.6074    0.03647 0.07789         
-##          3   0.8205 0.6189    0.04137 0.08774        *
-##          4   0.8035 0.5852    0.04663 0.09682         
-##          5   0.8024 0.5818    0.04475 0.09458         
-##         10   0.8038 0.5838    0.04380 0.09314         
-##         15   0.8077 0.5896    0.04221 0.09025         
-##         18   0.8054 0.5853    0.03991 0.08606         
-## 
-## The top 3 variables (out of 3):
-##    LoyalCH, PriceDiff, StoreID
-</code></pre>
-
-<p>The top 3 variables (out of 3):
-   LoyalCH, PriceDiff, StoreID
-In the above code, we call the rfe() which implements the recursive feature elimination.</p>
-
-<p>Apart from the x and y datasets, RFE also takes two important parameters.</p>
-
-<p>sizes
-rfeControl
-The sizes determines what all model sizes (the number of most important features) the rfe should consider. In above case, it iterates models of size 1 to 5, 10, 15 and 18.</p>
-
-<p>The rfeControl parameter on the other hand receives the output of the rfeControl() as values. If you look at the call to rfeControl() we set what type of algorithm and what cross validation method should be used.</p>
-
-<p>In above case, the cross validation method is repeatedcv which implements k-Fold cross validation repeated 5 times, which is rigorous enough for our case.</p>
-
-<p>Once rfe() is run, the output shows the accuracy and kappa (and their standard deviation) for the different model sizes we provided. The final selected model subset size is marked with a * in the rightmost Selected column.</p>
+<h1 id="favorite-packages">Favorite packages</h1>
 
-<p>From the above output, a model size of 3 with LoyalCH, PriceDiff and StoreID seems to achieve the optimal accuracy.</p>
+<p>Here are my go-to R packages &ndash; in a handy searchable table.
+One of the great things about R is the thousands of packages users have written to solve specific problems in various disciplines &ndash; analyzing everything from weather or financial data to the human genome &ndash; not to mention analyzing computer security-breach data.</p>
 
-<p>That means, out of 18 other features, a model with just 3 features outperformed many other larger model. Interesting isn’t it! Can you explain why?</p>
+<p>Some tasks are common to almost all users, though, regardless of subject area: data import, data wrangling and data visualization. The table below show my favorite go-to packages for one of these three tasks (plus a few miscellaneous ones tossed in). The package names in the table are clickable if you want more information.</p>
 
-<p>However, it is not a mandate that only including these 3 variables will always give high accuracy over larger sized models.</p>
-
-<p>Thats because, the rfe() we just implemented is particular to random forest based rfFuncs</p>
-
-<p>Since ML algorithms have their own way of learning the relationship between the x and y, it is not wise to neglect the other predictors, especially when there is evidence that there is information contained in rest of the variables to explain the relationship between x and y.</p>
-
-<p>Plus also, since the training dataset isn’t large enough, the other predictors may not have had the chance to show its worth.</p>
-
-<p>In the next step, we will build the actual randomForest model on trainData.</p>
-
-<ol>
-<li>Training and Tuning the model
-6.1. How to train() the model and interpret the results?
-Now comes the important stage where you actually build the machine learning model.</li>
-</ol>
-
-<p>To know what models caret supports, run the following:</p>
-
-<pre><code class="language-r"># See available algorithms in caret
-modelnames &lt;- paste(names(getModelInfo()), collapse=',  ')
-modelnames
-</code></pre>
-
-<pre><code>## [1] &quot;ada,  AdaBag,  AdaBoost.M1,  adaboost,  amdai,  ANFIS,  avNNet,  awnb,  awtan,  bag,  bagEarth,  bagEarthGCV,  bagFDA,  bagFDAGCV,  bam,  bartMachine,  bayesglm,  binda,  blackboost,  blasso,  blassoAveraged,  bridge,  brnn,  BstLm,  bstSm,  bstTree,  C5.0,  C5.0Cost,  C5.0Rules,  C5.0Tree,  cforest,  chaid,  CSimca,  ctree,  ctree2,  cubist,  dda,  deepboost,  DENFIS,  dnn,  dwdLinear,  dwdPoly,  dwdRadial,  earth,  elm,  enet,  evtree,  extraTrees,  fda,  FH.GBML,  FIR.DM,  foba,  FRBCS.CHI,  FRBCS.W,  FS.HGD,  gam,  gamboost,  gamLoess,  gamSpline,  gaussprLinear,  gaussprPoly,  gaussprRadial,  gbm_h2o,  gbm,  gcvEarth,  GFS.FR.MOGUL,  GFS.LT.RS,  GFS.THRIFT,  glm.nb,  glm,  glmboost,  glmnet_h2o,  glmnet,  glmStepAIC,  gpls,  hda,  hdda,  hdrda,  HYFIS,  icr,  J48,  JRip,  kernelpls,  kknn,  knn,  krlsPoly,  krlsRadial,  lars,  lars2,  lasso,  lda,  lda2,  leapBackward,  leapForward,  leapSeq,  Linda,  lm,  lmStepAIC,  LMT,  loclda,  logicBag,  LogitBoost,  logreg,  lssvmLinear,  lssvmPoly,  lssvmRadial,  lvq,  M5,  M5Rules,  manb,  mda,  Mlda,  mlp,  mlpKerasDecay,  mlpKerasDecayCost,  mlpKerasDropout,  mlpKerasDropoutCost,  mlpML,  mlpSGD,  mlpWeightDecay,  mlpWeightDecayML,  monmlp,  msaenet,  multinom,  mxnet,  mxnetAdam,  naive_bayes,  nb,  nbDiscrete,  nbSearch,  neuralnet,  nnet,  nnls,  nodeHarvest,  null,  OneR,  ordinalNet,  ordinalRF,  ORFlog,  ORFpls,  ORFridge,  ORFsvm,  ownn,  pam,  parRF,  PART,  partDSA,  pcaNNet,  pcr,  pda,  pda2,  penalized,  PenalizedLDA,  plr,  pls,  plsRglm,  polr,  ppr,  PRIM,  protoclass,  qda,  QdaCov,  qrf,  qrnn,  randomGLM,  ranger,  rbf,  rbfDDA,  Rborist,  rda,  regLogistic,  relaxo,  rf,  rFerns,  RFlda,  rfRules,  ridge,  rlda,  rlm,  rmda,  rocc,  rotationForest,  rotationForestCp,  rpart,  rpart1SE,  rpart2,  rpartCost,  rpartScore,  rqlasso,  rqnc,  RRF,  RRFglobal,  rrlda,  RSimca,  rvmLinear,  rvmPoly,  rvmRadial,  SBC,  sda,  sdwd,  simpls,  SLAVE,  slda,  smda,  snn,  sparseLDA,  spikeslab,  spls,  stepLDA,  stepQDA,  superpc,  svmBoundrangeString,  svmExpoString,  svmLinear,  svmLinear2,  svmLinear3,  svmLinearWeights,  svmLinearWeights2,  svmPoly,  svmRadial,  svmRadialCost,  svmRadialSigma,  svmRadialWeights,  svmSpectrumString,  tan,  tanSearch,  treebag,  vbmpRadial,  vglmAdjCat,  vglmContRatio,  vglmCumulative,  widekernelpls,  WM,  wsrf,  xgbDART,  xgbLinear,  xgbTree,  xyf&quot;
-</code></pre>
-
-<p>Each of those is a machine learning algorithm caret supports.</p>
-
-<p>Yes, it’s a huge list!</p>
-
-<p>And if you want to know more details like the hyperparameters and if it can be used of regression or classification problem, then do a modelLookup(algo).</p>
-
-<p>Once you have chosen an algorithm, building the model is fairly easy using the train() function.</p>
-
-<p>Let’s train a Multivariate Adaptive Regression Splines (MARS) model by setting the method=&lsquo;earth&rsquo;.</p>
-
-<p>The MARS algorithm was named as ‘earth’ in R because of a possible trademark conflict with Salford Systems. May be a rumor. Or not.</p>
-
-<pre><code class="language-r">modelLookup('earth')
-</code></pre>
-
-<pre><code>##   model parameter          label forReg forClass probModel
-## 1 earth    nprune         #Terms   TRUE     TRUE      TRUE
-## 2 earth    degree Product Degree   TRUE     TRUE      TRUE
-</code></pre>
-
-<pre><code class="language-r"># Set the seed for reproducibility
-set.seed(100)
-
-# Train the model using randomForest and predict on the training data itself.
-model_mars = train(Purchase ~ ., data=trainData, method='earth')
-</code></pre>
-
-<pre><code>## Loading required package: earth
-</code></pre>
-
-<pre><code>## Loading required package: Formula
-</code></pre>
-
-<pre><code>## Loading required package: plotmo
-</code></pre>
-
-<pre><code>## Loading required package: plotrix
-</code></pre>
-
-<pre><code>## Loading required package: TeachingDemos
-</code></pre>
-
-<pre><code class="language-r">fitted &lt;- predict(model_mars)
-</code></pre>
-
-<p>But you may ask how is using train() different from using the algorithm’s function directly?</p>
-
-<p>The difference is, besides building the model train() does multiple other things like:</p>
-
-<p>Cross validating the model
-Tune the hyper parameters for optimal model performance
-Choose the optimal model based on a given evaluation metric
-Preprocess the predictors (what we did so far using preProcess())
-The train function also accepts the arguments used by the algorithm specified in the method argument.</p>
-
-<p>Now let’s see what the train() has generated.</p>
-
-<pre><code class="language-r">model_mars
-</code></pre>
-
-<pre><code>## Multivariate Adaptive Regression Spline 
-## 
-## 857 samples
-##  18 predictor
-##   2 classes: 'CH', 'MM' 
-## 
-## No pre-processing
-## Resampling: Bootstrapped (25 reps) 
-## Summary of sample sizes: 857, 857, 857, 857, 857, 857, ... 
-## Resampling results across tuning parameters:
-## 
-##   nprune  Accuracy   Kappa    
-##    2      0.8013184  0.5746285
-##   10      0.8102610  0.5987447
-##   19      0.8103685  0.5986923
-## 
-## Tuning parameter 'degree' was held constant at a value of 1
-## Accuracy was used to select the optimal model using the largest value.
-## The final values used for the model were nprune = 19 and degree = 1.
-</code></pre>
-
-<p>Tuning parameter &lsquo;degree&rsquo; was held constant at a value of 1
-Accuracy was used to select the optimal model using the largest value.
-The final values used for the model were nprune = 19 and degree = 1.
-You can see what is the Accuracy and Kappa for various combinations of the hyper parameters – interaction.depth and n.trees. And it says ‘Resampling: Bootstrapped (25 reps)’ with a summary of sample sizes.</p>
-
-<p>Looks like train() has already done a basic cross validation and hyper parameter tuning. And that is the default behaviour.</p>
-
-<p>The chosen model and its parameters is reported in the last 2 lines of the output.</p>
-
-<p>When we used model_mars to predict the Y, this final model was automatically used by predict() to compute the predictions.</p>
-
-<p>Plotting the model shows how the various iterations of hyperparameter search performed.</p>
-
-<pre><code class="language-r">plot(model_mars, main=&quot;Model Accuracies with MARS&quot;)
-</code></pre>
-
-<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-17-1.png" alt="" /><!-- --></p>
-
-<h2 id="6-2-how-to-compute-variable-importance">6.2 How to compute variable importance?</h2>
-
-<p>Excellent, since MARS supports computing variable importances, let’s extract the variable importances using varImp() to understand which variables came out to be useful.</p>
-
-<pre><code class="language-r">varimp_mars &lt;- varImp(model_mars)
-plot(varimp_mars, main=&quot;Variable Importance with MARS&quot;)
-</code></pre>
-
-<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-18-1.png" alt="" /><!-- --></p>
-
-<p>As suspected, LoyalCH was the most used variable, followed by PriceDiff and StoreID.</p>
-
-<h2 id="6-3-prepare-the-test-dataset-and-predict">6.3. Prepare the test dataset and predict</h2>
-
-<p>A default MARS model has been selected.</p>
-
-<p>Now in order to use the model to predict on new data, the data has to be preprocessed and transformed just the way we did on the training data.</p>
-
-<p>Thanks to caret, all the information required for pre-processing is stored in the respective preProcess model and dummyVar model.</p>
-
-<p>If you recall, we did the pre-processing in the following sequence:</p>
-
-<p>Missing Value imputation –&gt; One-Hot Encoding –&gt; Range Normalization</p>
-
-<p>You need to pass the testData through these models in the same sequence:</p>
-
-<p>preProcess_missingdata_model –&gt; dummies_model –&gt; preProcess_range_model</p>
-
-<pre><code class="language-r"># Step 1: Impute missing values 
-testData2 &lt;- predict(preProcess_missingdata_model, testData)  
-
-# Step 2: Create one-hot encodings (dummy variables)
-testData3 &lt;- predict(dummies_model, testData2)
-
-# Step 3: Transform the features to range between 0 and 1
-testData4 &lt;- predict(preProcess_range_model, testData3)
-
-# View
-head(testData4[, 1:10])
-</code></pre>
-
-<pre><code>##    WeekofPurchase StoreID PriceCH   PriceMM DiscCH DiscMM SpecialCH
-## 2      0.23529412       0   0.150 0.5000000   0.00  0.375         0
-## 3      0.35294118       0   0.425 0.6666667   0.34  0.000         0
-## 6      0.05882353       1   0.000 0.5000000   0.00  0.000         0
-## 7      0.09803922       1   0.000 0.5000000   0.00  0.500         1
-## 9      0.15686275       1   0.150 0.5000000   0.00  0.500         0
-## 13     0.96078431       1   0.750 0.7333333   0.00  0.675         0
-##    SpecialMM   LoyalCH SalePriceMM
-## 2          1 0.6000352   0.4545455
-## 3          0 0.6800414   0.8181818
-## 6          1 0.9652913   0.7272727
-## 7          1 0.9722459   0.3636364
-## 9          0 0.9822616   0.3636364
-## 13         1 0.9927734   0.3636364
+<pre><code class="language-r">library(openxlsx)
+favorites &lt;- read.xlsx(xlsxFile = &quot;Packages_favorite.xlsx&quot;, sheet = 1, skipEmptyRows = FALSE)
 </code></pre>
 
-<h2 id="6-4-predict-on-testdata">6.4. Predict on testData</h2>
-
-<p>The test dataset is prepared. Let’s predict the Y.</p>
-
-<pre><code class="language-r"># Predict on testData
-predicted &lt;- predict(model_mars, testData4)
-head(predicted)
-</code></pre>
-
-<pre><code>## [1] CH CH CH CH CH MM
-## Levels: CH MM
-</code></pre>
-
-<h2 id="6-5-confusion-matrix">6.5. Confusion Matrix</h2>
-
-<p>The confusion matrix is a tabular representation to compare the predictions (data) vs the actuals (reference). By setting mode=&lsquo;everything&rsquo; pretty much most classification evaluation metrics are computed.</p>
-
-<pre><code class="language-r"># Compute the confusion matrix
-confusionMatrix(reference = testData$Purchase, data = predicted, mode='everything', positive='MM')
-</code></pre>
-
-<pre><code>## Confusion Matrix and Statistics
-## 
-##           Reference
-## Prediction  CH  MM
-##         CH 113  21
-##         MM  17  62
-##                                           
-##                Accuracy : 0.8216          
-##                  95% CI : (0.7635, 0.8705)
-##     No Information Rate : 0.6103          
-##     P-Value [Acc &gt; NIR] : 2.139e-11       
-##                                           
-##                   Kappa : 0.6216          
-##  Mcnemar's Test P-Value : 0.6265          
-##                                           
-##             Sensitivity : 0.7470          
-##             Specificity : 0.8692          
-##          Pos Pred Value : 0.7848          
-##          Neg Pred Value : 0.8433          
-##               Precision : 0.7848          
-##                  Recall : 0.7470          
-##                      F1 : 0.7654          
-##              Prevalence : 0.3897          
-##          Detection Rate : 0.2911          
-##    Detection Prevalence : 0.3709          
-##       Balanced Accuracy : 0.8081          
-##                                           
-##        'Positive' Class : MM              
-## 
-</code></pre>
-
-<p>You have an overall accuracy of 80.28%.</p>
-
-<h1 id="7-how-to-do-hyperparameter-tuning-to-optimize-the-model-for-better-performance">7. How to do hyperparameter tuning to optimize the model for better performance?</h1>
-
-<p>There are two main ways to do hyper parameter tuning using the train():</p>
-
-<p>Set the tuneLength
-Define and set the tuneGrid
-tuneLength corresponds to the number of unique values for the tuning parameters caret will consider while forming the hyper parameter combinations.</p>
-
-<p>Caret will automatically determine the values each parameter should take.</p>
-
-<p>Alternately, if you want to explicitly control what values should be considered for each parameter, then, you can define the tuneGrid and pass it to train().</p>
-
-<p>Let’s see an example of both these approaches but first let’s setup the trainControl().</p>
-
-<h1 id="7-1-setting-up-the-traincontrol">7.1. Setting up the trainControl()</h1>
-
-<p>The train() function takes a trControl argument that accepts the output of trainControl().</p>
-
-<p>Inside trainControl() you can control how the train() will:</p>
-
-<p>Cross validation method to use.
-How the results should be summarised using a summary function
-Cross validation method can be one amongst:</p>
-
-<p>‘boot’: Bootstrap sampling
-‘boot632’: Bootstrap sampling with 63.2% bias correction applied
-‘optimism_boot’: The optimism bootstrap estimator
-‘boot_all’: All boot methods.
-‘cv’: k-Fold cross validation
-‘repeatedcv’: Repeated k-Fold cross validation
-‘oob’: Out of Bag cross validation
-‘LOOCV’: Leave one out cross validation
-‘LGOCV’: Leave group out cross validation
-The summaryFunction can be twoClassSummary if Y is binary class or multiClassSummary if the Y has more than 2 categories.</p>
-
-<p>By settiung the classProbs=T the probability scores are generated instead of directly predicting the class based on a predetermined cutoff of 0.5.</p>
-
-<pre><code class="language-r"># Define the training control
-fitControl &lt;- trainControl(
-    method = 'cv',                   # k-fold cross validation
-    number = 5,                      # number of folds
-    savePredictions = 'final',       # saves predictions for optimal tuning parameter
-    classProbs = T,                  # should class probabilities be returned
-    summaryFunction=twoClassSummary  # results summary function
-) 
-</code></pre>
-
-<p>##7.2 Hyper Parameter Tuning using tuneLength
-Let’s take the train() function we used before, plus, additionally set the tuneLength, trControl and metric.</p>
-
-<pre><code class="language-r"># Step 1: Tune hyper parameters by setting tuneLength
-set.seed(100)
-model_mars2 = train(Purchase ~ ., data=trainData, method='earth', tuneLength = 5, metric='ROC', trControl = fitControl)
-model_mars2
-</code></pre>
-
-<pre><code>## Multivariate Adaptive Regression Spline 
-## 
-## 857 samples
-##  18 predictor
-##   2 classes: 'CH', 'MM' 
-## 
-## No pre-processing
-## Resampling: Cross-Validated (5 fold) 
-## Summary of sample sizes: 685, 685, 687, 686, 685 
-## Resampling results across tuning parameters:
-## 
-##   nprune  ROC        Sens       Spec     
-##    2      0.8745398  0.8700916  0.7006784
-##    6      0.8912361  0.8719414  0.7334238
-##   10      0.8879988  0.8623626  0.7423790
-##   14      0.8879988  0.8623626  0.7423790
-##   19      0.8879846  0.8661722  0.7483492
-## 
-## Tuning parameter 'degree' was held constant at a value of 1
-## ROC was used to select the optimal model using the largest value.
-## The final values used for the model were nprune = 6 and degree = 1.
-</code></pre>
-
-<pre><code class="language-r"># Step 2: Predict on testData and Compute the confusion matrix
-predicted2 &lt;- predict(model_mars2, testData4)
-confusionMatrix(reference = testData$Purchase, data = predicted2, mode='everything', positive='MM')
-</code></pre>
-
-<pre><code>## Confusion Matrix and Statistics
-## 
-##           Reference
-## Prediction  CH  MM
-##         CH 116  20
-##         MM  14  63
-##                                           
-##                Accuracy : 0.8404          
-##                  95% CI : (0.7841, 0.8869)
-##     No Information Rate : 0.6103          
-##     P-Value [Acc &gt; NIR] : 2.164e-13       
-##                                           
-##                   Kappa : 0.66            
-##  Mcnemar's Test P-Value : 0.3912          
-##                                           
-##             Sensitivity : 0.7590          
-##             Specificity : 0.8923          
-##          Pos Pred Value : 0.8182          
-##          Neg Pred Value : 0.8529          
-##               Precision : 0.8182          
-##                  Recall : 0.7590          
-##                      F1 : 0.7875          
-##              Prevalence : 0.3897          
-##          Detection Rate : 0.2958          
-##    Detection Prevalence : 0.3615          
-##       Balanced Accuracy : 0.8257          
-##                                           
-##        'Positive' Class : MM              
-## 
-</code></pre>
-
-<h2 id="7-3-hyper-parameter-tuning-using-tunegrid">7.3. Hyper Parameter Tuning using tuneGrid</h2>
-
-<p>Alternately, you can set the tuneGrid instead of tuneLength.</p>
-
-<pre><code class="language-r"># Step 1: Define the tuneGrid
-marsGrid &lt;-  expand.grid(nprune = c(2, 4, 6, 8, 10), 
-                        degree = c(1, 2, 3))
-
-# Step 2: Tune hyper parameters by setting tuneGrid
-set.seed(100)
-model_mars3 = train(Purchase ~ ., data=trainData, method='earth', metric='ROC', tuneGrid = marsGrid, trControl = fitControl)
-model_mars3
-</code></pre>
-
-<pre><code>## Multivariate Adaptive Regression Spline 
-## 
-## 857 samples
-##  18 predictor
-##   2 classes: 'CH', 'MM' 
-## 
-## No pre-processing
-## Resampling: Cross-Validated (5 fold) 
-## Summary of sample sizes: 685, 685, 687, 686, 685 
-## Resampling results across tuning parameters:
-## 
-##   degree  nprune  ROC        Sens       Spec     
-##   1        2      0.8745398  0.8700916  0.7006784
-##   1        4      0.8924657  0.8662454  0.7394844
-##   1        6      0.8912361  0.8719414  0.7334238
-##   1        8      0.8886974  0.8661722  0.7334238
-##   1       10      0.8879988  0.8623626  0.7423790
-##   2        2      0.8745398  0.8700916  0.7006784
-##   2        4      0.8925044  0.8758425  0.7395296
-##   2        6      0.8918962  0.8681868  0.7545002
-##   2        8      0.8911809  0.8624359  0.7634102
-##   2       10      0.8947444  0.8604579  0.7784261
-##   3        2      0.8582783  0.8777106  0.6618725
-##   3        4      0.8919687  0.8681502  0.7514699
-##   3        6      0.8889365  0.8509341  0.7665310
-##   3        8      0.8802930  0.8432784  0.7396653
-##   3       10      0.8790021  0.8452015  0.7486205
-## 
-## ROC was used to select the optimal model using the largest value.
-## The final values used for the model were nprune = 10 and degree = 2.
-</code></pre>
-
-<pre><code class="language-r"># Step 3: Predict on testData and Compute the confusion matrix
-predicted3 &lt;- predict(model_mars3, testData4)
-confusionMatrix(reference = testData$Purchase, data = predicted3, mode='everything', positive='MM')
-</code></pre>
-
-<pre><code>## Confusion Matrix and Statistics
-## 
-##           Reference
-## Prediction  CH  MM
-##         CH 114  18
-##         MM  16  65
-##                                           
-##                Accuracy : 0.8404          
-##                  95% CI : (0.7841, 0.8869)
-##     No Information Rate : 0.6103          
-##     P-Value [Acc &gt; NIR] : 2.164e-13       
-##                                           
-##                   Kappa : 0.6629          
-##  Mcnemar's Test P-Value : 0.8638          
-##                                           
-##             Sensitivity : 0.7831          
-##             Specificity : 0.8769          
-##          Pos Pred Value : 0.8025          
-##          Neg Pred Value : 0.8636          
-##               Precision : 0.8025          
-##                  Recall : 0.7831          
-##                      F1 : 0.7927          
-##              Prevalence : 0.3897          
-##          Detection Rate : 0.3052          
-##    Detection Prevalence : 0.3803          
-##       Balanced Accuracy : 0.8300          
-##                                           
-##        'Positive' Class : MM              
-## 
+<pre><code class="language-r">library(DT)
+datatable(favorites)
 </code></pre>
 
-<h1 id="8-how-to-evaluate-performance-of-multiple-machine-learning-algorithms">8. How to evaluate performance of multiple machine learning algorithms?</h1>
+<p><!--html_preserve--><div id="htmlwidget-bf5371e68048984ddcf2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bf5371e68048984ddcf2">{&ldquo;x&rdquo;:{&ldquo;filter&rdquo;:&ldquo;none&rdquo;,&ldquo;data&rdquo;:[[&ldquo;1&rdquo;,&ldquo;2&rdquo;,&ldquo;3&rdquo;,&ldquo;4&rdquo;,&ldquo;5&rdquo;,&ldquo;6&rdquo;,&ldquo;7&rdquo;,&ldquo;8&rdquo;,&ldquo;9&rdquo;,&ldquo;10&rdquo;,&ldquo;11&rdquo;,&ldquo;12&rdquo;,&ldquo;13&rdquo;,&ldquo;14&rdquo;,&ldquo;15&rdquo;,&ldquo;16&rdquo;,&ldquo;17&rdquo;,&ldquo;18&rdquo;,&ldquo;19&rdquo;,&ldquo;20&rdquo;,&ldquo;21&rdquo;,&ldquo;22&rdquo;,&ldquo;23&rdquo;,&ldquo;24&rdquo;,&ldquo;25&rdquo;,&ldquo;26&rdquo;,&ldquo;27&rdquo;,&ldquo;28&rdquo;,&ldquo;29&rdquo;,&ldquo;30&rdquo;,&ldquo;31&rdquo;,&ldquo;32&rdquo;,&ldquo;33&rdquo;,&ldquo;34&rdquo;,&ldquo;35&rdquo;,&ldquo;36&rdquo;,&ldquo;37&rdquo;,&ldquo;38&rdquo;,&ldquo;39&rdquo;,&ldquo;40&rdquo;,&ldquo;41&rdquo;,&ldquo;42&rdquo;,&ldquo;43&rdquo;,&ldquo;44&rdquo;,&ldquo;45&rdquo;,&ldquo;46&rdquo;,&ldquo;47&rdquo;,&ldquo;48&rdquo;,&ldquo;49&rdquo;,&ldquo;50&rdquo;,&ldquo;51&rdquo;,&ldquo;52&rdquo;,&ldquo;53&rdquo;,&ldquo;54&rdquo;,&ldquo;55&rdquo;,&ldquo;56&rdquo;,&ldquo;57&rdquo;,&ldquo;58&rdquo;,&ldquo;59&rdquo;,&ldquo;60&rdquo;,&ldquo;61&rdquo;,&ldquo;62&rdquo;,&ldquo;63&rdquo;,&ldquo;64&rdquo;,&ldquo;65&rdquo;,&ldquo;66&rdquo;,&ldquo;67&rdquo;,&ldquo;68&rdquo;,&ldquo;69&rdquo;,&ldquo;70&rdquo;,&ldquo;71&rdquo;,&ldquo;72&rdquo;,&ldquo;73&rdquo;,&ldquo;74&rdquo;,&ldquo;75&rdquo;,&ldquo;76&rdquo;,&ldquo;77&rdquo;,&ldquo;78&rdquo;],[&ldquo;dplyr&rdquo;,&ldquo;purrr&rdquo;,&ldquo;readxl&rdquo;,&ldquo;googlesheets&rdquo;,&ldquo;readr&rdquo;,&ldquo;rio&rdquo;,&ldquo;Hmisc&rdquo;,&ldquo;datapasta&rdquo;,&ldquo;sqldf&rdquo;,&ldquo;jsonlite&rdquo;,&ldquo;XML&rdquo;,&ldquo;httr&rdquo;,&ldquo;quantmod&rdquo;,&ldquo;tidyquant&rdquo;,&ldquo;rvest&rdquo;,&ldquo;reshape2&rdquo;,&ldquo;tidyr&rdquo;,&ldquo;splitstackshape&rdquo;,&ldquo;magrittr&rdquo;,&ldquo;validate&rdquo;,&ldquo;testthat&rdquo;,&ldquo;data.table&rdquo;,&ldquo;stringr&rdquo;,&ldquo;lubridate&rdquo;,&ldquo;zoo&rdquo;,&ldquo;editR&rdquo;,&ldquo;knitr&rdquo;,&ldquo;officeR&rdquo;,&ldquo;listviewer&rdquo;,&ldquo;DT&rdquo;,&ldquo;ggplot2&rdquo;,&ldquo;patchwork&rdquo;,&ldquo;ggiraph&rdquo;,&ldquo;dygraphs&rdquo;,&ldquo;googleVis&rdquo;,&ldquo;metricsgraphics&rdquo;,&ldquo;taucharts&rdquo;,&ldquo;RColorBrewer&rdquo;,&ldquo;sf&rdquo;,&ldquo;leaflet&rdquo;,&ldquo;ggmap&rdquo;,&ldquo;tmap &amp; tmaptools&rdquo;,&ldquo;mapsapi&rdquo;,&ldquo;tidycensus&rdquo;,&ldquo;glue&rdquo;,&ldquo;rga&rdquo;,&ldquo;RSiteCatalyst&rdquo;,&ldquo;roxygen2&rdquo;,&ldquo;shiny&rdquo;,&ldquo;flexdashboard&rdquo;,&ldquo;openxlsx&rdquo;,&ldquo;gmodels&rdquo;,&ldquo;janitor&rdquo;,&ldquo;car&rdquo;,&ldquo;rcdimple&rdquo;,&ldquo;foreach&rdquo;,&ldquo;scales&rdquo;,&ldquo;plotly&rdquo;,&ldquo;highcharter&rdquo;,&ldquo;profvis&rdquo;,&ldquo;tidytext&rdquo;,&ldquo;diffobj&rdquo;,&ldquo;Prophet&rdquo;,&ldquo;feather&rdquo;,&ldquo;fst&rdquo;,&ldquo;googleAuthR&rdquo;,&ldquo;devtools&rdquo;,&ldquo;remotes&rdquo;,&ldquo;installr&rdquo;,&ldquo;reinstallr&rdquo;,&ldquo;usethis&rdquo;,&ldquo;here&rdquo;,&ldquo;pacman&rdquo;,&ldquo;plumber&rdquo;,&ldquo;echarts4r&rdquo;,&ldquo;cloudyR project&rdquo;,&ldquo;geofacet&rdquo;,&ldquo;beepr&rdquo;],[&ldquo;data wrangling, data analysis&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data import&rdquo;,&ldquo;data import, data export&rdquo;,&ldquo;data import&rdquo;,&ldquo;data import, data export&rdquo;,&ldquo;data analysis&rdquo;,&ldquo;data import&rdquo;,&ldquo;data wrangling, data analysis&rdquo;,&ldquo;data import, data wrangling&rdquo;,&ldquo;data import, data wrangling&rdquo;,&ldquo;data import, data wrangling&rdquo;,&ldquo;data import, data visualization, data analysis&rdquo;,&ldquo;data import, data visualization, data analysis&rdquo;,&ldquo;data import, web scraping&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;programming&rdquo;,&ldquo;data wrangling, data analysis&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data wrangling, data analysis&rdquo;,&ldquo;data display&rdquo;,&ldquo;data display&rdquo;,&ldquo;data display&rdquo;,&ldquo;data display, data wrangling&rdquo;,&ldquo;data display&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;mapping, data wrangling&rdquo;,&ldquo;mapping&rdquo;,&ldquo;mapping&rdquo;,&ldquo;mapping&rdquo;,&ldquo;mapping, data wrangling&rdquo;,&ldquo;mapping, data wrangling&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;Web analytics&rdquo;,&ldquo;Web analytics&rdquo;,&ldquo;package development&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;misc&rdquo;,&ldquo;data wrangling, data analysis&rdquo;,&ldquo;data wrangling, data analysis&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data wrangling&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;programming&rdquo;,&ldquo;text mining&rdquo;,&ldquo;data analysis&rdquo;,&ldquo;forecasting&rdquo;,&ldquo;data import, data export&rdquo;,&ldquo;data import, data export&rdquo;,&ldquo;data import&rdquo;,&ldquo;package development, package installation&rdquo;,&ldquo;package installation&rdquo;,&ldquo;misc&rdquo;,&ldquo;misc&rdquo;,&ldquo;package development, programming&rdquo;,&ldquo;misc&rdquo;,&ldquo;misc&rdquo;,&ldquo;data export, programming&rdquo;,&ldquo;data visualization&rdquo;,&ldquo;data import, data export&rdquo;,&ldquo;data visualization, mapping&rdquo;,&ldquo;misc&rdquo;],[&ldquo;The essential data-munging R package when working with data frames. Especially useful for operating on data by categories. CRAN.&rdquo;,&ldquo;purrr makes it easy to apply a function to each item in a list and return results in the format of your choice. It&rsquo;s more complex to learn than the older plyr package, but also more robust. And, its functions are more standardized than base R&rsquo;s apply family &ndash; plus it&rsquo;s got functions for tasks like error-checking. CRAN.&rdquo;,&ldquo;Fast way to read Excel files in R, without dependencies such as Java. CRAN.&rdquo;,&ldquo;Easily read data into R from Google Sheets. CRAN.&rdquo;,&ldquo;Base R handles most of these functions; but if you have huge files, this is a speedy and standardized way to read tabular files such as CSVs into R data frames, as well as plain text files into character strings with read_file. CRAN.&ldquo;,&ldquo;rio has a good idea: Pull a lot of separate data-reading packages into one, so you just need to remember 2 functions: import and export. CRAN.&ldquo;,&ldquo;There are a number of useful functions in here. Two of my favorites: describe, a more robust summary function, and Cs, which creates a vector of quoted character strings from unquoted comma-separated text. Cs(so, it, goes) creates c(\&ldquo;so\&ldquo;, \&ldquo;it\&ldquo;, \&ldquo;goes\&ldquo;). CRAN.&rdquo;,&ldquo;Data copy and paste: Meet reproducible research. If you&rsquo;ve copied data from the Web, a spreadsheet, or other source into your clipboard, datapasta lets you paste it into R as an R object, with the code to reproduce it. It includes RStudio add-ins as well as command-line functions for transposing data, turning it into markdown format, and more. CRAN.&ldquo;,&ldquo;Do you know a great SQL query you&rsquo;d use if your R data frame were in a SQL database? Run SQL queries on your data frame with sqldf. CRAN.&rdquo;,&ldquo;Parse json within R or turn R data frames into json. CRAN.&rdquo;,&ldquo;Many functions for elegantly dealing with XML and HTML, such as readHTMLTable. CRAN.&rdquo;,&ldquo;An R interface to http protocols; useful for pulling data from APIs. See the httr quickstart guide. CRAN.&rdquo;,&ldquo;Even if you&rsquo;re not interested in analyzing and graphing financial investment data, quantmod has easy-to-use functions for importing economic as well as financial data from sources like the Federal Reserve. CRAN.&rdquo;,&ldquo;Another financial package that&rsquo;s useful for importing, analyzing and visualizing data, integrating aspects of other popular finance packages as well as tidyverse tools. With thorough documentation. CRAN.&rdquo;,&ldquo;Web scraping: Extract data from HTML pages. Inspired by Python&rsquo;s Beautiful Soup. Works well with Selectorgadget. CRAN.&ldquo;,&ldquo;Change data row and column formats from \&ldquo;wide\&rdquo; to \&ldquo;long\&ldquo;; turn variables into column names or column names into variables and more. The tidyr package is a newer, more focused option, but I still use reshape2. CRAN.&rdquo;,&ldquo;While I still prefer reshape2 for general re-arranging, tidy won me over with specialized functions like fill (fill in missing columns from data above) and replace_na. CRAN.&ldquo;,&ldquo;It&rsquo;s rare that I&rsquo;d recommend a package that hasn&rsquo;t been updated in years, but the cSplit() function solves a rather complex shaping problem in an astonishingly easy way. If you have a data frame column with one or more comma-separated values (think a survey question with \&ldquo;select all that apply\&ldquo;), this is worth an install if you want to separate each item into its own new data frame row.. CRAN.&rdquo;,&ldquo;This package gave us the %&gt;% symbol for chaining R operations, but it&rsquo;s got other useful operators such as %&lt;&gt;% for mutating a data frame in place and and . as a placeholder for the original object being operated upon. CRAN.&ldquo;,&ldquo;Intuitive data validation based on rules you can define, save and re-use. CRAN.&rdquo;,&ldquo;Package that makes it easy to write unit tests for your R code. CRAN.&rdquo;,&ldquo;Popular package for heavy-duty data wrangling. While I typically prefer dplyr, data.table has many fans for its speed with large data sets. CRAN.&rdquo;,&ldquo;Numerous functions for text manipulation. Some are similar to existing base R functions but in a more standard format, including working with regular expressions. Some of my favorites: str_pad and str_trim. CRAN.&ldquo;,&ldquo;Everything you ever wanted to do with date arithmetic, although understanding &amp; using available functionality can be somewhat complex. CRAN.&ldquo;,&ldquo;Robust package with a slew of functions for dealing with time series data; I like the handy rollmean function with its align=right and fill=NA options for calculating moving averages. CRAN.&rdquo;,&ldquo;Interactive editor for R Markdowndocuments. Note that R Markdown Notebooks are another useful way to generate Markdown interactively. editR is on GitHub.&rdquo;,&ldquo;Add R to a markdown document and easily generate reports in HTML, Word and other formats. A must-have if you&rsquo;re interested in reproducible research and automating the journey from data analysis to report creation. CRAN.&rdquo;,&ldquo;Import and edit Microsoft Word and PowerPoint documents, making it easy to add R-generated analysis and visualizations to existing as well as new reports and presentations. CRAN.&rdquo;,&ldquo;While RStudio has since added a list-viewing option, this HTML widget still offers an elegant way to view complex nested lists within R. GitHub timelyportfolio/listviewer.&rdquo;,&ldquo;Create a sortable, searchable table in one line of code with this R interface to the jQuery DataTables plug-in. GitHub rstudio/DT.&rdquo;,&ldquo;Powerful, flexible and well-thought-out dataviz package following &lsquo;grammar of graphics&rsquo; syntax to create static graphics, but be prepared for a steep learning curve. CRAN.&rdquo;,&ldquo;Easily combine ggplot2 plots and keep the new, merged plot a ggplot2 object. plot_layout() adds ability to set columns, rows, and relative sizes of each component graphic. GitHub.&ldquo;,&ldquo;Make ggplot2 plots interactive with this extension&rsquo;s new geom functions such geom_bar_interactive and arguments for tooltips and JavaScript onclicks. CRAN.&ldquo;,&ldquo;Create HTML/JavaScript graphs of time series - one-line command if your data is an xts object. CRAN.&rdquo;,&ldquo;Tap into the Google Charts API using R. CRAN.&rdquo;,&ldquo;R interface to the metricsgraphics JavaScript library for bare-bones line, scatterplot and bar charts. GitHub hrbrmstr/metricsgraphics.&rdquo;,&ldquo;This html widget library is especially useful for scatterplots where you want to view multiple regression options. However, it does much more than that, including line and bar charts with legends and tooltips. GitHub hrbrmstr/taucharts.&rdquo;,&ldquo;Not a designer? RColorBrewer helps you select color palettes for your visualizations. CRAN. &rdquo;,&ldquo;This package makes it much easier to do GIS work in R. Simple features protocols make geospatial data look a lot like regular data frames, while various functions allow for analysis such as determining whether points are in a polygons. A GIS game-changer for R. CRAN.&rdquo;,&ldquo;Map data using the Leaflet JavaScript library within R. GitHub rstudio/leaflet.&rdquo;,&ldquo;Although I don&rsquo;t use this package often for its main purpose of pulling down background map tiles, it&rsquo;s my go-to for geocoding up to 2,500 addresses with the Google Maps API with its geocode and mutate_geocode functions. CRAN.&ldquo;,&ldquo;These package offer an easy way to read in shape files and join data files with geographic info, as well as do some exploratory mapping. Recent functionality adds support for simple features, interactive maps and creating leaflet objects. Plus, tmaptools::palette_explorer() is a great tool for picking ColorBrewer palettes. CRAN.&ldquo;,&ldquo;This interface to the Google Maps Direction and Distance Matrix APIs let you analyze and map distances and driving routes. CRAN.&rdquo;,&ldquo;Want to analyze and map U.S. Census Bureau data from 5-year American Community Surveys or 10-year censuses? This makes it easy to download numerical and geospatial info in R-ready format. CRAN.&rdquo;,&ldquo;Main function, also glue, evaluates variables and R expressions within a quoted string, as long as they&rsquo;re enclosed by {} braces. This makes for an elegant paste() replacement. CRAN.&rdquo;,&ldquo;Use Google Analytics with R. GitHub skardhamar/rga.&rdquo;,&ldquo;Use Adobe Analytics with R. GitHub randyzwitch/RSiteCatalyst.&rdquo;,&ldquo;Useful tools for documenting functions within R packages. CRAN.&rdquo;,&ldquo;Turn R data into interactive Web applications. I&rsquo;ve seen some nice (if sometimes sluggish) apps and it&rsquo;s got many enthusiasts. CRAN.&rdquo;,&ldquo;If Shiny is too complex and involved for your needs, this package offers a simpler (if somewhat less robust) solution based on R Markdown. CRAN.&rdquo;,&ldquo;If you need to write to an Excel file as well as read, this package is easy to use. CRAN.&rdquo;,&ldquo;There are several functions for modeling data here, but the one I use, CrossTable, simply creates cross-tabs with loads of options &ndash; totals, proprotions and several statistical tests. CRAN.&rdquo;,&ldquo;Basic data cleaning made easy, such as finding duplicates by multiple columns, making R-friendly column names and removing empty columns. It also has some nice tabulating tools, like adding a total row, as well as generating tables with percentages and easy crosstabs. CRAN.&rdquo;,&ldquo;car&rsquo;s recode function makes it easy to bin continuous numerical data into categories or factors. While base R&rsquo;s cut accomplishes the same task, I find recode&rsquo;s syntax to be more intuitive - just remember to put the entire recoding formula within double quotation marks. dplyr&rsquo;s case_when() function is another option worth considering. CRAN.&ldquo;,&ldquo;R interface to the dimple JavaScript library with numerous customization options. Good choice for JavaScript bar charts, among others. GitHub timelyportfolio/rcdimple.&rdquo;,&ldquo;Efficient - and intuitive if you come from another programming language - for loops in R. CRAN.&rdquo;,&ldquo;While this package has many more sophisticated ways to help you format data for graphing, it&rsquo;s worth a download just for the comma(), percent() and dollar() functions. CRAN.&rdquo;,&ldquo;R interface to the Plotly JavaScript library that was open-sourced in late 2015. Basic graphs have a distinctive look which may not be for everyone, but it&rsquo;s full-featured, relatively easy to learn (especially if you know ggplot2) and includes a ggplotly() function to turn graphs created with ggplot2 interactive. CRAN.&rdquo;,&ldquo;R wrapper for the robust and well documented Highcharts JavaScript library, one of my favorite choices for presentation-quality interactive graphics. The package uses ggplot2-like syntax, including options for handling both long and wide data, and comes with plenty of examples. Note that a paid Highcharts license is needed to use this for commercial or government work (it&rsquo;s free for personal and non-profit projects). CRAN. . CRAN.&rdquo;,&ldquo;Is your R code sluggish? This package gives you a visual representative of your code line by line so you can find the speed bottlenecks. CRAN.&rdquo;,&ldquo;Elegant implementation of text mining functions using Hadley Wickham&rsquo;s \&ldquo;tidy data\&rdquo; principles. CRAN.&ldquo;,&ldquo;Base R&rsquo;s identical() function tells you whether or not two objects are the same; but if they&rsquo;re not, it won&rsquo;t tell you why. diffobj gives you a visual representation of how two R objects differ. CRAN.&rdquo;,&ldquo;I don&rsquo;t do much forecasting analysis; but if I did, I&rsquo;d start with this package. CRAN.&rdquo;,&ldquo;This binary data-file format can be read by both Python and R, making data interchange easier between the two languages. It&rsquo;s also built for I/O speed. CRAN.&rdquo;,&ldquo;Another alternative for binary file storage (R-only), fst was built for fast storage and retrieval, with access speeds above 1 GB/sec. It also offers compression that doesn&rsquo;t slow data access too much, as well as the ability to import a specific range of rows (by row number). CRAN.&rdquo;,&ldquo;If you want to use data from a Google API in an R project and there&rsquo;s not yet a specific package for that API, this is the place to turn for authenticating CRAN.&rdquo;,&ldquo;devtools has a slew of functions aimed at helping you create your own R packages, such as automatically running all example code in your help files to make sure everything works. Requires Rtools on Windows and XCode on a Mac. On CRAN.&rdquo;,&ldquo;If you want to install R packages from GitHub, devtools was long the go-to. However, it has a ton of other functions and some hefty dependences. remotes is a lighter-weight alternative if all you want is to install packages from GitHub as well as Bitbucket and some other sources. CRAN. (ghit is another option, but is GitHub-only.)&rdquo;,&ldquo;Windows only: Update your installed version of R from within R. On CRAN.&ldquo;,&ldquo;Seeks to find packages that had previously been installed on your system and need to be re-installed after upgrading R. CRAN.&rdquo;,&ldquo;Initially aimed at package development, usethis now includes useful functions for any coding project. Among its handy features are an edit family that lets you easily update your .Renvironment and .Rprofile files. On CRAN, but install GitHub version from \&ldquo;r-lib/usethis\&rdquo; for latest updates.&ldquo;,&ldquo;This package has one function with a single, useful purpose: find your project&rsquo;s working directory. Surprisingly helpful if you want your code to run on more than one system. CRAN.&ldquo;,&ldquo;This package is another that aims to solve one problem, and solve it well: package installation. The main functions will loadi a package that&rsquo;s already installed or installing it first if it&rsquo;s not available. While this is certainly possible to do with base R&rsquo;s require() and an if statement, p_load() is so much more elegant for CRAN packages, or p_load_gh() for GitHub. Other useful options include p_temp(), which allows for a temporary, this-session-only package installation. CRAN.&ldquo;,&ldquo;Turn any R function into a host-able API with a line or two of code. This well-thought-out package makes it easy to use R for data handling in other, non-R coding projects. CRAN.&rdquo;,&ldquo;R wrapper for the powerful and flexible ECharts JavaScript library. It features dozens of chart and graph types, from bar and line charts to sunbursts, heat maps, and geographical maps. Hundreds of customizations not explicitly mentioned in the package docs are nevertheless available; you just need to peruse the original ECharts documentation. (ECharts is an Apache Software Foundation incubator project.)&rdquo;,&ldquo;This is a collection of packages aimed at making it easier for R to work with cloud platforms such as Amazon Web Services, Google and Travis-CI. Some are already on CRAN, some can be found on GitHub.&rdquo;,&ldquo;To be honest, I rarely need the ability create \&ldquo;geofacets\&rdquo; &ndash; maps with same-sized blocks in geospatially appropriate locations. However, this package is so cool that I had to include it. Geofaceting is best understood by looking at an example. The package lets you create your own geofacet visualizations using ggplot2 and built-in grids such as US states, EU countries and San Francisco Bay Area counties. Even more impressive, it comes with design-your-own geofacet grid capabilities. CRAN.&ldquo;,&ldquo;This is pretty much pure fun. Yes, getting an audible notification when code finishes running or encounters an error could be useful; but here, the available sounds include options like a fanfare flourish, a Mario Brothers tune, and even a scream. CRAN.&rdquo;],[&ldquo;See the intro vignette&rdquo;,&ldquo;map_df(mylist, myfunction)&ldquo;,&ldquo;read_excel(\&ldquo;my-spreadsheet.xls\&ldquo;, sheet = 1)&rdquo;,&ldquo;mysheet &lt;- gs_title(\&ldquo;Google Spreadsheet Title\&ldquo;)&rdquo;,&ldquo;read_csv(myfile.csv)&ldquo;,&ldquo;import(\&ldquo;myfile\&ldquo;)&rdquo;,&ldquo;describe(mydf)&rdquo;,&ldquo;df_paste() to create a data frame, vector_paste() to create a vector.&ldquo;,&ldquo;sqldf(\&ldquo;select * from mydf where mycol &gt; 4\&ldquo;)&rdquo;,&ldquo;myjson &lt;- toJSON(mydf, pretty=TRUE)&ldquo;,&ldquo;mytables &lt;- readHTMLTable(myurl)&ldquo;,&ldquo;r &lt;- GET(\&ldquo;<a href="http://httpbin.org/get&quot;)&quot;,&quot;getSymbols(&quot;AITINO&quot;">http://httpbin.org/get&quot;)&quot;,&quot;getSymbols(&quot;AITINO&quot;</a>, src=\&ldquo;FRED\&ldquo;)&rdquo;,&ldquo;aapl_key_ratios &lt;- tq_get(\&ldquo;AAPL\&ldquo;, get = \&ldquo;key.ratios\&ldquo;)&rdquo;,&ldquo;See the package vignette&rdquo;,&ldquo;See my tutorial&rdquo;,&ldquo;See examples in this blog post.&rdquo;,&ldquo;cSplit(mydata, \&ldquo;multi_val_column\&ldquo;, sep = \&ldquo;,\&ldquo;, direction = \&ldquo;long\&ldquo;).&rdquo;,&ldquo;mydf %&lt;&gt;% mutate(newcol = myfun(colname))&ldquo;,&ldquo;See the introductory vignette.&rdquo;,&ldquo;See the testing chapter of Hadley Wickham&rsquo;s book on R packages.&rdquo;,&ldquo;Useful tutorial&rdquo;,&ldquo;str_pad(myzipcodevector, 5, \&ldquo;left\&ldquo;, \&ldquo;0\&ldquo;)&rdquo;,&ldquo;mdy(\&ldquo;05/06/2015\&ldquo;) + months(1)&rdquo;,&ldquo;rollmean(mydf, 7)&rdquo;,&ldquo;editR(\&ldquo;path/to/myfile.Rmd\&ldquo;)&rdquo;,&ldquo;See the Minimal Examples page.&rdquo;,&ldquo;my_doc &lt;- read_docx() %&gt;% &rdquo;,&ldquo;jsonedit(mylist)&rdquo;,&ldquo;datatable(mydf)&rdquo;,&ldquo;qplot(factor(myfactor), data=mydf, geom=\&ldquo;bar\&ldquo;, fill=factor(myfactor))&rdquo;,&ldquo;plot1 + plot2 + plot_layout(ncol=1)&ldquo;,&ldquo;g &lt;- ggplot(mpg, aes( x = displ, y = cty, color = drv) )\r\nmy_gg &lt;- g + geom_point_interactive(aes(tooltip = model), size = 2)\r\nggiraph(code = print(my_gg), width = .7).&ldquo;,&ldquo;dygraph(myxtsobject)&rdquo;,&ldquo;mychart &lt;- gvisColumnChart(mydata)&ldquo;,&ldquo;See package intro&rdquo;,&ldquo;See the author&rsquo;s post on RPubs&rdquo;,&ldquo;See Jennifer Bryan&rsquo;s tutorial&rdquo;,&ldquo;See the package vignettes, starting with the introduction, Simple Features for R.&rdquo;,&ldquo;See my tutorial&rdquo;,&ldquo;geocode(\&ldquo;492 Old Connecticut Path, Framingham, MA\&ldquo;)&rdquo;,&ldquo;See the package vignette or my mapping in R tutorial&rdquo;,&ldquo;google_directions( origin = c(my_longitude, my_latitude),&ldquo;,&ldquo;See Basic usage of tidycensus.&rdquo;,&ldquo;glue(\&ldquo;Today is {Sys.Date()}\&ldquo;)&rdquo;,&ldquo;See package README file and my tutorial&rdquo;,&ldquo;See intro video&rdquo;,&ldquo;See this short, easy-to-read blog post&rdquo;,&ldquo;See the tutorial&rdquo;,&ldquo;More info in Using flexdashboard&rdquo;,&ldquo;write.xlsx(mydf, \&ldquo;myfile.xlsx\&ldquo;)&rdquo;,&ldquo;CrossTable(myxvector, myyvector, prop.t=FALSE, prop.chisq = FALSE)&rdquo;,&ldquo;tabyl(mydf, sort = TRUE) %&gt;% adorn_totals(\&ldquo;row\&ldquo;)&rdquo;,&ldquo;recode(x, \&ldquo;1:3=&lsquo;Low&rsquo;; 4:7=&lsquo;Mid&rsquo;; 8:hi=&lsquo;High&rsquo;\&ldquo;)&rdquo;,&ldquo;dimple(mtcars, mpg ~ cyl, type = \&ldquo;bar\&ldquo;)&rdquo;,&ldquo;foreach(i=1:3) %do% sqrt(i)&ldquo;,&ldquo;comma(mynumvec)&rdquo;,&ldquo;d &lt;- diamonds[sample(nrow(diamonds), 1000), ] plot_ly(d, x = carat, y = price, text = paste(\&ldquo;Clarity: \&ldquo;, clarity), mode = \&ldquo;markers\&ldquo;, color = carat, size = carat)&rdquo;,&ldquo;hchart(mydf, \&ldquo;charttype\&ldquo;, hcaes(x = xcol, y = ycol, group = groupbycol))&rdquo;,&ldquo;profvis({ your code here })&rdquo;,&ldquo;See tidytextmining.com for numerous examples.&rdquo;,&ldquo;diffObj(x,y)&rdquo;,&ldquo;See the Quick start guide.&rdquo;,&ldquo;write_feather(mydf, \&ldquo;myfile\&ldquo;)&rdquo;,&ldquo;write.fst(mydf, \&ldquo;myfile.fst\&ldquo;, 100)&rdquo;,&ldquo;See examples on the package website and this gist for use with Google Calendars. CRAN.&rdquo;,&ldquo;run_examples()&ldquo;,&ldquo;remotes::install_github(\&ldquo;mangothecat/franc\&ldquo;)&rdquo;,&ldquo;updateR()&rdquo;,&ldquo;reinstallr()&rdquo;,&ldquo;edit_r_environ()&ldquo;,&ldquo;my_project_directory &lt;- here()&ldquo;,&ldquo;p_load(dplyr, here, tidycensus)&ldquo;,&ldquo;See the documentation or my article Create your own Slack bots &ndash; and Web APIs &ndash; with R&rdquo;,&ldquo;mtcars %&gt;% e_charts(wt) %&gt;% e_line(mpg)&ldquo;,&ldquo;See the list of packages.&rdquo;,&ldquo;grid_design()&ldquo;,&ldquo;beep(\&ldquo;wilhelm\&ldquo;)&rdquo;],[&ldquo;Hadley Wickham&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Jennifer Bryan&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Thomas J. Leeper &amp; others&rdquo;,&ldquo;Frank E Harrell Jr &amp; others&rdquo;,&ldquo;Miles McBain&rdquo;,&ldquo;G. Grothendieck&rdquo;,&ldquo;Jeroen Ooms &amp; others&rdquo;,&ldquo;Duncan Temple Lang&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Jeffrey A. Ryan&rdquo;,&ldquo;Matt Dancho&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Ananda Mahto&rdquo;,&ldquo;Stefan Milton Bache &amp; Hadley Wickham&rdquo;,&ldquo;Mark van der Loo &amp; Edwin de Jonge&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Matt Dowle &amp; others&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Garrett Grolemund, Hadley Wickham &amp; others&rdquo;,&ldquo;Achim Zeileis &amp; others&rdquo;,&ldquo;Simon Garnier&rdquo;,&ldquo;Yihui Xie &amp; others&rdquo;,&ldquo;David Gohel&rdquo;,&ldquo;Kent Russell&rdquo;,&ldquo;RStudio&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Thomas Lin Pedersen&rdquo;,&ldquo;David Gohel&rdquo;,&ldquo;JJ Allaire &amp; RStudio&rdquo;,&ldquo;Markus Gesmann &amp; others&rdquo;,&ldquo;Bob Rudis&rdquo;,&ldquo;Bob Rudis&rdquo;,&ldquo;Erich Neuwirth&rdquo;,&ldquo;Edzer Pebesma &amp; others&rdquo;,&ldquo;RStudio&rdquo;,&ldquo;David Kahle &amp;Hadley Wickham&rdquo;,&ldquo;Martijn Tennekes&rdquo;,&ldquo;Michael Dorman&rdquo;,&ldquo;Kyle E. Walker&rdquo;,&ldquo;Jim Hester&rdquo;,&ldquo;Bror Skardhamar&rdquo;,&ldquo;Randy Zwitch&rdquo;,&ldquo;Hadley Wickham &amp; others&rdquo;,&ldquo;RStudio&rdquo;,&ldquo;JJ Allaire, RStudio &amp; others&rdquo;,&ldquo;Alexander Walker&rdquo;,&ldquo;Gregory R. Warnes&rdquo;,&ldquo;Samuel Firke&rdquo;,&ldquo;John Fox &amp; others&rdquo;,&ldquo;Kent Russell&rdquo;,&ldquo;Revolution Analytics, Steve Weston&rdquo;,&ldquo;Hadley Wickham&rdquo;,&ldquo;Carson Sievert &amp; others&rdquo;,&ldquo;Joshua Kunst &amp; others&rdquo;,&ldquo;Winston Chang &amp; others&rdquo;,&ldquo;Julia Silge &amp; David Robinson&rdquo;,&ldquo;Brodie Gaslam &amp; Michael B. Allen&rdquo;,&ldquo;Sean Taylor &amp; Ben Letham at Facebook&rdquo;,&ldquo;Wes McKinney &amp; Hadley Wickham&rdquo;,&ldquo;Mark Klik&rdquo;,&ldquo;Mark Edmondson&rdquo;,&ldquo;Hadley Wickham &amp; others&rdquo;,&ldquo;Gabor Csardi &amp; others&rdquo;,&ldquo;Tal Galili &amp; others&rdquo;,&ldquo;Calli Gross&rdquo;,&ldquo;Hadley Wickham, Jennifer Bryan &amp; RStudio&rdquo;,&ldquo;Kirill Müller&rdquo;,&ldquo;Tyler Rinker&rdquo;,&ldquo;Jeff Allen, Trestle Technology &amp; others&rdquo;,&ldquo;John Coene&rdquo;,&ldquo;Various&rdquo;,&ldquo;Ryan Hafen&rdquo;,&ldquo;Rasmus Bååth&rdquo;],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,&ldquo;See my searchable ggplot2 cheat sheet and&rdquo;,null,null,null,&ldquo;Numerous examples here&rdquo;,null,null,null,null,null,null,null,null,null,null,null,null,&ldquo;on writing R packages&rdquo;,null,null,null,null,null,null,null,&ldquo;Also see The Wonders of foreach&rdquo;,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],&ldquo;container&rdquo;:&rdquo;<table class=\"display\">\n  <thead>\n    <tr>\n      <th> &lt;\/th&gt;\n      <th>PACKAGE&lt;\/th&gt;\n      <th>CATEGORY&lt;\/th&gt;\n      <th>DESCRIPTION&lt;\/th&gt;\n      <th>SAMPLE.USE&lt;\/th&gt;\n      <th>AUTHOR&lt;\/th&gt;\n      <th>X6&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&ldquo;,&ldquo;options&rdquo;:{&ldquo;order&rdquo;:[],&ldquo;autoWidth&rdquo;:false,&ldquo;orderClasses&rdquo;:false,&ldquo;columnDefs&rdquo;:[{&ldquo;orderable&rdquo;:false,&ldquo;targets&rdquo;:0}]}},&ldquo;evals&rdquo;:[],&ldquo;jsHooks&rdquo;:[]}</script><!--/html_preserve--></p>
 
-<p>Caret provides the resamples() function where you can provide multiple machine learning models and collectively evaluate them.</p>
+<h1 id="save-and-install-packages">Save and install packages</h1>
 
-<p>Let’s first train some more algorithms.</p>
+<h2 id="save-packages">Save packages</h2>
 
-<p>##8.1. Training Adaboost</p>
+<pre><code class="language-r">##########################################################333
 
-<pre><code class="language-r">set.seed(100)
+### 64bit Version of Java needed
+#library(XLConnect)
+########################################################
 
-# Train the model using adaboost
-model_adaboost = train(Purchase ~ ., data=trainData, method='adaboost', tuneLength=2, trControl = fitControl)
-</code></pre>
-
-<p>##8.2. Training Random Forest</p>
-
-<pre><code class="language-r">set.seed(100)
-
-# Train the model using rf
-model_rf = train(Purchase ~ ., data=trainData, method='rf', tuneLength=5, trControl = fitControl)
-</code></pre>
-
-<p>8.3. Training xgBoost Dart</p>
+############3
+#shell(&quot;zip&quot;)
+#ZIP needed
+#library(openxlsx)
+#path=&quot;C:/Program Files/7-Zip/7z.exe&quot;
+#Sys.setenv(&quot;R_ZIPCMD&quot; = path)
+#Sys.setenv(&quot;R_ZIPCMD&quot;=&quot;C:/RBuildTools/3.4/bin/zip.exe&quot;)
 
-<pre><code class="language-r">set.seed(100)
+###########
 
-# Train the model using MARS
-model_xgbDART = train(Purchase ~ ., data=trainData, method='xgbDART', tuneLength=5, trControl = fitControl, verbose=F)
-</code></pre>
 
-<p>8.4. Training SVM</p>
 
-<pre><code class="language-r">set.seed(100)
+ip &lt;- as.data.frame(installed.packages()[,c(1,3:4)])
+rownames(ip) &lt;- NULL
+ip &lt;- ip[is.na(ip$Priority),1:2,drop=FALSE]
+#print(ip, row.names=FALSE)
 
-# Train the model using MARS
-model_svmRadial = train(Purchase ~ ., data=trainData, method='svmRadial', tuneLength=15, trControl = fitControl)
-</code></pre>
+### No need of java
+library(openxlsx)
 
-<p>##8.5. Run resamples() to compare the models</p>
+#wb=read.xlsx(xlsxFile=&quot;Packages.xlsx&quot;)
+#wb &lt;- createWorkbook()
 
-<pre><code class="language-r"># Compare model performances using resample()
-models_compare &lt;- resamples(list(ADABOOST=model_adaboost, RF=model_rf, XGBDART=model_xgbDART, MARS=model_mars3, SVM=model_svmRadial))
+#addWorksheet(wb, &quot;Packages&quot;)
+#writeData(wb, &quot;Packages&quot;, ip, startCol = 2, startRow = 3, rowNames = TRUE)
 
-# Summary of the models performances
-summary(models_compare)
-</code></pre>
+###########
 
-<pre><code>## 
-## Call:
-## summary.resamples(object = models_compare)
-## 
-## Models: ADABOOST, RF, XGBDART, MARS, SVM 
-## Number of resamples: 5 
-## 
-## ROC 
-##               Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA's
-## ADABOOST 0.8126510 0.8462687 0.8682549 0.8657598 0.8868515 0.9147727    0
-## RF       0.8253021 0.8568586 0.8877727 0.8775297 0.9017768 0.9159382    0
-## XGBDART  0.8589197 0.8775409 0.9114524 0.8995839 0.9198718 0.9301350    0
-## MARS     0.8433547 0.8839375 0.9073622 0.8947444 0.9084353 0.9306326    0
-## SVM      0.8537313 0.8728500 0.8903559 0.8907736 0.9053030 0.9316276    0
-## 
-## Sens 
-##               Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA's
-## ADABOOST 0.7619048 0.7904762 0.7904762 0.8070330 0.8076923 0.8846154    0
-## RF       0.8000000 0.8190476 0.8365385 0.8490476 0.8761905 0.9134615    0
-## XGBDART  0.8285714 0.8666667 0.8846154 0.8738828 0.8857143 0.9038462    0
-## MARS     0.8190476 0.8476190 0.8653846 0.8604579 0.8750000 0.8952381    0
-## SVM      0.8653846 0.8761905 0.8857143 0.8814469 0.8857143 0.8942308    0
-## 
-## Spec 
-##               Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA's
-## ADABOOST 0.7014925 0.7462687 0.7727273 0.7635007 0.7761194 0.8208955    0
-## RF       0.6417910 0.7313433 0.7313433 0.7365445 0.7424242 0.8358209    0
-## XGBDART  0.6567164 0.6969697 0.7014925 0.7304387 0.7462687 0.8507463    0
-## MARS     0.6865672 0.7727273 0.7761194 0.7784261 0.7910448 0.8656716    0
-## SVM      0.6417910 0.6818182 0.7313433 0.7363636 0.7462687 0.8805970    0
+write.xlsx(ip, &quot;Packages_installed.xlsx&quot;, asTable = T)
 </code></pre>
 
-<p>Let’s plot the resamples summary output.</p>
-
-<pre><code class="language-r"># Draw box plots to compare models
-scales &lt;- list(x=list(relation=&quot;free&quot;), y=list(relation=&quot;free&quot;))
-bwplot(models_compare, scales=scales)
+<pre><code>## Note: zip::zip() is deprecated, please use zip::zipr() instead
 </code></pre>
-
-<p><img src="01_blog_caret_Tut_files/figure-html/unnamed-chunk-30-1.png" alt="" /><!-- --></p>
-
-<p>In the above output you can see clearly how the algorithms performed in terms of ROC, Specificity and Sensitivity and how consistent has it been.</p>
-
-<p>The xgbDART model appears to be the be best performing model overall because of the high ROC. But if you need a model that predicts the positives better, you might want to consider MARS, given its high sensitivity.</p>
 
-<p>Either way, you can now make an informed decision on which model to pick.</p>
+<h2 id="install-packages-on-new-machine">Install packages on new machine</h2>
 
-<p>#9. Ensembling the predictions
-##9.1. How to ensemble predictions from multiple models using caretEnsemble?
-So we have predictions from multiple individual models. To do this we had to run the train() function once for each model, store the models and pass it to the res</p>
+<pre><code class="language-r">### No need of java
+library(openxlsx)
 
-<p>The caretEnsemble package lets you do just that.</p>
-
-<p>All you have to do is put the names of all the algorithms you want to run in a vector and pass it to caretEnsemble::caretList() instead of caret::train().</p>
-
-<pre><code class="language-r">library(caretEnsemble)
-</code></pre>
-
-<pre><code>## 
-## Attaching package: 'caretEnsemble'
-</code></pre>
+ip &lt;- read.xlsx(xlsxFile = &quot;Packages_installed.xlsx&quot;, sheet = 1, skipEmptyRows = FALSE)
 
-<pre><code>## The following object is masked from 'package:ggplot2':
-## 
-##     autoplot
-</code></pre>
+packages=as.character(ip[,1])
+#packages=c(&quot;ggplot2&quot;)
 
-<pre><code class="language-r"># Stacking Algorithms - Run multiple algos in one call.
-trainControl &lt;- trainControl(method=&quot;repeatedcv&quot;, 
-                             number=10, 
-                             repeats=3,
-                             savePredictions=TRUE, 
-                             classProbs=TRUE)
-
-algorithmList &lt;- c('rf', 'adaboost', 'earth', 'xgbDART', 'svmRadial')
-
-set.seed(100)
-models &lt;- caretList(Purchase ~ ., data=trainData, trControl=trainControl, methodList=algorithmList) 
-results &lt;- resamples(models)
+packages&lt;-packages[1:100]
+#install.packages(packages)
 </code></pre>
 
-<p>Plot the resamples output to compare the models.</p>
+<h1 id="speeding-up-package-installation">Speeding up package installation</h1>
 
-<p>Excellent! It is possible for further tune the model within caretList in a customised way.</p>
+<p>A simple one line tweak can significantly speed up package installation and updates.</p>
 
-<p>##9.2. How to combine the predictions of multiple models to form a final prediction
-That one function simplified a whole lot of work in one line of code.</p>
+<h2 id="the-wonder-of-cran">The wonder of CRAN</h2>
 
-<p>Here is another thought: Is it possible to combine these predicted values from multiple models somehow and make a new ensemble that predicts better?</p>
+<p>One of the best features of R is CRAN. When a package is submitted to CRAN, not only is it checked under three versions of R
+    • R-past, R-release and R-devel
+but also three different operating systems
+    • Windows, Linux and Mac (with multiple flavours of each)
+CRAN also checks that the updated package doesn’t break existing packages. This last part is particularly tricky when you consider all the dependencies a package like ggplot2 or Rcpp have. Furthermore, it performs all these checks within 24 hours, ready for the next set packages.
+What many people don’t realise is that for CRAN to perform this miracle of package checking, it builds and checks these packages in parallel; so rather than installing a single package at a time, it checks multiple packages at once. Obviously some care has to be taken when checking/installing packages due to the connectivity between packages, but R takes care of these details.</p>
 
-<p>Turns out this can be done too, using the caretStack(). You just need to make sure you don’t use the same trainControl you used to build the models.</p>
+<h2 id="parallel-package-installation-ncpus">Parallel package installation: Ncpus</h2>
 
-<pre><code class="language-r"># Create the trainControl
-set.seed(101)
-stackControl &lt;- trainControl(method=&quot;repeatedcv&quot;, 
-                             number=10, 
-                             repeats=3,
-                             savePredictions=TRUE, 
-                             classProbs=TRUE)
+<p>If you examine the help package of ?install.packages, there’s a sneaky argument called Ncpus. From the help page:
+Ncpus: The number of parallel processes to use for a parallel install of more than one source package.
+The default value of this argument is
+Ncpus = getOption(‘Ncpus’, 1L)
+The getOption() part determines if the value has been set in options(). If no value is found, the default number of processes to use is 1. If you haven’t heard of Ncpus, it’s almost certainly 1, but you can check using</p>
 
-# Ensemble the predictions of `models` to form a new combined prediction based on glm
-stack.glm &lt;- caretStack(models, method=&quot;glm&quot;, metric=&quot;Accuracy&quot;, trControl=stackControl)
-print(stack.glm)
+<pre><code class="language-r">getOption(&quot;Ncpus&quot;, 1L)
 </code></pre>
 
-<pre><code>## A glm ensemble of 2 base models: rf, adaboost, earth, xgbDART, svmRadial
-## 
-## Ensemble results:
-## Generalized Linear Model 
-## 
-## 2571 samples
-##    5 predictor
-##    2 classes: 'CH', 'MM' 
-## 
-## No pre-processing
-## Resampling: Cross-Validated (10 fold, repeated 3 times) 
-## Summary of sample sizes: 2314, 2314, 2314, 2314, 2313, 2313, ... 
-## Resampling results:
-## 
-##   Accuracy   Kappa    
-##   0.8331519  0.6444917
+<pre><code>## [1] 1
 </code></pre>
-
-<p>A point to consider: The ensembles tend to perform better if the predictions are less correlated with each other.</p>
 
-<p>So you may want to try passing different types of models, both high and low performing rather than just stick to passing high accuracy models to the caretStack.</p>
+<p>How many cores can be utilized:</p>
 
-<pre><code class="language-r">print(stack.glm)
+<pre><code class="language-r">cores = parallel::detectCores()
 </code></pre>
 
-<pre><code>## A glm ensemble of 2 base models: rf, adaboost, earth, xgbDART, svmRadial
-## 
-## Ensemble results:
-## Generalized Linear Model 
-## 
-## 2571 samples
-##    5 predictor
-##    2 classes: 'CH', 'MM' 
-## 
-## No pre-processing
-## Resampling: Cross-Validated (10 fold, repeated 3 times) 
-## Summary of sample sizes: 2314, 2314, 2314, 2314, 2313, 2313, ... 
-## Resampling results:
-## 
-##   Accuracy   Kappa    
-##   0.8331519  0.6444917
-</code></pre>
+<p>My machine has eight cores 2. So it doesn’t make sense to set Ncpus above 2.</p>
 
-<pre><code class="language-r"># Predict on testData
-stack_predicteds &lt;- predict(stack.glm, newdata=testData4)
-head(stack_predicteds)
-</code></pre>
+<p>Set cores and install selected packages</p>
 
-<pre><code>## [1] CH CH CH CH CH CH
-## Levels: CH MM
+<pre><code class="language-r">options(Ncpus = cores)
+system.time(install.packages(packages))
 </code></pre>
 
-<h1 id="10-conclusion">10. Conclusion</h1>
+<p>So setting Ncpus to 2 allows us to half the installation time from 409 seconds to around 224 (seconds). Increasing Ncpus to 4 gives a further speed boost. Due to the dependencies between packages, we’ll never achieve a perfect speed-up, e.g. if package X depends on Y, then we have to install X first. However, for a simple change we get an easy speed boost.
+Furthermore, setting Ncpus gives a speed boost when updating packages via update.packages().</p>
 
-<p>The purpose of this post was to cover the core pieces of the caret package and how you can effectively use it to build machine learning models.</p>
-
-<p>This information should serve as a reference and also as a template you can use to build a standardised machine learning workflow, so you can develop it further from there.</p>
-
-<pre><code class="language-r">bot$sendMessage('RMarkdown ready')
-</code></pre>
-
-<pre><code class="language-r">sessionInfo()
-</code></pre>
+<p>A permanent change: .Rprofile
+Clearly writing options(Ncpus = 6) before you install a package is a pain. However, you can just add it to your .Rprofile file.</p>
 
-<pre><code>## R version 3.4.4 (2018-03-15)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 18.04.2 LTS
-## 
-## Matrix products: default
-## BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
-## 
-## locale:
-##  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
-##  [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
-##  [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
-## [10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-##  [1] caretEnsemble_2.0.0 earth_5.1.1         plotmo_3.5.4       
-##  [4] TeachingDemos_2.10  plotrix_3.7-4       Formula_1.2-3      
-##  [7] randomForest_4.6-14 RANN_2.6.1          skimr_1.0.5        
-## [10] caret_6.0-81        ggplot2_3.1.0       lattice_0.20-35    
-## [13] tictoc_1.0         
-## 
-## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.1         lubridate_1.7.4    class_7.3-14      
-##  [4] assertthat_0.2.1   digest_0.6.18      ipred_0.9-8       
-##  [7] foreach_1.4.4      R6_2.4.0           plyr_1.8.4        
-## [10] fastAdaboost_1.0.0 stats4_3.4.4       evaluate_0.13     
-## [13] e1071_1.7-1        pillar_1.3.1       rlang_0.3.3       
-## [16] lazyeval_0.2.1     rstudioapi_0.10    data.table_1.12.0 
-## [19] kernlab_0.9-27     rpart_4.1-13       Matrix_1.2-12     
-## [22] rmarkdown_1.12     splines_3.4.4      gower_0.2.0       
-## [25] stringr_1.4.0      munsell_0.5.0      compiler_3.4.4    
-## [28] xfun_0.6           pkgconfig_2.0.2    htmltools_0.3.6   
-## [31] nnet_7.3-12        tidyselect_0.2.5   gridExtra_2.3     
-## [34] tibble_2.1.1       prodlim_2018.04.18 codetools_0.2-15  
-## [37] crayon_1.3.4       dplyr_0.8.0.1      withr_2.1.2       
-## [40] MASS_7.3-49        recipes_0.1.5      ModelMetrics_1.2.2
-## [43] grid_3.4.4         nlme_3.1-131       gtable_0.2.0      
-## [46] magrittr_1.5       scales_1.0.0       pbapply_1.4-0     
-## [49] stringi_1.4.3      reshape2_1.4.3     timeDate_3043.102 
-## [52] generics_0.0.2     xgboost_0.82.1     lava_1.6.5        
-## [55] iterators_1.0.10   tools_3.4.4        glue_1.3.1        
-## [58] purrr_0.3.2        parallel_3.4.4     survival_2.41-3   
-## [61] yaml_2.2.0         colorspace_1.4-1   knitr_1.22
-</code></pre>    
+<p>Maybe it is also helpful not to utilize all available cores. This allows packages to be installed in parallel, while giving me a little bit of wiggle room to check email and listen to music.</p>    
         </div>
     </section>
 
@@ -1301,7 +306,7 @@ s.setAttribute('data-timestamp', +new Date());
     <header class="read-next-card-header">
         <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
         
-        <h3 class="read-next-card-header-title"><a href="../../tags/github/">#GitHub</a></h3>
+        <h3 class="read-next-card-header-title"><a href="../../tags/set-up/">#Set-up</a></h3>
     </header>
     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
     </div>
@@ -1309,18 +314,18 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
+          <li><a href="../../post/hello-r-markdown/">Hello R Markdown</a></li>            
+        
           <li><a href="../../post/github_rest_api/">GitHub REST API</a></li>            
         
-          <li><a href="../../post/github_rest_api4/">Blog JSON4</a></li>            
-        
-          <li><a href="../../post/"></a></li>            
+          <li><a href="../../post/r-python-bridge/">R-Python Bridge</a></li>            
         
           <li><a href="../../post/hello-r-markdown/">Hello R Markdown</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
       
-        <a href="../../tags/github/">See all related posts →</a>
+        <a href="../../tags/set-up/">See all related posts →</a>
     </footer>
 </article>
 
@@ -1328,22 +333,22 @@ s.setAttribute('data-timestamp', +new Date());
       
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="../../post/github_rest_api5/">
-      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
+    <a class="post-card-image-link" href="../../post/ml_caret/">
+      <div class="post-card-image" style="background-image: url(/img/01_blog_titleBLOG.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="../../post/github_rest_api5/">
+      <a class="post-card-content-link" href="../../post/ml_caret/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #GitHub  </span>
+              #ML  </span>
               
-              <h2 class="post-card-title">Blog JSON5</h2>
+              <h2 class="post-card-title">ML with Caret</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Linear models The R code is:
+                <p>Add summary desdcription of blog
  ...  </p>
               
           </section>
@@ -1359,30 +364,22 @@ s.setAttribute('data-timestamp', +new Date());
       
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="../../post/blog-json/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="../../post/r-python-bridge/">
+      <div class="post-card-image" style="background-image: url(/69_python_R/blog_title.png)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="../../post/blog-json/">
+      <a class="post-card-content-link" href="../../post/r-python-bridge/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #Docker  </span>
               
-              <h2 class="post-card-title">Blog JSON</h2>
+              <h2 class="post-card-title">R-Python Bridge</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Working with JSON library(tidyverse) ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
- ✔ ggplot2 3.1.0 ✔ purrr 0.3.2
-✔ tibble 2.1.1 ✔ dplyr 0.8.0.1
-✔ tidyr 0.8.3 ✔ stringr 1.4.0
-✔ readr 1.3.1 ✔ forcats 0.4.0
- ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag() masks stats::lag()
- library(jsonlite) Attaching package: ‘jsonlite’
- The following object is masked from ‘package:purrr’:
- flatten  yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;) Error in parse_con(txt, bigint_as_char): parse error: trailing garbage ...  </p>
+                <p> Linear models The R code is:  ...  </p>
               
           </section>
       </a>
@@ -1406,13 +403,13 @@ s.setAttribute('data-timestamp', +new Date());
     </a>
   </div>
   <span class="floating-header-divider">&mdash;</span>
-  <div class="floating-header-title">Blog JSON</div>
+  <div class="floating-header-title">R packages</div>
   <div class="floating-header-share">
     <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
     </div>
     
-    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Blog%20JSON&amp;url=%2fpost%2fgithub_rest_api3%2f"
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=R%20packages&amp;url=%2fpost%2fgithub_rest_api3%2f"
           onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
       </a>
