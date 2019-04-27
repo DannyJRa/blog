@@ -8,7 +8,7 @@ categories:
 tags:
   - Engineering
 hidden: false
-image: "www/70_vscode-ide.jpg"
+image: "img/70_vscode-ide.jpg"
 share: false
 output:
   html_document:
