@@ -108,6 +108,8 @@
         <h2 class="site-description">&#x2F;&nbsp;
           
           
+          <a href="/categories/datascience"> datascience </a> (1)&nbsp;&#x2F;&nbsp;
+          
           <a href="/categories/r"> r </a> (14)&nbsp;&#x2F;&nbsp;
           
         </h2>
@@ -126,7 +128,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/post/untitled/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -153,23 +155,24 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/github_rest_api/">
-      <div class="post-card-image" style="background-image: url(/64_1_github_REST/blog_title.png)"></div>
+    <a class="post-card-image-link" href="/post/blog_json/">
+      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/github_rest_api/">
+      <a class="post-card-content-link" href="/post/blog_json/">
           <header class="post-card-header">
               <span class="post-card-tags">
               #GitHub  </span>
               
-              <h2 class="post-card-title">GitHub REST API</h2>
+              <h2 class="post-card-title">Blog JSON</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Github Repos Pagination Issues Issues    Github Repos library(jsonlite) hadley_orgs &lt;- fromJSON(&quot;https://api.github.com/users/hadley/orgs&quot;) hadley_repos &lt;- fromJSON(&quot;https://api.github.com/users/dannyjra/repos&quot;) gg_issues &lt;- fromJSON(&quot;https://api.github.com/repos/hadley/ggplot2/issues&quot;) #latest commits gg_commits &lt;- fromJSON(&quot;https://api.github.com/repos/dannyjra/DannyJRa.github.io/commits&quot;) paste(format(gg_commits$commit$committer$date), &quot;:&quot;, gg_commits$commit$message)  Pagination SOURCE: https://blog.exploratory.io/analyzing-issue-data-with-github-rest-api-63945017dedc
-Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api.github.com/repos/hadley/dplyr/issues&quot;, query = list(state = &quot;all&quot;, per_page = 100, page = i)) jsondata &lt;- content(res, type = &quot;text&quot;) github_df &lt;- fromJSON(jsondata, flatten = TRUE) pages[[i]] &lt;- github_df } issues &lt;- bind_rows(pages) issues &lt;- as_data_frame(issues)  Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;https://api. ...  </p>
+                <p>Working with JSON Count how restaurants Unnest a list variable   Working with JSON library(tidyverse) library(jsonlite) yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;) Error: lexical error: invalid char in json text.
+ data/yelp_academic_dataset_busi (right here) ------^  However, when we run the above command we would actully get an error like below.
+This is because this JSON file turned out to be something called ‘NDJSON (Newline delimited JSON)’, which means there are multiple JSON values inside this file and each of the JSON values is considered as an independent object. ...  </p>
               
           </section>
       </a>
@@ -184,22 +187,23 @@ Issues library(dplyr) pages &lt;- list() for(i in 1:15){ res &lt;- GET(&quot;htt
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/github_rest_api5/">
-      <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
+    <a class="post-card-image-link" href="/post/network_analysis/">
+      <div class="post-card-image" style="background-image: url(/img/06_network_d3_BLOG.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/github_rest_api5/">
+      <a class="post-card-content-link" href="/post/network_analysis/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #GitHub  </span>
+              #Viz  </span>
               
-              <h2 class="post-card-title">Blog JSON5</h2>
+              <h2 class="post-card-title">Network Analysis</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Linear models The R code is:
+                <p>Original post here: https://dannyjra.github.io/06_Network_Analysis/01_blog_caret_Tut.html
+Add summary desdcription of blog
  ...  </p>
               
           </section>
