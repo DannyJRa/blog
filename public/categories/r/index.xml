@@ -53,5 +53,14 @@
 &lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>MathArt with R</title>
+      <link>/post/mathartwithr/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mathartwithr/</guid>
+      <description>&lt;p&gt;Add summary desdcription here&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
