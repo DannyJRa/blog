@@ -44,16 +44,6 @@
   </url>
   
   <url>
-    <loc>/post/github_rest_api4/</loc>
-    <lastmod>2019-04-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/github_rest_api5/</loc>
-    <lastmod>2019-04-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/cloud/</loc>
     <lastmod>2019-04-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -71,51 +61,9 @@
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
-    <lastmod>2019-04-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-04-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/blog-json/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/blog_json/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/blog-json/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/firebase_shiny/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/github_rest_api/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/ml/</loc>
     <lastmod>2019-01-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/ml_caret/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -129,7 +77,7 @@
   </url>
   
   <url>
-    <loc>/tags/shiny/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2019-01-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -169,50 +117,6 @@
   </url>
   
   <url>
-    <loc>/tags/docker/</loc>
-    <lastmod>2018-04-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/r-python-bridge/</loc>
-    <lastmod>2018-04-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/docker-postgresql/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/hello-r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/hello-r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
     <lastmod>2015-04-14T22:17:00+00:00</lastmod>
   </url>
@@ -228,21 +132,8 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/test_slides/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/untitled/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/untitled/</loc>
   </url>
   
 </urlset>
