@@ -4,39 +4,39 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>VS-Code as a Server &middot; </title>
+    <title>GCP - Cloud Scheduler &middot; </title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/post/vscodeasaserver/" />
+    <link rel="canonical" href="/post/gcp_cloudscheduler/" />
 
-     <meta name="description" content="&lt;p&gt;Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take " /> 
+     <meta name="description" content="&lt;p&gt;Add summary desdcription here&lt;/p&gt;" /> 
 
      
     
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="/img/70_vscode-ide.jpg"/>
+    <meta name="twitter:image" content="/img/63_GoogleCloudFunctions_Title.png"/>
     
  
-    <meta name="twitter:title" content="VS-Code as a Server"/>
-    <meta name="twitter:description" content="&lt;p&gt;Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take "/>
-    <meta name="twitter:url" content="/post/vscodeasaserver/" />
+    <meta name="twitter:title" content="GCP - Cloud Scheduler"/>
+    <meta name="twitter:description" content="&lt;p&gt;Add summary desdcription here&lt;/p&gt;"/>
+    <meta name="twitter:url" content="/post/gcp_cloudscheduler/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
     <meta property="og:site_name" content="" />
-    <meta property="og:title" content="VS-Code as a Server &middot; Blog" />
-    <meta property="og:url" content="/post/vscodeasaserver/" />
+    <meta property="og:title" content="GCP - Cloud Scheduler &middot; Blog" />
+    <meta property="og:url" content="/post/gcp_cloudscheduler/" />
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="&lt;p&gt;Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take " />
+    <meta property="og:description" content="&lt;p&gt;Add summary desdcription here&lt;/p&gt;" />
 
-    <meta property="article:published_time" content="2019-04-27T00:00:00Z" />
-    <meta property="article:tag" content="Engineering" />
+    <meta property="article:published_time" content="2019-04-14T00:00:00Z" />
+    <meta property="article:tag" content="GCP" />
 
-    <meta property="og:image" content="/img/70_vscode-ide.jpg"/>
+    <meta property="og:image" content="/img/63_GoogleCloudFunctions_Title.png"/>
 
 
     <meta name="generator" content="Hugo 0.55.1" />
@@ -117,145 +117,87 @@
       <article class="post-full post"> 
     <header class="post-full-header">
         <section class="post-full-meta">
-            <time class="post-full-meta-date" datetime="2019-04-27">27 April 2019</time>
-                <span class="date-divider">/</span> <a href="/tags/engineering/">#Engineering</a>&nbsp;
+            <time class="post-full-meta-date" datetime="2019-04-14">14 April 2019</time>
+                <span class="date-divider">/</span> <a href="/tags/gcp/">#GCP</a>&nbsp;
         </section>
-        <h1 class="post-full-title">VS-Code as a Server</h1>
+        <h1 class="post-full-title">GCP - Cloud Scheduler</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/img/70_vscode-ide.jpg)">
+    <figure class="post-full-image" style="background-image: url(/img/63_GoogleCloudFunctions_Title.png)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p>Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.</p>
+        <p>Add summary desdcription here</p>
 
-<p><br><br></p>
+<h1 id="schedule-google-compute-engine-via-cloud-scheduler">Schedule Google Compute Engine via Cloud Scheduler</h1>
 
-<p><div class="mycontent"></p>
+<p>Google released Cloud Scheduler, which is a managed cron service that can perform tasks for other Google services. With that launch, Google also released a tutorial titled <a href="https://cloud.google.com/scheduler/docs/start-and-stop-compute-engine-instances-on-a-schedule">Scheduling Instances with Cloud Scheduler</a>, demonstrating how you can programmatically start and stop instances using Cloud Scheduler in conjunction with Cloud Functions.</p>
 
-<hr />
+<h2 id="create-pubsub-trigger">Create PubSub Trigger</h2>
 
-<h1 id="1-vs-code-as-a-server">1. VS-Code as a Server</h1>
-
-<p>Visit this github repo <a href="https://github.com/codercom/code-server">Github</a></p>
-
-<h1 id="1-1-download">1.1  Download</h1>
-
-<p>Copy and download latest version to folder: /vs-code</p>
-
-<pre><code class="language-bash">cd $HOME/vs-code
-
-#Replace link with latest version
-#wget https://github.com/codercom/code-server/releases/download/1.32.0-310/code-server-1.32.0-310-linux-x64.tar.gz
-wget https://github.com/codercom/code-server/releases/download/1.939-vsc1.33.1/code-server1.939-vsc1.33.1-linux-x64.tar.gz
+<pre><code class="language-bash">gcloud pubsub topics create start-instance-event
+gcloud pubsub topics create stop-instance-event
 </code></pre>
 
-<h1 id="1-2-unzip-the-tar-gz-file">1.2 Unzip the tar.gz file</h1>
+<pre><code class="language-bash">git clone https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git
 
-<pre><code class="language-bash">cd $HOME/vs-code
-tar xvzf code-server1.939-vsc1.33.1-linux-x64.tar.gz
+cd nodejs-docs-samples/functions/scheduleinstance/
 </code></pre>
 
-<p>The file code-server is generated and you can execute the file by using following command</p>
+<h2 id="create-the-start-and-stop-functions">Create the start and stop functions</h2>
 
-<pre><code class="language-bash">Usage
-code-server --help
-code-server can be ran with a number of arguments to customize your working directory, host, port, and SSL certificate.
-
-USAGE
-  $ code-server [WORKDIR]
-
-ARGUMENTS
-  WORKDIR  [default: (directory to binary)] Specify working dir
-
-OPTIONS
-  -d, --data-dir=data-dir
-  -h, --host=host          [default: 0.0.0.0]
-  -o, --open               Open in browser on startup
-  -p, --port=port          [default: 8443] Port to bind on
-  -v, --version            show CLI version
-  --allow-http
-  --cert=cert
-  --cert-key=cert-key
-  --help                   show CLI help
-  --no-auth
-  --password=password
+<pre><code class="language-bash">cd nodejs-docs-samples/functions/scheduleinstance/
+gcloud functions deploy startInstancePubSub \
+    --trigger-topic start-instance-event \
+    --runtime nodejs6
 </code></pre>
 
-<h1 id="1-3-start-vs-code">1.3 Start VS-Code</h1>
-
-<p>I am using the following options to set the port, data dir of all extensions and user data and a password to login to the server as the current user:</p>
-
-<pre><code class="language-bash">$HOME/VSCode/code-server -p 8086 --data-dir=/home/danny/vs-code/data/ --password=${S_pwd_vscode}
+<pre><code class="language-bash">cd nodejs-docs-samples/functions/scheduleinstance/
+gcloud functions deploy stopInstancePubSub \
+    --trigger-topic stop-instance-event \
+    --runtime nodejs6
 </code></pre>
 
-<ul>
-<li>Set S_pwd_vscode accordingly</li>
-<li>Give current user access to directories
-sudo chown -R danny $HOME//vs-code/</li>
-</ul>
+<p>Testing the function with the helper of encoded zone and instance name:</p>
 
-<h1 id="2-run-at-startup">2. Run at startup</h1>
-
-<h1 id="2-1-via-systemd">2.1 Via Systemd</h1>
-
-<pre><code>sudo nano /etc/systemd/system/vscode.service
-
-
-Description=Nifi start
-
-Wants=network.target
-After=syslog.target network-online.target
-
-[Service]
-Type=simple
-ExecStart=/home/danny/vs-code/code-server /home/danny/DannyJRa.github.io/ -p 8085 --data-dir=/home/danny/vs-code/data/ --password=insider &gt; /home/danny/vs-code/vscode.log 2&gt;&amp;1
-Restart=on-failure
-RestartSec=10
-KillMode=process
-
-[Install]
-WantedBy=multi-user.target
-
-
-
-Reload services
-
-sudo systemctl daemon-reload
-Enable the service
-
-sudo systemctl enable vscode
-Start the service
-sudo systemctl start vscode
-Check the status of your service
-systemctl status vscode
+<pre><code class="language-bash">echo '{&quot;zone&quot;:&quot;europe-west3-c&quot;, &quot;instance&quot;:&quot;cloudbreak&quot;}' | base64
 </code></pre>
 
-<p>Reboot your device and the program/script should be running. If it crashes it will attempt to restart</p>
-
-<h1 id="2-2-user">2.2 User</h1>
-
-<p>You can also use systemctl &ndash;user for managing and configuring the service(s), which will operate on your user&rsquo;s service manager, not the one of the system.</p>
-
-<p>dataflow.service
-sudo nano /etc/systemd/system/dataflow.service
-sudo rm /etc/systemd/system/nifi.service</p>
-
-<p>/home/danny/nifi/nifi/bin/nifi.sh start</p>
-
-<pre><code class="language-bash">sudo systemctl enable nifi
+<pre><code class="language-bash">gcloud functions call stopInstancePubSub \
+    --data '{&quot;data&quot;:&quot;eyJ6b25lIjoiZXVyb3BlLXdlc3QzLWMiLCAiaW5zdGFuY2UiOiJjbG91ZGJyZWFrIn0K&quot;}'
 </code></pre>
 
-<p>Start the service
-sudo systemctl start nifi
-Check the status of your service
-systemctl status nifi
-service status nifi</p>
+<p>Check that the instance has a status of TERMINATED. It may take up to 30 seconds to finish shutting down.</p>
 
-<h1 id="2-3-check-if-enabled">2.3 Check if enabled</h1>
+<pre><code class="language-bash">gcloud compute instances describe cloudbreak \
+    --zone europe-west3-c \
+    | grep status
+</code></pre>
 
-<pre><code class="language-bash">systemctl list-unit-files | grep enabled
+<h2 id="set-up-the-cloud-scheduler-jobs-to-call-cloud-pub-sub">Set up the Cloud Scheduler jobs to call Cloud Pub/Sub</h2>
+
+<p>Create the start job.</p>
+
+<pre><code class="language-bash">gcloud beta scheduler jobs create pubsub startup-workday-instance \
+    --schedule '35 9 * * 1-7' \
+    --topic start-instance-event \
+    --message-body '{&quot;zone&quot;:&quot;europe-west3-c&quot;, &quot;instance&quot;:&quot;cloudbreak&quot;}' \
+    --time-zone 'Europe/Zurich'
+</code></pre>
+
+<p>Create the stop job.</p>
+
+<pre><code class="language-bash">gcloud beta scheduler jobs create pubsub shutdown-workday-instance \
+    --schedule '45 09 * * 1-7' \
+    --topic stop-instance-event \
+    --message-body '{&quot;zone&quot;:&quot;europe-west3-c&quot;, &quot;instance&quot;:&quot;cloudbreak&quot;}' \
+    --time-zone 'Europe/Zurich'
+</code></pre>
+
+<p>Verify the job works</p>
+
+<pre><code class="language-bash">gcloud beta scheduler jobs run shutdown-workday-instance
 </code></pre>    
         </div>
     </section>
@@ -281,8 +223,8 @@ service status nifi</p>
 
 
 var disqus_config = function () {
-this.page.url = "\/post\/vscodeasaserver\/";  
-this.page.identifier = "\/post\/vscodeasaserver\/"; 
+this.page.url = "\/post\/gcp_cloudscheduler\/";  
+this.page.identifier = "\/post\/gcp_cloudscheduler\/"; 
 };
 
 (function() { 
@@ -308,7 +250,7 @@ s.setAttribute('data-timestamp', +new Date());
     <header class="read-next-card-header">
         <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
         
-        <h3 class="read-next-card-header-title"><a href="/tags/engineering/">#Engineering</a></h3>
+        <h3 class="read-next-card-header-title"><a href="/tags/gcp/">#GCP</a></h3>
     </header>
     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
     </div>
@@ -316,42 +258,80 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/post/r-python-bridge/">R-Python Bridge</a></li>            
+          <li><a href="/post/github_rest_api4/">Blog JSON4</a></li>            
         
-          <li><a href="/post/hello-r-markdown/">Hello R Markdown</a></li>            
+          <li><a href="/post/ml_caret/">ML with Caret</a></li>            
         
-          <li><a href="/post/firebase_shiny/">Firebase &amp; Shiny</a></li>            
+          <li><a href="/post/docker-postgresql/">Docker PostGreSQL</a></li>            
         
-          <li><a href="/post/github_rest_api5/">Blog JSON5</a></li>            
+          <li><a href="/post/ml_caret/">ML with Caret</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
       
-        <a href="/tags/engineering/">See all related posts →</a>
+        <a href="/tags/gcp/">See all related posts →</a>
     </footer>
 </article>
 
 
       
-      
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/github_rest_api4/">
+    <a class="post-card-image-link" href="/post/github_rest_api5/">
       <div class="post-card-image" style="background-image: url(/img/cover.jpg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/github_rest_api4/">
+      <a class="post-card-content-link" href="/post/github_rest_api5/">
           <header class="post-card-header">
               <span class="post-card-tags">
               #GitHub  </span>
               
-              <h2 class="post-card-title">Blog JSON4</h2>
+              <h2 class="post-card-title">Blog JSON5</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──  ✔ ggplot2 3.1.0 ✔ purrr 0.3.2 ✔ tibble 2.1.1 ✔ dplyr 0.8.0.1 ✔ tidyr 0.8.3 ✔ stringr 1.4.0 ✔ readr 1.3.1 ✔ forcats 0.4.0  ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ── ✖ dplyr::filter() masks stats::filter() ✖ dplyr::lag() masks stats::lag()  library(jsonlite)  Attaching package: 'jsonlite'  The following object is masked from 'package:purrr': flatten  yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business. ...  </p>
+                <p>Linear models The R code is:
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/blog-json/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/blog-json/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Blog JSON</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Working with JSON library(tidyverse) ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+ ✔ ggplot2 3.1.0 ✔ purrr 0.3.2
+✔ tibble 2.1.1 ✔ dplyr 0.8.0.1
+✔ tidyr 0.8.3 ✔ stringr 1.4.0
+✔ readr 1.3.1 ✔ forcats 0.4.0
+ ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag() masks stats::lag()
+ library(jsonlite) Attaching package: ‘jsonlite’
+ The following object is masked from ‘package:purrr’:
+ flatten  yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;) Error in parse_con(txt, bigint_as_char): parse error: trailing garbage ...  </p>
               
           </section>
       </a>
@@ -375,17 +355,17 @@ s.setAttribute('data-timestamp', +new Date());
     </a>
   </div>
   <span class="floating-header-divider">&mdash;</span>
-  <div class="floating-header-title">VS-Code as a Server</div>
+  <div class="floating-header-title">GCP - Cloud Scheduler</div>
   <div class="floating-header-share">
     <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
     </div>
     
-    <a class="floating-header-share-tw" href="https://twitter.com/share?text=VS-Code%20as%20a%20Server&amp;url=%2fpost%2fvscodeasaserver%2f"
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=GCP%20-%20Cloud%20Scheduler&amp;url=%2fpost%2fgcp_cloudscheduler%2f"
           onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
       </a>
-      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fvscodeasaserver%2f"
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fgcp_cloudscheduler%2f"
           onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
       </a>

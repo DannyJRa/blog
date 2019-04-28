@@ -120,7 +120,7 @@
         <h1 class="post-full-title">Untitled</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/4.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -157,7 +157,7 @@ process_rmd &lt;- function(rmd_path, site_path = &quot;.&quot;) {
 <pre class="r"><code>folder&lt;-getwd()
 filename&lt;-list.files(folder, pattern = &quot;\\.Rmd$&quot;,recursive = TRUE, full.names = TRUE)[1]
 filename</code></pre>
-<pre><code>## [1] &quot;/home/danny/00_blog/content/post/CopyOf01_blog_json/blog.Rmd&quot;</code></pre>
+<pre><code>## [1] &quot;/home/danny/00_blog/content/post/02_blog_json/blog.Rmd&quot;</code></pre>
 <pre class="r"><code>#file &lt;- substr(filename, 1, nchar(filename) - 4)
 #file
 
@@ -174,7 +174,7 @@ site_path = &quot;/home/danny/00_blog&quot;
   # input_lines &lt;- rmarkdown:::read_lines_utf8(rmd_path, getOption(&quot;encoding&quot;))
   input_lines &lt;- readLines(rmd_path)</code></pre>
 <pre><code>## Warning in readLines(rmd_path): incomplete final line found on &#39;/home/
-## danny/00_blog/content/post/CopyOf01_blog_json/blog.Rmd&#39;</code></pre>
+## danny/00_blog/content/post/02_blog_json/blog.Rmd&#39;</code></pre>
 <pre class="r"><code>  input_lines &lt;- gsub(paste0(&quot;](&quot;, asset_folder, &quot;/&quot;), 
                       paste0(&quot;](/&quot;, asset_folder, &quot;/&quot;),
                       input_lines, fixed = TRUE)
@@ -273,15 +273,15 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/post/ml_caret/">ML with Caret</a></li>            
+          <li><a href="/post/firebase_shiny/">Firebase &amp; Shiny</a></li>            
         
-          <li><a href="/post/"></a></li>            
-        
-          <li><a href="/post/ml_caret/">ML with Caret</a></li>            
+          <li><a href="/post/network_analysis/">Network Analysis</a></li>            
         
                       
         
-          <li><a href="/post/github_rest_api4/">Blog JSON4</a></li>            
+          <li><a href="/post/blog-json/">Blog JSON</a></li>            
+        
+          <li><a href="/post/"></a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -290,6 +290,44 @@ s.setAttribute('data-timestamp', +new Date());
 </article>
 
 
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title"></h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Working with JSON library(tidyverse)  ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+✔ ggplot2 3.1.0 ✔ purrr 0.3.2
+✔ tibble 2.1.1 ✔ dplyr 0.8.0.1
+✔ tidyr 0.8.3 ✔ stringr 1.4.0
+✔ readr 1.3.1 ✔ forcats 0.4.0
+── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag() masks stats::lag()
+library(jsonlite)  Attaching package: ‘jsonlite’
+The following object is masked from ‘package:purrr’:
+ flatten  yelp &lt;- fromJSON(&quot;data/yelp_academic_dataset_business.json&quot;)  Error in parse_con(txt, bigint_as_char): parse error: trailing garbage ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Danny J. R.</a></span>
+      </footer>
+    </div>
+</article>
+      
       
       <article class="post-card post"> 
     
@@ -317,7 +355,6 @@ s.setAttribute('data-timestamp', +new Date());
       </footer>
     </div>
 </article>
-      
       
     </div>
   </div>

@@ -1313,11 +1313,11 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/post/hello-r-markdown/">Hello R Markdown</a></li>            
-        
           <li><a href="/post/vscodeasaserver/">VS-Code as a Server</a></li>            
         
-          <li><a href="/post/github_rest_api5/">Blog JSON5</a></li>            
+          <li><a href="/post/blog-json/">Blog JSON</a></li>            
+        
+          <li><a href="/post/firebase_shiny/">Firebase &amp; Shiny</a></li>            
         
           <li><a href="/post/untitled/">Untitled</a></li>            
         </ul>
@@ -1480,6 +1480,46 @@ $(document).ready(function () {
         lastScrollY = window.scrollY;
         requestTick();
     }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>
+}
 
     function onResize() {
         lastWindowHeight = window.innerHeight;
