@@ -27,18 +27,15 @@ always_allow_html: yes
 
 ---
 
+The reticulate package provides a comprehensive set of tools for interoperability between Python and R.
 
+<!--more-->
 
 
 
 
 The original blog entry is here https://dannyjra.github.io/09_Reticulate/09_Reticulate_BLOG.html and the code can be found in this repository folder https://github.com/DannyJRa/DannyJRa.github.io/tree/master//09_Reticulate/
 
-
- 
-
-
-<!--more-->
 
 
 
@@ -83,6 +80,9 @@ os$getcwd()
 
 <img src="09_Reticulate_BLOG_files/figure-html/pyplot-1.png" width="672" />
 
+Output image:
+![output](img/foo.png)
+
 #Sourcing Python scripts
 
 You can source any Python script just as you would source an R script using the source_python() function. For example, if you had the following Python script flights.py:
@@ -106,7 +106,7 @@ library(ggplot2)
 ggplot(flights, aes(carrier, arr_delay)) + geom_point() + geom_jitter()
 ```
 
-![](09_Reticulate_BLOG_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](09_Reticulate_BLOG_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 #R Markdown Python Engine
 
@@ -147,7 +147,7 @@ plt.plot(X, S)
 plt.show()
 ```
 
-<img src="09_Reticulate_BLOG_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="09_Reticulate_BLOG_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 Requirement RStudio >v1.2
 
