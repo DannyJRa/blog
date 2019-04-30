@@ -4,39 +4,39 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>DSVM Part1 &middot; </title>
+    <title>R-Python Bridge with Reticulate &middot; </title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/post/dsvwpart1/" />
+    <link rel="canonical" href="/post/rypthonbridgewithreticulate/" />
 
-     <meta name="description" content="&lt;p&gt;DSVM Part 1 &amp;hellip;&lt;/p&gt;" /> 
+     <meta name="description" content="&lt;p&gt;The original blog entry is here &lt;a href=&#34;https://dannyjra.github.io/09_Reticulate/09_Reticulate_BLOG.html&#34;&gt;https://dannyjra.github.io/09_Reticulate/09_Reticu" /> 
 
      
     
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="/img/dsvm_review_header.jpg"/>
+    <meta name="twitter:image" content="/img/reticulated_python.png"/>
     
  
-    <meta name="twitter:title" content="DSVM Part1"/>
-    <meta name="twitter:description" content="&lt;p&gt;DSVM Part 1 &amp;hellip;&lt;/p&gt;"/>
-    <meta name="twitter:url" content="/post/dsvwpart1/" />
+    <meta name="twitter:title" content="R-Python Bridge with Reticulate"/>
+    <meta name="twitter:description" content="&lt;p&gt;The original blog entry is here &lt;a href=&#34;https://dannyjra.github.io/09_Reticulate/09_Reticulate_BLOG.html&#34;&gt;https://dannyjra.github.io/09_Reticulate/09_Reticu"/>
+    <meta name="twitter:url" content="/post/rypthonbridgewithreticulate/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
     <meta property="og:site_name" content="" />
-    <meta property="og:title" content="DSVM Part1 &middot; Blog" />
-    <meta property="og:url" content="/post/dsvwpart1/" />
+    <meta property="og:title" content="R-Python Bridge with Reticulate &middot; Blog" />
+    <meta property="og:url" content="/post/rypthonbridgewithreticulate/" />
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="&lt;p&gt;DSVM Part 1 &amp;hellip;&lt;/p&gt;" />
+    <meta property="og:description" content="&lt;p&gt;The original blog entry is here &lt;a href=&#34;https://dannyjra.github.io/09_Reticulate/09_Reticulate_BLOG.html&#34;&gt;https://dannyjra.github.io/09_Reticulate/09_Reticu" />
 
-    <meta property="article:published_time" content="2018-06-07T00:00:00Z" />
-    <meta property="article:tag" content="Azure" />
+    <meta property="article:published_time" content="2018-11-11T00:00:00Z" />
+    <meta property="article:tag" content="R-package" />
 
-    <meta property="og:image" content="/img/dsvm_review_header.jpg"/>
+    <meta property="og:image" content="/img/reticulated_python.png"/>
 
 
     <meta name="generator" content="Hugo 0.55.1" />
@@ -117,143 +117,160 @@
       <article class="post-full post"> 
     <header class="post-full-header">
         <section class="post-full-meta">
-            <time class="post-full-meta-date" datetime="2018-06-07">7 June 2018</time>
-                <span class="date-divider">/</span> <a href="/tags/azure/">#Azure</a>&nbsp;
+            <time class="post-full-meta-date" datetime="2018-11-11">11 November 2018</time>
+                <span class="date-divider">/</span> <a href="/tags/r-package/">#R-package</a>&nbsp;
         </section>
-        <h1 class="post-full-title">DSVM Part1</h1>
+        <h1 class="post-full-title">R-Python Bridge with Reticulate</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/img/dsvm_review_header.jpg)">
+    <figure class="post-full-image" style="background-image: url(/img/reticulated_python.png)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p>DSVM Part 1 &hellip;</p>
+        <p>The original blog entry is here <a href="https://dannyjra.github.io/09_Reticulate/09_Reticulate_BLOG.html">https://dannyjra.github.io/09_Reticulate/09_Reticulate_BLOG.html</a> and the code can be found in this repository folder <a href="https://github.com/DannyJRa/DannyJRa.github.io/tree/master//09_Reticulate/">https://github.com/DannyJRa/DannyJRa.github.io/tree/master//09_Reticulate/</a></p>
 
-<blockquote>
-<p>The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in Azure Cosmos DB. It can also leverage other analytics tools such as Azure Machine Learning and Azure Data Factory.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
-</blockquote>
+<pre><code class="language-r">#testfsfs
+library(reticulate)
 
-<p>In this article, I will adopt the tutorial to needs and learn how to use Azure (Linux) DSVM to perform various data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:</p>
-
-<ol>
-<li>Explore data and develop models locally on the DSVM using RStudio</li>
-<li>Use a Jupyter notebook to experiment with your data on a browser using Python 2, Python 3, Microsoft R an enterprise ready version of R designed for performance</li>
-<li>Deploy models built using R and Python on Azure Machine Learning so client applications can access your models using a simple web service interface</li>
-<li>Administer your Azure resources using Azure portal or Powershell</li>
-<li>Extend your storage space and share large-scale datasets / code across your whole team by creating an Azure File storage as a mountable drive on your DSVM</li>
-<li>Share code with your team using GitHub and access your repository using the pre-installed Git clients - Git Bash, Git GUI.</li>
-<li>Access various Azure data and analytics services like Azure blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse &amp; databases</li>
-<li>Build reports and dashboard using the Power BI Desktop pre-installed on the DSVM and deploy them on the cloud</li>
-<li>Dynamically scale your DSVM to meet your project needs</li>
-<li>Install additional tools on your virtual machine</li>
-</ol>
-
-<p>#1. Explore data and develop models locally on the DSVM using RStudio or Python</p>
-
-<h2 id="using-rstudio-server">Using RStudio Server</h2>
-
-<p>Prerequiesites are the set-up of Azure services, as accroind to Blog: &hellip;.</p>
-
-<h3 id="find-the-ip-adress-of-the-dsvm-e-g-by-usins-cli-2-0">Find the ip-adress of the DSVM e.g. by usins CLI 2.0</h3>
-
-<pre><code class="language-r">library(jsonlite)
-code=&quot;az vm list-ip-addresses&quot;
-a&lt;-fromJSON(system(code,intern = TRUE))
-
-a&lt;-write(system(code,intern = TRUE),&quot;test.json&quot;)
-yelp &lt;- fromJSON(file(&quot;test.json&quot;))
+### Then Matplotlib works
+matplotlib &lt;- import(&quot;matplotlib&quot;)
+matplotlib$use(&quot;Agg&quot;, force = TRUE)
+########################################
 
 
-yelp_flat &lt;- jsonlite::flatten(yelp)
-str(yelp_flat)
+#Test
+os &lt;- import(&quot;os&quot;)
+os$getcwd()
 </code></pre>
 
-<pre><code class="language-r">library(tibble)
-yelp_tbl &lt;- as_data_frame(yelp_flat)
-yelp_tbl$virtualMachine.network.publicIpAddresses[[1]]$ipAddress
+<pre><code>## [1] &quot;/home/danny/OneDrive/DataScience/11_GitHub_DannyJRa.github.io/09_Reticulate&quot;
 </code></pre>
 
-<pre><code class="language-r">library(purrr)
-yelp_flat1 &lt;- purrr::flatten(yelp_flat)
-yelp_flat2 &lt;- purrr::flatten(yelp_flat1)
-yelp_flat3 &lt;- purrr::flatten(yelp_flat2)
-yelp_flat4 &lt;- purrr::flatten(yelp_flat3)
-
-(ip&lt;-yelp_flat4$ipAddress)
+<pre><code class="language-r">os$getcwd()
 </code></pre>
 
-<p>Or you can have set-up a static ip-Adress</p>
-
-<pre><code class="language-r">#static ip e.g. 
-#ip=&quot;23.100.82.85&quot;
+<pre><code>## [1] &quot;/home/danny/OneDrive/DataScience/11_GitHub_DannyJRa.github.io/09_Reticulate&quot;
 </code></pre>
 
-<p>Generate ssh phrase including password</p>
-
-<pre><code class="language-r">#make sure that sshpass is installed on Linux
-ssh &lt;- paste0(&quot;sshpass -p .oberstdorf123 &quot;,
-  &quot;ssh -q&quot;,
-             &quot; -o StrictHostKeyChecking=no&quot;,
-             &quot; -o UserKnownHostsFile=/dev/null&quot;,
-             &quot; insider@&quot;,
-             ip)
+<pre><code>## [Text(0, 0.5, 'voltage (mV)'), Text(0.5, 0, 'time (s)'), Text(0.5, 1.0, 'About as simple as it gets, folks')]
 </code></pre>
 
-<h3 id="start-r-server">Start R server</h3>
+<p><img src="09_Reticulate_BLOG_files/figure-html/pyplot-1.png" width="672" /></p>
 
-<pre><code class="language-r">cmd &lt;- paste(ssh, &quot;sudo rstudio-server start&quot;)
-(b&lt;-system(cmd, intern=TRUE))
+<p>#Sourcing Python scripts</p>
+
+<p>You can source any Python script just as you would source an R script using the source_python() function. For example, if you had the following Python script flights.py:</p>
+
+<p>import pandas
+def read_flights(file):
+  flights = pandas.read_csv(file)
+  flights = flights[flights[&lsquo;dest&rsquo;] == &ldquo;ORD&rdquo;]
+  flights = flights[[&lsquo;carrier&rsquo;, &lsquo;dep_delay&rsquo;, &lsquo;arr_delay&rsquo;]]
+  flights = flights.dropna()
+  return flights
+Then you can source the script and call the read_flights() function as follows:</p>
+
+<pre><code class="language-r">library(reticulate)
+source_python(&quot;flights.py&quot;)
+flights &lt;- read_flights(&quot;flights.csv&quot;)
+
+library(ggplot2)
+ggplot(flights, aes(carrier, arr_delay)) + geom_point() + geom_jitter()
 </code></pre>
 
-<p>Remove folder if create already</p>
+<p><img src="09_Reticulate_BLOG_files/figure-html/unnamed-chunk-5-1.png" alt="" /><!-- --></p>
 
-<pre><code class="language-r">cmd &lt;- paste(ssh, &quot;sudo rm -r /home/insider/R&quot;)
-cmd
+<p>#R Markdown Python Engine</p>
 
-b&lt;-system(cmd, intern=TRUE)
+<h2 id="python-version">Python Version</h2>
+
+<p>By default, reticulate uses the version of Python found on your PATH (i.e. Sys.which(&ldquo;python&rdquo;)). If you want to use an alternate version you should add one of the use_python() family of functions to your R Markdown setup chunk, for example:</p>
+
+<p>See the article on Python Version Configuration for additional details on configuring Python versions (including the use of conda or virtualenv environments).</p>
+
+<pre><code class="language-r">python&lt;-Sys.which(&quot;python&quot;)
 </code></pre>
 
-<p>Create folder</p>
+<p>##Python Chunks</p>
 
-<pre><code class="language-r">cmd &lt;- paste(ssh, &quot;sudo mkdir /home/insider/R&quot;)
-cmd
+<p>Python code chunks work exactly like R code chunks: Python code is executed and any print or graphical (matplotlib) output is included within the document.</p>
 
-b&lt;-system(cmd, intern=TRUE)
+<p>Python chunks all execute within a single Python session so have access to all objects created in previous chunks. Chunk options like echo, include, etc. all work as expected.</p>
+
+<p>Here’s an R Markdown document that demonstrates this:</p>
+
+<pre><code class="language-python">
+import os
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+X = np.linspace(-np.pi, np.pi, 256, endpoint=True)
+C, S = np.cos(X), np.sin(X)
+
+plt.plot(X, C)
+plt.plot(X, S)
+
+plt.show()
 </code></pre>
 
-<p>Mount drive</p>
+<p><img src="09_Reticulate_BLOG_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 
-<pre><code class="language-r">cmd &lt;- paste(ssh, &quot;sudo mount /dev/sdd /home/insider/R&quot;)
-cmd
+<p>Requirement RStudio &gt;v1.2</p>
 
-b&lt;-system(cmd, intern=TRUE)
+<h2 id="calling-python-from-r">Calling Python from R</h2>
+
+<p>All objects created within Python chunks are available to R using the py object exported by the reticulate package. For example, the following code demonstrates reading and filtering a CSV file using Pandas then plotting the resulting data frame using ggplot2:</p>
+
+<p>#DJR <a href="https://rstudio.github.io/reticulate/articles/r_markdown.html">https://rstudio.github.io/reticulate/articles/r_markdown.html</a></p>
+
+<p>See the Calling Python from R article for additional details on how to interact with Python types from within R</p>
+
+<h2 id="calling-r-from-python">Calling R from Python</h2>
+
+<p>You can analagously access R objects within Python chunks via the r object. For example:</p>
+
+<pre><code class="language-r">library(tidyverse)
+data&lt;-c(1,2,3)
 </code></pre>
 
-<pre><code class="language-r">browseURL(paste0(&quot;http://&quot;,ip,&quot;:8787&quot;))
+<pre><code class="language-r">library(tidyverse)
+flights &lt;- read_csv(&quot;flights.csv&quot;) %&gt;% 
+  filter(dest==&quot;ORD&quot;) %&gt;% 
+  select(carrier, dep_delay,arr_delay) %&gt;% 
+  na.omit()
 </code></pre>
 
-<p>#2.  Use a Jupyter notebook to experiment</p>
-
-<p>Simply open browser with port 8000 to open Juypter Hub.</p>
-
-<pre><code class="language-r">browseURL(paste0(&quot;https://&quot;,ip,&quot;:8000&quot;))
+<pre><code>## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = &quot;&quot;),
+##   hour = col_double(),
+##   minute = col_double(),
+##   dep = col_double(),
+##   arr = col_double(),
+##   dep_delay = col_double(),
+##   arr_delay = col_double(),
+##   carrier = col_character(),
+##   flight = col_double(),
+##   dest = col_character(),
+##   plane = col_character(),
+##   cancelled = col_double(),
+##   time = col_double(),
+##   dist = col_double()
+## )
 </code></pre>
 
-<p>Enter your ID and password and will see &hellip;</p>
+<pre><code class="language-python">print(r.flights.head())
+</code></pre>
 
-<p><img src="img/jupyter_hub.png" alt="Juypter Hub" /></p>
-
-<p>&hellip; to be continued</p>
-<div class="footnotes">
-
-<hr />
-
-<ol>
-<li id="fn:1">Addopted from <a href="https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things">https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things</a>
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-</ol>
-</div>    
+<pre><code>##   carrier  dep_delay  arr_delay
+## 0      CO       77.0       64.0
+## 1      CO        5.0        3.0
+## 2      CO       -6.0      -16.0
+## 3      CO        1.0       -1.0
+## 4      CO        3.0       -8.0
+</code></pre>    
         </div>
     </section>
 
@@ -278,8 +295,8 @@ b&lt;-system(cmd, intern=TRUE)
 
 
 var disqus_config = function () {
-this.page.url = "\/post\/dsvwpart1\/";  
-this.page.identifier = "\/post\/dsvwpart1\/"; 
+this.page.url = "\/post\/rypthonbridgewithreticulate\/";  
+this.page.identifier = "\/post\/rypthonbridgewithreticulate\/"; 
 };
 
 (function() { 
@@ -305,7 +322,7 @@ s.setAttribute('data-timestamp', +new Date());
     <header class="read-next-card-header">
         <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
         
-        <h3 class="read-next-card-header-title"><a href="/tags/azure/">#Azure</a></h3>
+        <h3 class="read-next-card-header-title"><a href="/tags/r-package/">#R-package</a></h3>
     </header>
     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
     </div>
@@ -313,24 +330,56 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/post/ml_caret/">ML with Caret</a></li>            
+          <li><a href="/post/mathartwithr/">MathArt with R</a></li>            
         
           <li><a href="/post/network_analysis/">Network Analysis</a></li>            
         
-                      
-        
           <li><a href="/post/bigdata_with_spark/">BigData with Spark</a></li>            
         
-          <li><a href="/post/rypthonbridgewithreticulate/">R-Python Bridge with Reticulate</a></li>            
+                      
+        
+          <li><a href="/post/ml_caret/">ML with Caret</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
       
-        <a href="/tags/azure/">See all related posts →</a>
+        <a href="/tags/r-package/">See all related posts →</a>
     </footer>
 </article>
 
 
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/network_analysis/">
+      <div class="post-card-image" style="background-image: url(/img/06_network_d3_BLOG.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/network_analysis/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Viz  </span>
+              
+              <h2 class="post-card-title">Network Analysis</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Original post here: https://dannyjra.github.io/06_Network_Analysis/01_blog_caret_Tut.html
+Add summary desdcription of blog
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
       
       <article class="post-card post"> 
     
@@ -363,39 +412,6 @@ Add summary desdcription of blog
     </div>
 </article>
       
-      
-      <article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/bigdata_with_spark/">
-      <div class="post-card-image" style="background-image: url(/img/05_spark_ml_logo_BLOG.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/bigdata_with_spark/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #BigData 
-              #Azure  </span>
-              
-              <h2 class="post-card-title">BigData with Spark</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Original post here: https://dannyjra.github.io/05_Blog_BigData_Spark/01_blog_caret_Tut.html
-Add summary desdcription of blog
- ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">DannyJRa</a></span>
-      </footer>
-    </div>
-</article>
-      
     </div>
   </div>
 </aside>
@@ -408,13 +424,13 @@ Add summary desdcription of blog
     </a>
   </div>
   <span class="floating-header-divider">&mdash;</span>
-  <div class="floating-header-title">DSVM Part1</div>
+  <div class="floating-header-title">R-Python Bridge with Reticulate</div>
   <div class="floating-header-share">
     <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
     </div>
     
-    <a class="floating-header-share-tw" href="https://twitter.com/share?text=DSVM%20Part1&amp;url=%2fpost%2fdsvwpart1%2f"
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=R-Python%20Bridge%20with%20Reticulate&amp;url=%2fpost%2frypthonbridgewithreticulate%2f"
           onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
       </a>
