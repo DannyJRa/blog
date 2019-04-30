@@ -33,8 +33,8 @@ The reticulate package provides a comprehensive set of tools for interoperabilit
 
 
 
-
-The original blog entry is here https://dannyjra.github.io/09_Reticulate/09_Reticulate3_BLOG.html and the code can be found in this repository folder https://github.com/DannyJRa/DannyJRa.github.io/tree/master//09_Reticulate/09_Reticulate3_BLOG.html
+d
+>The original blog entry is here https://dannyjra.github.io/09_Reticulate/09_Reticulate3_BLOG.html and the code can be found in this repository folder https://github.com/DannyJRa/DannyJRa.github.io/tree/master//09_Reticulate/09_Reticulate3_BLOG.html
 
 
 

@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Docker PostGreSQL</title>
+      <link>/post/15_dockerpostgresql/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/15_dockerpostgresql/</guid>
+      <description>&lt;p&gt;The reticulate package provides a comprehensive set of tools for interoperability between Python and R.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>DSVM Part1</title>
       <link>/post/dsvwpart1/</link>
       <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>

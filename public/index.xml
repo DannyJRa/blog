@@ -30,6 +30,24 @@
     </item>
     
     <item>
+      <title>Pipenv</title>
+      <link>/post/19_pipenv/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/19_pipenv/</guid>
+      <description>&lt;p&gt;Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker PostGreSQL</title>
+      <link>/post/15_dockerpostgresql/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/15_dockerpostgresql/</guid>
+      <description>&lt;p&gt;The reticulate package provides a comprehensive set of tools for interoperability between Python and R.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>ML with Caret</title>
       <link>/post/ml_caret/</link>
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>

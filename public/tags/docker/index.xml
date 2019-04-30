@@ -6,56 +6,18 @@
     <description>Recent content in Docker on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 14 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R-Python Bridge</title>
-      <link>/post/r-python-bridge/</link>
-      <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/r-python-bridge/</guid>
-      <description>
-
-
-&lt;p&gt;Linear models
-The R code is:
-</description>
-    </item>
-    
-    <item>
       <title>Docker PostGreSQL</title>
-      <link>/post/docker-postgresql/</link>
-      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
+      <link>/post/15_dockerpostgresql/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/docker-postgresql/</guid>
-      <description>
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#docker-postgresql-10-and-pgadmin-4&#34;&gt;Docker: PostgreSQL 10 and pgAdmin 4&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#run-docker-with-postgresql-container&#34;&gt;Run Docker with PostgreSQL container&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#connect-to-postgres&#34;&gt;Connect to Postgres&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#access-postgresql.conf-file&#34;&gt;Access postgresql.conf file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#open-port&#34;&gt;Open port&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#run-docker-with-pgadmin-4-container&#34;&gt;Run Docker with pgAdmin 4 container&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#open-port-5050&#34;&gt;Open port 5050&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div id=&#34;docker-postgresql-10-and-pgadmin-4&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Docker: PostgreSQL 10 and pgAdmin 4&lt;/h1&gt;
-&lt;div id=&#34;run-docker-with-postgresql-container&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Run Docker with PostgreSQL container&lt;/h2&gt;
-&lt;p&gt;:smile:
-Make persistent volume to store config files and database files:
-d
-</description>
+      <guid>/post/15_dockerpostgresql/</guid>
+      <description>&lt;p&gt;The reticulate package provides a comprehensive set of tools for interoperability between Python and R.&lt;/p&gt;</description>
     </item>
     
   </channel>

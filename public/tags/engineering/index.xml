@@ -20,5 +20,14 @@
       <description>&lt;p&gt;Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Pipenv</title>
+      <link>/post/19_pipenv/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/19_pipenv/</guid>
+      <description>&lt;p&gt;Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

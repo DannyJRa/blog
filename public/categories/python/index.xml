@@ -6,10 +6,19 @@
     <description>Recent content in Python on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 11 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pipenv</title>
+      <link>/post/19_pipenv/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/19_pipenv/</guid>
+      <description>&lt;p&gt;Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>R-Python Bridge with Reticulate</title>
