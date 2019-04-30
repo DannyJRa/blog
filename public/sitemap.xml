@@ -100,19 +100,13 @@
   </url>
   
   <url>
+    <loc>/post/rypthonbridgewithreticulate/</loc>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/r-package/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/github_rest_api3/</loc>
-    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/set-up/</loc>
-    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,6 +149,41 @@
   
   <url>
     <loc>/leaflet/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
     <priority>0</priority>
   </url>
   
