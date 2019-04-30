@@ -34,7 +34,8 @@ The reticulate package provides a comprehensive set of tools for interoperabilit
 
 
 
-The original blog entry is here https://dannyjra.github.io/09_Reticulate/09_Reticulate_BLOG.html and the code can be found in this repository folder https://github.com/DannyJRa/DannyJRa.github.io/tree/master//09_Reticulate/
+The original blog entry is here https://dannyjra.github.io/09_Reticulate/09_Reticulate3_BLOG.html and the code can be found in this repository folder https://github.com/DannyJRa/DannyJRa.github.io/tree/master//09_Reticulate/09_Reticulate3_BLOG.html
+
 
 
 
@@ -76,7 +77,7 @@ os$getcwd()
 ## [Text(0, 0.5, 'voltage (mV)'), Text(0.5, 0, 'time (s)'), Text(0.5, 1.0, 'About as simple as it gets, folks')]
 ```
 
-<img src="09_Reticulate2_BLOG_files/figure-html/pyplot-1.png" width="672" />
+<img src="09_Reticulate3_BLOG_files/figure-html/pyplot-1.png" width="672" />
 
 #Sourcing Python scripts
 
@@ -101,7 +102,7 @@ library(ggplot2)
 ggplot(flights, aes(carrier, arr_delay)) + geom_point() + geom_jitter()
 ```
 
-![](09_Reticulate2_BLOG_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](09_Reticulate3_BLOG_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 #R Markdown Python Engine
 
@@ -142,7 +143,7 @@ plt.plot(X, S)
 plt.show()
 ```
 
-<img src="09_Reticulate2_BLOG_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="09_Reticulate3_BLOG_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 Requirement RStudio >v1.2
 
