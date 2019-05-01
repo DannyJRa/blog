@@ -2,7 +2,7 @@
 title: Pipenv 
 author: DannyJRa
 date: '2019-03-25'
-slug: 19_pipenv
+slug: 19_pipenv2
 categories:
   - Python
 tags:

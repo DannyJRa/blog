@@ -4,39 +4,39 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>GCP - Cloud Scheduler &middot; </title>
+    <title>Pipenv &middot; </title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/post/gcp_cloudscheduler/" />
+    <link rel="canonical" href="/post/19_pipenv2/" />
 
-     <meta name="description" content="&lt;p&gt;Add summary desdcription here&lt;/p&gt;" /> 
+     <meta name="description" content="&lt;p&gt;Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.&lt;/p&gt;" /> 
 
      
     
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="/img/63_GoogleCloudFunctions_Title.png"/>
+    <meta name="twitter:image" content="/img/pipenv_BLOG.gif"/>
     
  
-    <meta name="twitter:title" content="GCP - Cloud Scheduler"/>
-    <meta name="twitter:description" content="&lt;p&gt;Add summary desdcription here&lt;/p&gt;"/>
-    <meta name="twitter:url" content="/post/gcp_cloudscheduler/" />
+    <meta name="twitter:title" content="Pipenv"/>
+    <meta name="twitter:description" content="&lt;p&gt;Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.&lt;/p&gt;"/>
+    <meta name="twitter:url" content="/post/19_pipenv2/" />
     <meta name="twitter:site" content="@Insider_DJR"/>
 
     <meta property="og:site_name" content="" />
-    <meta property="og:title" content="GCP - Cloud Scheduler &middot; Blog" />
-    <meta property="og:url" content="/post/gcp_cloudscheduler/" />
+    <meta property="og:title" content="Pipenv &middot; Blog" />
+    <meta property="og:url" content="/post/19_pipenv2/" />
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="&lt;p&gt;Add summary desdcription here&lt;/p&gt;" />
+    <meta property="og:description" content="&lt;p&gt;Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.&lt;/p&gt;" />
 
-    <meta property="article:published_time" content="2019-04-14T00:00:00Z" />
-    <meta property="article:tag" content="GCP" />
+    <meta property="article:published_time" content="2019-03-25T00:00:00Z" />
+    <meta property="article:tag" content="Engineering" />
 
-    <meta property="og:image" content="/img/63_GoogleCloudFunctions_Title.png"/>
+    <meta property="og:image" content="/img/pipenv_BLOG.gif"/>
 
 
     <meta name="generator" content="Hugo 0.55.1" />
@@ -117,87 +117,77 @@
       <article class="post-full post"> 
     <header class="post-full-header">
         <section class="post-full-meta">
-            <time class="post-full-meta-date" datetime="2019-04-14">14 April 2019</time>
-                <span class="date-divider">/</span> <a href="/tags/gcp/">#GCP</a>&nbsp;
+            <time class="post-full-meta-date" datetime="2019-03-25">25 March 2019</time>
+                <span class="date-divider">/</span> <a href="/tags/engineering/">#Engineering</a>&nbsp;
         </section>
-        <h1 class="post-full-title">GCP - Cloud Scheduler</h1>
+        <h1 class="post-full-title">Pipenv</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/img/63_GoogleCloudFunctions_Title.png)">
+    <figure class="post-full-image" style="background-image: url(/img/pipenv_BLOG.gif)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p>Add summary desdcription here</p>
+        <p>Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.</p>
 
-<h1 id="schedule-google-compute-engine-via-cloud-scheduler">Schedule Google Compute Engine via Cloud Scheduler</h1>
+<h1 id="pipenv-tool-for-python-package-management">Pipenv tool for Python package management</h1>
 
-<p>Google released Cloud Scheduler, which is a managed cron service that can perform tasks for other Google services. With that launch, Google also released a tutorial titled <a href="https://cloud.google.com/scheduler/docs/start-and-stop-compute-engine-instances-on-a-schedule">Scheduling Instances with Cloud Scheduler</a>, demonstrating how you can programmatically start and stop instances using Cloud Scheduler in conjunction with Cloud Functions.</p>
+<h2 id="why-using-pipenv">Why using pipenv</h2>
 
-<h2 id="create-pubsub-trigger">Create PubSub Trigger</h2>
+<p>Instead of needing the pip library for package installation, plus a library for creating a virtual environment,plus a library for managing virtual environments, plus all the commands associated with those libraries, one can just just Pipenv.</p>
 
-<pre><code class="language-bash">gcloud pubsub topics create start-instance-event
-gcloud pubsub topics create stop-instance-event
+<p>Pipenv ships with package management and virtual environment support, so you can use one tool to install, uninstall, track, and document your dependencies and to create, use, and organize your virtual environments. When you start a project with it, Pipenv will automatically create a virtual environment for that project if you aren&rsquo;t already using one.
+Pipenv accomplishes this dependency management by abandoning the requirements.txt norm and trading it for a new document called a Pipfile. When you install a library with Pipenv, a Pipfile for your project is automatically updated with the details of that installation, including version information and possibly the Git repository location, file path, and other information.</p>
+
+<p>Furthermore, Pipenv wants to make it easier to manage complex interdependencies. Your app might depend on a specific version of a library, and that library might depend on a specific version of another library, and it&rsquo;s just dependencies and turtles all the way down. When two libraries your app uses have conflicting dependencies, your life can become hard. Pipenv wants to ease that pain by keeping track of a tree of your app&rsquo;s interdependencies in a file called Pipfile.lock. Pipfile.lock also verifies that the right versions of dependencies are used in production.</p>
+
+<h2 id="install-pipenv">Install pipenv</h2>
+
+<p>Using Pipenv, which gives you Pipfile, lets you avoid these problems by managing dependencies for different environments for you. This command will install the main project dependencies (install with user option, otherwise access writes issues)</p>
+
+<pre><code class="language-bash">pip3 install --user pipenv
 </code></pre>
 
-<pre><code class="language-bash">git clone https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git
+<p>Installing a package (e.g. django) is as easy as:</p>
 
-cd nodejs-docs-samples/functions/scheduleinstance/
+<pre><code class="language-bash">pipenv install django
 </code></pre>
 
-<h2 id="create-the-start-and-stop-functions">Create the start and stop functions</h2>
+<p>Have a look at all installed packages</p>
 
-<pre><code class="language-bash">cd nodejs-docs-samples/functions/scheduleinstance/
-gcloud functions deploy startInstancePubSub \
-    --trigger-topic start-instance-event \
-    --runtime nodejs6
+<pre><code class="language-bash">pipenv graph
 </code></pre>
 
-<pre><code class="language-bash">cd nodejs-docs-samples/functions/scheduleinstance/
-gcloud functions deploy stopInstancePubSub \
-    --trigger-topic stop-instance-event \
-    --runtime nodejs6
+<h3 id="further-usefull-commands">Further usefull commands</h3>
+
+<p>Where is the local folder of the packages</p>
+
+<pre><code>pipenv --venv
 </code></pre>
 
-<p>Testing the function with the helper of encoded zone and instance name:</p>
+<p>Project home</p>
 
-<pre><code class="language-bash">echo '{&quot;zone&quot;:&quot;europe-west3-c&quot;, &quot;instance&quot;:&quot;cloudbreak&quot;}' | base64
+<pre><code>pipenv --whre
 </code></pre>
 
-<pre><code class="language-bash">gcloud functions call stopInstancePubSub \
-    --data '{&quot;data&quot;:&quot;eyJ6b25lIjoiZXVyb3BlLXdlc3QzLWMiLCAiaW5zdGFuY2UiOiJjbG91ZGJyZWFrIn0K&quot;}'
+<p>Install from requirements.txt</p>
+
+<pre><code>pipenv install -r requirements.txt
 </code></pre>
 
-<p>Check that the instance has a status of TERMINATED. It may take up to 30 seconds to finish shutting down.</p>
+<p>Or create requirements.txt</p>
 
-<pre><code class="language-bash">gcloud compute instances describe cloudbreak \
-    --zone europe-west3-c \
-    | grep status
+<pre><code>pipenv lock -r &gt; requirements.txt
 </code></pre>
 
-<h2 id="set-up-the-cloud-scheduler-jobs-to-call-cloud-pub-sub">Set up the Cloud Scheduler jobs to call Cloud Pub/Sub</h2>
+<p>Set environment variables</p>
 
-<p>Create the start job.</p>
-
-<pre><code class="language-bash">gcloud beta scheduler jobs create pubsub startup-workday-instance \
-    --schedule '35 9 * * 1-7' \
-    --topic start-instance-event \
-    --message-body '{&quot;zone&quot;:&quot;europe-west3-c&quot;, &quot;instance&quot;:&quot;cloudbreak&quot;}' \
-    --time-zone 'Europe/Zurich'
+<pre><code>export PIPENV_DEFAULT_PYTHON_VERSION=&quot;--three&quot;
 </code></pre>
 
-<p>Create the stop job.</p>
+<p>Execute shell command within environment</p>
 
-<pre><code class="language-bash">gcloud beta scheduler jobs create pubsub shutdown-workday-instance \
-    --schedule '45 09 * * 1-7' \
-    --topic stop-instance-event \
-    --message-body '{&quot;zone&quot;:&quot;europe-west3-c&quot;, &quot;instance&quot;:&quot;cloudbreak&quot;}' \
-    --time-zone 'Europe/Zurich'
-</code></pre>
-
-<p>Verify the job works</p>
-
-<pre><code class="language-bash">gcloud beta scheduler jobs run shutdown-workday-instance
+<pre><code>pipenv run test.py
 </code></pre>    
         </div>
     </section>
@@ -223,8 +213,8 @@ gcloud functions deploy stopInstancePubSub \
 
 
 var disqus_config = function () {
-this.page.url = "\/post\/gcp_cloudscheduler\/";  
-this.page.identifier = "\/post\/gcp_cloudscheduler\/"; 
+this.page.url = "\/post\/19_pipenv2\/";  
+this.page.identifier = "\/post\/19_pipenv2\/"; 
 };
 
 (function() { 
@@ -250,7 +240,7 @@ s.setAttribute('data-timestamp', +new Date());
     <header class="read-next-card-header">
         <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
         
-        <h3 class="read-next-card-header-title"><a href="/tags/gcp/">#GCP</a></h3>
+        <h3 class="read-next-card-header-title"><a href="/tags/engineering/">#Engineering</a></h3>
     </header>
     <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
     </div>
@@ -258,18 +248,20 @@ s.setAttribute('data-timestamp', +new Date());
     <div class="read-next-card-content">
       
         <ul>
+                      
+        
+          <li><a href="/post/vscodeasaserver/">VS-Code as a Server</a></li>            
+        
           <li><a href="/post/54_firebaseauthshiny2/">Firebase Auth - Shiny</a></li>            
         
-          <li><a href="/post/mathartwithr/">MathArt with R</a></li>            
-        
-          <li><a href="/post/09_reticulate/">R-Python Bridge with Reticulate</a></li>            
-        
           <li><a href="/post/ml_caret/">ML with Caret</a></li>            
+        
+          <li><a href="/post/dsvwpart1/">DSVM Part1</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
       
-        <a href="/tags/gcp/">See all related posts →</a>
+        <a href="/tags/engineering/">See all related posts →</a>
     </footer>
 </article>
 
@@ -277,22 +269,22 @@ s.setAttribute('data-timestamp', +new Date());
       
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/vscodeasaserver/">
-      <div class="post-card-image" style="background-image: url(/img/70_vscode-ide.jpg)"></div>
+    <a class="post-card-image-link" href="/post/gcp_cloudscheduler/">
+      <div class="post-card-image" style="background-image: url(/img/63_GoogleCloudFunctions_Title.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/vscodeasaserver/">
+      <a class="post-card-content-link" href="/post/gcp_cloudscheduler/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #Engineering  </span>
+              #GCP  </span>
               
-              <h2 class="post-card-title">VS-Code as a Server</h2>
+              <h2 class="post-card-title">GCP - Cloud Scheduler</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.
+                <p>Add summary desdcription here
  ...  </p>
               
           </section>
@@ -308,22 +300,22 @@ s.setAttribute('data-timestamp', +new Date());
       
       <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/post/19_pipenv2/">
-      <div class="post-card-image" style="background-image: url(/img/pipenv_BLOG.gif)"></div>
+    <a class="post-card-image-link" href="/post/54_firebaseauthshiny2/">
+      <div class="post-card-image" style="background-image: url(/img/Shiny_Firebase_BLOG.gif)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/19_pipenv2/">
+      <a class="post-card-content-link" href="/post/54_firebaseauthshiny2/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #Engineering  </span>
+              #Shiny  </span>
               
-              <h2 class="post-card-title">Pipenv</h2>
+              <h2 class="post-card-title">Firebase Auth - Shiny</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
+                <p>Shiny App with Google Firebase authentification.
  ...  </p>
               
           </section>
@@ -348,13 +340,13 @@ s.setAttribute('data-timestamp', +new Date());
     </a>
   </div>
   <span class="floating-header-divider">&mdash;</span>
-  <div class="floating-header-title">GCP - Cloud Scheduler</div>
+  <div class="floating-header-title">Pipenv</div>
   <div class="floating-header-share">
     <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
     </div>
     
-    <a class="floating-header-share-tw" href="https://twitter.com/share?text=GCP%20-%20Cloud%20Scheduler&amp;url=%2fpost%2fgcp_cloudscheduler%2f"
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Pipenv&amp;url=%2fpost%2f19_pipenv2%2f"
           onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
       </a>

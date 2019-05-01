@@ -61,13 +61,30 @@
   </url>
   
   <url>
-    <loc>/post/19_pipenv/</loc>
+    <loc>/post/19_pipenv2/</loc>
     <lastmod>2019-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/python/</loc>
     <lastmod>2019-03-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/54_firebaseauthshiny2/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/shiny/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -96,12 +113,6 @@
   <url>
     <loc>/post/network_analysis/</loc>
     <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
