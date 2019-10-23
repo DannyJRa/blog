@@ -8,7 +8,7 @@ categories:
 tags:
   - Viz
 hidden: false
-banner: "img/banners/06_Network_Analysis_BLOG.png"
+image: "img/06_Network_Analysis_BLOG.png"
 share: false
 output:
   html_document:

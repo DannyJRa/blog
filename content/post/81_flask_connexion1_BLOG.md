@@ -8,7 +8,7 @@ categories:
 tags:
   - Flask
 hidden: false
-banner: "img/banners/swagger_BLOG.png"
+image: "img/swagger_BLOG.png"
 share: false
 output:
   html_document:

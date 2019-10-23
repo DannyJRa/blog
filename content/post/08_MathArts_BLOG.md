@@ -8,7 +8,7 @@ categories:
 tags:
   - Viz
 hidden: false
-banner: "img/banners/08_cover_BLOG.png"
+image: "img/08_cover_BLOG.png"
 share: false
 output:
   html_document:

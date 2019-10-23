@@ -8,7 +8,7 @@ categories:
 tags:
   - Set-up
 hidden: false
-banner: "img/banners/04_R_packages_BLOG.jpg"
+image: "img/04_R_packages_BLOG.jpg"
 share: false
 output:
   html_document:

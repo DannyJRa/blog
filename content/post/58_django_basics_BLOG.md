@@ -8,7 +8,7 @@ categories:
 tags:
   - WebDev
 hidden: false
-banner: "img/banners/phyton-django_BLOG.jpg"
+image: "img/phyton-django_BLOG.jpg"
 share: false
 output:
   html_document:

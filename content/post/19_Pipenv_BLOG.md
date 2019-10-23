@@ -8,7 +8,7 @@ categories:
 tags:
   - Engineering
 hidden: false
-banner: "img/banners/19_pipenv_BLOG.gif"
+image: "img/19_pipenv_BLOG.gif"
 share: false
 output:
   html_document:

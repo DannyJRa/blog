@@ -10,7 +10,7 @@ tags:
   - Rstudio
   - Linux
 hidden: false
-banner: "img/banners/72_Nginx_BLOG.png"
+image: "img/72_Nginx_BLOG.png"
 share: false
 output:
   html_document:

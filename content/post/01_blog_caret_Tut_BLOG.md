@@ -8,7 +8,7 @@ categories:
 tags:
   - ML
 hidden: false
-banner: "img/banners/01_blog_cover_BLOG.jpg"
+image: "img/01_blog_cover_BLOG.jpg"
 share: false
 output:
   html_document:

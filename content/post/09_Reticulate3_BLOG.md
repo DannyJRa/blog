@@ -9,7 +9,7 @@ categories:
 tags:
   - R-package
 hidden: false
-banner: "img/banners/reticulated_python_BLOG.png"
+image: "img/reticulated_python_BLOG.png"
 share: false
 output:
   html_document:

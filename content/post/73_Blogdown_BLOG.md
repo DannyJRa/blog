@@ -8,7 +8,7 @@ categories:
 tags:
   - WebDev
 hidden: false
-banner: "img/banners/blogdown_BLOG.png"
+image: "img/blogdown_BLOG.png"
 share: false
 output:
   html_document:

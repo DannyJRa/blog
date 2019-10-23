@@ -8,7 +8,7 @@ categories:
 tags:
   - Engineering
 hidden: false
-banner: "img/banners/77_portainer_BLOG.png"
+image: "img/77_portainer_BLOG.png"
 share: false
 output:
   html_document:

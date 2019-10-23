@@ -8,7 +8,7 @@ categories:
 tags:
   - API
 hidden: false
-banner: "img/banners/graphql_BLOG.png"
+image: "img/graphql_BLOG.png"
 share: false
 output:
   html_document:

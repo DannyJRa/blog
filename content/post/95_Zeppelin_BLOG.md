@@ -8,7 +8,7 @@ categories:
 tags:
   - Ops
 hidden: false
-banner: "img/banners/zeppelin_BLOG.png"
+image: "img/zeppelin_BLOG.png"
 share: false
 output:
   html_document:
