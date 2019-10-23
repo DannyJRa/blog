@@ -8,7 +8,7 @@ categories:
 tags:
   - Azure
 hidden: false
-image: "img/dsvm_review_header.jpg"
+banner: "img/banners/07_DSVM_Part1_BLOG.jpg"
 share: false
 output:
   html_document:
@@ -172,7 +172,7 @@ browseURL(paste0("https://",ip,":8000"))
 
 Enter your ID and password and will see ...
 
-![Juypter Hub](img/jupyter_hub.png)
+![Juypter Hub](/img/jupyter_hub.png)
 
 
 

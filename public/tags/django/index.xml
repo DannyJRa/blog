@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Django on </title>
+    <link>/tags/django/</link>
+    <description>Recent content in Django on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 27 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Django Deployment</title>
+      <link>/post/django_deployment/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/django_deployment/</guid>
+      <description>Why Django Django is a lifesaver if you want to create a CRUD app with batteries included without getting sidetracked.
+ Django - so much developer convenience
+ The Web framework for perfectionists with deadlines
+Django makes it very easy and fun to build a certain type of web application - a CRUD (create, read, update, delete) app. Almost every single real-world web app can be started as a simple CRUD app.</description>
+    </item>
+    
+  </channel>
+</rss>

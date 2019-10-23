@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Installing Nginx Server &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <link rel="canonical" href="../../post/installing-nginx-server/" />
+
+     <meta name="description" content="Installing Nginx Server How To Install Nginx on Ubuntu 18.04[^1] Introduction Nginx is one of the most popular web servers in the world and is responsible for h" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Installing Nginx Server"/>
+    <meta name="twitter:description" content="Installing Nginx Server How To Install Nginx on Ubuntu 18.04[^1] Introduction Nginx is one of the most popular web servers in the world and is responsible for h"/>
+    <meta name="twitter:url" content="/post/installing-nginx-server/" />
+    <meta name="twitter:site" content="@Insider_DJR"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Installing Nginx Server &middot; Blog" />
+    <meta property="og:url" content="/post/installing-nginx-server/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Installing Nginx Server How To Install Nginx on Ubuntu 18.04[^1] Introduction Nginx is one of the most popular web servers in the world and is responsible for h" />
+
+    <meta property="article:published_time" content="2019-05-09T00:00:00Z" />
+    <meta property="article:tag" content="Shiny" /><meta property="article:tag" content="Rstudio" /><meta property="article:tag" content="Linux" />
+
+    <meta property="og:image" content="/img/blog-cover.jpg"/>
+
+    <meta name="generator" content="Hugo 0.55.5" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="../../built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="../../css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css" />
+     <link rel="stylesheet" href="../../css/overrides.css" /> 
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="../../singnature_DJR_white.png" alt="Blog" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="../../">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../about/">About me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../test/">Test</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/python/">Python</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/r/">R</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/">Categories</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    <a class="social-link social-link-tw" href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg></a>
+
+                    <a class="social-link" href="https://github.com/DannyJRa" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    <a class="social-link" href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 512 512"><path d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683 C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615 c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915 s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z" /></svg></a>
+
+                    <a class="social-link" href="https://medium.com/@dannjrasch" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 195"><path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z"/></svg></a>
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2019-05-09">9 May 2019</time>
+                <span class="date-divider">/</span> <a href="../../tags/shiny/">#Shiny</a>&nbsp;<a href="../../tags/rstudio/">#Rstudio</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">Installing Nginx Server</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        
+
+<h1 id="installing-nginx-server">Installing Nginx Server</h1>
+
+<p><img src="../../img/complainer_BLOG.gif" alt="Login" /></p>
+
+<h2 id="how-to-install-nginx-on-ubuntu-18-04-1">How To Install Nginx on Ubuntu 18.04[^1]</h2>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>Nginx is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. It is more resource-friendly than Apache in most cases and can be used as a web server or reverse proxy.</p>
+
+<h3 id="installing-nginx">Installing Nginx</h3>
+
+<p>Install on Ubuntu 18.04 with &hellip;</p>
+
+<pre><code class="language-bash">sudo apt install nginx
+</code></pre>
+
+<h3 id="firewall-optional">FIrewall (optional)</h3>
+
+<p>After accepting the procedure, apt will install Nginx and any required dependencies to your server.</p>
+
+<pre><code class="language-bash">sudo ufw app list
+</code></pre>
+
+<p>It is recommended that you enable the most restrictive profile that will still allow the traffic you&rsquo;ve configured. Since we haven&rsquo;t configured SSL for our server yet in this guide, we will only need to allow traffic on port 80.</p>
+
+<p>You can enable this by typing:</p>
+
+<pre><code class="language-bash">sudo ufw allow 'Nginx HTTP'
+</code></pre>
+
+<p>You can verify the change by typing:</p>
+
+<pre><code class="language-bash">sudo ufw status
+</code></pre>
+
+<pre><code>## Status: inactive
+</code></pre>
+
+<h3 id="check-nginx">Check Nginx</h3>
+
+<p>Now, we can check the status for NGINX. Execute the below command to check NGINX Status</p>
+
+<pre><code class="language-bash">systemctl status nginx
+</code></pre>
+
+<pre><code>## ● nginx.service - A high performance web server and a reverse proxy server
+##    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+##    Active: active (running) since Mon 2019-05-13 10:55:40 CEST; 16min ago
+##      Docs: man:nginx(8)
+##   Process: 18553 ExecStop=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid (code=exited, status=0/SUCCESS)
+##   Process: 18571 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+##   Process: 18554 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+##  Main PID: 18574 (nginx)
+##     Tasks: 3 (limit: 4915)
+##    CGroup: /system.slice/nginx.service
+##            ├─18574 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+##            ├─18578 nginx: worker process
+##            └─18579 nginx: worker process
+</code></pre>
+
+<p>Note: You can also use your domain if it is pointing to the server IP.</p>
+
+<p>#TODO: start-page screenshot</p>
+
+<h3 id="setting-up-server-blocks-recommended">Setting Up Server Blocks (Recommended)</h3>
+
+<p>When using the Nginx web server, server blocks (similar to virtual hosts in Apache) can be used to encapsulate configuration details and host more than one domain from a single server. We will set up a domain called example.com, but you should replace this with your own domain name. To learn more about setting up a domain name with DigitalOcean, see our Introduction to DigitalOcean DNS.</p>
+
+<p>Nginx on Ubuntu 18.04 has one server block enabled by default that is configured to serve documents out of a directory at /var/www/html. While this works well for a single site, it can become unwieldy if you are hosting multiple sites. Instead of modifying /var/www/html, let&rsquo;s create a directory structure within /var/www for our example.com site, leaving /var/www/html in place as the default directory to be served if a client request doesn&rsquo;t match any other sites.</p>
+
+<p>Create the directory for example.com as follows, using the -p flag to create any necessary parent directories:</p>
+
+<pre><code class="language-bash">
+sudo mkdir -p /var/www/raschadvisory.com/html
+
+</code></pre>
+
+<p>Next, assign ownership of the directory with the $USER environment variable:</p>
+
+<pre><code class="language-bash">
+sudo chown -R danny:danny /var/www/raschadvisory.com/html
+
+</code></pre>
+
+<p>The permissions of your web roots should be correct if you haven&rsquo;t modified your umask value, but you can make sure by typing:</p>
+
+<pre><code class="language-bash">
+sudo chmod -R 755 /var/www/raschadvisory.com
+
+</code></pre>
+
+<p>Next, create a sample index.html page using nano or your favorite editor:</p>
+
+<pre><code class="language-bash">
+nano /var/www/raschadvisory.com/html/index.html
+#Paste html code
+</code></pre>
+
+<p>In order for Nginx to serve this content, it&rsquo;s necessary to create a server block with the correct directives. Instead of modifying the default configuration file directly, let’s make a new one at /etc/nginx/sites-available/example.com:</p>
+
+<pre><code class="language-bash">
+sudo nano /etc/nginx/sites-available/raschadvisory.com
+
+</code></pre>
+
+<p>Paste in the following configuration block, which is similar to the default, but updated for our new directory and domain name:</p>
+
+<p>/etc/nginx/sites-available/example.com:</p>
+
+<pre><code class="language-bash">server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/raschadvisory.com/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name raschadvisory.com www.raschadvisory.com;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+</code></pre>
+
+<p>Next, let&rsquo;s enable the file by creating a link from it to the sites-enabled directory, which Nginx reads from during startup:</p>
+
+<pre><code class="language-bash">
+sudo ln -s /etc/nginx/sites-available/raschadvisory.com /etc/nginx/sites-enabled/
+</code></pre>
+
+<p>Next, test to make sure that there are no syntax errors in any of your Nginx files:</p>
+
+<pre><code class="language-bash">
+sudo nginx -t
+</code></pre>
+
+<h3 id="fix">Fix</h3>
+
+<p>To avoid a possible hash bucket memory problem that can arise from adding additional server names, it is necessary to adjust a single value in the /etc/nginx/nginx.conf file. Open the file:</p>
+
+<p>sudo nano /etc/nginx/nginx.conf
+Find the server_names_hash_bucket_size directive and remove the # symbol to uncomment the line:</p>
+
+<p>/etc/nginx/nginx.conf
+&hellip;
+http {
+    &hellip;
+    server_names_hash_bucket_size 64;
+    &hellip;
+}
+&hellip;</p>
+
+<p>If there aren&rsquo;t any problems, restart Nginx to enable your changes:</p>
+
+<pre><code class="language-bash">
+sudo systemctl restart nginx
+
+</code></pre>
+
+<p>Nginx should now be serving your domain name. You can test this by navigating to <a href="http://example.com">http://example.com</a>, where you should see something like this:</p>
+
+<p>Two server blocks are now enabled and configured to respond to requests based on their listen and server_name directives.</p>
+
+<ul>
+<li>example.com: Will respond to requests for example.com and www.example.com.</li>
+<li>default: Will respond to any requests on port 80 that do not match the other two blocks.</li>
+</ul>
+
+<h3 id="nginx-commands">NGINX Commands</h3>
+
+<p>Following are the important commands for NGINX.</p>
+
+<ul>
+<li>Start NGINX Web Server: sudo systemctl start nginx</li>
+<li>Stop NGINX Web Server: sudo systemctl stop nginx</li>
+<li>Restart NGNIX Web Server (stop and then start): sudo systemctl restart nginx</li>
+<li>Apply new NGINX Web Server configurations: sudo systemctl reload nginx</li>
+<li>By default NGINX start automatically. You can disable it with command: sudo systemctl disable nginx
+Enable NGINX start up at boot: sudo systemctl enable nginx
+Finally, NGINX Status: systemctl status nginx</li>
+</ul>
+
+<h3 id="important-nginx-files-and-directories">Important NGINX files and directories</h3>
+
+<p>NGINX Content: You can find the default NGINX HTML page at /var/www/html.
+NGINX Server Configuration: All NGINX Configurations files are available at /etc/nginx</p>
+
+<ul>
+<li>conf.d<br /></li>
+<li>fastcgi.conf<br />
+fastcgi_params<br />
+koi-utf<br />
+koi-win<br />
+mime.types<br />
+modules-available<br />
+modules-enabled<br />
+nginx.conf : The main NGINX configuration file. We can modify it later as per our requirement.
+proxy_params<br />
+scgi_params<br />
+sites-available: We can find all the domain-specific configuration file in this directory. NGINX ignore the domain configuration if it not available in the sites-enabled directory.
+sites-enabled: It contains links to configuration file available in sites-available directory files. We can find links for only active sites. In other words, if links for any particular config file is available it means that particular site is enabled and active.
+snippets<br />
+uwsgi_params<br />
+win-utf
+NGINX Server Logs</li>
+</ul>
+
+<p>/var/log/nginx/access.log: Every request to our web server is recorded in this log file.
+/var/log/nginx/error.log: All the NGINX errors are recorded in this log file.</p>
+
+<h3 id="important-nginx-files-and-directories-1">Important Nginx Files and Directories</h3>
+
+<p>Content
+/var/www/html: The actual web content, which by default only consists of the default Nginx page you saw earlier, is served out of the /var/www/html directory. This can be changed by altering Nginx configuration files.
+Server Configuration
+/etc/nginx: The Nginx configuration directory. All of the Nginx configuration files reside here.
+/etc/nginx/nginx.conf: The main Nginx configuration file. This can be modified to make changes to the Nginx global configuration.
+/etc/nginx/sites-available/: The directory where per-site server blocks can be stored. Nginx will not use the configuration files found in this directory unless they are linked to the sites-enabled directory. Typically, all server block configuration is done in this directory, and then enabled by linking to the other directory.
+/etc/nginx/sites-enabled/: The directory where enabled per-site server blocks are stored. Typically, these are created by linking to configuration files found in the sites-available directory.
+/etc/nginx/snippets: This directory contains configuration fragments that can be included elsewhere in the Nginx configuration. Potentially repeatable configuration segments are good candidates for refactoring into snippets.
+Server Logs
+/var/log/nginx/access.log: Every request to your web server is recorded in this log file unless Nginx is configured to do otherwise.
+/var/log/nginx/error.log: Any Nginx errors will be recorded in this log.</p>
+
+<p>##Install PHP</p>
+
+<p>Source: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04</a></p>
+
+<p>sudo add-apt-repository universe</p>
+
+<p>#################
+Create an NGINX configuration in /etc/nginx/conf.d/ called rstudio.conf with the following configuration. Replace example.com with the public IP address or FDQN of your Linode:</p>
+
+<p>/etc/nginx/conf.d/rstudio.conf</p>
+
+<p>server {
+        listen 80;
+        listen [::]:80;</p>
+
+<pre><code>    server_name example.com;
+
+    location / {
+         proxy_pass http://localhost:8787/;
+         proxy_redirect http://localhost:8787/ $scheme://$host/;
+         proxy_http_version 1.1;
+         proxy_set_header Upgrade $http_upgrade;
+         proxy_set_header Connection $connection_upgrade;
+         proxy_read_timeout 20d;
+    }
+</code></pre>
+
+<p>}
+##########################################</p>
+
+<p>You can set-up access to the RStudio server via a proxy. By doing that and setting up the Apache or Nginx web server to use SSL, you will have secure access to the RStudio server.</p>
+
+<p>Here&rsquo;s an example of how you can both Shiny and RStudio running on the same domain using SSL and Nginx. If you use <a href="https://YOURDOMAIN/">https://YOURDOMAIN/</a> it will run your shiny apps; <a href="https://YOURDOMAIN/rstudio">https://YOURDOMAIN/rstudio</a> to be able to edit the shiny apps directly from the browser!</p>
+
+<p>Replace YOURDOMAIN with your server URL:</p>
+
+<p>map $http_upgrade $connection_upgrade {
+ default upgrade;
+ &ldquo;     close;
+}</p>
+
+<p>#Server with proxy
+server {
+ listen 443 ssl default_server;
+ listen [::]:443 ssl default_server;
+ ssl_certificate /etc/letsencrypt/live/YOURDOMAIN/cert.pem;
+ ssl_certificate_key /etc/letsencrypt/live/YOURDOMAIN/privkey.pem;</p>
+
+<p>server_name YOURDOMAIN;</p>
+
+<p>location / {
+     proxy_pass <a href="http://localhost:3838">http://localhost:3838</a>;
+     proxy_redirect <a href="http://localhost:3838/">http://localhost:3838/</a> $scheme://$host/;
+     proxy_http_version 1.1;
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection $connection_upgrade;
+     proxy_read_timeout 20d;
+ }</p>
+
+<p>location /rstudio/ {
+     rewrite ^/rstudio/(.*)$ /$1 break;
+     proxy_pass <a href="http://localhost:8787">http://localhost:8787</a>;
+     proxy_redirect <a href="http://localhost:8787/">http://localhost:8787/</a> $scheme://$host/rstudio/;
+     proxy_http_version 1.1;
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection $connection_upgrade;
+     proxy_read_timeout 20d;
+ }
+}</p>
+
+<h2 id="create-the-ssl-certificate">Create the SSL Certificate</h2>
+
+<p>SSL/TLS rely on a combination of public and private keys. While the private key portion of the SSL/TLS certificate is kept on the server, the public key is shared with all clients requesting information from your Ubuntu 18.04 server.</p>
+
+<p>The private key encrypts data before it is sent to the client hence ensuring the security while the public key decrypts information from the server</p>
+
+<p>So we need to create a self-signed private key and a certificate key pair. By default, Ubuntu 18.04 comes with OpenSSL – an open source implementation of the SSL and TLS protocol.</p>
+
+<p>You can check the OpenSSL version number by typing the command below:</p>
+
+<pre><code class="language-bash">openssl version
+</code></pre>
+
+<pre><code>## OpenSSL 1.1.0g  2 Nov 2017
+</code></pre>
+
+<p>Output</p>
+
+<p>Creating the certificate and private key pair
+We can create the certificate and private key pair using OpenSSL with just a single command listed below:</p>
+
+<pre><code class="language-bash">sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/my.key -out /etc/ssl/certs/my.crt
+</code></pre>
+
+<p>You will be prompted to enter information that will be incorporated on your certificate request as show below:</p>
+
+<pre><code>Country Name:  e.g. KE
+State or Province: e.g. CENTRAL
+Locality Name:  Name of City e.g. NAIROBI
+Organisation Name: e.g. MY SAMPLE COMPANY
+Organizational Unit Name (eg, section) []: e.g. IT DEPARTMENT
+Common Name (e.g. server FQDN or YOUR name) []: The exact domain name or public IP address e.g. www.example.com
+Email Address: e.g. info@example.com
+
+</code></pre>
+
+<p>After answering the questions above, the private and crt files will be placed on the path that you specified on the OpenSSL command. For instance, in our case, the private key will be placed in /etc/ssl/private/my.key while the CRT will be placed in /etc/ssl/certs/my.crt</p>
+
+<h2 id="make-pretty-urls-for-rstudio-server-and-shiny-server">Make pretty URLs for RStudio Server and Shiny Server</h2>
+
+<p>Source: <a href="https://www.r-craft.org/r-news/how-to-get-your-very-own-rstudio-server-and-shiny-server-with-digitalocean/">https://www.r-craft.org/r-news/how-to-get-your-very-own-rstudio-server-and-shiny-server-with-digitalocean/</a>
+This is optional and a little more advanced. You might have noticed that to access both RStudio and Shiny Server, you have to remember weird port numbers (:8787 and :3838). Not only is it hard and ugly to remember, but some workplace environments often block access to those ports, which means that many people/places won’t be able to access these pages. The solution is to use a reverse proxy, so that nginx will listen on port 80 (default HTTP port) at the URL /shiny and will internally redirect that to port 3838. Same for RStudio - we can have nginx listen at /rstudio and redirect it to port 8787. This is why my Shiny apps can be reached at daattali.com/shiny/ which is an easy URL to type.</p>
+
+<p>You need to edit the nginx config file /etc/nginx/sites-enabled/default:</p>
+
+<pre><code>sudo nano /etc/nginx/sites-enabled/default
+</code></pre>
+
+<p>Add the following lines right after the line that reads server_name _;</p>
+
+<pre><code>location /shiny/ {
+  proxy_pass http://127.0.0.1:3838/;
+}
+
+location /rstudio/ {
+  proxy_pass http://127.0.0.1:8787/;
+}
+</code></pre>
+
+<p>Since we changed the nginx config, we need to restart nginx for it to take effect.</p>
+
+<pre><code class="language-bash">sudo service nginx restart
+</code></pre>
+
+<p>Now you should be able to go to <a href="http://123.456.1.2/shiny/">http://123.456.1.2/shiny/</a> or <a href="http://123.456.1.2/rstudio/">http://123.456.1.2/rstudio/</a>. Much better!</p>
+
+<p>Bonus for advanced users: The above setup should be just fine for most users, but I did notice a few small issues with RStudio that seem to be fixed by allowing nginx to proxy WebSockets. For example, I noticed that when using the ggvis package in my RStudio, tooltips were not working. The fix is to add the following three lines inside the location /rstudio/ settings (keep the proxy_pass line and just add these three, and remember you have to restart nginx after changing the settings):</p>
+
+<pre><code>proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection &quot;upgrade&quot;;
+</code></pre>
+
+<p>If you’re hosting a Shiny Server, add these 3 lines after the proxy_pass line inside location /shiny/ as well.</p>
+
+<p>Make your Shiny apps work with and without trailing slashes: If you have a Shiny app called “myapp”, then you would have to go to the URL <a href="http://123.456.1.2/shiny/myapp/">http://123.456.1.2/shiny/myapp/</a> to see it. But if you omit the trailing slash (<a href="http://123.456.1.2/shiny/myapp">http://123.456.1.2/shiny/myapp</a>), it will not work. I figured out a way to solve this, but again, keep in mind that I’m an nginx noob so it might not be a good solution. I added the following line inside location /shiny/ (just after the previous 3 lines from the previous paragraph):</p>
+
+<pre><code>rewrite ^(/shiny/[^/]+)$ $1/ permanent;
+</code></pre>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="../../">DannyJRa</a></h4>
+                <p>Your description here</p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "\/post\/installing-nginx-server\/";  
+this.page.identifier = "\/post\/installing-nginx-server\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://blog-dannyrasch-com.disqus.com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="../../tags/shiny/">#Shiny</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="../../post/15_dockerpostgresql/">Docker PostGreSQL</a></li>            
+        
+          <li><a href="../../post/network_analysis/">Network Analysis</a></li>            
+        
+          <li><a href="../../post/gcp_cloudscheduler/">GCP - Cloud Scheduler</a></li>            
+        
+          <li><a href="../../post/dsvwpart1/">DSVM Part1</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="../../tags/shiny/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="../../post/pythonlibrariesforgraphql/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="../../post/pythonlibrariesforgraphql/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #API  </span>
+              
+              <h2 class="post-card-title">Python libraries for GraphQL</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Python libraries for graphql GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebook as an alternative to REST and it&rsquo;s popular of flexibility on handling complex systems.
+Ariadne Ariadne is a Python library for implementing GraphQL servers using schema-first approach.
+Ariadne is a Python library for implementing GraphQL servers.
+ Schema-first: Ariadne enables Python developers to use schema-first approach to the API implementation. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="../../post/vscodeasaserver/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="../../post/vscodeasaserver/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Engineering  </span>
+              
+              <h2 class="post-card-title">VS-Code as a Server</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="../../">
+      <img src="../../singnature_DJR_white.png" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Installing Nginx Server</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Installing%20Nginx%20Server&amp;url=%2fpost%2finstalling-nginx-server%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="../../">DJR</a> © 2019 <br>
+      <span style="font-size: 0.8em; color: #555;">Blog part of <a href="www.dannyrasch.com">dannyrasch.com</a></span>
+    </section>
+    <nav class="site-footer-nav">
+        <a href="../../">Latest Posts</a>
+        
+        <a href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/DannyJRa" target="_blank" rel="noopener">Github</a>
+        <a href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@dannjrasch" target="_blank" rel="noopener">Medium</a>
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>

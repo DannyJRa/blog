@@ -6,10 +6,62 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 27 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Zeppelin Notebook</title>
+      <link>/post/zeppelinnotebook/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/zeppelinnotebook/</guid>
+      <description>&lt;p&gt;The Notebook is the place for all your needs, i.e.Data Ingestion, Data Discovery, Data Analytics, Data Visualization &amp;amp; Collaboration&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Portainer</title>
+      <link>/post/portainer2/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/portainer2/</guid>
+      <description>Portainer: Managing Docker Containers Although I’m comfortable with the command line, it is nice to have a GUI to manage the containers.
+Portainer is an open-source management UI for Docker, including Docker Swarm environment. Portainer makes it easier for you to manage your Docker containers, it allows you to manage containers, images, networks, and volumes from the web-based Portainer dashboard.
+Prerequisites  Ubuntu 18 Root privielges docker  What we will do  Install and Configure Portainer Docker Environment Management  What is Portainer?</description>
+    </item>
+    
+    <item>
+      <title>Flask with Connexion</title>
+      <link>/post/flaskconnexion/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/flaskconnexion/</guid>
+      <description>&lt;p&gt;Connexion is a framework that automagically handles HTTP requests based on OpenAPI Specification (formerly known as Swagger Spec) of your API described in YAML format. Connexion allows you to write an OpenAPI specification, then maps the endpoints to your Python functions; this makes it unique, as many tools generate the specification based on your Python code. You can describe your REST API in as much detail as you want; then Connexion guarantees that it will work as you specified.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python libraries for GraphQL</title>
+      <link>/post/pythonlibrariesforgraphql/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pythonlibrariesforgraphql/</guid>
+      <description>Python libraries for graphql GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebook as an alternative to REST and it&amp;rsquo;s popular of flexibility on handling complex systems.
+Ariadne Ariadne is a Python library for implementing GraphQL servers using schema-first approach.
+Ariadne is a Python library for implementing GraphQL servers.
+ Schema-first: Ariadne enables Python developers to use schema-first approach to the API implementation.</description>
+    </item>
+    
+    <item>
+      <title>Installing Nginx Server</title>
+      <link>/post/installing-nginx-server/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/installing-nginx-server/</guid>
+      <description>Installing Nginx Server How To Install Nginx on Ubuntu 18.04[^1] Introduction Nginx is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. It is more resource-friendly than Apache in most cases and can be used as a web server or reverse proxy.
+Installing Nginx Install on Ubuntu 18.04 with &amp;hellip;
+sudo apt install nginx  FIrewall (optional) After accepting the procedure, apt will install Nginx and any required dependencies to your server.</description>
+    </item>
     
     <item>
       <title>VS-Code as a Server</title>
@@ -39,12 +91,43 @@
     </item>
     
     <item>
+      <title>Hugo Website with R-Blogdown</title>
+      <link>/post/hugowebsitewithr/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hugowebsitewithr/</guid>
+      <description>&lt;p&gt;Using the blogdown package to create static websites in RStudio using R Markdown&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Firebase Auth - Shiny</title>
       <link>/post/54_firebaseauthshiny2/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/54_firebaseauthshiny2/</guid>
       <description>&lt;p&gt;Shiny App with Google Firebase authentification.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Django Deployment</title>
+      <link>/post/django_deployment/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/django_deployment/</guid>
+      <description>Why Django Django is a lifesaver if you want to create a CRUD app with batteries included without getting sidetracked.
+ Django - so much developer convenience
+ The Web framework for perfectionists with deadlines
+Django makes it very easy and fun to build a certain type of web application - a CRUD (create, read, update, delete) app. Almost every single real-world web app can be started as a simple CRUD app.</description>
+    </item>
+    
+    <item>
+      <title>Pipenv</title>
+      <link>/post/19_pipenv3/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/19_pipenv3/</guid>
+      <description>Pipenv tool for Python package management Why using pipenv Instead of needing the pip library for package installation, plus a library for creating a virtual environment,plus a library for managing virtual environments, plus all the commands associated with those libraries, one can just just Pipenv.
+Pipenv ships with package management and virtual environment support, so you can use one tool to install, uninstall, track, and document your dependencies and to create, use, and organize your virtual environments.</description>
     </item>
     
     <item>
@@ -86,6 +169,17 @@
     </item>
     
     <item>
+      <title>R packages</title>
+      <link>/post/github_rest_api3/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/github_rest_api3/</guid>
+      <description>&lt;p&gt;Original post here: /home/danny/OneDrive/DataScience/41_DannyJRa.github.io/04_R_Packages/01_blog_caret_Tut.html&lt;/p&gt;
+
+&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>DSVM Part1</title>
       <link>/post/dsvwpart1/</link>
       <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
@@ -112,6 +206,72 @@
       
       <guid>/post/mathartwithr/</guid>
       <description>&lt;p&gt;Add summary desdcription here&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Django basics</title>
+      <link>/post/django_basics/</link>
+      <pubDate>Tue, 20 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/django_basics/</guid>
+      <description>Getting started with Django Why Django Django is a Web framework written in Python. A Web framework is a software that supports the development of dynamic Web sites, applications, and services. It provides a set of tools and functionalities that solves many common problems associated with Web development, such as security features, database access, sessions, template processing, URL routing, internationalization, localization, and much more.
+Using a Web framework, such as Django, enables us to develop secure and reliable Web applications very quickly in a standardized way, without having to reinvent the wheel.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/</guid>
+      <description>Python libraries for graphql GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebook as an alternative to REST and it&amp;rsquo;s popular of flexibility on handling complex systems.
+Ariadne Ariadne is a Python library for implementing GraphQL servers using schema-first approach.
+Ariadne is a Python library for implementing GraphQL servers.
+ Schema-first: Ariadne enables Python developers to use schema-first approach to the API implementation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/</guid>
+      <description>&lt;p&gt;Linear models
+The R code is:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/</guid>
+      <description>#AI Platform Samples https://github.com/GoogleCloudPlatform/ai-platform-samples
+ai-platform-samples/notebooks/notebooks-ci-showcase APIs aktivieren e.g. BigQuery https://console.cloud.google.com/flows/enableapi?apiid=bigquery&amp;amp;hl=de&amp;amp;_ga=2.12295284.-1331973218.1565080239
+cd /home/danny/OneDrive/DataScience/41_DannyJRa.github.io/90_Tensorflow/ai-platform-samples/notebooks/notebooks-ci-showcase/
+bash run_test.sh
+worked with CPU
+Copy result notebobook ucket to folder test gsutil cp -r gs://dl-platform-temp3/notebook-ci-showcase test
+Limitations So far no artefacts
+GCP Authorization https://cloud.google.com/sdk/docs/authorizing?hl=de
+bq show &amp;ndash;encryption_service_account
+Using service account Blog_Telegram_Picture https://www.freecodecamp.org/news/how-to-build-a-bot-to-automate-your-mindless-tasks-using-python-and-google-bigquery-a34faf7fb74/
+via Json file
+export GOOGLE_APPLICATION_CREDENTIALS=&amp;rsquo;[/home/danny/OneDrive/DataScience/02_CloudComputing/00_Secrets/kubeflowtest-bigquery.json]&amp;rsquo;
+export GOOGLE_APPLICATION_CREDENTIALS=&amp;ldquo;/home/danny/OneDrive/DataScience/02_CloudComputing/00_Secrets/kubeflowtest-bigquery.json&amp;rdquo; echo $GOOGLE_APPLICATION_CREDENTIALS
+Manually setting the context credentials:
+from google.cloud.bigquery import magics from google.oauth2 import service_account credentials = (service_account.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/</guid>
+      <description>Portainer: Managing Docker Containers Although I’m comfortable with the command line, it is nice to have a GUI to manage the containers.
+Portainer is an open-source management UI for Docker, including Docker Swarm environment. Portainer makes it easier for you to manage your Docker containers, it allows you to manage containers, images, networks, and volumes from the web-based Portainer dashboard.
+Prerequisites  Ubuntu 18 Root privielges docker  What we will do  Install and Configure Portainer Docker Environment Management  What is Portainer?</description>
     </item>
     
   </channel>

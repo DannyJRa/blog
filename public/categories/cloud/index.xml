@@ -6,10 +6,28 @@
     <description>Recent content in Cloud on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 14 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Zeppelin Notebook</title>
+      <link>/post/zeppelinnotebook/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/zeppelinnotebook/</guid>
+      <description>&lt;p&gt;The Notebook is the place for all your needs, i.e.Data Ingestion, Data Discovery, Data Analytics, Data Visualization &amp;amp; Collaboration&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>VS-Code as a Server</title>
+      <link>/post/vscodeasaserver/</link>
+      <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/vscodeasaserver/</guid>
+      <description>&lt;p&gt;Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GCP - Cloud Scheduler</title>

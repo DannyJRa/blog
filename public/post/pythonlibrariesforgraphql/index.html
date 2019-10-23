@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Python libraries for GraphQL &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <link rel="canonical" href="../../post/pythonlibrariesforgraphql/" />
+
+     <meta name="description" content="Python libraries for graphql GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebo" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Python libraries for GraphQL"/>
+    <meta name="twitter:description" content="Python libraries for graphql GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebo"/>
+    <meta name="twitter:url" content="/post/pythonlibrariesforgraphql/" />
+    <meta name="twitter:site" content="@Insider_DJR"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Python libraries for GraphQL &middot; Blog" />
+    <meta property="og:url" content="/post/pythonlibrariesforgraphql/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Python libraries for graphql GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebo" />
+
+    <meta property="article:published_time" content="2019-05-17T00:00:00Z" />
+    <meta property="article:tag" content="API" />
+
+    <meta property="og:image" content="/img/blog-cover.jpg"/>
+
+    <meta name="generator" content="Hugo 0.55.5" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="../../built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="../../css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css" />
+     <link rel="stylesheet" href="../../css/overrides.css" /> 
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="../../singnature_DJR_white.png" alt="Blog" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="../../">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../about/">About me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../test/">Test</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/python/">Python</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/r/">R</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/">Categories</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    <a class="social-link social-link-tw" href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg></a>
+
+                    <a class="social-link" href="https://github.com/DannyJRa" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    <a class="social-link" href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 512 512"><path d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683 C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615 c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915 s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z" /></svg></a>
+
+                    <a class="social-link" href="https://medium.com/@dannjrasch" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 195"><path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z"/></svg></a>
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2019-05-17">17 May 2019</time>
+                <span class="date-divider">/</span> <a href="../../tags/api/">#API</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">Python libraries for GraphQL</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        
+
+<p><a href="https://github.com/DannyJRa/DannyJRa.github.io/tree/master/68_GraphQL/68_1_python_libraries_for_graphql_BLOG.html, https://github.com/DannyJRa/DannyJRa.github.io/tree/master/68_GraphQL/" target="_blank"><img src="../../img/forkme_right_orange_ff7600.svg" style="position:absolute;top:1;right:0;" alt="Fork me on GitHub"></a></p>
+
+<h1 id="python-libraries-for-graphql">Python libraries for graphql</h1>
+
+<p>GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebook as an alternative to REST and it&rsquo;s popular of flexibility on handling complex systems.</p>
+
+<h2 id="ariadne">Ariadne</h2>
+
+<p>Ariadne is a Python library for implementing GraphQL servers using schema-first approach.</p>
+
+<p>Ariadne is a Python library for implementing GraphQL servers.</p>
+
+<ul>
+<li>Schema-first: Ariadne enables Python developers to use schema-first approach to the API implementation. This is the leading approach used by the GraphQL community and supported by dozens of frontend and backend developer tools, examples, and learning resources. Ariadne makes all of this immediately available to your and other members of your team.</li>
+<li>Simple: Ariadne offers small, consistent and easy to memorize API that lets developers focus on business problems, not the boilerplate.</li>
+<li>Open: Ariadne was designed to be modular and open for customization. If you are missing or unhappy with something, extend or easily swap with your own.
+Documentation is available here.</li>
+</ul>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li>Simple, quick to learn and easy to memorize API.</li>
+<li>Compatibility with GraphQL.js version 14.2.1.</li>
+<li>Queries, mutations and input types.</li>
+<li>Asynchronous resolvers and query execution.</li>
+<li>Subscriptions.</li>
+<li>Unions and interfaces.</li>
+<li>Defining schema using SDL…</li>
+<li>Loading schema from .graphql files.</li>
+<li>==WSGI== middleware for implementing GraphQL in existing sites.</li>
+<li>Opt-in automatic resolvers mapping between camelCase and snake_case.</li>
+<li>Build-in simple synchronous dev server for quick GraphQL experimentation and GraphQL Playground.</li>
+
+<li><p>Support for Apollo GraphQL extension for Visual Studio Code.
+GraphQL syntax validation via gql() helper function. Also provides colorization if Apollo GraphQL extension is installed.</p>
+
+<h3 id="installation">Installation</h3>
+
+<pre><code>pip install ariadne
+
+</code></pre></li>
+</ul>
+
+<h3 id="quickstart">Quickstart</h3>
+
+<p>The following example creates an API defining Person type and single query field people returning a list of two persons. It also starts a local dev server with GraphQL Playground available on the <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> address. Start by installing uvicorn, an ASGI server we will use to serve the API:</p>
+
+<p>Start by installing uvicorn, an ASGI server we will use to serve the API:</p>
+
+<pre><code>pip install uvicorn
+
+</code></pre>
+
+<p>Then create an example.py file for your example application:</p>
+
+<pre><code>from ariadne import ObjectType, QueryType, gql, make_executable_schema
+from ariadne.asgi import GraphQL
+
+
+# Define types using Schema Definition Language (https://graphql.org/learn/schema/)
+# Wrapping string in gql function provides validation and better error traceback
+type_defs = gql(&quot;&quot;&quot;
+    type Query {
+        people: [Person!]!
+    }
+
+    type Person {
+        firstName: String
+        lastName: String
+        age: Int
+        fullName: String
+    }
+&quot;&quot;&quot;)
+
+# Map resolver functions to Query fields using QueryType
+query = QueryType()
+
+# Resolvers are simple python functions
+@query.field(&quot;people&quot;)
+def resolve_people(*_):
+    return [
+        {&quot;firstName&quot;: &quot;John&quot;, &quot;lastName&quot;: &quot;Doe&quot;, &quot;age&quot;: 21},
+        {&quot;firstName&quot;: &quot;Bob&quot;, &quot;lastName&quot;: &quot;Boberson&quot;, &quot;age&quot;: 24},
+    ]
+
+
+# Map resolver functions to custom type fields using ObjectType
+person = ObjectType(&quot;Person&quot;)
+
+@person.field(&quot;fullName&quot;)
+def resolve_person_fullname(person, *_):
+    return &quot;%s %s&quot; % (person[&quot;firstName&quot;], person[&quot;lastName&quot;])
+
+# Create executable GraphQL schema
+schema = make_executable_schema(type_defs, [query, person])
+
+# Create an ASGI app using the schema, running in debug mode
+app = GraphQL(schema, debug=True)
+
+</code></pre>
+
+<h1 id="strawberry">Strawberry</h1>
+
+<p>A new GraphQL library for Python 🍓</p>
+
+<h3 id="installation-1">Installation</h3>
+
+<p>pip install strawberry-graphql</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>Create a file called app.py with the following code:</p>
+
+<pre><code>import strawberry
+@strawberry.type
+class User
+    name: str
+    age: int
+@strawberry.type
+class Query:
+    @strawberry.field
+    def user(self, info) -&gt; User:
+        return User(name=&quot;Patrick&quot;, age=100)
+
+
+schema = strawberry.Schema(query=Query)
+
+</code></pre>
+
+<p>This will create a GraphQL schema defining a User type and a single query field user that will return a hard coded user.</p>
+
+<p>To run the debug server run the following command:</p>
+
+<pre><code>strawberry run server app
+
+</code></pre>
+
+<p>Open the debug server by clicking on the follwing link: <a href="http://0.0.0.0:8000/graphql">http://0.0.0.0:8000/graphql</a></p>
+
+<p>This will open a GraphQL playground where you can test the API.</p>
+
+<h1 id="graphene">Graphene</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Graphene is a Python library for building GraphQL schemas/types fast and easily.</p>
+
+<ul>
+<li>Easy to use: Graphene helps you use GraphQL in Python without effort.</li>
+<li>Data agnostic: Graphene supports any kind of data source: SQL (Django, SQLAlchemy), NoSQL, custom Python objects, etc. We believe that by providing a complete API you could plug Graphene anywhere your data lives and make your data available through GraphQL.</li>
+</ul>
+
+<h3 id="integrations">Integrations</h3>
+
+<p>Graphene has multiple integrations with different frameworks:</p>
+
+<ul>
+<li>Django - graphene-django</li>
+<li>SQLAlchemy - graphene-sqlalchemy</li>
+<li>Google App Engine - graphene-gae</li>
+</ul>
+
+<p>Also, Graphene is fully compatible with the GraphQL spec, working seamlessly with all GraphQL clients, such as Relay, Apollo and gql.</p>
+
+<h3 id="installation-2">Installation</h3>
+
+<p>For instaling graphene, just run this command in your shell</p>
+
+<pre><code>pip install &quot;graphene&gt;=2.0&quot;
+
+</code></pre>
+
+<h3 id="examples">Examples</h3>
+
+<p>Here is one example for you to get started:</p>
+
+<pre><code>class Query(graphene.ObjectType):
+    hello = graphene.String(description='A typical hello world')
+
+    def resolve_hello(self, info):
+        return 'World'
+
+schema = graphene.Schema(query=Query)
+</code></pre>
+
+<p>Then Querying graphene.Schema is as simple as:</p>
+
+<pre><code>query = '''
+    query SayHello {
+      hello
+    }
+'''
+result = schema.execute(query)
+</code></pre>
+
+<hr />
+
+<p>Original post on Github Pages: <a href="https://dannyjra.github.io/68_GraphQL/68_1_python_libraries_for_graphql_BLOG.html, https://dannyjra.github.io/68_GraphQL/68_1_python_libraries_graphql_BLOG.html" target="_blank"><a href="https://dannyjra.github.io/68_GraphQL/68_1_python_libraries_for_graphql_BLOG.html">https://dannyjra.github.io/68_GraphQL/68_1_python_libraries_for_graphql_BLOG.html</a>, <a href="https://dannyjra.github.io/68_GraphQL/68_1_python_libraries_graphql_BLOG.html">https://dannyjra.github.io/68_GraphQL/68_1_python_libraries_graphql_BLOG.html</a></a></p>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="../../">DannyJRa</a></h4>
+                <p>Your description here</p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "\/post\/pythonlibrariesforgraphql\/";  
+this.page.identifier = "\/post\/pythonlibrariesforgraphql\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://blog-dannyrasch-com.disqus.com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="../../tags/api/">#API</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="../../post/19_pipenv3/">Pipenv</a></li>            
+        
+          <li><a href="../../post/django_basics/">Django basics</a></li>            
+        
+          <li><a href="../../post/gcp_cloudscheduler/">GCP - Cloud Scheduler</a></li>            
+        
+          <li><a href="../../post/09_reticulate/">R-Python Bridge with Reticulate</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="../../tags/api/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="../../post/flaskconnexion/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="../../post/flaskconnexion/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Flask  </span>
+              
+              <h2 class="post-card-title">Flask with Connexion</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Connexion is a framework that automagically handles HTTP requests based on OpenAPI Specification (formerly known as Swagger Spec) of your API described in YAML format. Connexion allows you to write an OpenAPI specification, then maps the endpoints to your Python functions; this makes it unique, as many tools generate the specification based on your Python code. You can describe your REST API in as much detail as you want; then Connexion guarantees that it will work as you specified.
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="../../post/installing-nginx-server/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="../../post/installing-nginx-server/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Shiny 
+              #Rstudio 
+              #Linux  </span>
+              
+              <h2 class="post-card-title">Installing Nginx Server</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Installing Nginx Server How To Install Nginx on Ubuntu 18.04[^1] Introduction Nginx is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. It is more resource-friendly than Apache in most cases and can be used as a web server or reverse proxy.
+Installing Nginx Install on Ubuntu 18.04 with &hellip;
+sudo apt install nginx  FIrewall (optional) After accepting the procedure, apt will install Nginx and any required dependencies to your server. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="../../">
+      <img src="../../singnature_DJR_white.png" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Python libraries for GraphQL</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python%20libraries%20for%20GraphQL&amp;url=%2fpost%2fpythonlibrariesforgraphql%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="../../">DJR</a> © 2019 <br>
+      <span style="font-size: 0.8em; color: #555;">Blog part of <a href="www.dannyrasch.com">dannyrasch.com</a></span>
+    </section>
+    <nav class="site-footer-nav">
+        <a href="../../">Latest Posts</a>
+        
+        <a href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/DannyJRa" target="_blank" rel="noopener">Github</a>
+        <a href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@dannjrasch" target="_blank" rel="noopener">Medium</a>
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>

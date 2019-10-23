@@ -6,24 +6,15 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 27 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>DataScience</title>
-      <link>/categories/datascience/</link>
-      <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/datascience/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Cloud</title>
       <link>/categories/cloud/</link>
-      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/cloud/</guid>
       <description></description>
@@ -32,7 +23,7 @@
     <item>
       <title>Python</title>
       <link>/categories/python/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/python/</guid>
       <description></description>
@@ -41,7 +32,7 @@
     <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>

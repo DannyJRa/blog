@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Hugo Website with R-Blogdown &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <link rel="canonical" href="../../post/hugowebsitewithr/" />
+
+     <meta name="description" content="&lt;p&gt;Using the blogdown package to create static websites in RStudio using R Markdown&lt;/p&gt;" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Hugo Website with R-Blogdown"/>
+    <meta name="twitter:description" content="&lt;p&gt;Using the blogdown package to create static websites in RStudio using R Markdown&lt;/p&gt;"/>
+    <meta name="twitter:url" content="/post/hugowebsitewithr/" />
+    <meta name="twitter:site" content="@Insider_DJR"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Hugo Website with R-Blogdown &middot; Blog" />
+    <meta property="og:url" content="/post/hugowebsitewithr/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="&lt;p&gt;Using the blogdown package to create static websites in RStudio using R Markdown&lt;/p&gt;" />
+
+    <meta property="article:published_time" content="2019-02-28T00:00:00Z" />
+    <meta property="article:tag" content="WebDev" />
+
+    <meta property="og:image" content="/img/blog-cover.jpg"/>
+
+    <meta name="generator" content="Hugo 0.55.5" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="../../built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="../../css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css" />
+     <link rel="stylesheet" href="../../css/overrides.css" /> 
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="../../singnature_DJR_white.png" alt="Blog" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="../../">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../about/">About me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../test/">Test</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/python/">Python</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/r/">R</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="../../categories/">Categories</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    <a class="social-link social-link-tw" href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg></a>
+
+                    <a class="social-link" href="https://github.com/DannyJRa" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    <a class="social-link" href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 512 512"><path d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683 C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615 c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915 s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z" /></svg></a>
+
+                    <a class="social-link" href="https://medium.com/@dannjrasch" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 195"><path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z"/></svg></a>
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2019-02-28">28 February 2019</time>
+                <span class="date-divider">/</span> <a href="../../tags/webdev/">#WebDev</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">Hugo Website with R-Blogdown</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        <p>Using the blogdown package to create static websites in RStudio using R Markdown</p>
+
+<h1 id="hugo-website-with-r-blogdown">Hugo Website with R-Blogdown</h1>
+
+<h2 id="why-use-rstudio-to-make-static-websites">Why use RStudio to make static websites?</h2>
+
+<p>It’s easy
+It’s free
+It’s a simple way to share your code and analyses
+What is blogdown?
+blogdown is a package that leverages R Markdown and Hugo to create static websites.</p>
+
+<h2 id="what-is-hugo">What is Hugo?</h2>
+
+<p>Hugo is a static website generator. Static websites are collections of HTML files and the external dependencies referenced within them. More on Hugo here.</p>
+
+<h1 id="learn-the-basics">Learn the basics</h1>
+
+<p>Install blogdown and hugo</p>
+
+<pre><code class="language-r">if (!require(blogdown)) {
+  install.packages(&quot;blogdown&quot;)
+}
+blogdown::install_hugo()
+</code></pre>
+
+<h2 id="update-hugo-if-necessary">Update hugo if necessary</h2>
+
+<pre><code class="language-r">blogdown::hugo_version() 
+blogdown::update_hugo()
+</code></pre>
+
+<h2 id="create-a-website-using-the-default-lithium-template">Create a website using the default lithium template</h2>
+
+<p>There are a number of ways to create a new website project. You can create it using the IDE by clicking  File &gt; New Project &gt; New Directory &gt; Website Using Blogdown or by simply specifying the path to the new website as a argument in the blogdown::new_site() function. Make sure that you specify the new directory (e.g. the name of the folder you would like to create) in the path.</p>
+
+<p>Here we’ll create the website one level above our current working directory. The reason for doing this is that our current working directory is a git repository and if we try to publish this later, it will cause problems (it’s not straight forward to have a repo inside of a repo).</p>
+
+<pre><code class="language-r">blogdown::new_site(&quot;../default-site&quot;)
+</code></pre>
+
+<p>You can also specify a theme when creating your new site. The default is the lithium theme, but there are a variety of other Hugo themes available. We’ll use the hugo-academic theme later in the tutorial.</p>
+
+<pre><code class="language-r">blogdown::new_site(theme = 'yihui/hugo-lithium')
+blogdown::new_site(theme = 'devcows/hugo-universal-theme')
+blogdown::new_site(theme = 'gcushen/hugo-academic')
+</code></pre>
+
+<p>Render the site
+Anytime you want to render the site, you can do so by either clicking Addins &gt; Serve Site or executing the  blogdown::serve_site() function. This function should be executed from the site directory, so if you are not currently in that directory, make sure to change you current working directory to the site directory.</p>
+
+<pre><code class="language-r">setwd(&quot;../default-site/&quot;)
+blogdown::serve_site()
+</code></pre>
+
+<p>Where does the content live?
+Take a look at what’s in the site directory.</p>
+
+<p>Key components:
+* config.toml = configuration file that the user edits to customize their site
+* /content/ = where the actual content (e.g. pages, posts live)
+* /public/ = the directory containing the website for online deployment
+* /layouts/ = where you’ll place code to override the original template design
+* /static/ = where content such as images and CSS code are stored
+* /theme/ = where the theme template is stored</p>
+
+<p>config.toml file
+The configuration file is where global variables and settings are defined. More about configuration files and the variables specified within it here. More information on TOML syntax here.</p>
+
+<p>Edit config.toml
+Change the site name</p>
+
+<pre><code>title = &quot;Dani Cosme, M.S.&quot;
+Enable emojis
+
+enableEmoji = true
+</code></pre>
+
+<h2 id="navigation-bar">Navigation bar</h2>
+
+<p>More on menu management here. [[menu.main]] = Pages and links in the menu bar</p>
+
+<p>Can be external links (e.g. Twitter page) or internal links (e.g. /posts/)
+Default arrangement is alphabetical order
+To manually specify the order, add weight as a field
+Add the following text to your config.toml page and see what happens:</p>
+
+<pre><code>[[menu.main]]
+    name = &quot;UO Data Science Club&quot;
+    url = &quot;https://github.com/uodatascience&quot;
+    weight = 1
+</code></pre>
+
+<h2 id="homepage">Homepage</h2>
+
+<p>Create a file called index.html in the layouts/ directory.</p>
+
+<pre><code>touch ../default-site/layouts/index.html
+</code></pre>
+
+<p>Copy the following text into layouts/index.html. I borrowed this code from Alison Hill’s awesome blogdown tutorial, but you could write your own html code to create the layout for your homepage.</p>
+
+<pre><code>{{ partial &quot;header&quot; . }}
+
+&lt;div class=&quot;intro&quot;&gt;
+        &lt;div&gt;&lt;center&gt;&lt;img class=&quot;center-image&quot; src={{ .Site.Params.img }} width=&quot;20%&quot;/&gt;&lt;/center&gt;&lt;/div&gt;
+
+        &lt;h1&gt;&lt;center&gt;{{ markdownify .Title }}&lt;/center&gt;&lt;/h1&gt;
+        
+        &lt;h2&gt;&lt;center&gt;{{ markdownify .Site.Params.Description }}&lt;/center&gt;&lt;/h2&gt;
+
+&lt;/div&gt;
+
+
+{{ partial &quot;footer&quot; . }}
+</code></pre>
+
+<p>We referenced a field.Site.Params.img, but it currently doesn’t exist. Let’s add it to config.toml and also update the site description.</p>
+
+<pre><code>[params]
+    description = &quot;Welcome to my website!&lt;br&gt;Here is a bunch of text about me.&lt;br&gt;Yada yada yada.&quot;
+    img = &quot;https://avatars1.githubusercontent.com/u/11858670?s=460&amp;v=4&quot;
+</code></pre>
+
+<p>Since the posts are no longer on linked from the landing page, let’s add the Posts page to the navigation bar by adding it as a field in config.toml:</p>
+
+<pre><code>[[menu.main]]
+    name = &quot;Posts&quot;
+    url = &quot;/post/&quot;
+</code></pre>
+
+<h2 id="about-page">About page</h2>
+
+<p>Open /content/about.md and check it out. Add the following text to the about.md file and look at the difference.</p>
+
+<p>Because we enabled emojis in <code>config.toml</code>, we can use them here. I ❤️ emojis!</p>
+
+<p>Posts are written in plain markdown. Here is some useful syntax. More on plain markdown in the default post <a href="../2016/12/30/a-plain-markdown-post/">A Plain Markdown Post</a>. There&rsquo;s also lots more information in the digital book <a href="https://bookdown.org/yihui/blogdown/output-format.html"><em>blogdown: Creating Websites with R Markdown</em></a>.</p>
+
+<pre><code>## h2 header
+## h3 header
+### h4 header
+
+
+**bold**&lt;br&gt;
+*italics*&lt;br&gt;
+~~strikethrough~~
+</code></pre>
+
+<p>Also check out <a href="https://github.com/uodatascience/markdown">Cory&rsquo;s awesome markdown tutorial</a> for more markdown magic.</p>
+
+<p>Note: you can write in html.</p>
+
+<pre><code>&lt;h4&gt; Embed a gif &lt;br&gt;
+&lt;img src=&quot;https://media.giphy.com/media/l0Nwvo3slpo6nS0PC/giphy.gif&quot; alt=&quot;neato&quot;&gt;
+
+&lt;h4&gt; Embed a calendar &lt;br&gt;
+&lt;iframe src=&quot;https://calendar.google.com/calendar/embed?src=beo4lsbjns0kqovh8nktjou8l4%40group.calendar.google.com&amp;ctz=America%2FLos_Angeles&quot; style=&quot;border: 0&quot; width=&quot;800&quot; height=&quot;600&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+
+<h2 id="pages">Pages</h2>
+
+<p>Create a new page called CV in the content folder.</p>
+
+<pre><code>setwd(&quot;../default-site/&quot;)
+blogdown::new_content(&quot;content/cv&quot;)
+</code></pre>
+
+<p>Copy the following text into the document:</p>
+
+<pre><code>---
+title: ''
+date: '2018-06-03 23:25:08 GMT'
+---
+
+&lt;div style=&quot;text-align: right&quot;&gt;&lt;h1&gt;DANI COSME&lt;/div&gt;
+&lt;div style=&quot;text-align: right&quot;&gt;dcosme@uoregon.edu&lt;/div&gt;
+&lt;div style=&quot;text-align: right&quot;&gt;&lt;a href=&quot;http://dcosme.github.io&quot;&gt;dcosme.github.io&lt;/a&gt;&lt;/div&gt;
+
+## EDUCATION //
+**Doctoral Candidate, Psychology, 2015-present**&lt;br&gt;
+University of Oregon (Eugene, OR)&lt;br&gt;
+Advisors: Drs. Jennifer Pfeifer &amp; Elliot Berkman
+
+## PUBLICATIONS //
+**Cosme, D.** (2018) Brilliant article. *Science*, 1(1), 1-5.&lt;br&gt;
+[DOI](http://doi.org/) [OSF](http://osf.io/) [NEUROVAULT](http://neurovault.org/)
+Add the page to the navigation bar by adding the following text to config.toml. Note that while the filepath is  site root/content/cv.md, the webpath is /baseurl/cv.
+
+[[menu.main]]
+    name = &quot;CV&quot;
+    url = &quot;/cv/&quot;
+</code></pre>
+
+<p>This is the start of a super basic markdown CV, but there are a number of more advanced templates out there, such as this one.</p>
+
+<h2 id="posts">Posts</h2>
+
+<p>Open content/post and look around.</p>
+
+<p>Create a new post
+Using the IDE: Addins &gt; New Post</p>
+
+<p>In the console, the new_post() function will automatically create a new post and append the date to the front of the file name that you specify as an input.</p>
+
+<p>Markdown post
+Let’s create a plain markdown post and add some content.</p>
+
+<pre><code>setwd(&quot;../default-site/&quot;)
+blogdown::new_post(&quot;newmd&quot;, ext = '.md')
+</code></pre>
+
+<p>Add the following text to the new .md file:</p>
+
+<p>Here is some text. Lots of text. So much text.</p>
+
+<p><strong>Gee this is fun!</strong></p>
+
+<pre><code>Let's add a table, just for kicks.
+
+| hours of sun | happiness |
+|---|---|
+| 0 | 1 |
+| 3 | 4 |
+| 5 | 7 |
+| 7 | 10 |
+</code></pre>
+
+<p>Add the following r code chunks (removing eval=FALSE) and view the file in the browser:</p>
+
+<pre><code>mean(iris$Sepal.Length)
+require(ggplot2)
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;) + 
+  scale_color_manual(values = c(&quot;#3B9AB2&quot;, &quot;#E4B80E&quot;, &quot;#F21A00&quot;))
+</code></pre>
+
+<h2 id="rmarkdown-post">Rmarkdown post</h2>
+
+<p>Now let’s create a plain markdown post and see how it differs from the plain markdown file.</p>
+
+<pre><code>setwd(&quot;../default-site/&quot;)
+blogdown::new_post(&quot;newrmd&quot;, ext = '.Rmd')
+</code></pre>
+
+<p>Add the same text as above to your .Rmd file and view it in the browser. We can see that the text looks similar in both files, but only in the R Markdown file are we able to execute code chunks.</p>
+
+<p>This feature makes R Mardown posts ideal for sharing code via your website.</p>
+
+<p>Adding HTML files directly
+Rather than creating a markdown post, you may simply want to an HTML file that you’ve already created (e.g. your data science tutorial). To do this, you would simply copy the file into /content/ or an alternative location.</p>
+
+<p>To compare the output of adding an HTML file versus adding an Rmd file, we’ll create a folder called “data-visualization” and copy two test files into it.</p>
+
+<pre><code># make the directory
+mkdir ../default-site/content/data-visualization
+
+# copy the HTML and .Rmd files to the directory
+cp datavis.html ../default-site/content/data-visualization
+cp datavis_rmd.Rmd ../default-site/content/data-visualization
+Serve the site
+
+setwd(&quot;../default-site/&quot;)
+blogdown::serve_site()
+Compare the files by opening the site in the browser and navigating to:
+
+/data-visualization/datavis
+/data-visualization/datavis_rmd
+Advanced features
+Password protection
+Here’s a script to enable password protection on a portion of your website.
+
+&lt;SCRIPT&gt;
+function passWord() {
+var testV = 1;
+var pass1 = prompt('Please Enter Your Password',' ');
+while (testV &lt; 3) {
+if (!pass1) 
+history.go(-1);
+if (pass1.toLowerCase() == &quot;my super secret password&quot;) {
+window.open('EasterEgg.html');
+break;
+} 
+testV+=1;
+var pass1 = 
+prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+}
+if (pass1.toLowerCase()!=&quot;password&quot; &amp; testV ==3) 
+history.go(-1);
+return &quot; &quot;;
+} 
+&lt;/SCRIPT&gt;
+&lt;CENTER&gt;
+&lt;FORM&gt;
+&lt;input type=&quot;button&quot; value=&quot;Enter Protected Area&quot; onClick=&quot;passWord()&quot;&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+</code></pre>
+
+<h2 id="shiny-apps">Shiny apps</h2>
+
+<p>The Structure of a Shiny App
+Shiny apps are contained in a single, integrated script called app.R.</p>
+
+<p>This script has at least three components:</p>
+
+<p>a user interface object (can be a call to a separate ui.R script)
+a server function (can be a call to a separate server.R script)
+a call to the shinyApp function
+optional: extra stuff in your global environment (can be a call to a separate global.R script)
+If you want to host your shiny app, save this script as app.R and put it in it’s own folder. The name for that folder will be the name of your shiny app.</p>
+
+<pre><code># If you choose to host this app online, you'll need to copy everything in this code chunk and save it to app.R in it's own folder.  Then, set your working directory to the saved folder.  Finally, use the command 'rsconnect::deployApp()' to host your app.
+
+# Here's a user interface (ui) component
+library(shiny)
+
+# Define UI for app that draws a histogram ----
+ui &lt;- fluidPage(
+
+  # App title ----
+  titlePanel(&quot;Hello Shiny!&quot;),
+
+  # Sidebar layout with input and output definitions ----
+  sidebarLayout(
+
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+
+      # Input: Slider for the number of bins ----
+      sliderInput(inputId = &quot;bins&quot;,
+                  label = &quot;Number of bins:&quot;,
+                  min = 1,
+                  max = 50,
+                  value = 30)
+
+    ),
+
+    # Main panel for displaying outputs ----
+    mainPanel(
+
+      # Output: Histogram ----
+      plotOutput(outputId = &quot;distPlot&quot;)
+
+    )
+  )
+)
+
+# Here's a server component
+
+# Define server logic required to draw a histogram ----
+server &lt;- function(input, output) {
+
+  # Histogram of the Old Faithful Geyser Data ----
+  # with requested number of bins
+  # This expression that generates a histogram is wrapped in a call
+  # to renderPlot to indicate that:
+  #
+  # 1. It is &quot;reactive&quot; and therefore should be automatically
+  #    re-executed when inputs (input$bins) change
+  # 2. Its output type is a plot
+  output$distPlot &lt;- renderPlot({
+
+    x    &lt;- faithful$waiting
+    bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
+
+    hist(x, breaks = bins, col = &quot;#75AADB&quot;, border = &quot;white&quot;,
+         xlab = &quot;Waiting time to next eruption (in mins)&quot;,
+         main = &quot;Histogram of waiting times&quot;)
+
+    })
+
+}
+
+# When you've made both components, you're ready to call shinyApp
+
+shinyApp(ui = ui, server = server)
+</code></pre>
+
+<h2 id="layout">Layout</h2>
+
+<p>The layout of a shiny app is specified within the user interface with the function fluidPage() using the panel options.</p>
+
+<p>Specify a title with titlePanel(“my title”)
+Parition your layout into sidebar &amp; main panels
+Change the position of a panel
+You can use some HTML5 tags without the &lt;&gt; brackets too
+Use ‘align’ to change text justification
+Use p() to create paragraphs
+And so much more…</p>
+
+<pre><code>ui &lt;- fluidPage(
+  titlePanel(em(&quot;my italicized title&quot;, align = &quot;center&quot;)),
+  
+  sidebarLayout(position = &quot;left&quot;,
+                sidebarPanel(strong(&quot;my bold sidebar\nand a picture\nof a shiny penny&quot;),
+                             img(src = &quot;https://www.thefarmersbank.net/wp-content/uploads/2018/04/2005-Penny-Uncirculated-Obverse.png&quot;, height = 100, width = 100)),
+                mainPanel(
+                  h1(&quot;most important output&quot;),
+                  br(),
+                  p(&quot;this is a paragraph that says nothing in particular.  it's just a bunch of sentences to illustrate a point about separating text.  watch, we're going to copy and paste it below as another paragraph.&quot;),
+                  p(&quot;this is a paragraph that says nothing in particular.  it's just a bunch of sentences to illustrate a point about separating text.&quot;),
+                  h2(&quot;less important output&quot;),
+                  h3(div(&quot;here's smaller text in blue&quot;, style = &quot;color:blue&quot;)),
+                  h4(p(&quot;here's a tiny text paragraph with just&quot;, span(&quot;a few orange words,&quot;, style = &quot;color:orange&quot;), &quot;if you're into that.&quot;))
+                )
+  )
+)
+
+# Let's see what we created
+# Uncomment the lines below and run this chunk only
+
+server &lt;- function(input, output) {
+}
+shinyApp(ui, server)
+</code></pre>
+
+<h2 id="control-widgets">Control Widgets</h2>
+
+<p>Widgets are the interactive parts of a web application. When we include widgets in our shiny app, the user can manipulate features of the UI. Later, we’ll learn how to make the output of our app reflect these changes dynamically.</p>
+
+<p>Shiny has some built-in widgets. Below, we’ve listed their names and corresponding functions.
+Function    Widget
+actionButton    Action Button
+checkboxGroupInput  A group of check boxes
+checkboxInput   A single check box
+dateInput   A calendar to aid date selection
+dateRangeInput  A pair of calendars for selecting a date range
+fileInput   A file upload control wizard
+helpText    Help text that can be added to an input form
+numericInput    A field to enter numbers
+radioButtons    A set of radio buttons
+selectInput A box with choices to select from
+sliderInput A slider bar
+submitButton    A submit button
+textInput   A field to enter text
+Note: If that’s not enough for you, install the shinyWidgets package for more!</p>
+
+<p>To add control widgets to your app, put one of the widget functions in the sidebarPanel or mainPanel of your UI. Every widget needs these ingredients:</p>
+
+<p>a name (charcter string that you call later)
+label (character string that the app user will see)</p>
+
+<pre><code>#install.packages(&quot;shinyWidgets&quot;)
+library(shinyWidgets)
+
+library(shiny)
+
+# Define UI ----
+ui &lt;- fluidPage(
+  titlePanel(&quot;A Bunch of Widgets&quot;),
+  
+  fluidRow(
+    
+    column(3,
+           h3(&quot;Button Widgets&quot;),
+           actionButton(&quot;action&quot;, &quot;Action&quot;),
+           br(),
+           br(), 
+           br(),
+           submitButton(&quot;Submit&quot;), 
+           br(),
+           br(),
+           br(),
+           actionBttn(&quot;fancy action&quot;, &quot;Danger! Don't Click Me&quot;,
+                      style = &quot;jelly&quot;, color = &quot;danger&quot;, size = &quot;lg&quot;),
+           br(),
+           br(),
+           br(),
+           actionGroupButtons(
+             inputIds = c(&quot;btn1&quot;, &quot;btn2&quot;, &quot;btn3&quot;), 
+             labels = list(&quot;Action 1&quot;, &quot;Action 2&quot;, tags$span(icon(&quot;gear&quot;), &quot;Action 3&quot;)), 
+             status = &quot;primary&quot;),
+           br(),
+           br(),
+           br(),
+           downloadBttn(&quot;download button&quot;, &quot;Click to Download&quot;), 
+           br(),
+           br(),
+           br(),
+           prettyRadioButtons(inputId = &quot;radio4&quot;, label = &quot;Click me!&quot;,
+                              choices = c(&quot;Click me !&quot;, &quot;Me !&quot;, &quot;Or me !&quot;),
+                              outline = TRUE,
+                              plain = TRUE, icon = icon(&quot;thumbs-up&quot;))),
+           
+    column(3,
+           h3(&quot;Checkbox Widgets&quot;),
+           checkboxInput(&quot;checkbox&quot;, &quot;Choice A&quot;, value = TRUE), 
+           br(),
+           br(),
+           checkboxGroupInput(&quot;checkGroup&quot;, &quot;Checkbox group&quot;, 
+           choices = list(&quot;Choice 1&quot; = 1, 
+                          &quot;Choice 2&quot; = 2, 
+                          &quot;Choice 3&quot; = 3), selected = 1),
+           br(),
+           br(),
+           prettyCheckbox(inputId = &quot;checkbox2&quot;,
+                          label = &quot;Click me!&quot;, thick = TRUE,
+                          animation = &quot;pulse&quot;, status = &quot;info&quot;, 
+                          fill = T, shape = &quot;round&quot;, bigger = T),
+           br(),
+           br(),
+           prettyCheckboxGroup(inputId = &quot;checkgroup5&quot;,
+                               label = &quot;Click me!&quot;, icon = icon(&quot;check&quot;),
+                               choices = c(&quot;Click me !&quot;, &quot;Me !&quot;, &quot;Or me !&quot;),
+                               animation = &quot;rotate&quot;, status = &quot;default&quot;),
+           br(),
+           br(),
+           h4(&quot;pretty sweet checkbox&quot;),
+           prettyToggle(inputId = &quot;toggle4&quot;,
+                        label_on = &quot;Yes!&quot;,
+                        label_off = &quot;No..&quot;, outline = TRUE,
+                        plain = TRUE, icon_on = icon(&quot;thumbs-up&quot;), 
+                        icon_off = icon(&quot;thumbs-down&quot;))),
+    
+    column(3, 
+           h3(&quot;Date/Calendar Widgets&quot;),
+           airDatepickerInput(inputId = &quot;default&quot;,
+                              label = &quot;Choose a date:&quot;),
+           br(),
+           airDatepickerInput(inputId = &quot;range&quot;,
+                              label = &quot;Select range of dates:&quot;,
+                              range = TRUE, value = c(Sys.Date()-7, Sys.Date())),
+           br(),
+           airDatepickerInput(inputId = &quot;multiple times&quot;,
+                              label = &quot;Indicate 3 times you're free to meet:&quot;,
+                              timepicker = T,
+                              placeholder = &quot;meeting times&quot;,
+                              multiple = 3, separator = &quot; ; &quot;, 
+                              clearButton = TRUE),
+           airDatepickerInput(inputId = &quot;inline&quot;,
+                              label = &quot;Inline:&quot;,
+                              inline = TRUE))
+  ),
+  
+  fluidRow(
+    
+    column(3,
+           fileInput(&quot;file&quot;, h3(&quot;File input&quot;))),
+    
+    column(3, 
+           h3(&quot;Help text&quot;),
+           helpText(&quot;Note: help text isn't a true widget,&quot;, 
+                    &quot;but it provides an easy way to add text to&quot;,
+                    &quot;accompany other widgets.&quot;)),
+    
+    column(3, 
+           numericInput(&quot;num&quot;, 
+                        h3(&quot;Numeric input&quot;), 
+                        value = 1))   
+  ),
+  
+  fluidRow(
+    
+    column(3,
+           radioButtons(&quot;radio&quot;, h3(&quot;Radio buttons&quot;),
+                        choices = list(&quot;Choice 1&quot; = 1, &quot;Choice 2&quot; = 2,
+                                       &quot;Choice 3&quot; = 3),selected = 1)),
+    
+    column(3,
+           selectInput(&quot;select&quot;, h3(&quot;Select box&quot;), 
+                       choices = list(&quot;Choice 1&quot; = 1, &quot;Choice 2&quot; = 2,
+                                      &quot;Choice 3&quot; = 3), selected = 1)),
+    
+    column(3, 
+           sliderInput(&quot;slider1&quot;, h3(&quot;Sliders&quot;),
+                       min = 0, max = 100, value = 50),
+           sliderInput(&quot;slider2&quot;, &quot;&quot;,
+                       min = 0, max = 100, value = c(25, 75))
+    ),
+    
+    column(3, 
+           textInput(&quot;text&quot;, h3(&quot;Text input&quot;), 
+                     value = &quot;Enter text...&quot;))   
+  )
+  
+)
+
+# Define server logic ----
+server &lt;- function(input, output) {
+  
+}
+
+# Run the app ----
+shinyApp(ui = ui, server = server)
+
+
+</code></pre>
+
+<p>Displaying Reactive Output
+Reactive output displays automatically when a user interacts with your shiny app using one (or more) of the control widgets we just made.</p>
+
+<p>We can make reactive output in two steps:</p>
+
+<p>Add an R object in your UI function. Shiny has built-in functions to turn your R objects into UI-compatible output. Here’s a table with those built-in output functions and what they do.
+Output Function Object It Makes
+dataTableOutput DataTable
+htmlOutput  raw HTML
+imageOutput image
+plotOutput  plot
+tableOutput table
+textOutput  text
+uiOutput    raw HTML
+verbatimTextOutput  text
+Put your output function in the your UI, in either the sidebarPanel or mainPanel.</p>
+
+<p>Your output function will take a character string, in quotes, as an argument. This character string corresponds to the name of a control widget in your UI.</p>
+
+<pre><code># Here's an example based on one of the widgets we made earlier.
+
+ui &lt;- fluidPage(
+  titlePanel(&quot;The Presidential Launch Codes&quot;),
+  
+  sidebarLayout(
+    sidebarPanel(
+      helpText(&quot;Be careful.  Interacting with this shiny app could cause the world to implode.&quot;),
+      
+      actionBttn(&quot;fancy_action&quot;, &quot;Danger! Don't Click Me&quot;,
+                      style = &quot;jelly&quot;, color = &quot;danger&quot;, size = &quot;lg&quot;)
+    ),
+    
+    mainPanel(
+      imageOutput(&quot;res_fancy_action&quot;)
+    )
+  )
+)
+</code></pre>
+
+<p>Tell R how to build the object in your server function
+The server function makes on object called ‘output’ that contains a list of all the things we need to make a shiny app.</p>
+
+<p>Each output object that you make from step 1 needs to have it’s own entry/element in the server function.</p>
+
+<p>You need to name this element the same thing as you named your control widget.</p>
+
+<p>Finally, we need to call a widget value to make the output display reactively when a user manipulates the widget. (Hint: Sometimes (especially when you use button widgets), you need to add an observeEvent() command, like the one below.)</p>
+
+<pre><code># Here's an example server function to go with the ui function above.
+
+server &lt;- function(input, output) {
+  observeEvent(input$fancy_action, {
+  
+  output$res_fancy_action &lt;- renderImage({ 
+    endworld &lt;- normalizePath(file.path('./pics',
+                              paste('endworld', '.gif', sep='')))
+
+    # Return a list containing the filename
+    list(src = endworld)
+  }, deleteFile = F)
+  })
+}
+</code></pre>
+
+<p>Each output element should contain a render function.</p>
+
+<p>Each render function will only takes only one argument, which always take the form of an R expression in culy braces like these {}.</p>
+
+<p>Here’s a table describing the render functions that are built into shiny.</p>
+
+<p>Render Function Object It Makes
+renderDataTable DataTable
+renderImage images (saved as a link to a source file)
+renderPlot  plots
+renderPrint any printed output
+renderTable data frame, matrix, other table like structures
+renderText  character strings
+renderUI    a Shiny tag object or HTML
+We’ve finished building our shiny app. To launch it in Rstudio, just run the the UI and server code chunks above and then run:</p>
+
+<p>shinyApp(ui = ui, server = server)
+Share Your Shiny App
+Step 1: Create an account on shinyapps.io (<a href="https://www.shinyapps.io/admin/#/signup">https://www.shinyapps.io/admin/#/signup</a>)</p>
+
+<p>Create an account name and then hit enter/return.
+Step 2: Configure your account.</p>
+
+<h2 id="install-rsconnect-package-in-r">Install rsconnect package in R</h2>
+
+<p>Click the “show secret” button in step 2 of shinyapps.io
+Click the “copy to clipboard” button in step 2 of shinyapps.io
+Copy the info in the popup and paste it into R &amp; run
+Load rsconnect library
+Step 3: After you’ve created an awesome, original shiny app IN ITS OWN FOLDER</p>
+
+<p>Set your working directory to your shiny app folder</p>
+
+<pre><code>Deploy your shiny app with rsconnect::deployApp()
+install.packages('rsconnect')
+
+##you should replace this with your own info from 
+rsconnect::setAccountInfo(name='schavez', token='a bunch of numbers and letters', secret='secret numbers and letters')
+library(rsconnect)
+
+#Last Step: This step is for after you've made a shiny app
+setwd(&quot;~/UO/Spring 2018/Data Science/personal_site/shinythings/shinytest/&quot;)
+rsconnect::deployApp()
+When deployApp() has finished running, a shinyapps.io website should pop up with your shiny app. Now, we can just use an inline frame to embed our shiny app in our new website, like this.
+
+&lt;iframe src=&quot;https://schavez.shinyapps.io/world/&quot; style=&quot;border: none; width: 800px; height: 500px&quot;&gt;&lt;/iframe&gt;
+And here it is, in all it’s glory.
+</code></pre>
+
+<p>##More Resources
+Begin with Lesson 5 to pick up where we left off. This site will teach you how to load data into shiny and use r scripts and packages within shiny.
+<a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/">https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/</a>
+<a href="https://github.com/grabear/awesome-rshiny">https://github.com/grabear/awesome-rshiny</a>
+<a href="https://blog.rstudio.com/categories/shiny/">https://blog.rstudio.com/categories/shiny/</a></p>
+
+<p>Explore the hugo-academic template
+Now that we’ve gotten our bearings with the default template, let’s check out a popular template for making personal academic website created by George Cushen.</p>
+
+<p>Here are a few examples of how people have modified this template:
+* Alison Hill
+* Flip Tandeo
+* Amlan Kar
+* Yu Cheng</p>
+
+<p>We’ll call our new website academic-site and it will be saved to the rstudio-websites directory.</p>
+
+<p>blogdown::new_site(&ldquo;../academic-site&rdquo;, theme = &ldquo;gcushen/hugo-academic&rdquo;)
+Render the site, if necessary.</p>
+
+<p>setwd(&ldquo;../academic-site/&rdquo;)
+blogdown::serve_site()
+Click around the rendered website. What features seem useful? What features would you want in a personal website?</p>
+
+<p>Now, let’s check out the file structure and take a look at what’s in the following files/directories: * config.toml * content</p>
+
+<p>Publish your website
+To create your website for publishing, execute blogdown::hugo_build(). This will create/update the public/ directory in your site’s root directory.</p>
+
+<p>Before we build and deploy our site, we need to do a couple of things:</p>
+
+<p>Create a repo for your website on GitHub. Make sure that you do not initialize it with a README (you could, but then the following directions will not work properly).</p>
+
+<p>If you’re site will be hosted in a subdirectory (e.g. username.github.io/repo-name), you’ll need to set relativeurls = true in config.toml. More info on this here.</p>
+
+<p>relativeurls = true
+Build the site. Executing this command will update the /public/ folder with all of your new content.</p>
+
+<pre><code>setwd(&quot;../default-site/&quot;)
+blogdown::hugo_build()
+</code></pre>
+
+<p>There are several ways to publish your website. Today, we’re going to go over how to deploy your sit using git from the command line. There are other options though, e.g. the authors of blogdown: Creating Websites with R Markdown recommend using Netlify to serve your site. Lots more on publishing your site in the book.</p>
+
+<p>In the command line, navigate to the public folder in your site</p>
+
+<pre><code>cd ~/Documents/Courses/PSY607_DataScience/default-site/public
+</code></pre>
+
+<p>Inialize git</p>
+
+<p>It’s important that the public folder is not currenly living in a git repository. To check whether git is initialized type  git status.</p>
+
+<pre><code>git init
+</code></pre>
+
+<p>Add remote repository</p>
+
+<pre><code>git remote add origin https://github.com/dcosme/test-site.git
+</code></pre>
+
+<p>Add and commit all the files</p>
+
+<pre><code>git add .
+git commit -m &quot;initial commit&quot;
+</code></pre>
+
+<p>Push local changes to remote repository</p>
+
+<pre><code>git push origin master
+</code></pre>
+
+<p>In Github, enable GitHub Pages Your repo &gt; Settings &gt; GitHub Page &gt; Source = master branch &gt; Save</p>
+
+<p>If this has worked, there should now be a link highlighted in blue with the address to your website.</p>
+
+<p>Go to your website and bask in the glory 🎉</p>
+
+<h1 id="workflow">Workflow</h1>
+
+<p>Here is the suggested workflow from the main developer of blogdown, Yihui Xie:</p>
+
+<p>Open your website project, click the “Serve Site” addin
+Revise old pages/posts, or click the “New Post” addin
+Write and save (take a look at the automatic preview)
+Push everything to Github, or upload the public/ directory to Netlify directly
+More on the recommended workflow here.</p>
+
+<p>Mini (mega? ulimate?) hack
+You final hack in this class if to create a personal website and post it to GitHub. You can use any template you want or make it from scratch using the rmarkdown package (tutorial here).</p>
+
+<p>Here are the components you should include:</p>
+
+<p>Homepage with a brief description about your research interests
+A CV (either written in markdown or simply uploaded as a PDF)
+A “Resources” tab with at least one of your ‘contributions to science’ from this class.</p>
+
+<p>Note: You decide how fancyyou want to be for #3. You may simply uploading your .html tutorial presentation. You can include the documentation and github link for the package you created last week. You can host a useful (or less useful) shiny app. You are limited only by your creativity (and your time).</p>
+
+<p>Change colors, futz with custom CSS, make a shiny app and link to it – feel free to add anything else you’d like!</p>
+
+<p>Or just do the bare minimum because it’s the last week of the term 😄</p>
+
+<h1 id="helpful-resources">Helpful resources</h1>
+
+<ul>
+<li><a href="https://bookdown.org/yihui/blogdown/">https://bookdown.org/yihui/blogdown/</a></li>
+<li><a href="https://apreshill.github.io/data-vis-labs-2018/slides/06-slides_blogdown.html#1">https://apreshill.github.io/data-vis-labs-2018/slides/06-slides_blogdown.html#1</a></li>
+<li><a href="https://alison.rbind.io/slides/blogdown-workshop-slides">https://alison.rbind.io/slides/blogdown-workshop-slides</a></li>
+<li><a href="https://alison.rbind.io/post/up-and-running-with-blogdown/#build-your-site-in-rstudio">https://alison.rbind.io/post/up-and-running-with-blogdown/#build-your-site-in-rstudio</a></li>
+<li><a href="http://amber.rbind.io/blog/2016/12/19/creatingsite/">http://amber.rbind.io/blog/2016/12/19/creatingsite/</a></li>
+<li><a href="https://gohugo.io/">https://gohugo.io/</a></li>
+<li><a href="http://elipapa.github.io/markdown-cv/">http://elipapa.github.io/markdown-cv/</a></li>
+</ul>    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="../../">DannyJRa</a></h4>
+                <p>Your description here</p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "\/post\/hugowebsitewithr\/";  
+this.page.identifier = "\/post\/hugowebsitewithr\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://blog-dannyrasch-com.disqus.com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Blog &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="../../tags/webdev/">#WebDev</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="../../post/"></a></li>            
+        
+          <li><a href="../../post/pythonlibrariesforgraphql/">Python libraries for GraphQL</a></li>            
+        
+          <li><a href="../../post/vscodeasaserver/">VS-Code as a Server</a></li>            
+        
+          <li><a href="../../post/installing-nginx-server/">Installing Nginx Server</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="../../tags/webdev/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="../../post/19_pipenv2/">
+      <div class="post-card-image" style="background-image: url(/img/pipenv_BLOG.gif)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="../../post/19_pipenv2/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Engineering  </span>
+              
+              <h2 class="post-card-title">Pipenv</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="../../post/54_firebaseauthshiny2/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="../../post/54_firebaseauthshiny2/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Shiny  </span>
+              
+              <h2 class="post-card-title">Firebase Auth - Shiny</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Shiny App with Google Firebase authentification.
+ ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="../../img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="../../">DannyJRa</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="../../">
+      <img src="../../singnature_DJR_white.png" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Hugo Website with R-Blogdown</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Hugo%20Website%20with%20R-Blogdown&amp;url=%2fpost%2fhugowebsitewithr%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="../../">DJR</a> © 2019 <br>
+      <span style="font-size: 0.8em; color: #555;">Blog part of <a href="www.dannyrasch.com">dannyrasch.com</a></span>
+    </section>
+    <nav class="site-footer-nav">
+        <a href="../../">Latest Posts</a>
+        
+        <a href="https://twitter.com/Insider_DJR" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/DannyJRa" target="_blank" rel="noopener">Github</a>
+        <a href="https://www.linkedin.com/in/danny-rasch-2a22771b" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@dannjrasch" target="_blank" rel="noopener">Medium</a>
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>

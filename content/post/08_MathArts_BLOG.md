@@ -8,7 +8,7 @@ categories:
 tags:
   - Viz
 hidden: false
-image: "img/08_cover_BLOG.png"
+banner: "img/banners/08_cover_BLOG.png"
 share: false
 output:
   html_document:
@@ -92,8 +92,8 @@ ggsave("harmonograph01.png", p, width = 20, height = 20, units = "cm")
 
 ### Example 1
 
-![Art 1](img/harmonograph01.png)
+![Art 1](/img/harmonograph01.png)
 
 ### Example 2
 
-![Art 2](img/lissajous001.png)
+![Art 2](/img/lissajous001.png)

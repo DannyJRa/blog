@@ -9,7 +9,7 @@ tags:
   - BigData
   - Azure
 hidden: false
-image: "img/05_spark_ml_logo_BLOG.png"
+banner: "img/banners/05_BLOG.png"
 share: false
 output:
   html_document:

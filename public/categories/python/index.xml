@@ -6,10 +6,42 @@
     <description>Recent content in Python on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Portainer</title>
+      <link>/post/portainer2/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/portainer2/</guid>
+      <description>Portainer: Managing Docker Containers Although I’m comfortable with the command line, it is nice to have a GUI to manage the containers.
+Portainer is an open-source management UI for Docker, including Docker Swarm environment. Portainer makes it easier for you to manage your Docker containers, it allows you to manage containers, images, networks, and volumes from the web-based Portainer dashboard.
+Prerequisites  Ubuntu 18 Root privielges docker  What we will do  Install and Configure Portainer Docker Environment Management  What is Portainer?</description>
+    </item>
+    
+    <item>
+      <title>Flask with Connexion</title>
+      <link>/post/flaskconnexion/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/flaskconnexion/</guid>
+      <description>&lt;p&gt;Connexion is a framework that automagically handles HTTP requests based on OpenAPI Specification (formerly known as Swagger Spec) of your API described in YAML format. Connexion allows you to write an OpenAPI specification, then maps the endpoints to your Python functions; this makes it unique, as many tools generate the specification based on your Python code. You can describe your REST API in as much detail as you want; then Connexion guarantees that it will work as you specified.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python libraries for GraphQL</title>
+      <link>/post/pythonlibrariesforgraphql/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pythonlibrariesforgraphql/</guid>
+      <description>Python libraries for graphql GraphQL is emerging but very promising query language and execution engine tied to any backend service and was introduced by Facebook as an alternative to REST and it&amp;rsquo;s popular of flexibility on handling complex systems.
+Ariadne Ariadne is a Python library for implementing GraphQL servers using schema-first approach.
+Ariadne is a Python library for implementing GraphQL servers.
+ Schema-first: Ariadne enables Python developers to use schema-first approach to the API implementation.</description>
+    </item>
     
     <item>
       <title>Pipenv</title>
@@ -21,12 +53,44 @@
     </item>
     
     <item>
+      <title>Django Deployment</title>
+      <link>/post/django_deployment/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/django_deployment/</guid>
+      <description>Why Django Django is a lifesaver if you want to create a CRUD app with batteries included without getting sidetracked.
+ Django - so much developer convenience
+ The Web framework for perfectionists with deadlines
+Django makes it very easy and fun to build a certain type of web application - a CRUD (create, read, update, delete) app. Almost every single real-world web app can be started as a simple CRUD app.</description>
+    </item>
+    
+    <item>
+      <title>Pipenv</title>
+      <link>/post/19_pipenv3/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/19_pipenv3/</guid>
+      <description>Pipenv tool for Python package management Why using pipenv Instead of needing the pip library for package installation, plus a library for creating a virtual environment,plus a library for managing virtual environments, plus all the commands associated with those libraries, one can just just Pipenv.
+Pipenv ships with package management and virtual environment support, so you can use one tool to install, uninstall, track, and document your dependencies and to create, use, and organize your virtual environments.</description>
+    </item>
+    
+    <item>
       <title>R-Python Bridge with Reticulate</title>
       <link>/post/09_reticulate/</link>
       <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/09_reticulate/</guid>
       <description>&lt;p&gt;The reticulate package provides a comprehensive set of tools for interoperability between Python and R.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Django basics</title>
+      <link>/post/django_basics/</link>
+      <pubDate>Tue, 20 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/django_basics/</guid>
+      <description>Getting started with Django Why Django Django is a Web framework written in Python. A Web framework is a software that supports the development of dynamic Web sites, applications, and services. It provides a set of tools and functionalities that solves many common problems associated with Web development, such as security features, database access, sessions, template processing, URL routing, internationalization, localization, and much more.
+Using a Web framework, such as Django, enables us to develop secure and reliable Web applications very quickly in a standardized way, without having to reinvent the wheel.</description>
     </item>
     
   </channel>

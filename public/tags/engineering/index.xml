@@ -6,10 +6,21 @@
     <description>Recent content in Engineering on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 27 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Portainer</title>
+      <link>/post/portainer2/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/portainer2/</guid>
+      <description>Portainer: Managing Docker Containers Although I’m comfortable with the command line, it is nice to have a GUI to manage the containers.
+Portainer is an open-source management UI for Docker, including Docker Swarm environment. Portainer makes it easier for you to manage your Docker containers, it allows you to manage containers, images, networks, and volumes from the web-based Portainer dashboard.
+Prerequisites  Ubuntu 18 Root privielges docker  What we will do  Install and Configure Portainer Docker Environment Management  What is Portainer?</description>
+    </item>
     
     <item>
       <title>VS-Code as a Server</title>
@@ -27,6 +38,16 @@
       
       <guid>/post/19_pipenv2/</guid>
       <description>&lt;p&gt;Apache NiFi supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pipenv</title>
+      <link>/post/19_pipenv3/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/19_pipenv3/</guid>
+      <description>Pipenv tool for Python package management Why using pipenv Instead of needing the pip library for package installation, plus a library for creating a virtual environment,plus a library for managing virtual environments, plus all the commands associated with those libraries, one can just just Pipenv.
+Pipenv ships with package management and virtual environment support, so you can use one tool to install, uninstall, track, and document your dependencies and to create, use, and organize your virtual environments.</description>
     </item>
     
   </channel>

@@ -6,10 +6,30 @@
     <description>Recent content in R on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Installing Nginx Server</title>
+      <link>/post/installing-nginx-server/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/installing-nginx-server/</guid>
+      <description>Installing Nginx Server How To Install Nginx on Ubuntu 18.04[^1] Introduction Nginx is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. It is more resource-friendly than Apache in most cases and can be used as a web server or reverse proxy.
+Installing Nginx Install on Ubuntu 18.04 with &amp;hellip;
+sudo apt install nginx  FIrewall (optional) After accepting the procedure, apt will install Nginx and any required dependencies to your server.</description>
+    </item>
+    
+    <item>
+      <title>Hugo Website with R-Blogdown</title>
+      <link>/post/hugowebsitewithr/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hugowebsitewithr/</guid>
+      <description>&lt;p&gt;Using the blogdown package to create static websites in RStudio using R Markdown&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Firebase Auth - Shiny</title>
@@ -47,6 +67,17 @@
       
       <guid>/post/09_reticulate/</guid>
       <description>&lt;p&gt;The reticulate package provides a comprehensive set of tools for interoperability between Python and R.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>R packages</title>
+      <link>/post/github_rest_api3/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/github_rest_api3/</guid>
+      <description>&lt;p&gt;Original post here: /home/danny/OneDrive/DataScience/41_DannyJRa.github.io/04_R_Packages/01_blog_caret_Tut.html&lt;/p&gt;
+
+&lt;p&gt;Add summary desdcription of blog&lt;/p&gt;</description>
     </item>
     
     <item>

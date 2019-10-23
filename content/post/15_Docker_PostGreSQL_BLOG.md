@@ -8,7 +8,7 @@ categories:
 tags:
   - Docker
 hidden: false
-image: "img/pgAdmin_login_BLOG.png"
+banner: "img/banners/15_Docker_PostGreSQL_BLOG.png"
 share: false
 output:
   html_document:
@@ -125,8 +125,7 @@ List all firewall rules:
 >gcloud compute firewall-rules list
 
 Then login with your set credentials at port 5050 (in this case):
-![Login](img/pgAdmin_login.png) 
+![Login](/img/pgAdmin_login.png) 
         
 [^1]: Adopted from https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198
-
 
