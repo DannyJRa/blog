@@ -38,7 +38,7 @@ always_allow_html: yes
 
 
 
-<a href="https://github.com/DannyJRa/DannyJRa.github.io/tree/master/68_GraphQL/68_1_python_libraries_for_graphql_BLOG.html, https://github.com/DannyJRa/DannyJRa.github.io/tree/master/68_GraphQL/" target="_blank"><img src="/img/forkme_right_orange_ff7600.svg" style="position:absolute;top:1;right:0;" alt="Fork me on GitHub"></a>
+<a href="https://github.com/DannyJRa/DannyJRa.github.io/tree/master/68_GraphQL/68_1_python_libraries_for_graphql_BLOG.html, https://github.com/DannyJRa/DannyJRa.github.io/tree/master/68_GraphQL/" target="_blank"><img src="img/forkme_right_orange_ff7600.svg" style="position:absolute;top:1;right:0;" alt="Fork me on GitHub"></a>
 
 
 
