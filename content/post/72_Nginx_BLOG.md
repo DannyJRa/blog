@@ -30,7 +30,7 @@ always_allow_html: yes
 
 # Installing Nginx Server
 
-![Login](img/complainer_BLOG.gif) 
+![Login](/img/complainer_BLOG.gif) 
 
 
 ## How To Install Nginx on Ubuntu 18.04[^1]

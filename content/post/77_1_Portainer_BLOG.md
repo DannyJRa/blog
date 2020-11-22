@@ -38,7 +38,7 @@ always_allow_html: yes
 
 
 
-<a href="https://github.com/DannyJRa/DannyJRa.github.io/tree/master/77_Docker/77_1_Portainer/" target="_blank"><img src="img/forkme_right_orange_ff7600.svg" style="position:absolute;top:1;right:0;" alt="Fork me on GitHub"></a>
+<a href="https://github.com/DannyJRa/DannyJRa.github.io/tree/master/77_Docker/77_1_Portainer/" target="_blank"><img src="/img/forkme_right_orange_ff7600.svg" style="position:absolute;top:1;right:0;" alt="Fork me on GitHub"></a>
 
 
 # Portainer: Managing Docker Containers

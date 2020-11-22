@@ -41,6 +41,8 @@ DSVM Part 1 ...
 
 
 
+
+
 >The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in Azure Cosmos DB. It can also leverage other analytics tools such as Azure Machine Learning and Azure Data Factory.[^1]
 
 In this article, I will adopt the tutorial to needs and learn how to use Azure (Linux) DSVM to perform various data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
@@ -79,103 +81,31 @@ yelp_flat <- jsonlite::flatten(yelp)
 str(yelp_flat)
 ```
 
-
-```r
-library(tibble)
-yelp_tbl <- as_data_frame(yelp_flat)
-yelp_tbl$virtualMachine.network.publicIpAddresses[[1]]$ipAddress
 ```
-
-
-```r
-library(purrr)
-yelp_flat1 <- purrr::flatten(yelp_flat)
-yelp_flat2 <- purrr::flatten(yelp_flat1)
-yelp_flat3 <- purrr::flatten(yelp_flat2)
-yelp_flat4 <- purrr::flatten(yelp_flat3)
-
-(ip<-yelp_flat4$ipAddress)
-```
-
-Or you can have set-up a static ip-Adress
-
-```r
-#static ip e.g. 
-#ip="23.100.82.85"
-```
-
-
-Generate ssh phrase including password
-
-```r
-#make sure that sshpass is installed on Linux
-ssh <- paste0("sshpass -p .oberstdorf123 ",
-  "ssh -q",
-             " -o StrictHostKeyChecking=no",
-             " -o UserKnownHostsFile=/dev/null",
-             " insider@",
-             ip)
-```
-
-### Start R server
-
-
-```r
-cmd <- paste(ssh, "sudo rstudio-server start")
-(b<-system(cmd, intern=TRUE))
-```
-
-Remove folder if create already
-
-
-```r
-cmd <- paste(ssh, "sudo rm -r /home/insider/R")
-cmd
-
-b<-system(cmd, intern=TRUE)
-```
-
-Create folder
-
-
-```r
-cmd <- paste(ssh, "sudo mkdir /home/insider/R")
-cmd
-
-b<-system(cmd, intern=TRUE)
-```
-
-Mount drive
-
-
-```r
-cmd <- paste(ssh, "sudo mount /dev/sdd /home/insider/R")
-cmd
-
-b<-system(cmd, intern=TRUE)
+## 'data.frame':	2 obs. of  4 variables:
+##  $ virtualMachine.name                      : chr  "adminWorkstation" "djrtest3685445209ac"
+##  $ virtualMachine.resourceGroup             : chr  "ADMIN" "ml"
+##  $ virtualMachine.network.privateIpAddresses:List of 2
+##   ..$ : chr "10.0.0.4"
+##   ..$ : chr "10.0.0.4"
+##  $ virtualMachine.network.publicIpAddresses :List of 2
+##   ..$ :'data.frame':	1 obs. of  5 variables:
+##   .. ..$ id                : chr "/subscriptions/9317e370-3c1f-43a8-9ec0-4f1ad769dd53/resourceGroups/ADMIN/providers/Microsoft.Network/publicIPAd"| __truncated__
+##   .. ..$ ipAddress         : chr "104.40.253.75"
+##   .. ..$ ipAllocationMethod: chr "Static"
+##   .. ..$ name              : chr "adminWorkstation-ip"
+##   .. ..$ resourceGroup     : chr "ADMIN"
+##   ..$ :'data.frame':	1 obs. of  5 variables:
+##   .. ..$ id                : chr "/subscriptions/9317e370-3c1f-43a8-9ec0-4f1ad769dd53/resourceGroups/ml/providers/Microsoft.Network/publicIPAddre"| __truncated__
+##   .. ..$ ipAddress         : logi NA
+##   .. ..$ ipAllocationMethod: chr "Dynamic"
+##   .. ..$ name              : chr "djrtest3685445209ac"
+##   .. ..$ resourceGroup     : chr "ml"
 ```
 
 
 
-```r
-browseURL(paste0("http://",ip,":8787"))
-```
 
 
-#2.  Use a Jupyter notebook to experiment
-
-Simply open browser with port 8000 to open Juypter Hub. 
-
-```r
-browseURL(paste0("https://",ip,":8000"))
-```
-
-Enter your ID and password and will see ...
-
-![Juypter Hub](img/jupyter_hub.png)
-
-
-
-... to be continued
 
 [^1]: Addopted from https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things

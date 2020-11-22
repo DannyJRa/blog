@@ -125,7 +125,7 @@ List all firewall rules:
 >gcloud compute firewall-rules list
 
 Then login with your set credentials at port 5050 (in this case):
-![Login](img/pgAdmin_login.png) 
+![Login](/img/pgAdmin_login.png) 
         
 [^1]: Adopted from https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198
 
