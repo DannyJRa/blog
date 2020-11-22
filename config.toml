@@ -58,10 +58,10 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   url = "/"
   weight = 200
 
-#[[menu.main]]
-#  name = "Docker"
-#  url = "/tags/Docker/"
-#  weight = 100
+[[menu.main]]
+  name = "Docker"
+  url = "/categories/Cloud/"
+  weight = 100
   
 [[menu.main]]
   name = "R"
@@ -79,15 +79,15 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   weight = 99
 
 #Save in static folder any file, will be copied to public folder
-#[[menu.main]]
-#  name = "Slides"
-#  url = "/slides/"
-#  weight = 99
+[[menu.main]]
+  name = "Slides"
+  url = "/slides/"
+  weight = 99
 
-#[[menu.main]]
-#  name = "PDFs"
-#  url = "/pdf/"
-#  weight = 99
+[[menu.main]]
+  name = "PDFs"
+  url = "/pdf/"
+  weight = 99
 
 #[[menu.main]]
 #  name = "External"
