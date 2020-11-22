@@ -1,7 +1,7 @@
 ---
-comments: false
+comments: true
 date: "2015-04-14T22:17:00+00:00"
-draft: true
+draft: false
 menu:
   main:
     weight: 111
