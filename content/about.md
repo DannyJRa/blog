@@ -29,6 +29,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Yow !
 
 
 <iframe
-ggplotlyBubblechart.html"
+  src="djr/ggplotlyBubblechart.html"
   style="width:100%; height:300px;"
 ></iframe>
+
