@@ -13,7 +13,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 [params]
   title       = "Blog"
   subtitle    = "Blog DannyJRa"
-  copyright   = "© 2019"
+  copyright   = "© 2020"
   #NOT WORKING
   cover       = "img/blog-cover.jpg"
   
