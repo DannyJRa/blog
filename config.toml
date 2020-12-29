@@ -79,10 +79,10 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   weight = 99
 
 #Save in static folder any file, will be copied to public folder
-[[menu.main]]
-  name = "Slides"
-  url = "/slides/slides_test.html"
-  weight = 99
+#[[menu.main]]
+#  name = "Slides"
+#  url = "/slides/slides_test.html"
+#  weight = 99
 
 #[[menu.main]]
 #  name = "External"
