@@ -45,7 +45,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   pageNotFoundTitle = "404 - Page not found"
 
   #casper or caspertwo
-  singleViewStyle = "caspertwo"
+  singleViewStyle = "casper"
   toc= true
   
 
