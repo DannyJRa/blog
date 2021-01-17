@@ -38,14 +38,14 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
   author = "Danny J. R."
   authorAvatar = "img/ghost-icon.png"
-  authorLocation = "Bandung, ID"
-  authorWebsite = "https://eueung.github.io"
+  authorLocation = "Zurich, CH"
+  authorWebsite = "https://raschadvisory.com"
   authorDescription = "Your description here"
 
   pageNotFoundTitle = "404 - Page not found"
 
   #casper or caspertwo
-  singleViewStyle = "casper"
+  singleViewStyle = "caspertwo"
   toc= true
   
 
@@ -64,14 +64,14 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   weight = 199
   
 [[menu.main]]
-  name = "R"
+  name = "Analytics"
   url = "/categories/R/"
-  weight = 100
+  weight = 197
   
 [[menu.main]]
-  name = "Python"
+  name = "Engineering"
   url = "/categories/Python/"
-  weight = 100
+  weight = 198
 
 [[menu.main]]
   name = "Categories"
