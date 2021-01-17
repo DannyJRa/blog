@@ -59,9 +59,9 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   weight = 200
 
 [[menu.main]]
-  name = "Docker"
+  name = "Architecture"
   url = "/categories/Cloud/"
-  weight = 100
+  weight = 199
   
 [[menu.main]]
   name = "R"

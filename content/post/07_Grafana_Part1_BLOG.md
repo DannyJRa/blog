@@ -1,8 +1,7 @@
 ---
-title: DSVM Part1
+title: Grafana - Azure Monitoring
 author: DannyJRa
-date: '2018-06-07'
-slug: dsvwpart1
+date: '2021-01-01'
 categories:
   - Cloud
 tags:
