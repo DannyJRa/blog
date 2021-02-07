@@ -74,8 +74,8 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   weight = 198
 
 [[menu.main]]
-  name = "Categories"
-  url = "/categories/"
+  name = "-> Tags"
+  url = "/tags/"
   weight = 99
 
 #Save in static folder any file, will be copied to public folder
