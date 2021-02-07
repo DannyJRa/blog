@@ -4,9 +4,9 @@ author: DannyJ.R.
 date: '2020-10-12'
 slug: databricks_spark
 categories:
-  - Cloud
-tags:
   - Engineering
+tags:
+  - BigData
 hidden: false
 image: "img/databricks_spark_BLOG.png"
 share: false
