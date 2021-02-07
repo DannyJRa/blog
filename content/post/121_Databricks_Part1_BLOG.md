@@ -1,11 +1,12 @@
 ---
-title: Grafana - Azure Monitoring
+title: ELT with Databricks & Spark
 author: DannyJRa
-date: '2021-01-01'
+date: '2020-10-12'
+slug: databricks_spark
 categories:
   - Cloud
 tags:
-  - Azure
+  - Engineering
 hidden: false
 image: "img/databricks_spark_BLOG.png"
 share: false
