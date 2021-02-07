@@ -31,16 +31,16 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
   logo = "singnature_DJR_white.png"
   orgName = "DJR"
-  orgWebsite = "https://www.dannyrasch.com"
+  orgWebsite = "https://raschadvisory.com"
   orgDescription = "Here is a description placeholder for your org"
 
   showSupport = true
 
   author = "Danny J. R."
-  authorAvatar = "img/ghost-icon.png"
+  authorAvatar = "img/avatar_danny.jpeg"
   authorLocation = "Zurich, CH"
-  authorWebsite = "https://raschadvisory.com"
-  authorDescription = "Your description here"
+  authorWebsite = "https://www.dannyrasch.com"
+  authorDescription = "Cloud Advisor & Data Engineer"
 
   pageNotFoundTitle = "404 - Page not found"
 
