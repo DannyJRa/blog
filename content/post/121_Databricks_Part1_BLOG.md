@@ -1,6 +1,6 @@
 ---
 title: ELT with Databricks & Spark
-author: DannyJRa
+author: DannyJ.R.
 date: '2020-10-12'
 slug: databricks_spark
 categories:

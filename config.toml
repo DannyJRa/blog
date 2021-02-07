@@ -27,7 +27,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
   #fbName = "fakeghost"
   githubName = "DannyJRa"
   linkedinName = "danny-rasch-2a22771b"
-  mediumName = "dannjrasch"
+  #mediumName = "dannjrasch"
 
   logo = "singnature_DJR_white.png"
   orgName = "DJR"
